@@ -2,7 +2,8 @@
 
 This repository contains shell scripts for RaspBerry pi.
 
- * xxx xxxx xxxxx https URL 
+ * [system-stats](https://github.com/BradleyA/pi-scripts/tree/master/system-stats)
+ * []()
 
 ## Install
 
