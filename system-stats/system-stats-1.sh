@@ -95,8 +95,3 @@ awk -v FS=':' '                                       \
 
 
 
-
-
-       comes in, xinetd starts the appropriate server.
-
-

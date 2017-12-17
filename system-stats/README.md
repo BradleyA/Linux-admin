@@ -2,25 +2,8 @@
 
 pi-system-stats is a bash script that runs several commands and has notes about other commands I am looking at for future use with logging and monitoring with blinkt and scroll-phat in my unicorn project. 
 
-## Install
-
-To install, change directory to the location you want to download the scripts. Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
-
-    cd $HOME/bin
-    git clone https://github.com/BradleyA/pi-scripts xxx xxxx xxxxx  xx xx x/pi-system-stats
-    cd pi-system-stats
-
-Edit pi-system-stats script, change xx xxx xxxx xxxxx
-    xx xx xx xx __
-
-Move the script or create a symbolic link to a location in your working path; example /usr/local/bin. To find directories in your working path use; "echo $PATH".
-
-    cp pi-system-stats $HOME/bin
-    cd $HOME/bin
-    sudo ln -s $PWD/pi-system-stats /usr/local/bin/pi-system-stats
-
 ## Usage
-    pi-system-stats
+    system-stats-1.sh
 
 ## Output
     _____
