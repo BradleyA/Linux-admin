@@ -1,25 +1,22 @@
-pi-system-stats
+# cluster-shutdown
 
-pi-system-stats is a bash script that runs several commands and has notes about other commands I am looking at for future use with logging and monitoring with blinkt and scroll-phat in my unicorn project.
-Usage
+cluster-shutdown is a bash script that loops through a list fo RaspBerry pi and issues shutdown -f now. 
 
-system-stats-1.sh
+## Usage
+    cluster-shutdown.sh
 
-Output
+## Output
+    _____
 
-_____
+#### System OS script tested
+ * Ubuntu 14.04.3 LTS
 
-System OS script tested
+#### Design Principles
+ * Have a simple setup process and a minimal learning curve
+ * Be usable as non-root
+ * Be easy to install and configure
 
-    Ubuntu 14.04.3 LTS
-
-Design Principles
-
-    Have a simple setup process and a minimal learning curve
-    Be usable as non-root
-    Be easy to install and configure
-
-# License
+## License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so.
 
