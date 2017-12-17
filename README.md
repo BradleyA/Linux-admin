@@ -3,7 +3,7 @@
 This repository contains shell scripts for RaspBerry pi.
 
  * [system-stats](https://github.com/BradleyA/pi-scripts/tree/master/system-stats)
- * []()
+ * [cpu-temperature](https://github.com/BradleyA/pi-scripts/tree/master/cpu-temperature)
 
 ## Install
 
