@@ -1,4 +1,6 @@
 #!/bin/bash
+#	system-stats-1.sh	1.0	2017-12-20_22:12:37_CST uadmin rpi3b-two.cptx86.com
+#	initial version
 
 echo "Hostname =	" `hostname`
 
