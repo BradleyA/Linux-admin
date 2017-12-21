@@ -1,7 +1,12 @@
 #!/bin/bash
 #	system-stats-1.sh	1.0	2017-12-20_22:12:37_CST uadmin rpi3b-two.cptx86.com
 #	initial version
-
+#
+#       set -x
+#       set -v
+#
+#   	evaluate different states for raspberry pi
+#
 echo "Hostname =	" `hostname`
 
 CPUTEMP=$(/usr/bin/vcgencmd measure_temp | \
