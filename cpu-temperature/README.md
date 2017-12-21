@@ -6,18 +6,15 @@ cpu-temperature is a bash script that determines the Raspberry pi temputures and
 
 To install, change directory to the location you want to download the scripts. Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
-    cd $HOME/bin
     git clone https://github.com/BradleyA/xx xxx xxxxx xxx xx x
     cd xx xxx xxxxx xxx xx x
 
 Edit pi-system-stats script, change 
     xx xx xx xx __
 
-Move the script or create a symbolic link to a location in your working path; example /usr/local/bin. To find directories in your working path use; "echo $PATH".
+Move the script; example /usr/local/bin. To find directories in your working path use; "echo $PATH".
 
-    cp cpu-temperature.sh $HOME/bin
-    cd $HOME/bin
-    sudo ln -s $PWD/xxx xxxx xxxxx xxx xx x /usr/local/bin/xx xx xx xx xx xx 
+    sudo cp cpu-temperature.sh /usr/local/bin
 
 ## Usage
     xx xx xx xx 
