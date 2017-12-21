@@ -1,10 +1,13 @@
 #!/bin/bash
+#	cluster-shutdown.sh	1.2	2017-12-20_22:01:37_CST uadmin rpi3b-two.cptx86.com
+#	cleanup script description comment
 #	cluster-shutdown.sh	1.0	2017-12-20_21:48:47_CST uadmin rpi3b-two.cptx86.com
 #	add version to file from markit
 #
 #	set -x
 #	set -v
-#	ssh $USER@rpi3b-$NODE.$DOMAIN 'sudo shutdown -f now';
+#	
+#	shutdown raspberry pi clusters
 #
 REMOTECOMMAND="shutdown -f now"
 DOMAIN="cptx86.com"
