@@ -1,5 +1,7 @@
 # cluster-shutdown
 
+#### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
+
 cluster-shutdown is a bash script that loops through a list fo RaspBerry pi and issues shutdown -f now. 
 
 ## Usage
