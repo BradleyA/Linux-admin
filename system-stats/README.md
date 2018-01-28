@@ -1,5 +1,7 @@
 # pi-system-stats
 
+#### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
+
 pi-system-stats is a bash script that runs several commands and has notes about other commands I am looking at for future use with logging and monitoring with blinkt and scroll-phat in my unicorn project. 
 
 ## Usage
