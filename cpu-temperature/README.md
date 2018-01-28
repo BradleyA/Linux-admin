@@ -1,5 +1,7 @@
 # cpu-temperature
 
+#### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
+
 cpu-temperature is a bash script that determines the Raspberry pi temputures and places the information in a file for a docker container to read and display the status on the RaspBerry pi blinkt.
 
 ## Install
