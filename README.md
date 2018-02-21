@@ -1,21 +1,21 @@
-# pi-scripts
+# Linux-admin-scripts
 
-This repository contains shell scripts for RaspBerry pi.
+This repository contains shell scripts for Linux administration to support my RaspBerry Pi clusters and x86 clusters.
 
  * [system-stats](https://github.com/BradleyA/pi-scripts/tree/master/system-stats)
  * [cpu-temperature](https://github.com/BradleyA/pi-scripts/tree/master/cpu-temperature)
- * [cluster-shutdown](https://github.com/BradleyA/pi-scripts/tree/master/cluster-shutdown)
+ * [cluster-command](https://github.com/BradleyA/pi-scripts/tree/master/cluster-command)
 
 ## Install
 
 To install, change directory to the location you want to download the scripts. Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
-    git clone https://github.com/BradleyA/pi-scripts
-    cd pi-scripts
+    git clone https://github.com/BradleyA/Linux-admin-scripts
+    cd Linux-admin-scripts
 
 #### Design Principles
  * Have a simple setup process and a minimal learning curve
- * Be usable as non-root
+ * Be usable as non-root - failed adminstration requires root
  * Be easy to install and configure
 
 ## License::
