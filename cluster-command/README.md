@@ -4,6 +4,20 @@
 
 cluster-command is a bash script that loops through a list fo RaspBerry pi and issues shutdown -f now. 
 
+## Install
+
+To install, change to the directory you want to download the scripts.
+
+curl -L https://api.github.com/repos/BradleyA/docker-scripts/tarball | tar -xzf - --wildcards */c* ; mv BradleyA-docker-scripts*/docker-TLS/c* . ; rm -rf BradleyA-docker-scripts-*/
+
+## Clone
+
+To clone, change to the directory you want to download the scripts. Use git to clone these scripts into your directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
+
+git clone https://github.com/BradleyA/docker-scripts
+cd docker-scripts/docker-TLS
+
+
 ## Usage
     cluster-command.sh
 
