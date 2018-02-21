@@ -1,0 +1,22 @@
+#	List of hosts used by cluster-command.sh
+# 	cluster-command.txt	1.1.29	2018-02-21_13:20:27_CST uadmin six-rpi3b.cptx86.com 1.0-6-g3849c83 
+# 	   initial commit files with hosts 
+@	One FQDN host on each line 
+###
+#	-> Raspberry Pi cluster 1
+one-rpi3b.cptx86.com
+two-rpi3b.cptx86.com
+three-rpi3b.cptx86.com
+#	->  Raspberry Pi cluster 2
+four-rpi3b.cptx86.com
+five-rpi3b.cptx86.com
+six-rpi3b.cptx86.com
+#	->  x86 cluster 0
+#	zero.cptx86.com
+#	one.cptx86.com
+two.cptx86.com
+three.cptx86.com
+#	four.cptx86.com
+#	five.cptx86.com
+#	six.cptx86.com
+#	seven.cptx86.com
