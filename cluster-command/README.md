@@ -6,17 +6,18 @@ cluster-command is a bash script that loops through a list fo RaspBerry pi and i
 
 ## Install
 
-To install, change to the directory you want to download the scripts.
+To install, change to the directory you want to download the script and host file.
 
-curl -L https://api.github.com/repos/BradleyA/docker-scripts/tarball | tar -xzf - --wildcards */c* ; mv BradleyA-docker-scripts*/docker-TLS/c* . ; rm -rf BradleyA-docker-scripts-*/
+    curl -L https://api.github.com/repos/BradleyA/Linux-admin-scripts/tarball | tar -xzf - --wildcards */cluster-command.* ; mv BradleyA-Linux-admin-scripts-*/cluster-command/cluster-command.* . ; rm -rf BradleyA-Linux-admin-scripts-*
 
 ## Clone
 
-To clone, change to the directory you want to download the scripts. Use git to clone these scripts into your directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
+To clone, change to the directory you want to download the script, README, and host file. Use git to clone these files into your directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
-git clone https://github.com/BradleyA/docker-scripts
-cd docker-scripts/docker-TLS
+    git clone https://github.com/BradleyA/Linux-admin-scripts
+    cd docker-scripts/Linux-admin-scripts
 
+#### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
 ## Usage
     cluster-command.sh
@@ -26,6 +27,7 @@ cd docker-scripts/docker-TLS
 
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
+ * Ubuntu 16.04.3 LTS (armv7l)
 
 #### Design Principles
  * Have a simple setup process and a minimal learning curve
