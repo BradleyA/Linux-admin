@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command.sh	1.11.47	2018-02-22_16:43:22_CST uadmin six-rpi3b.cptx86.com 1.10 
+# 	   cluster-command determine if host is on-line close #6 
 # 	cluster-command.sh	1.10.46	2018-02-22_16:03:46_CST uadmin six-rpi3b.cptx86.com 1.9 
 # 	   added more commands / debugging close #5 cluster-command determine if host is on-line testing #6 
 # 	cluster-command.sh	1.9.45	2018-02-22_15:12:28_CST uadmin six-rpi3b.cptx86.com 1.8 
@@ -28,7 +30,7 @@ echo -e "\nOPTIONS "
 echo    "   List of predefind commands:"
 echo    "      shutdown       - sudo shutdown -f now"
 echo    "      reboot         - sudo reboot"
-echo    "      OS             - lsb_release -d"
+echo    "      os             - lsb_release -d"
 echo    "      cpu            - lscpu"
 echo    "      date           - date"
 echo    "      last           - lastlog | grep -v '**Never logged in**'"
@@ -36,7 +38,7 @@ echo    "      who            - who"
 echo    "      docker-version - docker version | grep -m 1 'Version:'"
 echo    "      docker-release - grep docker /etc/apt/sources.list"
 echo    "      uptime         - uptime"
-echo    "      showhold       - apt-mark showhold"
+echo -e "      showhold       - apt-mark showhold\n"
 echo    "      update         - sudo apt-get update"
 echo    "      upgrade        - sudo apt-get upgrade --assume-yes"
 echo    "      dist-upgrade   - sudo apt-get dist-upgrade --assume-yes"
@@ -143,8 +145,7 @@ for NODE in ${REMOTEHOST} ; do
 		if $(nc -z  ${NODE} ${SSHPORT} >/dev/null) ; then
 			ssh -t ${USER}@${NODE} ${REMOTECOMMAND} 
 		else
-        		echo -e "${0} ${LINENO} [ERROR]:        ${REMOTEHOST} not responding on port ${SSHPORT}.\n"     1>&2
-        		exit 1
+        		echo -e "${0} ${LINENO} [WARN]:	${NODE} not responding on port ${SSHPORT}.\n"	1>&2
 		fi
 	else
 		eval ${REMOTECOMMAND}
