@@ -1,10 +1,10 @@
 #!/bin/bash
+# 	cluster-command.sh	1.9.45	2018-02-22_15:12:28_CST uadmin six-rpi3b.cptx86.com 1.8 
+# 	   updated README, completed testing, debugging, cloases #6 
 # 	cluster-command.sh	1.8.44	2018-02-22_13:44:37_CST uadmin six-rpi3b.cptx86.com 1.7-3-g37f1656 
 # 	   add docker-release 
 # 	cluster-command.sh	1.7.40	2018-02-22_12:33:17_CST uadmin six-rpi3b.cptx86.com 1.6-3-g5675629 
 # 	   cluster-command stop ssh for local host closes #7 
-# 	cluster-command.sh	1.6.36	2018-02-22_08:59:07_CST uadmin six-rpi3b.cptx86.com 1.5 
-# 	   cluster-command complete display-help closes #4 
 #
 #	set -x
 #	set -v
@@ -25,18 +25,21 @@ echo    "entered on the command line as the second argument."
 echo -e "\nOPTIONS "
 echo    "   List of predefind commands:"
 echo    "      docker-version - docker version | grep -m 1 'Version:'"
+echo    "      docker-release - grep docker /etc/apt/sources.list"
 echo    "      shutdown       - sudo shutdown -f now"
 echo    "      reboot         - sudo reboot"
 echo    "      update         - sudo apt-get update"
 echo    "      upgrade        - sudo apt-get upgrade --assume-yes"
 echo    "      dist-upgrade   - sudo apt-get dist-upgrade --assume-yes"
+echo    "      autoremove     - sudo apt-get autoremove --assume-yes"
 echo    "      showhold       - apt-mark showhold"
 echo    "      OS             - lsb_release -d"
 echo    "      cpu            - lscpu"
 echo    "      require-reboot - if [ -f /var/run/reboot-required ]; then echo 'reboot"
 echo    "                       required' ; else echo 'no reboot required' ; fi"
-echo    "      require-upgrade - /usr/lib/update-notifier/apt-check --human-readable"
+echo    "      require-upgrade - /usr/lib/update-notifier/apt-check --human-readable" # not sure this is the correct command becasue one-rpi3b stated no upgrade but then did eight upgrades
 echo    "      upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Inst'"
+echo    "                        apt list --upgradeable -> does not work on Ubuntu 14.04"
 echo    "   hostfile - default /usr/local/bin/cluster-command.txt"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/cluster-command"
 echo -e "\nEXAMPLES\n   Shutdown raspberry pi clusters\n\t${0} shutdown\n"
@@ -85,6 +88,9 @@ case ${REMOTECOMMAND} in
 		;;
 	dist-upgrade)
 		REMOTECOMMAND="sudo apt-get dist-upgrade --assume-yes"
+		;;
+	autoremove)
+		REMOTECOMMAND="sudo apt-get autoremove  --assume-yes"
 		;;
 	showhold)
 		REMOTECOMMAND="apt-mark showhold"
