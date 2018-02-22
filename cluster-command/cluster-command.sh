@@ -1,6 +1,8 @@
 #!/bin/bash
+# 	cluster-command.sh	1.10.46	2018-02-22_16:03:46_CST uadmin six-rpi3b.cptx86.com 1.9 
+# 	   added more commands / debugging close #5 cluster-command determine if host is on-line testing #6 
 # 	cluster-command.sh	1.9.45	2018-02-22_15:12:28_CST uadmin six-rpi3b.cptx86.com 1.8 
-# 	   updated README, completed testing, debugging, cloases #6 
+# 	   updated README, completed testing, debugging, closes #6 
 # 	cluster-command.sh	1.8.44	2018-02-22_13:44:37_CST uadmin six-rpi3b.cptx86.com 1.7-3-g37f1656 
 # 	   add docker-release 
 # 	cluster-command.sh	1.7.40	2018-02-22_12:33:17_CST uadmin six-rpi3b.cptx86.com 1.6-3-g5675629 
@@ -24,23 +26,28 @@ echo    "/usr/local/bin.  A different path and cluster command host file can be"
 echo    "entered on the command line as the second argument."
 echo -e "\nOPTIONS "
 echo    "   List of predefind commands:"
-echo    "      docker-version - docker version | grep -m 1 'Version:'"
-echo    "      docker-release - grep docker /etc/apt/sources.list"
 echo    "      shutdown       - sudo shutdown -f now"
 echo    "      reboot         - sudo reboot"
+echo    "      OS             - lsb_release -d"
+echo    "      cpu            - lscpu"
+echo    "      date           - date"
+echo    "      last           - lastlog | grep -v '**Never logged in**'"
+echo    "      who            - who"
+echo    "      docker-version - docker version | grep -m 1 'Version:'"
+echo    "      docker-release - grep docker /etc/apt/sources.list"
+echo    "      uptime         - uptime"
+echo    "      showhold       - apt-mark showhold"
 echo    "      update         - sudo apt-get update"
 echo    "      upgrade        - sudo apt-get upgrade --assume-yes"
 echo    "      dist-upgrade   - sudo apt-get dist-upgrade --assume-yes"
 echo    "      autoremove     - sudo apt-get autoremove --assume-yes"
-echo    "      showhold       - apt-mark showhold"
-echo    "      OS             - lsb_release -d"
-echo    "      cpu            - lscpu"
 echo    "      require-reboot - if [ -f /var/run/reboot-required ]; then echo 'reboot"
 echo    "                       required' ; else echo 'no reboot required' ; fi"
 echo    "      require-upgrade - /usr/lib/update-notifier/apt-check --human-readable" # not sure this is the correct command becasue one-rpi3b stated no upgrade but then did eight upgrades
 echo    "      upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Inst'"
 echo    "                        apt list --upgradeable -> does not work on Ubuntu 14.04"
-echo    "   hostfile - default /usr/local/bin/cluster-command.txt"
+echo    "   HOSTFILE     Other file with hostnames, default /usr/local/bin/cluster-command.txt"
+echo    "   SSHPORT      SSH server port, default is port 22"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/cluster-command"
 echo -e "\nEXAMPLES\n   Shutdown raspberry pi clusters\n\t${0} shutdown\n"
 }
@@ -57,6 +64,7 @@ fi
 REMOTECOMMAND=${1:-""}
 #	open issues :add argument or flag argument for a single host and not use cluster-command.txt file to execute a new command or a commad defined in this file
 HOSTFILE=${2:-"/usr/local/bin/cluster-command.txt"}
+SSHPORT=${3:-22}
 LOCALHOST=`hostname -f`
 BOLD=$(tput bold)
 NORMAL=$(tput sgr0)
@@ -101,6 +109,18 @@ case ${REMOTECOMMAND} in
 	CPU|cpu)
 		REMOTECOMMAND="lscpu"
 		;;
+	date)
+		REMOTECOMMAND="date"
+		;;
+	last)
+		REMOTECOMMAND="lastlog | grep -v '**Never logged in**'"
+		;;
+	who)
+		REMOTECOMMAND="who"
+		;;
+	uptime)
+		REMOTECOMMAND="uptime"
+		;;
 	require-reboot)
 		REMOTECOMMAND="if [ -f /var/run/reboot-required ]; then echo 'reboot required' ; else echo 'no reboot required' ; fi"
 		;;
@@ -118,11 +138,15 @@ esac
 #
 for NODE in ${REMOTEHOST} ; do
 	echo -e "\n${BOLD}  -->  ${NODE}${NORMAL}" 
-#	Check if host is online ?
 	if [ "${LOCALHOST}" != "${NODE}" ] ; then
-		ssh -t ${USER}@${NODE} ${REMOTECOMMAND} 
+#       Check if ${REMOTEHOST} is available on port ${SSHPORT}
+		if $(nc -z  ${NODE} ${SSHPORT} >/dev/null) ; then
+			ssh -t ${USER}@${NODE} ${REMOTECOMMAND} 
+		else
+        		echo -e "${0} ${LINENO} [ERROR]:        ${REMOTEHOST} not responding on port ${SSHPORT}.\n"     1>&2
+        		exit 1
+		fi
 	else
-#		echo $(eval ${REMOTECOMMAND})
 		eval ${REMOTECOMMAND}
 	fi
 done
