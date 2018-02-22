@@ -20,7 +20,7 @@ To clone, change to the directory you want to download the script, README, and h
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
 ## Usage
-    cluster-command.sh
+    cluster-command.sh require-reboot
 
 ## Output
     _____
