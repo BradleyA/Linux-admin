@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command.sh	1.5.35	2018-02-22_08:16:57_CST uadmin six-rpi3b.cptx86.com 1.4 
+# 	   cluster-command.sh set default location for host file closes #3 
 # 	cluster-command.sh	1.3.33	2018-02-21_21:12:39_CST uadmin six-rpi3b.cptx86.com 1.2-2-gde89b7b 
 # 	   cluster-shutdown.sh use host list file closes #1 support several commands closes #2 
 # 	cluster-command.sh	1.2.30	2018-02-21_13:36:37_CST uadmin six-rpi3b.cptx86.com 1.1 
@@ -13,8 +15,8 @@
 #	   ssh $USER@rpi3b-$NODE.$DOMAIN 'sudo shutdown -f now';
 ###		
 display_help() {
-echo -e "\n${0} - >>> NEED TO COMPLETE THIS SOON, ONCE I KNOW HOW IT IS GOING TO WORK :-) <<<"
-echo -e "\nUSAGE\n   ${0}"
+echo -e "\n${0} - remote cluster system adminstration"
+echo -e "\nUSAGE\n   ${0} [<options>] [<path>/<hostfile.txt>]"
 echo    "   ${0} [--help | -help | help | -h | h | -? | ?] [--version | -v]"
 echo -e "\nDESCRIPTION\nRun one command from a set of commands on a group of systems found in cluster-command.txt file."
 echo -e "\nOPTIONS "
@@ -45,11 +47,11 @@ fi
 #	execpt only commands in case statement
 REMOTECOMMAND=${1:-""}
 #	open issues :add argument or flag argument for a single host and not use cluster-command.txt file to execute a new command or a commad defined in this file
-HOSTFILE=${2:-"cluster-command.txt"}
+HOSTFILE=${2:-"/usr/local/bin/cluster-command.txt"}
 LOCALHOST=`hostname -f`
 #       Check for ${HOSTFILE} file
 if [ ! -e ${HOSTFILE} ] ; then
-        echo -e "${0} ${LINENO} [WARN]:        ${HOSTFILE} not found in `pwd`"   1>&2
+        echo -e "${0} ${LINENO} [WARN]:        ${HOSTFILE} NOT found"   1>&2
         exit 0
 fi
 REMOTEHOST=`grep -v "#" cluster-command.txt`
