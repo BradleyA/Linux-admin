@@ -1,10 +1,10 @@
 #!/bin/bash
+# 	cluster-command.sh	1.8.44	2018-02-22_13:44:37_CST uadmin six-rpi3b.cptx86.com 1.7-3-g37f1656 
+# 	   add docker-release 
 # 	cluster-command.sh	1.7.40	2018-02-22_12:33:17_CST uadmin six-rpi3b.cptx86.com 1.6-3-g5675629 
 # 	   cluster-command stop ssh for local host closes #7 
 # 	cluster-command.sh	1.6.36	2018-02-22_08:59:07_CST uadmin six-rpi3b.cptx86.com 1.5 
 # 	   cluster-command complete display-help closes #4 
-# 	cluster-command.sh	1.5.35	2018-02-22_08:16:57_CST uadmin six-rpi3b.cptx86.com 1.4 
-# 	   cluster-command.sh set default location for host file closes #3 
 #
 #	set -x
 #	set -v
@@ -68,6 +68,9 @@ case ${REMOTECOMMAND} in
 	docker-version)
 		REMOTECOMMAND="docker version | grep -m 1 'Version:'"
 		;;
+	docker-release)
+		REMOTECOMMAND="grep docker /etc/apt/sources.list"
+		;;
 	shutdown)
 		REMOTECOMMAND="sudo shutdown -f now"
 		;;
@@ -111,9 +114,10 @@ for NODE in ${REMOTEHOST} ; do
 	echo -e "\n${BOLD}  -->  ${NODE}${NORMAL}" 
 #	Check if host is online ?
 	if [ "${LOCALHOST}" != "${NODE}" ] ; then
-		ssh ${USER}@${NODE} ${REMOTECOMMAND} 
+		ssh -t ${USER}@${NODE} ${REMOTECOMMAND} 
 	else
-		echo $(eval $REMOTECOMMAND)
+#		echo $(eval ${REMOTECOMMAND})
+		eval ${REMOTECOMMAND}
 	fi
 done
 echo -e "\n${0} ${LINENO} [INFO]:	Done.\n"	1>&2
