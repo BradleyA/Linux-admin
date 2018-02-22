@@ -17,11 +17,9 @@ Example of predefind commands (enter 'cluster-command -h' for latest list of com
  * require-upgrade - /usr/lib/update-notifier/apt-check --human-readable
  * upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Inst'
 
-#### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
-
 ## Install
 
-To install, change to the directory you want to download the script and host file.
+To install, change to the directory, cd /usr/local/bin, to download the script and host file.
 
     curl -L https://api.github.com/repos/BradleyA/Linux-admin-scripts/tarball | tar -xzf - --wildcards */cluster-command.* ; mv BradleyA-Linux-admin-scripts-*/cluster-command/cluster-command.* . ; rm -rf BradleyA-Linux-admin-scripts-*
 
