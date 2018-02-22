@@ -35,10 +35,38 @@ To clone, change to the directory you want to download the script, README, and h
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
 ## Usage
-    cluster-command.sh require-reboot
+    $ cluster-command.sh require-upgrade
 
 ## Output
-    _____
+      -->  one-rpi3b.cptx86.com
+    0 packages can be updated. 0 updates are security updates.
+
+      -->  two-rpi3b.cptx86.com
+        # #####   All connections monitored   ##### #
+    0 packages can be updated.
+    0 updates are security updates.
+    
+      -->  three-rpi3b.cptx86.com
+      	# #####   All connections monitored   ##### #
+    18 packages can be updated.
+    18 updates are security updates.
+    
+      -->  four-rpi3b.cptx86.com
+      	# #####   All connections monitored   ##### #
+    0 packages can be updated.
+    0 updates are security updates.
+    
+      -->  five-rpi3b.cptx86.com
+	      # #####   All connections monitored   ##### #
+    19 packages can be updated.
+    18 updates are security updates.
+    
+      -->  six-rpi3b.cptx86.com
+	      # #####   All connections monitored   ##### #
+    19 packages can be updated.
+    18 updates are security updates.
+    
+    /usr/local/bin/cluster-command.sh 117 [INFO]:	Done.
 
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
