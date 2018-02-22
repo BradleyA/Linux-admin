@@ -1,10 +1,10 @@
 #!/bin/bash
+# 	cluster-command.sh	1.7.40	2018-02-22_12:33:17_CST uadmin six-rpi3b.cptx86.com 1.6-3-g5675629 
+# 	   cluster-command stop ssh for local host closes #7 
 # 	cluster-command.sh	1.6.36	2018-02-22_08:59:07_CST uadmin six-rpi3b.cptx86.com 1.5 
 # 	   cluster-command complete display-help closes #4 
 # 	cluster-command.sh	1.5.35	2018-02-22_08:16:57_CST uadmin six-rpi3b.cptx86.com 1.4 
 # 	   cluster-command.sh set default location for host file closes #3 
-# 	cluster-command.sh	1.3.33	2018-02-21_21:12:39_CST uadmin six-rpi3b.cptx86.com 1.2-2-gde89b7b 
-# 	   cluster-shutdown.sh use host list file closes #1 support several commands closes #2 
 #
 #	set -x
 #	set -v
@@ -17,10 +17,11 @@ echo -e "\n${0} - remote cluster system adminstration tool"
 echo -e "\nUSAGE\n   ${0} [<options>] [<path>/<hostfile.txt>]"
 echo    "   ${0} [--help | -help | help | -h | h | -? | ?] [--version | -v]"
 echo -e "\nDESCRIPTION\nThis script runs a command from a set of predefined commands on hosts."
-echo    "The hosts are found in a file with one host per line.  Lines that begin a #"
-echo    "are comments.  The defualt location for cluster-command.txt file is"
-echo    "/usr/local/bin.  A different path and file can be entered on the command line"
-echo    "as the second argument."
+echo    "The hostnames of the hosts are found in a file with one hostname per line."
+echo    "Lines in this file that begin with a # are comments.  The defualt"
+echo    "location for this cluster command host file, cluster-command.txt, is"
+echo    "/usr/local/bin.  A different path and cluster command host file can be"
+echo    "entered on the command line as the second argument."
 echo -e "\nOPTIONS "
 echo    "   List of predefind commands:"
 echo    "      docker-version - docker version | grep -m 1 'Version:'"
@@ -54,12 +55,14 @@ REMOTECOMMAND=${1:-""}
 #	open issues :add argument or flag argument for a single host and not use cluster-command.txt file to execute a new command or a commad defined in this file
 HOSTFILE=${2:-"/usr/local/bin/cluster-command.txt"}
 LOCALHOST=`hostname -f`
+BOLD=$(tput bold)
+NORMAL=$(tput sgr0)
 #       Check for ${HOSTFILE} file
 if [ ! -e ${HOSTFILE} ] ; then
         echo -e "${0} ${LINENO} [WARN]:        ${HOSTFILE} NOT found"   1>&2
         exit 0
 fi
-REMOTEHOST=`grep -v "#" cluster-command.txt`
+REMOTEHOST=`grep -v "#" ${HOSTFILE}`
 ###
 case ${REMOTECOMMAND} in
 	docker-version)
@@ -105,10 +108,12 @@ case ${REMOTECOMMAND} in
 esac
 #
 for NODE in ${REMOTEHOST} ; do
-	echo -e "\n${0} ${LINENO} [INFO]:	${NODE}" ;
+	echo -e "\n${BOLD}  -->  ${NODE}${NORMAL}" 
 #	Check if host is online ?
-	if [ "${LOCALHOST}" != " ${NODE}" ] ; then
-		ssh -tt ${USER}@${NODE} ${REMOTECOMMAND} ;
+	if [ "${LOCALHOST}" != "${NODE}" ] ; then
+		ssh ${USER}@${NODE} ${REMOTECOMMAND} 
+	else
+		echo $(eval $REMOTECOMMAND)
 	fi
 done
 echo -e "\n${0} ${LINENO} [INFO]:	Done.\n"	1>&2
