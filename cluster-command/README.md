@@ -1,6 +1,6 @@
 # cluster-command
 
-This script runs a command from a set of predefined commands on hosts.  The hostnames of the hosts are found in a file with one hostname per line.  Lines in the file that begin with a # are comments.  The defualt location for the hostfile, cluster-command.txt, is /usr/local/bin.  A different path and hostname file can be entered on the command line as the second argument.
+This script runs a command from a set of predefined commands on hosts.  The hostnames of the hosts are found in a file with one hostname per line.  Lines in this file that begin with a # are comments.  The defualt location for this cluster command host file, cluster-command.txt, is /usr/local/bin.  A different path and cluster command host file can be entered on the command line as the second argument.
 
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
