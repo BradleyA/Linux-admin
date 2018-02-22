@@ -1,4 +1,6 @@
 ###	List of hosts used by cluster-command.sh
+# 	cluster-command.txt	1.3.33	2018-02-21_21:12:39_CST uadmin six-rpi3b.cptx86.com 1.2-2-gde89b7b 
+# 	   cluster-shutdown.sh use host list file closes #1 support several commands closes #2 
 # 	cluster-command.txt	1.2.30	2018-02-21_13:36:37_CST uadmin six-rpi3b.cptx86.com 1.1 
 # 	   comment out x86 hosts so I will not shutdown production cluster during testing; supports #1 
 # 	cluster-command.txt	1.1.29	2018-02-21_13:20:27_CST uadmin six-rpi3b.cptx86.com 1.0-6-g3849c83 
@@ -6,15 +8,15 @@
 #
 #	One FQDN host on each line 
 ###
-#	-> Raspberry Pi cluster 1
+#  -> Raspberry Pi cluster 1
 one-rpi3b.cptx86.com
 two-rpi3b.cptx86.com
-three-rpi3b.cptx86.com
-#	->  Raspberry Pi cluster 2
-four-rpi3b.cptx86.com
-five-rpi3b.cptx86.com
-six-rpi3b.cptx86.com
-#	->  x86 cluster 0
+#	three-rpi3b.cptx86.com
+#  ->  Raspberry Pi cluster 2
+#	four-rpi3b.cptx86.com
+#	five-rpi3b.cptx86.com
+#	six-rpi3b.cptx86.com
+#  ->  x86 cluster 0
 #	zero.cptx86.com
 #	one.cptx86.com
 #	two.cptx86.com

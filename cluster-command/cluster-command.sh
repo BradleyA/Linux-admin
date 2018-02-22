@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command.sh	1.3.33	2018-02-21_21:12:39_CST uadmin six-rpi3b.cptx86.com 1.2-2-gde89b7b 
+# 	   cluster-shutdown.sh use host list file closes #1 support several commands closes #2 
 # 	cluster-command.sh	1.2.30	2018-02-21_13:36:37_CST uadmin six-rpi3b.cptx86.com 1.1 
 # 	   comment out x86 hosts so I will not shutdown production cluster during testing; supports #1 
 # 	cluster-shutdown.sh	1.0.22	2018-02-21_12:28:36_CST uadmin six-rpi3b.cptx86.com v0.1-21-g8174b37 
@@ -11,65 +13,95 @@
 #	   ssh $USER@rpi3b-$NODE.$DOMAIN 'sudo shutdown -f now';
 ###		
 display_help() {
-echo -e "\n${0} - >>> NEED TO COMPLETE THIS SOON, ONCE i KNOW HOW IT IS GOING TO WORK :-) <<<"
+echo -e "\n${0} - >>> NEED TO COMPLETE THIS SOON, ONCE I KNOW HOW IT IS GOING TO WORK :-) <<<"
 echo -e "\nUSAGE\n   ${0}"
 echo    "   ${0} [--help | -help | help | -h | h | -? | ?] [--version | -v]"
-echo -e "\nDESCRIPTION\nsudo shutdown -f now"
+echo -e "\nDESCRIPTION\nRun one command from a set of commands on a group of systems found in cluster-command.txt file."
 echo -e "\nOPTIONS "
-echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/cluster-shutdown"
-echo -e "\nEXAMPLES\n   Shutdown raspberry pi clusters\n\t${0}\n"
+echo    "   docker-version - docker version | grep -m 1 'Version:'"
+echo    "   shutdown - sudo shutdown -f now"
+echo    "   reboot - sudo reboot"
+echo    "   update - sudo apt-get update"
+echo    "   upgrade - sudo apt-get upgrade --assume-yes"
+echo    "   dist-upgrade - sudo apt-get dist-upgrade --assume-yes"
+echo    "   showhold - apt-mark showhold"
+echo    "   OS - lsb_release -d"
+echo    "   cpu - lscpu"
+echo    "   require-reboot - if [ -f /var/run/reboot-required ]; then echo 'reboot required' ; else echo 'no reboot required' ; fi"
+echo    "   require-upgrade - /usr/lib/update-notifier/apt-check --human-readable"
+echo    "   upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Inst'"
+echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/cluster-command"
+echo -e "\nEXAMPLES\n   Shutdown raspberry pi clusters\n\t${0} shutdown\n"
 }
 if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] || [ "$1" == "?" ] ; then
         display_help
         exit 0
 fi
-if [ "$1" == "--version" ] || [ "$1" == "-v" ] ; then
+if [ "$1" == "--version" ] || [ "$1" == "-v" ] ||  [ "$1" == "version" ]  ; then
         head -2 ${0} | awk {'print$2"\t"$3'}
         exit 0
 fi
 ###
-REMOTECOMMAND=${1:-"shutdown -f now"}
+#	execpt only commands in case statement
+REMOTECOMMAND=${1:-""}
+#	open issues :add argument or flag argument for a single host and not use cluster-command.txt file to execute a new command or a commad defined in this file
+HOSTFILE=${2:-"cluster-command.txt"}
 LOCALHOST=`hostname -f`
+#       Check for ${HOSTFILE} file
+if [ ! -e ${HOSTFILE} ] ; then
+        echo -e "${0} ${LINENO} [WARN]:        ${HOSTFILE} not found in `pwd`"   1>&2
+        exit 0
+fi
+REMOTEHOST=`grep -v "#" cluster-command.txt`
+###
+case ${REMOTECOMMAND} in
+	docker-version)
+		REMOTECOMMAND="docker version | grep -m 1 'Version:'"
+		;;
+	shutdown)
+		REMOTECOMMAND="sudo shutdown -f now"
+		;;
+	reboot)
+		REMOTECOMMAND="sudo reboot"
+		;;
+	update)
+		REMOTECOMMAND="sudo apt-get update"
+		;;
+	upgrade)
+		REMOTECOMMAND="sudo apt-get upgrade --assume-yes"
+		;;
+	dist-upgrade)
+		REMOTECOMMAND="sudo apt-get dist-upgrade --assume-yes"
+		;;
+	showhold)
+		REMOTECOMMAND="apt-mark showhold"
+		;;
+	OS|os)
+		REMOTECOMMAND="lsb_release -d"
+		;;
+	CPU|cpu)
+		REMOTECOMMAND="lscpu"
+		;;
+	require-reboot)
+		REMOTECOMMAND="if [ -f /var/run/reboot-required ]; then echo 'reboot required' ; else echo 'no reboot required' ; fi"
+		;;
+	require-upgrade)
+		REMOTECOMMAND="/usr/lib/update-notifier/apt-check --human-readable"
+		;;
+	upgrade-package)
+		REMOTECOMMAND="apt-get upgrade --simulate  | grep -vE 'Conf|Inst'"
+		;;
+	*)
+		echo -e "\n${0} ${LINENO} [INFO]:	Command missing  ${FILE_NAME}"
+		exit 0
+		;;
+esac
 #
-for NODE in one two three four five six ; do
-	echo ${NODE}-rpi3b.${DOMAIN};
-	if [ "${LOCALHOST}" != " ${NODE}-rpi3b.${DOMAIN}" ]; then
-		ssh -tt ${USER}@${NODE}-rpi3b.${DOMAIN} 'stty raw -echo;sudo shutdown -f now';
+for NODE in ${REMOTEHOST} ; do
+	echo -e "\n${0} ${LINENO} [INFO]:	${NODE}" ;
+	if [ "${LOCALHOST}" != " ${NODE}" ] ; then
+		ssh -tt ${USER}@${NODE} ${REMOTECOMMAND} ;
 	fi
 done
-echo "${LOCALHOST}"
-sudo ${REMOTECOMMAND}
+echo -e "\n${0} ${LINENO} [INFO]:	Done.\n"	1>&2
 ###
-        case ${FILE_EXTENSION} in
-                shutdown)
-                        REMOTECOMMAND="shutdown -f now"
-                        ;;
-                c|h|H|hpp|hxx|Hxx|HXX)
-#               c(c) C header(h|H|hpp) C++ header(hxx|Hxx|HXX) 
-                        BEGIN_COMMENT_CHAR="/* "
-                        END_COMMENT_CHAR=" */"
-                        ;;
-                cc|cpp|c++|cxx|go|java|class|jar|js|kt|kts|p|pp|pas|rs|rlib|scala|sc)
-#               C++(cc|cpp|c++|cxx) Go(go) Java(java|class|jar) JavaScript(js) Kotlin(kt|kts) Pascal (p|pp|paa) Rust(rs|rlib) Scala(scala|sc)
-                        BEGIN_COMMENT_CHAR="// "
-                        END_COMMENT_CHAR=""
-                        ;;
-                xml|html|htm)
-#               XML(xml) HTML (html|htm) 
-                        BEGIN_COMMENT_CHAR="<!-- "
-                        END_COMMENT_CHAR=" -->"
-                        ;;
-                *)
-#                       Prompt for single-line beginning comment character(s)
-                        echo -e "\nEnter single-line  BEGINNING  comment character(s) for ${FILE_NAME}\n   (example: # // -- ' ! C !* -- // % ;;  ||  /* <!-- <!--- {- /** --[[ %{ (* <# )"
-                        read BEGIN_COMMENT_CHAR
-                        if [ -z ${BEGIN_COMMENT_CHAR} ] ; then
-                                display_help
-                                echo -e "${0} ${LINENO} [ERROR]:        Single-line comment character(s) is required.\n"       1>&2
-                                exit 1
-                        fi
-                        echo -e "\nEnter single-line  ENDING  comment character(s) for ${FILE_NAME}.\nPress enter for none.\n (example: */ --> ---> -} */ --]] %} *) #> )"
-                        read END_COMMENT_CHAR
-                        ;;
-        esac
-
