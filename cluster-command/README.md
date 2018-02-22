@@ -2,7 +2,7 @@
 
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
-cluster-command is a bash script that loops through a list fo RaspBerry pi and issues shutdown -f now. 
+cluster-command is a bash script that loops through a list of hosts found in cluster-command.txt file. 
 
 ## Install
 
