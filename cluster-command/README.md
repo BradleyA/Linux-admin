@@ -74,7 +74,7 @@ To clone, change to the directory you want to download the script, README, and h
 
 #### Design Principles
  * Have a simple setup process and a minimal learning curve
- * Be usable as non-root
+ * Be usable as non-root (failed: some commands require root)
  * Be easy to install and configure
 
 ## License
