@@ -26,7 +26,6 @@ Example of first argument, predefind commands (enter 'cluster-command -h' for la
                     required' ; else echo 'no reboot required' ; fi
  * require-upgrade - /usr/lib/update-notifier/apt-check --human-readable
  * upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Inst'
-                     apt list --upgradeable -> does not work on Ubuntu 14.04
 
 Second and third arguments:
 
