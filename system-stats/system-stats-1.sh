@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	system-stats-1.sh	1.12.51	2018-02-23_09:09:04_CST uadmin six-rpi3b.cptx86.com 1.11-3-g63003c3 
+# 	   added a comment about project 
 # 	../system-stats/system-stats-1.sh	1.4.34	2018-02-21_21:22:51_CST uadmin six-rpi3b.cptx86.com 1.3 
 # 	   ruff draft addition display_help cpu-temperature.sh & system-stats-1.sh 
 #	system-stats-1.sh	1.0	2017-12-20_22:12:37_CST uadmin rpi3b-two.cptx86.com
@@ -15,8 +17,8 @@ echo -e "\nUSAGE\n   ${0}"
 echo    "   ${0} [--help | -help | help | -h | h | -? | ?] [--version | -v]"
 echo -e "\nDESCRIPTION\nXXXXXX "
 echo -e "\nOPTIONS "
-echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/cpu-temperature"
-echo -e "\nEXAMPLES\n   XXXXXX \n\t${0} XXXXXX\n"
+echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/system-stats-1.sh"
+echo -e "\nEXAMPLES\n   XXXXXX \n\t${0}\n"
 }
 if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] || [ "$1" == "?" ] ; then
         display_help
@@ -27,7 +29,8 @@ if [ "$1" == "--version" ] || [ "$1" == "-v" ] ||  [ "$1" == "version" ]  ; then
         exit 0
 fi
 ###
-echo "Hostname =	" `hostname`
+echo -e "Need to determine what I want to use in these notes to move forward with this project.  On hold until a later time.\n"
+echo -e  " -->  Hostname = " `hostname`
 
 CPUTEMP=$(/usr/bin/vcgencmd measure_temp | \
 sed -e 's/?C$//' | \
