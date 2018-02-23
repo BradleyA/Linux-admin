@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command.sh	1.13.60	2018-02-23_16:24:00_CST uadmin one-rpi3b.cptx86.com 1.12-8-gdb44df7 
+# 	   debug new commands on two cluster 
 # 	cluster-command.sh	1.11.47	2018-02-22_16:43:22_CST uadmin six-rpi3b.cptx86.com 1.10 
 # 	   cluster-command determine if host is on-line close #6 
 # 	cluster-command.sh	1.10.46	2018-02-22_16:03:46_CST uadmin six-rpi3b.cptx86.com 1.9 
@@ -7,13 +9,11 @@
 # 	   updated README, completed testing, debugging, closes #6 
 # 	cluster-command.sh	1.8.44	2018-02-22_13:44:37_CST uadmin six-rpi3b.cptx86.com 1.7-3-g37f1656 
 # 	   add docker-release 
-# 	cluster-command.sh	1.7.40	2018-02-22_12:33:17_CST uadmin six-rpi3b.cptx86.com 1.6-3-g5675629 
-# 	   cluster-command stop ssh for local host closes #7 
 #
 #	set -x
 #	set -v
 #
-#	administration cluster comment for Raspberry Pi and x86 clusters
+#	administration cluster commands for Raspberry Pi and x86 clusters
 #	   ssh $USER@rpi3b-$NODE.$DOMAIN 'sudo shutdown -f now';
 ###		
 display_help() {
@@ -33,12 +33,27 @@ echo -e "      reboot         - sudo reboot\n"
 echo    "      os             - lsb_release -d"
 echo    "      cpu            - lscpu"
 echo    "      date           - date"
+echo    "      df             - df"
 echo    "      last           - lastlog | grep -v '**Never logged in**'"
 echo    "      who            - who"
+echo    "      ip             - ip a"
+echo    "      netstat        - sudo netstat -natup"
 echo    "      uptime         - uptime"
 echo -e "      showhold       - apt-mark showhold\n"
 echo    "      docker-version - docker version | grep -m 1 'Version:'"
-echo -e "      docker-release - grep docker /etc/apt/sources.list\n"
+echo    "      docker-release - grep docker /etc/apt/sources.list"
+echo    "      docker-df      - docker system df"
+echo    "      docker-df-v    - docker system df --verbose"
+echo    "      docker-info    - docker system info | head -6"
+echo    "      ls-docker-con  - docker container ls"
+echo    "      ls-docker-ima  - docker images"
+echo    "      ls-docker-net  - docker network ls"
+echo    "      ls-docker-vol  - docker volume ls"
+echo    "      clean-docker-ima	- docker image rm \$(docker image ls --filter='dangling=true' -q)"
+echo    "      clean-docker-vol	- docker volume rm \$(docker volume ls --filter dangling=true -q)"
+echo    "      prune-docker-net	- docker network prune"
+echo    "      prune-docker-vol	- docker volume prune"
+echo -e "      prune-docker-all	- docker system prune\n"
 echo    "      update         - sudo apt-get update"
 echo    "      upgrade        - sudo apt-get upgrade --assume-yes"
 echo    "      dist-upgrade   - sudo apt-get dist-upgrade --assume-yes"
@@ -78,17 +93,83 @@ fi
 REMOTEHOST=`grep -v "#" ${HOSTFILE}`
 ###
 case ${REMOTECOMMAND} in
+	shutdown)
+		REMOTECOMMAND="sudo shutdown -f now"
+		;;
+	reboot)
+		REMOTECOMMAND="sudo reboot"
+		;;
+	OS|os)
+		REMOTECOMMAND="lsb_release -d"
+		;;
+	CPU|cpu)
+		REMOTECOMMAND="lscpu"
+		;;
+	date)
+		REMOTECOMMAND="date"
+		;;
+	df)
+		REMOTECOMMAND="df"
+		;;
+	last)
+		REMOTECOMMAND="lastlog | grep -v '**Never logged in**'"
+		;;
+	who)
+		REMOTECOMMAND="who"
+		;;
+	ip)
+		REMOTECOMMAND="ip a"
+		;;
+	netstat)
+		REMOTECOMMAND="sudo netstat -natup"
+		;;
+	uptime)
+		REMOTECOMMAND="uptime"
+		;;
+	showhold)
+		REMOTECOMMAND="apt-mark showhold"
+		;;
 	docker-version)
 		REMOTECOMMAND="docker version | grep -m 1 'Version:'"
 		;;
 	docker-release)
 		REMOTECOMMAND="grep docker /etc/apt/sources.list"
 		;;
-	shutdown)
-		REMOTECOMMAND="sudo shutdown -f now"
+	docker-df)
+		REMOTECOMMAND="docker system df"
 		;;
-	reboot)
-		REMOTECOMMAND="sudo reboot"
+	docker-df-v)
+		REMOTECOMMAND="docker system df --verbose"
+		;;
+	docker-info)
+		REMOTECOMMAND="docker system info | head -6"
+		;;
+	ls-docker-con)
+		REMOTECOMMAND="docker container ls"
+		;;
+	ls-docker-ima)
+		REMOTECOMMAND="docker images"
+		;;
+	ls-docker-net)
+		REMOTECOMMAND="docker network ls"
+		;;
+	ls-docker-vol)
+		REMOTECOMMAND="docker volume ls"
+		;;
+	clean-docker-vol)
+		REMOTECOMMAND="docker volume rm \$(docker volume ls --filter dangling=true -q)"
+		;;
+	clean-docker-ima)
+		REMOTECOMMAND="docker image rm \$(docker image ls --filter='dangling=true' -q)"
+		;;
+	prune-docker-net)
+		REMOTECOMMAND="docker network prune"
+		;;
+	prune-docker-vol)
+		REMOTECOMMAND="docker volume prune"
+		;;
+	prune-docker-all)
+		REMOTECOMMAND="docker system prune"
 		;;
 	update)
 		REMOTECOMMAND="sudo apt-get update"
@@ -102,27 +183,6 @@ case ${REMOTECOMMAND} in
 	autoremove)
 		REMOTECOMMAND="sudo apt-get autoremove  --assume-yes"
 		;;
-	showhold)
-		REMOTECOMMAND="apt-mark showhold"
-		;;
-	OS|os)
-		REMOTECOMMAND="lsb_release -d"
-		;;
-	CPU|cpu)
-		REMOTECOMMAND="lscpu"
-		;;
-	date)
-		REMOTECOMMAND="date"
-		;;
-	last)
-		REMOTECOMMAND="lastlog | grep -v '**Never logged in**'"
-		;;
-	who)
-		REMOTECOMMAND="who"
-		;;
-	uptime)
-		REMOTECOMMAND="uptime"
-		;;
 	require-reboot)
 		REMOTECOMMAND="if [ -f /var/run/reboot-required ]; then echo 'reboot required' ; else echo 'no reboot required' ; fi"
 		;;
@@ -133,23 +193,23 @@ case ${REMOTECOMMAND} in
 		REMOTECOMMAND="apt-get upgrade --simulate  | grep -vE 'Conf|Inst'"
 		;;
 	*)
-		echo -e "\n${0} ${LINENO} [INFO]:	Command missing  ${FILE_NAME}"
+		echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}INFO${NORMAL}]:	${REMOTECOMMAND} - NOT a supported command"
 		exit 0
 		;;
 esac
 #
 for NODE in ${REMOTEHOST} ; do
-	echo -e "\n${BOLD}  -->  ${NODE}${NORMAL}" 
+	echo -e "\n${BOLD}  -->  ${NODE}${NORMAL}	->${REMOTECOMMAND}<-" 
 	if [ "${LOCALHOST}" != "${NODE}" ] ; then
 #       Check if ${REMOTEHOST} is available on port ${SSHPORT}
 		if $(nc -z  ${NODE} ${SSHPORT} >/dev/null) ; then
 			ssh -t ${USER}@${NODE} ${REMOTECOMMAND} 
 		else
-        		echo -e "${0} ${LINENO} [WARN]:	${NODE} not responding on port ${SSHPORT}.\n"	1>&2
+        		echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARN${NORMAL}]:	${NODE} not responding on port ${SSHPORT}.\n"	1>&2
 		fi
 	else
 		eval ${REMOTECOMMAND}
 	fi
 done
-echo -e "\n${0} ${LINENO} [INFO]:	Done.\n"	1>&2
+echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}INFO${NORMAL}]:	Done.\n"	1>&2
 ###
