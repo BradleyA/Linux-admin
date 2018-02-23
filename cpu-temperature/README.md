@@ -26,6 +26,7 @@ Move the script; example /usr/local/bin. To find directories in your working pat
 
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
+ * Ubuntu 16.04.3 LTS (armv7l)
 
 #### Design Principles
  * Have a simple setup process and a minimal learning curve
