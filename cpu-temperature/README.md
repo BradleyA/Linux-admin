@@ -6,23 +6,25 @@ cpu-temperature is a bash script that determines the Raspberry pi temputures and
 
 ## Install
 
-To install, change directory to the location you want to download the scripts. Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
+To install, change to the directory, cd /usr/local/bin, to download the script.
 
-    git clone https://github.com/BradleyA/xx xxx xxxxx xxx xx x
-    cd xx xxx xxxxx xxx xx x
+    curl -L https://api.github.com/repos/BradleyA/Linux-admin-scripts/tarball | tar -xzf - --wildcards */cpu-temperature.sh ; mv BradleyA-Linux-admin-scripts-*/cpu-temperature/cpu-temperature.sh . ; rm -rf BradleyA-Linux-admin-scripts-*
 
-Edit pi-system-stats script, change 
-    xx xx xx xx __
+## Install
 
-Move the script; example /usr/local/bin. To find directories in your working path use; "echo $PATH".
+To install, change to the location you want to download the scripts. Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
-    sudo cp cpu-temperature.sh /usr/local/bin
+    git clone https://github.com/BradleyA/Linux-admin-scripts
+    cd Linux-admin-scripts/cpu-temperature
 
 ## Usage
-    xx xx xx xx 
+    cpu-temperature.sh 
 
 ## Output
-    _____
+    $ cpu-temperature.sh
+    Hostname =	 four-rpi3b
+    Celsius =	 43.5
+    Fahrenheit =	110.3
 
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
