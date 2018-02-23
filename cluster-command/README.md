@@ -3,19 +3,33 @@
 This script runs a command from a set of predefined commands on hosts.  The hostnames of the hosts are found in a file with one hostname per line.  Lines in this file that begin with a # are comments.  The defualt location for this cluster command host file, cluster-command.txt, is /usr/local/bin.  A different path and cluster command host file can be entered on the command line as the second argument.
 
 Example of predefind commands (enter 'cluster-command -h' for latest list of commands)
- * docker-version - docker version | grep -m 1 'Version:'
+
  * shutdown       - sudo shutdown -f now
  * reboot         - sudo reboot
+
+ * os             - lsb_release -d
+ * cpu            - lscpu
+ * date           - date
+ * last           - lastlog | grep -v '**Never logged in**'
+ * who            - who
+ * uptime         - uptime
+ * showhold       - apt-mark showhold
+
+ * docker-version - docker version | grep -m 1 'Version:'
+ * docker-release - grep docker /etc/apt/sources.list
+
  * update         - sudo apt-get update
  * upgrade        - sudo apt-get upgrade --assume-yes
  * dist-upgrade   - sudo apt-get dist-upgrade --assume-yes
- * showhold       - apt-mark showhold
- * OS             - lsb_release -d
- * cpu            - lscpu
+ * autoremove     - sudo apt-get autoremove --assume-yes
  * require-reboot - if [ -f /var/run/reboot-required ]; then echo 'reboot
                     required' ; else echo 'no reboot required' ; fi
  * require-upgrade - /usr/lib/update-notifier/apt-check --human-readable
  * upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Inst'
+                     apt list --upgradeable -> does not work on Ubuntu 14.04
+   HOSTFILE     Other file with hostnames, default /usr/local/bin/cluster-command.txt
+   SSHPORT      SSH server port, default is port 22
+
 
 ## Install
 
