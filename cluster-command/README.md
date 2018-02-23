@@ -2,7 +2,7 @@
 
 This script runs a command from a set of predefined commands on hosts.  The hostnames of the hosts are found in a file with one hostname per line.  Lines in this file that begin with a # are comments.  The defualt location for this cluster command host file, cluster-command.txt, is /usr/local/bin.  A different path and cluster command host file can be entered on the command line as the second argument.
 
-Example of predefind commands (enter 'cluster-command -h' for latest list of commands)
+Example of first argument, predefind commands (enter 'cluster-command -h' for latest list)
 
  * shutdown       - sudo shutdown -f now
  * reboot         - sudo reboot
@@ -27,8 +27,12 @@ Example of predefind commands (enter 'cluster-command -h' for latest list of com
  * require-upgrade - /usr/lib/update-notifier/apt-check --human-readable
  * upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Inst'
                      apt list --upgradeable -> does not work on Ubuntu 14.04
-   HOSTFILE     Other file with hostnames, default /usr/local/bin/cluster-command.txt
-   SSHPORT      SSH server port, default is port 22
+
+Second and third arguments:
+
+HOSTFILE     Other file with hostnames, default /usr/local/bin/cluster-command.txt
+
+SSHPORT      SSH server port, default is port 22
 
 
 ## Install
