@@ -10,7 +10,7 @@ To install, change to the directory, cd /usr/local/bin, to download the script.
 
     curl -L https://api.github.com/repos/BradleyA/Linux-admin-scripts/tarball | tar -xzf - --wildcards */cpu-temperature.sh ; mv BradleyA-Linux-admin-scripts-*/cpu-temperature/cpu-temperature.sh . ; rm -rf BradleyA-Linux-admin-scripts-*
 
-## Install
+## Clone
 
 To install, change to the location you want to download the scripts. Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
