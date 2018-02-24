@@ -4,6 +4,8 @@
 
 pi-system-stats is a bash script that runs several commands and has notes about other commands I am looking at a future use with logging and monitoring with blinkt and scroll-phat in my unicorn project.
 
+<img id="image_raspberry_cluster" src="../images/IMG_2664.JPG" width="400" >
+
 ### Install
 
 To install, change to the directory, cd /usr/local/bin, to download the script.
