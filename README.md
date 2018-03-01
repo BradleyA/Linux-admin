@@ -2,8 +2,6 @@
 
 This repository contains shell scripts for Linux administration to support my RaspBerry Pi clusters and x86 clusters.
 
- * [system-stats](https://github.com/BradleyA/pi-scripts/tree/master/system-stats)
- * [cpu-temperature](https://github.com/BradleyA/pi-scripts/tree/master/cpu-temperature)
  * [cluster-command](https://github.com/BradleyA/pi-scripts/tree/master/cluster-command)
 
 ### Clone
