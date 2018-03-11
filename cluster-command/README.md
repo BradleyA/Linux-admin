@@ -35,11 +35,17 @@ SSHPORT      SSH server port, default is port 22
 
 ## Clone
 
-To clone, change to the directory you want to download the script, README, and host file. Use git to clone these files into your directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
+To clone, change to the directory you want to download the script, README, and host file, SYSTEMS. Use git to clone these files into your directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
     git clone https://github.com/BradleyA/Linux-admin
     cd Linux-admin/cluster-command
+    
     mkdir -p /usr/local/data/cluster-1
+    mv SYSTEMS /usr/local/data/cluster-1/
+    <edit> /usr/local/data/cluster-1/SYSTEMS
+    mkdir -p /usr/local/bin
+    mv cluster-command /usr/local/bin
+    
 
 ## Usage
     $ cluster-command.sh require-upgrade
