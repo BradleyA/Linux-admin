@@ -33,19 +33,18 @@ HOSTFILE     Other file with hostnames, default /usr/local/bin/cluster-command.t
 
 SSHPORT      SSH server port, default is port 22
 
-
-## Install
-
-To install, change to the directory, cd /usr/local/bin, to download the script and host file.
-
-    curl -L https://api.github.com/repos/BradleyA/Linux-admin-scripts/tarball | tar -xzf - --wildcards */cluster-command.* ; mv BradleyA-Linux-admin-scripts-*/cluster-command/cluster-command.* . ; rm -rf BradleyA-Linux-admin-scripts-*
-
 ## Clone
 
 To clone, change to the directory you want to download the script, README, and host file. Use git to clone these files into your directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
     git clone https://github.com/BradleyA/Linux-admin-scripts
     cd Linux-admin-scripts/cluster-command
+
+## Install
+
+To install, change to the directory, cd /usr/local/bin, to download the script and host file.
+
+    curl -L https://api.github.com/repos/BradleyA/Linux-admin-scripts/tarball | tar -xzf - --wildcards */cluster-command.* ; mv BradleyA-Linux-admin-scripts-*/cluster-command/cluster-command.* . ; rm -rf BradleyA-Linux-admin-scripts-*
 
 #### WARNING: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
