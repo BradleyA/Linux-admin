@@ -44,10 +44,11 @@ To clone, change to the directory you want to download the script, README, and h
     
     mkdir -p /usr/local/data/cluster-1
     mv SYSTEMS /usr/local/data/cluster-1/
-    <edit> /usr/local/data/cluster-1/SYSTEMS
+   
     mkdir -p /usr/local/bin
     mv cluster-command /usr/local/bin
     
+     <edit> /usr/local/data/cluster-1/SYSTEMS
 
 ## Usage
     $ cluster-command.sh require-upgrade
