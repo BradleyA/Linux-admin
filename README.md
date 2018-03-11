@@ -5,8 +5,8 @@ This repository contains shell scripts for Linux administration to support my Ra
  * [cluster-command](https://github.com/BradleyA/pi-scripts/tree/master/cluster-command)
  * _
  
- <img id="respberry_cluster-1" src="Linux-admin/images/IMG_2664.JPG" width="150" >
-
+ <img id="respberry_cluster-1" src=" Linux-admin/images/IMG_2664.JPG" width="150" >
+ 
 ### Clone
 
 To install, change directory to the location you want to download the scripts. Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
