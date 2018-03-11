@@ -5,7 +5,7 @@ This repository contains shell scripts for Linux administration to support my Ra
  * [cluster-command](https://github.com/BradleyA/pi-scripts/tree/master/cluster-command)
  * _
  
- <img id="respberry_cluster-1" src=" Linux-admin/images/IMG_2664.JPG" width="150" >
+ <img id="respberry_cluster-1" src="images/IMG_2664.JPG" width="150" >
  
 ### Clone
 
