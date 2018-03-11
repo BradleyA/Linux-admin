@@ -42,12 +42,12 @@ To clone, change to the directory you want to download the script, README, and h
     git clone https://github.com/BradleyA/Linux-admin
     cd Linux-admin/cluster-command
     
-    mkdir -p /usr/local/data/cluster-1
-    mv SYSTEMS /usr/local/data/cluster-1/
-   
     mkdir -p /usr/local/bin
     mv cluster-command /usr/local/bin
     
+    mkdir -p /usr/local/data/cluster-1
+    mv SYSTEMS /usr/local/data/cluster-1/
+
      <edit> /usr/local/data/cluster-1/SYSTEMS
 
 ## Usage
