@@ -1,6 +1,8 @@
 # cluster-command
 
-This script runs a command from a set of predefined commands on hosts.  The hostnames of the hosts are found in a file with one hostname per line.  Lines in this file that begin with a # are comments.  The defualt location for this cluster command host file, cluster-command.txt, is /usr/local/bin.  A different path and cluster command host file can be entered on the command line as the second argument.
+This script runs a command from a set of predefined commands on several hosts.  
+
+The hostnames are found in a file (/usr/local/data/cluster-1/SYSTEMS) with one hostname per line.  Lines in this file that begin with a # are comments.  The defualt location for this cluster host file, SYSTEMS, is /usr/local/data/cluster-1.  A different path and SYSTEMS file can be entered on the command line as the second argument.
 
 Example of first argument, predefind commands (enter 'cluster-command -h' for latest list)
 
@@ -35,11 +37,18 @@ SSHPORT      SSH server port, default is port 22
 
 ## Clone
 
-To clone, change to the directory you want to download the script, README, and host file. Use git to clone these files into your directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
+To clone, change to the directory you want to download the script, README, and host file, SYSTEMS. Use git to clone these files into your directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
     git clone https://github.com/BradleyA/Linux-admin
     cd Linux-admin/cluster-command
+    
     mkdir -p /usr/local/data/cluster-1
+    mv SYSTEMS /usr/local/data/cluster-1/
+   
+    mkdir -p /usr/local/bin
+    mv cluster-command /usr/local/bin
+    
+     <edit> /usr/local/data/cluster-1/SYSTEMS
 
 ## Usage
     $ cluster-command.sh require-upgrade
