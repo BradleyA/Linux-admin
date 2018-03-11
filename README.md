@@ -1,4 +1,4 @@
-## Linux-admin-scripts
+## Linux-admin
 
 This repository contains shell scripts for Linux administration to support my RaspBerry Pi clusters and x86 clusters.
 
@@ -9,8 +9,8 @@ This repository contains shell scripts for Linux administration to support my Ra
 
 To install, change directory to the location you want to download the scripts. Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
-    git clone https://github.com/BradleyA/Linux-admin-scripts
-    cd Linux-admin-scripts
+    git clone https://github.com/BradleyA/Linux-admin
+    cd Linux-admin
 
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
