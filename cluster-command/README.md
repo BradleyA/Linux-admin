@@ -91,7 +91,7 @@ To clone, change to the directory you want to download the script, README, and h
 
 To install, change to the directory, cd /usr/local/bin, to download the script and host file.
 
-    curl -L https://api.github.com/repos/BradleyA/Linux-admin/tarball | tar -xzf - --wildcards */cluster-command.* ; mv BradleyA-Linux-admin-*/cluster-command/cluster-command.* . ; rm -rf BradleyA-Linux-admin-*
+    curl -L https://api.github.com/repos/BradleyA/Linux-admin/tarball | tar -xzf - --wildcards */cluster-command.sh ; mv BradleyA-Linux-admin-*/cluster-command/cluster-command.sh . ; rm -rf BradleyA-Linux-admin-*
 
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
