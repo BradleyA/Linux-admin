@@ -1,8 +1,8 @@
 #!/bin/bash
+# 	cluster-command.sh  1.15.90  2018-03-14_21:05:05_CDT  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 1.14-12-g2c16a3b  
+# 	   modify command download in README 
 # 	cluster-command.sh  1.14.77  2018-03-10_20:54:45_CST  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 1.13-16-gd9756b6  
 # 	   cluster-command.txt mv to SYSTEMS file and change location to /usr/local/data/cluster-1 closes #9 
-# 	cluster-command.sh	1.13.60	2018-02-23_16:24:00_CST uadmin one-rpi3b.cptx86.com 1.12-8-gdb44df7 
-# 	   debug new commands on two cluster 
 #
 #	set -x
 #	set -v
