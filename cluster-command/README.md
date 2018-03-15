@@ -53,7 +53,7 @@ To clone, change to the directory you want to download the script, README, and h
 ## Usage
     $ cluster-command.sh require-upgrade
 
-## Data
+## Data File
     /usr/local/data/cluster-1/SYSTEMS
 
 ## Output
