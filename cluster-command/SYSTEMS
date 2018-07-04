@@ -3,6 +3,10 @@
 #	   cluster-command.txt mv to SYSTEMS file and change location to /usr/local/data/cluster-1 closes #9 
 #
 #       One FQDN host on each line
+#
+#       example: A typical Amazon EC2 private DNS name looks something like this:
+#                ip-12-34-56-78.us-west-2.compute.internal
+#                where the name consists of the internal domain
 ###
 #  -> Raspberry Pi cluster 1
 one-rpi3b.cptx86.com
