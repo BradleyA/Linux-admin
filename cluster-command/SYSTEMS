@@ -8,8 +8,7 @@
 #                ip-12-34-56-78.us-west-2.compute.internal
 #                where the name consists of the internal domain,
 #                the service (in this case, compute),
-#                the region, and a form of the private IPv4 address.omain
-#                
+#                the region, and a form of the private IPv4 address.             
 ###
 #  -> Raspberry Pi cluster 1
 one-rpi3b.cptx86.com
