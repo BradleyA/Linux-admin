@@ -2,7 +2,7 @@
 
 This script runs a command from a set of predefined commands on several hosts.  
 
-The hostnames are found in a file (/usr/local/data/cluster-1/SYSTEMS) with one hostname per line.  Lines in this file that begin with a # are comments.  The defualt location for this cluster host file, SYSTEMS, is /usr/local/data/cluster-1.  A different path and SYSTEMS file can be entered on the command line as the second argument.
+The hostnames are found in a file (/usr/local/data/us-tx-cluster-1/SYSTEMS) with one hostname per line.  Lines in this file that begin with a # are comments.  The defualt location for this cluster host file, SYSTEMS, is /usr/local/data/us-tx-cluster-1.  A different path and SYSTEMS file can be entered on the command line as the second argument.
 
 Example of first argument, predefind commands (enter 'cluster-command -h' for latest list)
 
@@ -45,16 +45,16 @@ To clone, change to the directory you want to download the script, README, and h
     mkdir -p /usr/local/bin
     mv cluster-command /usr/local/bin
     
-    mkdir -p /usr/local/data/cluster-1
-    mv SYSTEMS /usr/local/data/cluster-1/
+    mkdir -p /usr/local/data/us-tx-cluster-1
+    mv SYSTEMS /usr/local/data/us-tx-cluster-1/
 
-     <edit> /usr/local/data/cluster-1/SYSTEMS
+     <edit> /usr/local/data/us-tx-cluster-1/SYSTEMS
 
 ## Usage
     $ cluster-command.sh require-upgrade
 
 ## Data File
-    /usr/local/data/cluster-1/SYSTEMS
+    /usr/local/data/us-tx-cluster-1/SYSTEMS
 
 ## Output
       -->  one-rpi3b.cptx86.com
