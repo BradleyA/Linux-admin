@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command.sh  1.17.100  2018-07-27_18:33:29_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 1.16-8-g6229d6b  
+# 	   change default directory name to /usr/local/data/us-tx-cluster-1/SYSTEMS to support scaling this process 
 # 	cluster-command.sh  1.16.91  2018-03-18_13:17:40_CDT  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 1.15  
 # 	   added require-update to require-upgrade 
 # 	cluster-command.sh  1.15.90  2018-03-14_21:05:05_CDT  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 1.14-12-g2c16a3b  
@@ -61,7 +63,7 @@ echo    "                       required' ; else echo 'no reboot required' ; fi"
 echo    "      require-upgrade - /usr/lib/update-notifier/apt-check --human-readable" # not sure this is the correct command becasue one-rpi3b stated no upgrade but then did eight upgrades
 echo    "      upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Inst'"
 echo    "                        apt list --upgradeable -> does not work on Ubuntu 14.04"
-echo    "   HOSTFILE     File with hostnames, default /usr/local/data/cluster-1/SYSTEMS"
+echo    "   HOSTFILE     File with hostnames, default /usr/local/data/us-tx-cluster-1/SYSTEMS"
 echo    "   SSHPORT      SSH server port, default is port 22"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/cluster-command"
 echo -e "\nEXAMPLES\n   Shutdown raspberry pi clusters\n\t${0} shutdown\n"
@@ -78,7 +80,7 @@ fi
 #	execpt only commands in case statement
 REMOTECOMMAND=${1:-""}
 #	open issues :add argument or flag argument for a single host and not use SYSTEMS file to execute a new command or a commad defined in this file
-HOSTFILE=${2:-"/usr/local/data/cluster-1/SYSTEMS"}
+HOSTFILE=${2:-"/usr/local/data/us-tx-cluster-1/SYSTEMS"}
 SSHPORT=${3:-22}
 LOCALHOST=`hostname -f`
 BOLD=$(tput bold)
