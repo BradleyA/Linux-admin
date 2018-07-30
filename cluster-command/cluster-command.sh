@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command.sh  1.20.105  2018-07-30_18:22:11_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 1.19  
+# 	   poweroff did not turn off the power on the raspberry pi close #11 
 # 	cluster-command.sh  1.19.104  2018-07-30_17:28:12_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 1.18  
 # 	   test to see if these option will power off the Raspberry pi #11 
 # 	cluster-command.sh  1.18.103  2018-07-30_12:14:43_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 1.17-2-g679ac99  
@@ -33,8 +35,7 @@ echo    "second argument."
 echo -e "\nOPTIONS "
 echo    "   PREDEFINED-COMMAND"
 echo    "      shutdown       - sudo shutdown -f now"
-echo    "      reboot         - sudo reboot"
-echo -e "      poweroff       - wall 'System power off, now';sync;sync;sync;sudo poweroff --force --poweroff\n"
+echo -e "      reboot         - sudo reboot\n"
 echo    "      os             - lsb_release -d"
 echo    "      cpu            - lscpu"
 echo    "      date           - date"
@@ -103,9 +104,6 @@ case ${REMOTECOMMAND} in
 		;;
 	reboot)
 		REMOTECOMMAND="sudo reboot"
-		;;
-	poweroff)
-		REMOTECOMMAND="wall 'System power off, now';sync;sync;sync;sudo poweroff --force --poweroff"
 		;;
 	OS|os)
 		REMOTECOMMAND="lsb_release -d"
