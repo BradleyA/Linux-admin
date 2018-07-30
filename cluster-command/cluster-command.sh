@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command.sh  1.18.103  2018-07-30_12:14:43_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 1.17-2-g679ac99  
+# 	   #11 changed order of options, updated help, added poweroff 
 # 	cluster-command.sh  1.17.100  2018-07-27_18:33:29_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 1.16-8-g6229d6b  
 # 	   change default directory name to /usr/local/data/us-tx-cluster-1/SYSTEMS to support scaling this process 
 # 	cluster-command.sh  1.16.91  2018-03-18_13:17:40_CDT  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 1.15  
@@ -16,20 +18,21 @@
 ###		
 display_help() {
 echo -e "\n${0} - remote cluster system adminstration tool"
-echo -e "\nUSAGE\n   ${0} [<predefind-command>] [<path>/SYSTEMS]"
+echo -e "\nUSAGE\n   ${0} [<PREDEFINED-COMMAND>] [<SSHPORT>] [<path>/<HOSTFILE>]"
 echo    "   ${0} [--help | -help | help | -h | h | -? | ?] [--version | -v]"
 echo -e "\nDESCRIPTION\nThis script runs a command from a set of predefined commands on hosts."
 echo    "The hostnames of the hosts are found in a file with one FQDN or IP address per"
 echo    "line for all hosts in a cluster.  Lines in SYSTEMS file that begin with a # are"
 echo    "comments.  The defualt location for this cluster command host file, SYSTEMS, is"
-echo    "/usr/local/data/${CLUSTER}.  The SYSTEMS file is used by Linux-admin/"
-echo    "cluster-command.sh & pi-display/create-message.sh.  A different path and"
-echo    "cluster command host file can be entered on the command line as the second"
-echo    "argument."
+echo    "/usr/local/data/us-tx-cluster-1/SYSTEMS.  The SYSTEMS file is used by"
+echo    "Linux-admin/cluster-command.sh & pi-display/create-message.sh.  A different"
+echo    "path and cluster command host file can be entered on the command line as the"
+echo    "second argument."
 echo -e "\nOPTIONS "
-echo    "   List of predefind commands:"
+echo    "   PREDEFINED-COMMAND"
 echo    "      shutdown       - sudo shutdown -f now"
-echo -e "      reboot         - sudo reboot\n"
+echo    "      reboot         - sudo reboot"
+echo -e "      poweroff       - wall 'System power off, now';sync;sync;sync;sudo poweroff\n"
 echo    "      os             - lsb_release -d"
 echo    "      cpu            - lscpu"
 echo    "      date           - date"
@@ -63,8 +66,8 @@ echo    "                       required' ; else echo 'no reboot required' ; fi"
 echo    "      require-upgrade - /usr/lib/update-notifier/apt-check --human-readable" # not sure this is the correct command becasue one-rpi3b stated no upgrade but then did eight upgrades
 echo    "      upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Inst'"
 echo    "                        apt list --upgradeable -> does not work on Ubuntu 14.04"
-echo    "   HOSTFILE     File with hostnames, default /usr/local/data/us-tx-cluster-1/SYSTEMS"
 echo    "   SSHPORT      SSH server port, default is port 22"
+echo    "   HOSTFILE     File with hostnames, default /usr/local/data/us-tx-cluster-1/SYSTEMS"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/cluster-command"
 echo -e "\nEXAMPLES\n   Shutdown raspberry pi clusters\n\t${0} shutdown\n"
 }
@@ -80,8 +83,8 @@ fi
 #	execpt only commands in case statement
 REMOTECOMMAND=${1:-""}
 #	open issues :add argument or flag argument for a single host and not use SYSTEMS file to execute a new command or a commad defined in this file
-HOSTFILE=${2:-"/usr/local/data/us-tx-cluster-1/SYSTEMS"}
-SSHPORT=${3:-22}
+SSHPORT=${2:-22}
+HOSTFILE=${3:-"/usr/local/data/us-tx-cluster-1/SYSTEMS"}
 LOCALHOST=`hostname -f`
 BOLD=$(tput bold)
 NORMAL=$(tput sgr0)
@@ -98,6 +101,9 @@ case ${REMOTECOMMAND} in
 		;;
 	reboot)
 		REMOTECOMMAND="sudo reboot"
+		;;
+	poweroff)
+		REMOTECOMMAND="wall 'System power off, now';sync;sync;sync;sudo poweroff"
 		;;
 	OS|os)
 		REMOTECOMMAND="lsb_release -d"
