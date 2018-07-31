@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  1.21.106  2018-07-30_19:07:28_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 1.20  
+# 	   add port option -p to ssh command 
 # 	cluster-command.sh  1.20.105  2018-07-30_18:22:11_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 1.19  
 # 	   poweroff did not turn off the power on the raspberry pi close #11 
 # 	cluster-command.sh  1.19.104  2018-07-30_17:28:12_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 1.18  
@@ -209,7 +211,7 @@ for NODE in ${REMOTEHOST} ; do
 	if [ "${LOCALHOST}" != "${NODE}" ] ; then
 #       Check if ${REMOTEHOST} is available on port ${SSHPORT}
 		if $(nc -z  ${NODE} ${SSHPORT} >/dev/null) ; then
-			ssh -t ${USER}@${NODE} ${REMOTECOMMAND} 
+			ssh -t ${USER}@${NODE} -p ${SSHPORT} ${REMOTECOMMAND} 
 		else
         		echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARN${NORMAL}]:	${NODE} not responding on port ${SSHPORT}.\n"	1>&2
 		fi
