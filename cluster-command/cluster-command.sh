@@ -1,8 +1,8 @@
 #!/bin/bash
+# 	cluster-command.sh  2.01.108  2018-08-12_12:51:12_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 2.00  
+# 	   sync to standard script design changes 
 # 	cluster-command.sh  2.00.107  2018-08-10_14:54:54_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 1.21  
 # 	   remote -p 22 because ssh port number is controlled by ~/.ssh/config file 
-# 	cluster-command/cluster-command.sh  1.21.106  2018-07-30_19:07:28_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 1.20  
-# 	   add port option -p to ssh command 
 ###
 #	administration cluster commands for Raspberry Pi and x86 clusters
 #	   ssh $USER@$NODE-rpi3b.$DOMAIN 'sudo shutdown -f now';
@@ -16,7 +16,8 @@ NORMAL=$(tput sgr0)
 display_help() {
 echo -e "\n${NORMAL}${0} - remote cluster system adminstration tool"
 echo -e "\nUSAGE\n   ${0} [<PREDEFINED-COMMAND>] [<path>/<HOSTFILE>]"
-echo    "   ${0} [--help | -help | help | -h | h | -? | ?] [--version | -v]"
+echo    "   ${0} [--help | -help | help | -h | h | -? | ?]"
+echo    "   ${0} [--version | -version | -v]"
 echo -e "\nDESCRIPTION\nThis script runs a command from a set of predefined commands on hosts."
 echo    "The hostnames of the hosts are found in a file with one FQDN or IP address per"
 echo    "line for all hosts in a cluster.  Lines in SYSTEMS file that begin with a # are"
@@ -65,6 +66,9 @@ echo    "                        apt list --upgradeable -> does not work on Ubun
 echo    "   HOSTFILE     File with hostnames, default /usr/local/data/us-tx-cluster-1/SYSTEMS"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/cluster-command"
 echo -e "\nEXAMPLES\n   Shutdown raspberry pi clusters\n\t${0} shutdown\n"
+if ! [ "${LANG}" == "en_US.UTF-8" ] ; then
+        echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:     Your language, ${LANG}, is not supported.\n\tWould you like to help?\n" 1>&2
+fi
 }
 if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] || [ "$1" == "?" ] ; then
         display_help
@@ -80,6 +84,7 @@ REMOTECOMMAND=${1:-""}
 #	open issues :add argument or flag argument for a single host and not use SYSTEMS file to execute a new command or a commad defined in this file
 HOSTFILE=${2:-"/usr/local/data/us-tx-cluster-1/SYSTEMS"}
 LOCALHOST=`hostname -f`
+if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  REMOTECOMMAND <${REMOTECOMMAND}< HOSTFILE >${HOSTFILE}<" 1>&2 ; fi
 #       Check for ${HOSTFILE} file
 if [ ! -e ${HOSTFILE} ] ; then
         echo -e "${0} ${LINENO} [WARN]:        ${HOSTFILE} NOT found"   1>&2
