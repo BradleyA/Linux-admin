@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.02.109  2018-08-15_16:08:28_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 2.01  
+# 	   add # of upgrades requirted after apt-get update 
 # 	cluster-command.sh  2.01.108  2018-08-12_12:51:12_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 2.00  
 # 	   sync to standard script design changes 
 # 	cluster-command.sh  2.00.107  2018-08-10_14:54:54_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 1.21  
@@ -54,8 +56,12 @@ echo    "      clean-docker-vol	- docker volume rm \$(docker volume ls --filter 
 echo    "      prune-docker-net	- docker network prune"
 echo    "      prune-docker-vol	- docker volume prune"
 echo -e "      prune-docker-all	- docker system prune\n"
-echo    "      update         - sudo apt-get update"
-echo    "      upgrade        - sudo apt-get upgrade --assume-yes"
+echo    "      update         - sudo apt-get update ;"
+echo    "                      /usr/lib/update-notifier/apt-check --human-readable"
+echo    "      upgrade        - sudo apt-get upgrade --assume-yes ;"
+echo    "                       if [ -f /var/run/reboot-required ] ; then"
+echo    "                       echo 'reboot required' ; else"
+echo    "                       echo 'no reboot required' ; fi"
 echo    "      dist-upgrade   - sudo apt-get dist-upgrade --assume-yes"
 echo    "      autoremove     - sudo apt-get autoremove --assume-yes"
 echo    "      require-reboot - if [ -f /var/run/reboot-required ]; then echo 'reboot"
@@ -172,10 +178,10 @@ case ${REMOTECOMMAND} in
 		REMOTECOMMAND="docker system prune"
 		;;
 	update)
-		REMOTECOMMAND="sudo apt-get update"
+		REMOTECOMMAND="sudo apt-get update ; /usr/lib/update-notifier/apt-check --human-readable"
 		;;
 	upgrade)
-		REMOTECOMMAND="sudo apt-get upgrade --assume-yes"
+		REMOTECOMMAND="sudo apt-get upgrade --assume-yes ; if [ -f /var/run/reboot-required ]; then echo 'reboot required' ; else echo 'no reboot required' ; fi"
 		;;
 	dist-upgrade)
 		REMOTECOMMAND="sudo apt-get dist-upgrade --assume-yes"
