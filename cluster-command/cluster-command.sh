@@ -1,10 +1,10 @@
 #!/bin/bash
+# 	cluster-command.sh  2.04.111  2018-08-15_21:14:08_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 2.03  
+# 	   format output 
 # 	cluster-command.sh  2.03.110  2018-08-15_21:11:06_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 2.02  
 # 	   format output for apt-get upgrade 
 # 	cluster-command/cluster-command.sh  2.02.109  2018-08-15_16:08:28_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 2.01  
 # 	   add # of upgrades requirted after apt-get update 
-# 	cluster-command.sh  2.01.108  2018-08-12_12:51:12_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 2.00  
-# 	   sync to standard script design changes 
 # 	cluster-command.sh  2.00.107  2018-08-10_14:54:54_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 1.21  
 # 	   remote -p 22 because ssh port number is controlled by ~/.ssh/config file 
 ###
@@ -183,7 +183,7 @@ case ${REMOTECOMMAND} in
 		REMOTECOMMAND="sudo apt-get update ; /usr/lib/update-notifier/apt-check --human-readable"
 		;;
 	upgrade)
-		REMOTECOMMAND="sudo apt-get upgrade --assume-yes ; if [ -f /var/run/reboot-required ]; then echo -e '\nreboot required' ; else echo -e '\nno reboot required' ; fi"
+		REMOTECOMMAND="sudo apt-get upgrade --assume-yes ; if [ -f /var/run/reboot-required ]; then echo -e '\nreboot required\n' ; else echo -e '\nno reboot required\n' ; fi"
 		;;
 	dist-upgrade)
 		REMOTECOMMAND="sudo apt-get dist-upgrade --assume-yes"
