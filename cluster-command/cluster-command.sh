@@ -55,7 +55,7 @@ echo    "      clean-docker-vol	- docker volume rm \$(docker volume ls --filter 
 echo    "      prune-docker-net	- docker network prune"
 echo    "      prune-docker-vol	- docker volume prune"
 echo -e "      prune-docker-all	- docker system prune\n"
-echo    "      showhold       - apt-mark showhold\n"
+echo    "      showhold       - apt-mark showhold"
 echo    "      update         - sudo apt-get update ;"
 echo    "                       /usr/lib/update-notifier/apt-check --human-readable"
 echo    "      upgrade        - sudo apt-get upgrade --assume-yes ;"
