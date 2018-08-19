@@ -49,7 +49,6 @@ Example of first argument, predefind commands (enter 'cluster-command -h' for la
 
 HOSTFILE     Other file with hostnames, default /usr/local/bin/cluster-command.txt
 
-SSHPORT      SSH server port, default is port 22
 
 ## Clone
 
