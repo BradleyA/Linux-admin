@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	cluster-command.sh  2.05.112  2018-08-15_21:16:48_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 2.04  
-# 	   format output 
-# 	cluster-command.sh  2.04.111  2018-08-15_21:14:08_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 2.03  
-# 	   format output 
+# 	cluster-command.sh  2.06.115  2018-08-19_18:14:56_CDT  https://github.com/BradleyA/Linux-admin  uthree  three.cptx86.com 2.05-2-ge7edc34  
+# 	   updated --help 
 # 	cluster-command/cluster-command.sh  2.02.109  2018-08-15_16:08:28_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 2.01  
 # 	   add # of upgrades requirted after apt-get update 
 # 	cluster-command.sh  2.00.107  2018-08-10_14:54:54_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 1.21  
@@ -42,8 +40,7 @@ echo    "      last           - lastlog | grep -v '**Never logged in**'"
 echo    "      who            - who"
 echo    "      ip             - ip a"
 echo    "      netstat        - sudo netstat -natup"
-echo    "      uptime         - uptime"
-echo -e "      showhold       - apt-mark showhold\n"
+echo -e "      uptime         - uptime\n"
 echo    "      docker-version - docker version | grep -m 1 'Version:'"
 echo    "      docker-release - grep docker /etc/apt/sources.list"
 echo    "      docker-df      - docker system df"
@@ -58,8 +55,9 @@ echo    "      clean-docker-vol	- docker volume rm \$(docker volume ls --filter 
 echo    "      prune-docker-net	- docker network prune"
 echo    "      prune-docker-vol	- docker volume prune"
 echo -e "      prune-docker-all	- docker system prune\n"
+echo    "      showhold       - apt-mark showhold\n"
 echo    "      update         - sudo apt-get update ;"
-echo    "                      /usr/lib/update-notifier/apt-check --human-readable"
+echo    "                       /usr/lib/update-notifier/apt-check --human-readable"
 echo    "      upgrade        - sudo apt-get upgrade --assume-yes ;"
 echo    "                       if [ -f /var/run/reboot-required ] ; then"
 echo    "                       echo 'reboot required' ; else"
@@ -71,7 +69,9 @@ echo    "                       required' ; else echo 'no reboot required' ; fi"
 echo    "      require-upgrade - /usr/lib/update-notifier/apt-check --human-readable" # >>> not sure this is the correct command becasue one-rpi3b stated no upgrade but then did eight upgrades
 echo    "      upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Inst'"
 echo    "                        apt list --upgradeable -> does not work on Ubuntu 14.04"
-echo    "   HOSTFILE     File with hostnames, default /usr/local/data/us-tx-cluster-1/SYSTEMS"
+echo -e "\nOPTIONS\n"
+echo    " >>>  REMOTECOMMAND   >>> this does not work, requires more design and testing"
+echo    " >>>  HOSTFILE        >>> File with hostnames, default /usr/local/data/us-tx-cluster-1/SYSTEMS"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/cluster-command"
 echo -e "\nEXAMPLES\n   Shutdown raspberry pi clusters\n\t${0} shutdown\n"
 if ! [ "${LANG}" == "en_US.UTF-8" ] ; then
