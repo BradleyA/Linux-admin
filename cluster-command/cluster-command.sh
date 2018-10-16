@@ -1,10 +1,6 @@
 #!/bin/bash
-# 	cluster-command.sh  2.09.119  2018-10-15T19:49:02-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.08  
-# 	   update display_help 
-# 	cluster-command.sh  2.08.118  2018-10-15T19:39:53-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.07  
-# 	   Change echo or print DEBUG INFO WARNING ERROR #13 
-# 	cluster-command.sh  2.07.117  2018-10-15T19:30:07-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.06-1-g3bc75fb  
-# 	   Change echo or print DEBUG INFO WARNING ERROR #13 
+# 	cluster-command.sh  2.10.120  2018-10-15T20:03:22-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.09  
+# 	   Change echo or print DEBUG INFO WARNING ERROR close #13 
 #
 ###	cluster-command.sh - remote cluster system adminstration tool
 #	administration cluster commands for Raspberry Pi and x86 clusters
@@ -142,7 +138,7 @@ if [ $# -ge  3 ]  ; then DATA_DIR=${1} ; elif [ "${DATA_DIR}" == "" ] ; then DAT
 #       order of precedence: CLI argument, environment variable, default code
 if [ $# -ge  4 ]  ; then SYSTEMS_FILE=${5} ; elif [ "${SYSTEMS_FILE}" == "" ] ; then SYSTEMS_FILE="SYSTEMS" ; fi
 #
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[DEBUG]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  CLUSTER >${CLUSTER}<  DATA_DIR >${DATA_DIR}  SYSTEMS_FILE ${SYSTEMS_FILE} REMOTECOMMAND <${REMOTECOMMAND}" 1>&2 ; fi
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[DEBUG]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  CLUSTER >${CLUSTER}<  DATA_DIR >${DATA_DIR}<  SYSTEMS_FILE ${SYSTEMS_FILE} REMOTECOMMAND >${REMOTECOMMAND}<" 1>&2 ; fi
 
 #       Check for /${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} file
 if [ ! -e /${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] ; then
@@ -267,5 +263,5 @@ for NODE in ${REMOTEHOST} ; do
 	fi
 done
 #
-get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[INFO]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Done." 1>&2
+get_date_stamp ; echo -e "\n${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[INFO]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Done." 1>&2
 ###
