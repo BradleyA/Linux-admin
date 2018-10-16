@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command.sh  2.09.119  2018-10-15T19:49:02-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.08  
+# 	   update display_help 
 # 	cluster-command.sh  2.08.118  2018-10-15T19:39:53-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.07  
 # 	   Change echo or print DEBUG INFO WARNING ERROR #13 
 # 	cluster-command.sh  2.07.117  2018-10-15T19:30:07-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.06-1-g3bc75fb  
@@ -16,17 +18,29 @@ NORMAL=$(tput sgr0)
 ###		
 display_help() {
 echo -e "\n${NORMAL}${0} - remote cluster system adminstration tool"
-echo -e "\nUSAGE\n   ${0} [<PREDEFINED-COMMAND>] [<path>/<HOSTFILE>]"
-echo    "   ${0} [--help | -help | help | -h | h | -? | ?]"
+echo -e "\nUSAGE\n   ${0} [<PREDEFINED-COMMAND>] [<CLUSTER>] [<DATA_DIR>] [SYSTEMS_FILE]"
+echo    "   ${0} [--help | -help | help | -h | h | -?]"
 echo    "   ${0} [--version | -version | -v]"
 echo -e "\nDESCRIPTION\nThis script runs a command from a set of predefined commands on hosts."
-echo    "The hostnames of the hosts are found in a file with one FQDN or IP address per"
-echo    "line for all hosts in a cluster.  Lines in SYSTEMS file that begin with a # are"
-echo    "comments.  The defualt location for this cluster command host file, SYSTEMS, is"
-echo    "/usr/local/data/us-tx-cluster-1/SYSTEMS.  The SYSTEMS file is used by"
-echo    "Linux-admin/cluster-command.sh & pi-display/create-message.sh.  A different"
-echo    "path and cluster command host file can be entered on the command line as the"
-echo    "second argument."
+echo -e "\nThis script reads /usr/local/data/us-tx-cluster-1/SYSTEMS file for hosts."
+echo    "The hosts are one FQDN or IP address per line for all hosts in a cluster."
+echo    "Lines in SYSTEMS file that begin with a # are comments.  The SYSTEMS file is"
+echo    "used by Linux-admin/cluster-command/cluster-command.sh, markit/find-code.sh,"
+echo    "pi-display/create-message/create-message.sh, and other scripts.  A different"
+echo    "SYSTEMS file can be entered on the command line or environment variable."
+echo -e "\nTo avoid many login prompts for each host in a cluster, enter the following:"
+echo    "${BOLD}ssh-copy-id uadmin@<host-name>${NORMAL} to each host in the SYSTEMS file."
+echo -e "\nEnvironment Variables"
+echo    "If using the bash shell, enter; export CLUSTER='us-west1' on the command"
+echo    "line to set the CLUSTER environment variable to 'us-west1'.  Use the command,"
+echo    "unset CLUSTER to remove the exported information from the CLUSTER environment"
+echo    "variable.  To set an environment variable to be defined at login, add it to"
+echo    "~/.bashrc file or you can modify this script with your default location for"
+echo    "CLUSTER, DATA_DIR, and SYSTEMS_FILE.  You are on your own defining environment"
+echo    "variables if you are using other shells."
+echo    "   CLUSTER       (default us-tx-cluster-1/)"
+echo    "   DATA_DIR      (default /usr/local/data/)"
+echo    "   SYSTEMS_FILE  (default SYSTEMS)"
 echo -e "\nOPTIONS "
 echo    "   PREDEFINED-COMMAND"
 echo    "      shutdown       - sudo shutdown -f now"
