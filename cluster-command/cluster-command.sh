@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command.sh  2.11.121  2018-10-15T20:14:59-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.10  
+# 	   create a setup script for SYSTEMS etc close #10 
 # 	cluster-command.sh  2.10.120  2018-10-15T20:03:22-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.09  
 # 	   Change echo or print DEBUG INFO WARNING ERROR close #13 
 #
@@ -140,13 +142,16 @@ if [ $# -ge  4 ]  ; then SYSTEMS_FILE=${5} ; elif [ "${SYSTEMS_FILE}" == "" ] ; 
 #
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[DEBUG]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  CLUSTER >${CLUSTER}<  DATA_DIR >${DATA_DIR}<  SYSTEMS_FILE ${SYSTEMS_FILE} REMOTECOMMAND >${REMOTECOMMAND}<" 1>&2 ; fi
 
-#       Check for /${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} file
-if [ ! -e /${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] ; then
-	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[ERROR]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  /${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} NOT found" 1>&2 
-        exit 1
+#       Check if ${SYSTEMS_FILE} file is on system, one FQDN or IP address per line for all hosts in cluster
+if ! [ -e ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] || ! [ -s ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] ; then
+        get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  ${BOLD}${SYSTEMS_FILE} file missing or empty, creating ${SYSTEMS_FILE} file with local host.  Edit ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} file and add additional hosts that are in the cluster.${NORMAL}" 1>&2
+        echo -e "###     List of hosts used by cluster-command.sh & create-message.sh"  > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+        echo -e "#       One FQDN or IP address per line for all hosts in cluster" > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+        echo -e "###" > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+        hostname -f > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
 fi
 
-REMOTEHOST=`grep -v "#" /${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}`
+REMOTEHOST=`grep -v "#" ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}`
 ###
 case ${REMOTECOMMAND} in
 	shutdown)
