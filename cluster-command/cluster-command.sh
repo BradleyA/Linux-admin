@@ -1,12 +1,8 @@
 #!/bin/bash
+# 	cluster-command.sh  2.08.118  2018-10-15T19:39:53-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.07  
+# 	   Change echo or print DEBUG INFO WARNING ERROR #13 
 # 	cluster-command.sh  2.07.117  2018-10-15T19:30:07-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.06-1-g3bc75fb  
 # 	   Change echo or print DEBUG INFO WARNING ERROR #13 
-# 	cluster-command.sh  2.06.115  2018-08-19_18:14:56_CDT  https://github.com/BradleyA/Linux-admin  uthree  three.cptx86.com 2.05-2-ge7edc34  
-# 	   updated --help 
-# 	cluster-command/cluster-command.sh  2.02.109  2018-08-15_16:08:28_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 2.01  
-# 	   add # of upgrades requirted after apt-get update 
-# 	cluster-command.sh  2.00.107  2018-08-10_14:54:54_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 1.21  
-# 	   remote -p 22 because ssh port number is controlled by ~/.ssh/config file 
 #
 ###	cluster-command.sh - remote cluster system adminstration tool
 #	administration cluster commands for Raspberry Pi and x86 clusters
@@ -130,7 +126,7 @@ if [ $# -ge  2 ]  ; then CLUSTER=${2} ; elif [ "${CLUSTER}" == "" ] ; then CLUST
 #       Order of precedence: CLI argument, environment variable, default code
 if [ $# -ge  3 ]  ; then DATA_DIR=${1} ; elif [ "${DATA_DIR}" == "" ] ; then DATA_DIR="/usr/local/data/" ; fi
 #       order of precedence: CLI argument, environment variable, default code
-if [ $# -ge  5 ]  ; then SYSTEMS_FILE=${5} ; elif [ "${SYSTEMS_FILE}" == "" ] ; then SYSTEMS_FILE="SYSTEMS" ; fi
+if [ $# -ge  4 ]  ; then SYSTEMS_FILE=${5} ; elif [ "${SYSTEMS_FILE}" == "" ] ; then SYSTEMS_FILE="SYSTEMS" ; fi
 #
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[DEBUG]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  CLUSTER >${CLUSTER}<  DATA_DIR >${DATA_DIR}  SYSTEMS_FILE ${SYSTEMS_FILE} REMOTECOMMAND <${REMOTECOMMAND}" 1>&2 ; fi
 
@@ -243,7 +239,7 @@ case ${REMOTECOMMAND} in
 		REMOTECOMMAND="apt-get upgrade --simulate  | grep -vE 'Conf|Inst'"
 		;;
 	*)
-		echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}INFO${NORMAL}]:	${REMOTECOMMAND} - NOT a supported command"
+		get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[INFO]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  ${REMOTECOMMAND} - NOT a supported command" 1>&2
 		exit 0
 		;;
 esac
