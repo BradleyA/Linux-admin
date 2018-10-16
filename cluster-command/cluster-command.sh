@@ -1,11 +1,14 @@
 #!/bin/bash
+# 	cluster-command.sh  2.07.117  2018-10-15T19:30:07-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.06-1-g3bc75fb  
+# 	   Change echo or print DEBUG INFO WARNING ERROR #13 
 # 	cluster-command.sh  2.06.115  2018-08-19_18:14:56_CDT  https://github.com/BradleyA/Linux-admin  uthree  three.cptx86.com 2.05-2-ge7edc34  
 # 	   updated --help 
 # 	cluster-command/cluster-command.sh  2.02.109  2018-08-15_16:08:28_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 2.01  
 # 	   add # of upgrades requirted after apt-get update 
 # 	cluster-command.sh  2.00.107  2018-08-10_14:54:54_CDT  https://github.com/BradleyA/Linux-admin  uadmin  three-rpi3b.cptx86.com 1.21  
 # 	   remote -p 22 because ssh port number is controlled by ~/.ssh/config file 
-###
+#
+###	cluster-command.sh - remote cluster system adminstration tool
 #	administration cluster commands for Raspberry Pi and x86 clusters
 #	   ssh $USER@$NODE-rpi3b.$DOMAIN 'sudo shutdown -f now';
 ###
@@ -74,31 +77,70 @@ echo    " >>>  REMOTECOMMAND   >>> this does not work, requires more design and 
 echo    " >>>  HOSTFILE        >>> File with hostnames, default /usr/local/data/us-tx-cluster-1/SYSTEMS"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/cluster-command"
 echo -e "\nEXAMPLES\n   Shutdown raspberry pi clusters\n\t${0} shutdown\n"
+#       After displaying help in english check for other languages
 if ! [ "${LANG}" == "en_US.UTF-8" ] ; then
-        echo -e "${NORMAL}${0} ${LINENO} [${BOLD}WARNING${NORMAL}]:     Your language, ${LANG}, is not supported.\n\tWould you like to help?\n" 1>&2
+        get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Your language, ${LANG}, is not supported, Would you like to help translate?" 1>&2
+#       elif [ "${LANG}" == "fr_CA.UTF-8" ] ; then
+#               get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Display help in ${LANG}" 1>&2
+#       else
+#               get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Your language, ${LANG}, is not supported.\tWould you like to translate?" 1>&2
 fi
 }
-if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] || [ "$1" == "?" ] ; then
+
+#       Date and time function ISO 8601
+get_date_stamp() {
+DATE_STAMP=`date +%Y-%m-%dT%H:%M:%S%:z`
+TEMP=`date +%Z`
+DATE_STAMP=`echo "${DATE_STAMP} (${TEMP})"`
+}
+
+#       Fully qualified domain name FQDN hostname
+LOCALHOST=`hostname -f`
+
+#       Version
+SCRIPT_NAME=`head -2 ${0} | awk {'printf$2'}`
+SCRIPT_VERSION=`head -2 ${0} | awk {'printf$3'}`
+
+#       UID and GID
+USER_ID=`id -u`
+GROUP_ID=`id -g`
+
+#       Default help and version arguments
+if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] ; then
         display_help
         exit 0
 fi
 if [ "$1" == "--version" ] || [ "$1" == "-version" ] || [ "$1" == "version" ] || [ "$1" == "-v" ] ; then
-        head -2 ${0} | awk {'print$2"\t"$3'}
+        echo "${SCRIPT_NAME} ${SCRIPT_VERSION}"
         exit 0
 fi
+
+#       INFO
+get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[INFO]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Begin" 1>&2
+
+#       DEBUG
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[DEBUG]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Name_of_command >${0}< Name_of_arg1 >${1}<" 1>&2 ; fi
+
 ###
-#	execpt only commands in case statement
+#	Execpt only commands in case statement
 REMOTECOMMAND=${1:-""}
-#	open issues :add argument or flag argument for a single host and not use SYSTEMS file to execute a new command or a commad defined in this file
-HOSTFILE=${2:-"/usr/local/data/us-tx-cluster-1/SYSTEMS"}
-LOCALHOST=`hostname -f`
-if [ "${DEBUG}" == "1" ] ; then echo -e "> DEBUG ${LINENO}  REMOTECOMMAND <${REMOTECOMMAND}< HOSTFILE >${HOSTFILE}<" 1>&2 ; fi
-#       Check for ${HOSTFILE} file
-if [ ! -e ${HOSTFILE} ] ; then
-        echo -e "${0} ${LINENO} [WARN]:        ${HOSTFILE} NOT found"   1>&2
-        exit 0
+
+#       Order of precedence: CLI argument, environment variable, default code
+if [ $# -ge  2 ]  ; then CLUSTER=${2} ; elif [ "${CLUSTER}" == "" ] ; then CLUSTER="us-tx-cluster-1/" ; fi
+#       Order of precedence: CLI argument, environment variable, default code
+if [ $# -ge  3 ]  ; then DATA_DIR=${1} ; elif [ "${DATA_DIR}" == "" ] ; then DATA_DIR="/usr/local/data/" ; fi
+#       order of precedence: CLI argument, environment variable, default code
+if [ $# -ge  5 ]  ; then SYSTEMS_FILE=${5} ; elif [ "${SYSTEMS_FILE}" == "" ] ; then SYSTEMS_FILE="SYSTEMS" ; fi
+#
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[DEBUG]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  CLUSTER >${CLUSTER}<  DATA_DIR >${DATA_DIR}  SYSTEMS_FILE ${SYSTEMS_FILE} REMOTECOMMAND <${REMOTECOMMAND}" 1>&2 ; fi
+
+#       Check for /${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} file
+if [ ! -e /${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] ; then
+	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[ERROR]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  /${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} NOT found" 1>&2 
+        exit 1
 fi
-REMOTEHOST=`grep -v "#" ${HOSTFILE}`
+
+REMOTEHOST=`grep -v "#" /${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}`
 ###
 case ${REMOTECOMMAND} in
 	shutdown)
@@ -214,5 +256,6 @@ for NODE in ${REMOTEHOST} ; do
 		eval ${REMOTECOMMAND}
 	fi
 done
-echo -e "\n${NORMAL}${0} ${LINENO} [${BOLD}INFO${NORMAL}]:	Done.\n"	1>&2
+#
+get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[INFO]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Done." 1>&2
 ###
