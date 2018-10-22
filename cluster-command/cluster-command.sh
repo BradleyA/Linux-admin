@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.12.122  2018-10-21T23:57:50-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.11  
+# 	   added nano seconds to time 
 # 	cluster-command.sh  2.11.121  2018-10-15T20:14:59-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.10  
 # 	   create a setup script for SYSTEMS etc close #10 
 # 	cluster-command.sh  2.10.120  2018-10-15T20:03:22-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.09  
@@ -97,7 +99,7 @@ fi
 
 #       Date and time function ISO 8601
 get_date_stamp() {
-DATE_STAMP=`date +%Y-%m-%dT%H:%M:%S%:z`
+DATE_STAMP=`date +%Y-%m-%dT%H:%M:%S.%6N%:z`
 TEMP=`date +%Z`
 DATE_STAMP=`echo "${DATE_STAMP} (${TEMP})"`
 }
