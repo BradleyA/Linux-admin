@@ -1,20 +1,14 @@
 #!/bin/bash
-# 	cluster-command/cluster-command.sh  2.12.122  2018-10-21T23:57:50-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.11  
-# 	   added nano seconds to time 
-# 	cluster-command.sh  2.11.121  2018-10-15T20:14:59-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.10  
-# 	   create a setup script for SYSTEMS etc close #10 
-# 	cluster-command.sh  2.10.120  2018-10-15T20:03:22-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.09  
-# 	   Change echo or print DEBUG INFO WARNING ERROR close #13 
+# 	cluster-command/cluster-command.sh  2.13.123  2018-12-06T21:25:45.618777-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.12  
+# 	   added DEBUG environment variable, include process ID in ERROR, INFO, WARN, DEBUG statements, display_help | more , shellcheck #15 
 #
-###	cluster-command.sh - remote cluster system adminstration tool
-#	administration cluster commands for Raspberry Pi and x86 clusters
-#	   ssh $USER@$NODE-rpi3b.$DOMAIN 'sudo shutdown -f now';
-###
-DEBUG=0                 # 0 = debug off, 1 = debug on
+### cluster-command.sh - remote cluster system adminstration tool
+#       Order of precedence: environment variable, default code
+if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 #	set -x
 #	set -v
-BOLD=$(tput bold)
-NORMAL=$(tput sgr0)
+BOLD=$(tput -Txterm bold)
+NORMAL=$(tput -Txterm sgr0)
 ###		
 display_help() {
 echo -e "\n${NORMAL}${0} - remote cluster system adminstration tool"
@@ -41,6 +35,7 @@ echo    "variables if you are using other shells."
 echo    "   CLUSTER       (default us-tx-cluster-1/)"
 echo    "   DATA_DIR      (default /usr/local/data/)"
 echo    "   SYSTEMS_FILE  (default SYSTEMS)"
+echo    "   DEBUG         (default '0')"
 echo -e "\nOPTIONS "
 echo    "   PREDEFINED-COMMAND"
 echo    "      shutdown       - sudo shutdown -f now"
@@ -89,31 +84,31 @@ echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/
 echo -e "\nEXAMPLES\n   Shutdown raspberry pi clusters\n\t${0} shutdown\n"
 #       After displaying help in english check for other languages
 if ! [ "${LANG}" == "en_US.UTF-8" ] ; then
-        get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Your language, ${LANG}, is not supported, Would you like to help translate?" 1>&2
+        get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  ${LANG}, is not supported, Would you like to help translate?" 1>&2
 #       elif [ "${LANG}" == "fr_CA.UTF-8" ] ; then
-#               get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Display help in ${LANG}" 1>&2
+#               get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  Display help in ${LANG}" 1>&2
 #       else
-#               get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[WARN]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  Your language, ${LANG}, is not supported.\tWould you like to translate?" 1>&2
+#               get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  Your language, ${LANG}, is not supported.  Would you like to translate?" 1>&2
 fi
 }
 
 #       Date and time function ISO 8601
 get_date_stamp() {
-DATE_STAMP=`date +%Y-%m-%dT%H:%M:%S.%6N%:z`
-TEMP=`date +%Z`
-DATE_STAMP=`echo "${DATE_STAMP} (${TEMP})"`
+DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
+TEMP=$(date +%Z)
+DATE_STAMP="${DATE_STAMP} (${TEMP})"
 }
 
 #       Fully qualified domain name FQDN hostname
-LOCALHOST=`hostname -f`
+LOCALHOST=$(hostname -f)
 
 #       Version
-SCRIPT_NAME=`head -2 ${0} | awk {'printf$2'}`
-SCRIPT_VERSION=`head -2 ${0} | awk {'printf$3'}`
+SCRIPT_NAME=$(head -2 "${0}" | awk {'printf $2'})
+SCRIPT_VERSION=$(head -2 "${0}" | awk {'printf $3'})
 
 #       UID and GID
-USER_ID=`id -u`
-GROUP_ID=`id -g`
+USER_ID=$(id -u)
+GROUP_ID=$(id -g)
 
 #       Default help and version arguments
 if [ "$1" == "--help" ] || [ "$1" == "-help" ] || [ "$1" == "help" ] || [ "$1" == "-h" ] || [ "$1" == "h" ] || [ "$1" == "-?" ] ; then
