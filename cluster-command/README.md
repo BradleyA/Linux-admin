@@ -58,7 +58,7 @@ To clone, change to the directory you want to download the script, README, and h
     cd Linux-admin/cluster-command
     
     mkdir -p /usr/local/bin
-    mv cluster-command /usr/local/bin
+    mv cluster-command.sh /usr/local/bin
     
     mkdir -p /usr/local/data/us-tx-cluster-1
     mv SYSTEMS /usr/local/data/us-tx-cluster-1/
