@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	cluster-command/cluster-command.sh  2.14.124  2018-12-06T21:33:29.534227-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.13  
-# 	   added DEBUG environment variable, include process ID in ERROR, INFO, WARN, DEBUG statements, display_help | more , shellcheck #15 
+# 	cluster-command/cluster-command.sh  2.15.125  2018-12-06T21:40:39.620395-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.14  
+# 	   added DEBUG environment variable, include process ID in ERROR, INFO, WARN, DEBUG statements, display_help | more , shellcheck close #15 
 #
 ### cluster-command.sh - remote cluster system adminstration tool
 #       Order of precedence: environment variable, default code
