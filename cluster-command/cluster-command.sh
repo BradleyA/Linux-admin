@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.16.127  2018-12-08T10:50:20.162612-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.15-1-g645eb19  
+# 	   correct incident of not creating directory if missing close #16 
 # 	cluster-command/cluster-command.sh  2.15.125  2018-12-06T21:40:39.620395-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.14  
 # 	   added DEBUG environment variable, include process ID in ERROR, INFO, WARN, DEBUG statements, display_help | more , shellcheck close #15 
 #
@@ -146,10 +148,16 @@ if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP}
 #       Check if ${SYSTEMS_FILE} file is on system, one FQDN or IP address per line for all hosts in cluster
 if ! [ -e ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] || ! [ -s ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] ; then
 	get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  ${BOLD}${SYSTEMS_FILE} file missing or empty, creating ${SYSTEMS_FILE} file with local host.  Edit ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} file and add additional hosts that are in the cluster.${NORMAL}" 1>&2
-        echo -e "###     List of hosts used by cluster-command.sh & create-message.sh"  > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
-        echo -e "#       One FQDN or IP address per line for all hosts in cluster" > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
-        echo -e "###" > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
-        hostname -f > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+	mkdir -p ${DATA_DIR}/${CLUSTER}
+        echo -e "#\n# "  > ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+        echo -e "### ${SYSTEMS_FILE}"  >> ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+        echo -e "#	Created: ${DATE_STAMP} ${LOCALHOST}"  >> ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+        echo -e "#	List of hosts for scripts Linux-admin/cluster-command/cluster-command.sh,"  >> ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+        echo -e "#	markit/find-code.sh, pi-display/create-message/create-message.sh,"  >> ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+        echo -e "#	and other scripts."  >> ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+        echo -e "#\n#	One FQDN or IP address per line for all hosts in cluster" >> ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+        echo -e "###" >> ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
+        echo -e "${LOCALHOST}" >> ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
 fi
 
 REMOTEHOST=$(grep -v "#" ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE})
