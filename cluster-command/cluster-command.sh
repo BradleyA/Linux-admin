@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.18.129  2018-12-08T12:56:43.041950-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.17  
+# 	   add options support REMOTECOMMANDOPTION #17 testing 
 # 	cluster-command/cluster-command.sh  2.17.128  2018-12-08T12:33:02.157398-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.16  
 # 	   add options support REMOTECOMMANDOPTION #17 
 #
@@ -32,11 +34,11 @@ echo    "variable.  To set an environment variable to be defined at login, add i
 echo    "~/.bashrc file or you can modify this script with your default location for"
 echo    "CLUSTER, DATA_DIR, and SYSTEMS_FILE.  You are on your own defining environment"
 echo    "variables if you are using other shells."
-echo    "   CLUSTER       (default us-tx-cluster-1/)"
-echo    "   DATA_DIR      (default /usr/local/data/)"
-echo    "   SYSTEMS_FILE  (default SYSTEMS)"
-echo    "   DEBUG         (default '0')"
-echo    "   REMOTECOMMANDOPTION"
+echo    "   CLUSTER               (default us-tx-cluster-1/)"
+echo    "   DATA_DIR              (default /usr/local/data/)"
+echo    "   SYSTEMS_FILE          (default SYSTEMS)"
+echo    "   DEBUG                 (default '0')"
+echo    "   REMOTECOMMANDOPTION   include command options or special command"
 echo -e "\nOPTIONS "
 if ! [ "${REMOTECOMMANDOPTION}" == "" ] ; then echo "   ${BOLD}[WARN]${NORMAL}  Environment Variable ${BOLD}REMOTECOMMANDOPTION${NORMAL} is set to >${BOLD}${REMOTECOMMANDOPTION}${NORMAL}<"  ; fi
 echo    "   PREDEFINED-COMMAND"
@@ -88,6 +90,7 @@ echo    " >>>  REMOTECOMMAND   >>> this does not work, requires more design and 
 echo    " >>>  HOSTFILE        >>> File with hostnames, default /usr/local/data/us-tx-cluster-1/SYSTEMS"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/cluster-command"
 echo -e "\nEXAMPLES\n   Shutdown raspberry pi clusters\n\t${0} shutdown\n"
+echo    "   Display disk space available on file system /tmp\n\texport REMOTECOMMANDOPTION=\"/tmp\"\n\t$0{} df\n"
 #       After displaying help in english check for other languages
 if ! [ "${LANG}" == "en_US.UTF-8" ] ; then
         get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  ${LANG}, is not supported, Would you like to help translate?" 1>&2
@@ -285,6 +288,10 @@ case ${REMOTECOMMAND} in
 		exit 0
 		;;
 esac
+
+#
+if ! [ "${REMOTECOMMANDOPTION}" == "" ] ; then echo "   ${BOLD}[WARN]${NORMAL}  Environment Variable ${BOLD}REMOTECOMMANDOPTION${NORMAL} is set to >${BOLD}${REMOTECOMMANDOPTION}${NORMAL}<.  Command to be executed ${BOLD}${REMOTECOMMAND}${NORMAL}.  Press enter to continue ctrl c to stop." ; read input ; fi
+
 #
 for NODE in ${REMOTEHOST} ; do
 	echo -e "\n${BOLD}  -->  ${NODE}${NORMAL}	->${REMOTECOMMAND}<-" 
