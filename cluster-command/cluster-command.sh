@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	cluster-command/cluster-command.sh  2.16.127  2018-12-08T10:50:20.162612-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.15-1-g645eb19  
-# 	   correct incident of not creating directory if missing close #16 
-# 	cluster-command/cluster-command.sh  2.15.125  2018-12-06T21:40:39.620395-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.14  
-# 	   added DEBUG environment variable, include process ID in ERROR, INFO, WARN, DEBUG statements, display_help | more , shellcheck close #15 
+# 	cluster-command/cluster-command.sh  2.17.128  2018-12-08T12:33:02.157398-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.16  
+# 	   add options support REMOTECOMMANDOPTION #17 
 #
 ### cluster-command.sh - remote cluster system adminstration tool
 #       Order of precedence: environment variable, default code
@@ -38,34 +36,37 @@ echo    "   CLUSTER       (default us-tx-cluster-1/)"
 echo    "   DATA_DIR      (default /usr/local/data/)"
 echo    "   SYSTEMS_FILE  (default SYSTEMS)"
 echo    "   DEBUG         (default '0')"
+echo    "   REMOTECOMMANDOPTION"
 echo -e "\nOPTIONS "
+if ! [ "${REMOTECOMMANDOPTION}" == "" ] ; then echo "   ${BOLD}[WARN]${NORMAL}  Environment Variable ${BOLD}REMOTECOMMANDOPTION${NORMAL} is set to >${BOLD}${REMOTECOMMANDOPTION}${NORMAL}<"  ; fi
 echo    "   PREDEFINED-COMMAND"
 echo    "      shutdown       - sudo shutdown -f now"
-echo -e "      reboot         - sudo reboot\n"
+echo -e "      reboot         - sudo reboot ${REMOTECOMMANDOPTION}\n"
 echo    "      os             - lsb_release -d"
 echo    "      cpu            - lscpu"
-echo    "      date           - date"
-echo    "      df             - df"
+echo    "      date           - date ${REMOTECOMMANDOPTION}"
+echo    "      df             - df ${REMOTECOMMANDOPTION}"
 echo    "      last           - lastlog | grep -v '**Never logged in**'"
-echo    "      who            - who"
+echo    "      who            - who ${REMOTECOMMANDOPTION}"
 echo    "      ip             - ip a"
 echo    "      netstat        - sudo netstat -natup"
-echo -e "      uptime         - uptime\n"
+echo -e "      uptime         - uptime ${REMOTECOMMANDOPTION}\n"
 echo    "      docker-version - docker version | grep -m 1 'Version:'"
 echo    "      docker-release - grep docker /etc/apt/sources.list"
 echo    "      docker-df      - docker system df"
 echo    "      docker-df-v    - docker system df --verbose"
-echo    "      docker-info    - docker system info | head -6"
-echo    "      ls-docker-con  - docker container ls"
-echo    "      ls-docker-ima  - docker images"
-echo    "      ls-docker-net  - docker network ls"
-echo    "      ls-docker-vol  - docker volume ls"
+echo    "      docker-info    - docker system info ${REMOTECOMMANDOPTION}"
+echo    "      docker-info-con - docker system info | head -6"
+echo    "      docker-info-swarm - docker system info | grep -i swarm"
+echo    "      ls-docker-con  - docker container ls ${REMOTECOMMANDOPTION}"
+echo    "      ls-docker-ima  - docker images ${REMOTECOMMANDOPTION}"
+echo    "      ls-docker-net  - docker network ls ${REMOTECOMMANDOPTION}"
+echo    "      ls-docker-vol  - docker volume ls ${REMOTECOMMANDOPTION}"
 echo    "      clean-docker-ima	- docker image rm \$(docker image ls --filter='dangling=true' -q)"
 echo    "      clean-docker-vol	- docker volume rm \$(docker volume ls --filter dangling=true -q)"
-echo    "      prune-docker-net	- docker network prune"
-echo    "      prune-docker-vol	- docker volume prune"
-echo -e "      prune-docker-all	- docker system prune\n"
-echo    "      showhold       - apt-mark showhold"
+echo    "      prune-docker-net	- docker network prune ${REMOTECOMMANDOPTION}"
+echo    "      prune-docker-vol	- docker volume prune ${REMOTECOMMANDOPTION}"
+echo -e "      prune-docker-all	- docker system prune ${REMOTECOMMANDOPTION}\n"
 echo    "      update         - sudo apt-get update ;"
 echo    "                       /usr/lib/update-notifier/apt-check --human-readable"
 echo    "      upgrade        - sudo apt-get upgrade --assume-yes ;"
@@ -74,6 +75,9 @@ echo    "                       echo 'reboot required' ; else"
 echo    "                       echo 'no reboot required' ; fi"
 echo    "      dist-upgrade   - sudo apt-get dist-upgrade --assume-yes"
 echo    "      autoremove     - sudo apt-get autoremove --assume-yes"
+echo    "      showhold       - apt-mark showhold"
+echo    "      unhold         - apt-mark unhold"
+echo    "      hold           - apt-mark hold"
 echo    "      require-reboot - if [ -f /var/run/reboot-required ]; then echo 'reboot"
 echo    "                       required' ; else echo 'no reboot required' ; fi"
 echo    "      require-upgrade - /usr/lib/update-notifier/apt-check --human-readable" # >>> not sure this is the correct command becasue one-rpi3b stated no upgrade but then did eight upgrades
@@ -135,6 +139,8 @@ if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP}
 ###
 #	Execpt only commands in case statement
 REMOTECOMMAND=${1:-""}
+#	Environment variable to set option for some remote commands 
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTECOMMANDOPTION >${REMOTECOMMANDOPTION}<" 1>&2 ; fi
 
 #       Order of precedence: CLI argument, environment variable, default code
 if [ $# -ge  2 ]  ; then CLUSTER=${2} ; elif [ "${CLUSTER}" == "" ] ; then CLUSTER="us-tx-cluster-1/" ; fi
@@ -167,7 +173,7 @@ case ${REMOTECOMMAND} in
 		REMOTECOMMAND="sudo shutdown -f now"
 		;;
 	reboot)
-		REMOTECOMMAND="sudo reboot"
+		REMOTECOMMAND="sudo reboot ${REMOTECOMMANDOPTION}"
 		;;
 	OS|os)
 		REMOTECOMMAND="lsb_release -d"
@@ -176,16 +182,16 @@ case ${REMOTECOMMAND} in
 		REMOTECOMMAND="lscpu"
 		;;
 	date)
-		REMOTECOMMAND="date"
+		REMOTECOMMAND="date ${REMOTECOMMANDOPTION}"
 		;;
 	df)
-		REMOTECOMMAND="df"
+		REMOTECOMMAND="df ${REMOTECOMMANDOPTION}"
 		;;
 	last)
 		REMOTECOMMAND="lastlog | grep -v '**Never logged in**'"
 		;;
 	who)
-		REMOTECOMMAND="who"
+		REMOTECOMMAND="who ${REMOTECOMMANDOPTION}"
 		;;
 	ip)
 		REMOTECOMMAND="ip a"
@@ -194,10 +200,7 @@ case ${REMOTECOMMAND} in
 		REMOTECOMMAND="sudo netstat -natup"
 		;;
 	uptime)
-		REMOTECOMMAND="uptime"
-		;;
-	showhold)
-		REMOTECOMMAND="apt-mark showhold"
+		REMOTECOMMAND="uptime ${REMOTECOMMANDOPTION}"
 		;;
 	docker-version)
 		REMOTECOMMAND="docker version | grep -m 1 'Version:'"
@@ -212,34 +215,40 @@ case ${REMOTECOMMAND} in
 		REMOTECOMMAND="docker system df --verbose"
 		;;
 	docker-info)
+		REMOTECOMMAND="docker system info ${REMOTECOMMANDOPTION}"
+		;;
+	docker-info-con)
 		REMOTECOMMAND="docker system info | head -6"
 		;;
+	docker-info-swarm)
+		REMOTECOMMAND="docker system info | grep -i swarm"
+		;;
 	ls-docker-con)
-		REMOTECOMMAND="docker container ls"
+		REMOTECOMMAND="docker container ls ${REMOTECOMMANDOPTION}"
 		;;
 	ls-docker-ima)
-		REMOTECOMMAND="docker images"
+		REMOTECOMMAND="docker images ${REMOTECOMMANDOPTION}"
 		;;
 	ls-docker-net)
-		REMOTECOMMAND="docker network ls"
+		REMOTECOMMAND="docker network ls ${REMOTECOMMANDOPTION}"
 		;;
 	ls-docker-vol)
-		REMOTECOMMAND="docker volume ls"
-		;;
-	clean-docker-vol)
-		REMOTECOMMAND="docker volume rm \$(docker volume ls --filter dangling=true -q)"
+		REMOTECOMMAND="docker volume ls ${REMOTECOMMANDOPTION}"
 		;;
 	clean-docker-ima)
 		REMOTECOMMAND="docker image rm \$(docker image ls --filter='dangling=true' -q)"
 		;;
+	clean-docker-vol)
+		REMOTECOMMAND="docker volume rm \$(docker volume ls --filter dangling=true -q)"
+		;;
 	prune-docker-net)
-		REMOTECOMMAND="docker network prune"
+		REMOTECOMMAND="docker network prune ${REMOTECOMMANDOPTION}"
 		;;
 	prune-docker-vol)
-		REMOTECOMMAND="docker volume prune"
+		REMOTECOMMAND="docker volume prune ${REMOTECOMMANDOPTION}"
 		;;
 	prune-docker-all)
-		REMOTECOMMAND="docker system prune"
+		REMOTECOMMAND="docker system prune ${REMOTECOMMANDOPTION}"
 		;;
 	update)
 		REMOTECOMMAND="sudo apt-get update ; /usr/lib/update-notifier/apt-check --human-readable"
@@ -252,6 +261,15 @@ case ${REMOTECOMMAND} in
 		;;
 	autoremove)
 		REMOTECOMMAND="sudo apt-get autoremove  --assume-yes"
+		;;
+	showhold)
+		REMOTECOMMAND="apt-mark showhold"
+		;;
+	unhold)
+		REMOTECOMMAND="apt-mark unhold ${REMOTECOMMANDOPTION}"
+		;;
+	hold)
+		REMOTECOMMAND="apt-mark hold ${REMOTECOMMANDOPTION}"
 		;;
 	require-reboot)
 		REMOTECOMMAND="if [ -f /var/run/reboot-required ]; then echo 'reboot required' ; else echo 'no reboot required' ; fi"
