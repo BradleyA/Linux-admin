@@ -1,10 +1,6 @@
 #!/bin/bash
-# 	cluster-command/cluster-command.sh  2.19.130  2018-12-08T14:34:27.406629-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.18  
-# 	   add options support REMOTECOMMANDOPTION #17 testing 
-# 	cluster-command/cluster-command.sh  2.18.129  2018-12-08T12:56:43.041950-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.17  
-# 	   add options support REMOTECOMMANDOPTION #17 testing 
-# 	cluster-command/cluster-command.sh  2.17.128  2018-12-08T12:33:02.157398-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.16  
-# 	   add options support REMOTECOMMANDOPTION #17 
+# 	cluster-command/cluster-command.sh  2.20.131  2018-12-08T15:04:37.784787-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.19  
+# 	   add options support REMOTECOMMANDOPTION close #17 close #14 
 #
 ### cluster-command.sh - remote cluster system adminstration tool
 #       Order of precedence: environment variable, default code
@@ -40,10 +36,13 @@ echo    "   CLUSTER               (default us-tx-cluster-1/)"
 echo    "   DATA_DIR              (default /usr/local/data/)"
 echo    "   SYSTEMS_FILE          (default SYSTEMS)"
 echo    "   DEBUG                 (default '0')"
-echo    "   REMOTECOMMANDOPTION   include command options or special command"
+echo    "   REMOTECOMMANDOPTION   command options (+) or special command (default '')"
 echo -e "\nOPTIONS "
+echo    "   CLUSTER       name of cluster directory (default us-tx-cluster-1)"
+echo    "   DATA_DIR      path to cluster data directory (default /usr/local/data/)"
+echo -e "   SYSTEMS_FILE  name of SYSTEMS file (default SYSTEMS)\n"
 if ! [ "${REMOTECOMMANDOPTION}" == "" ] ; then echo "   ${BOLD}[WARN]${NORMAL}  Environment Variable ${BOLD}REMOTECOMMANDOPTION${NORMAL} is set to >${BOLD}${REMOTECOMMANDOPTION}${NORMAL}<"  ; else echo "   Commands that support environment variable ${BOLD}REMOTECOMMANDOPTION${NORMAL} are mark with ${BOLD}+${NORMAL}" ; fi
-echo    "   PREDEFINED-COMMAND"
+echo -e "\n   PREDEFINED-COMMAND"
 echo    "      shutdown       - sudo shutdown -f now"
 echo -e "      reboot         + sudo reboot ${REMOTECOMMANDOPTION}\n"
 echo    "      os             - lsb_release -d"
@@ -89,9 +88,6 @@ echo    "      upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Ins
 echo    "                        apt list --upgradeable -> does not work on Ubuntu 14.04"
 echo    "      special        + ${REMOTECOMMANDOPTION}"
 echo    "      root-special   + sudo ${REMOTECOMMANDOPTION}"
-echo -e "\nOPTIONS\n"
-echo    " >>>  REMOTECOMMAND   >>> this does not work, requires more design and testing"
-echo    " >>>  HOSTFILE        >>> File with hostnames, default /usr/local/data/us-tx-cluster-1/SYSTEMS"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/cluster-command"
 echo -e "\nEXAMPLES\n   Shutdown raspberry pi clusters\n\t${0} shutdown\n"
 echo -e "   Display disk space available on file system /tmp\n\texport REMOTECOMMANDOPTION=\"/tmp\"\n\t$0{} df\n"
