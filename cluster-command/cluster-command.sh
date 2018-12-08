@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.19.130  2018-12-08T14:34:27.406629-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.18  
+# 	   add options support REMOTECOMMANDOPTION #17 testing 
 # 	cluster-command/cluster-command.sh  2.18.129  2018-12-08T12:56:43.041950-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.17  
 # 	   add options support REMOTECOMMANDOPTION #17 testing 
 # 	cluster-command/cluster-command.sh  2.17.128  2018-12-08T12:33:02.157398-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.16  
@@ -40,35 +42,35 @@ echo    "   SYSTEMS_FILE          (default SYSTEMS)"
 echo    "   DEBUG                 (default '0')"
 echo    "   REMOTECOMMANDOPTION   include command options or special command"
 echo -e "\nOPTIONS "
-if ! [ "${REMOTECOMMANDOPTION}" == "" ] ; then echo "   ${BOLD}[WARN]${NORMAL}  Environment Variable ${BOLD}REMOTECOMMANDOPTION${NORMAL} is set to >${BOLD}${REMOTECOMMANDOPTION}${NORMAL}<"  ; fi
+if ! [ "${REMOTECOMMANDOPTION}" == "" ] ; then echo "   ${BOLD}[WARN]${NORMAL}  Environment Variable ${BOLD}REMOTECOMMANDOPTION${NORMAL} is set to >${BOLD}${REMOTECOMMANDOPTION}${NORMAL}<"  ; else echo "   Commands that support environment variable ${BOLD}REMOTECOMMANDOPTION${NORMAL} are mark with ${BOLD}+${NORMAL}" ; fi
 echo    "   PREDEFINED-COMMAND"
 echo    "      shutdown       - sudo shutdown -f now"
-echo -e "      reboot         - sudo reboot ${REMOTECOMMANDOPTION}\n"
+echo -e "      reboot         + sudo reboot ${REMOTECOMMANDOPTION}\n"
 echo    "      os             - lsb_release -d"
 echo    "      cpu            - lscpu"
-echo    "      date           - date ${REMOTECOMMANDOPTION}"
-echo    "      df             - df ${REMOTECOMMANDOPTION}"
+echo    "      date           + date ${REMOTECOMMANDOPTION}"
+echo    "      df             + df ${REMOTECOMMANDOPTION}"
 echo    "      last           - lastlog | grep -v '**Never logged in**'"
-echo    "      who            - who ${REMOTECOMMANDOPTION}"
+echo    "      who            + who ${REMOTECOMMANDOPTION}"
 echo    "      ip             - ip a"
 echo    "      netstat        - sudo netstat -natup"
-echo -e "      uptime         - uptime ${REMOTECOMMANDOPTION}\n"
+echo -e "      uptime         + uptime ${REMOTECOMMANDOPTION}\n"
 echo    "      docker-version - docker version | grep -m 1 'Version:'"
 echo    "      docker-release - grep docker /etc/apt/sources.list"
 echo    "      docker-df      - docker system df"
 echo    "      docker-df-v    - docker system df --verbose"
-echo    "      docker-info    - docker system info ${REMOTECOMMANDOPTION}"
+echo    "      docker-info    + docker system info ${REMOTECOMMANDOPTION}"
 echo    "      docker-info-con - docker system info | head -6"
 echo    "      docker-info-swarm - docker system info | grep -i swarm"
-echo    "      ls-docker-con  - docker container ls ${REMOTECOMMANDOPTION}"
-echo    "      ls-docker-ima  - docker images ${REMOTECOMMANDOPTION}"
-echo    "      ls-docker-net  - docker network ls ${REMOTECOMMANDOPTION}"
-echo    "      ls-docker-vol  - docker volume ls ${REMOTECOMMANDOPTION}"
+echo    "      ls-docker-con  + docker container ls ${REMOTECOMMANDOPTION}"
+echo    "      ls-docker-ima  + docker images ${REMOTECOMMANDOPTION}"
+echo    "      ls-docker-net  + docker network ls ${REMOTECOMMANDOPTION}"
+echo    "      ls-docker-vol  + docker volume ls ${REMOTECOMMANDOPTION}"
 echo    "      clean-docker-ima	- docker image rm \$(docker image ls --filter='dangling=true' -q)"
 echo    "      clean-docker-vol	- docker volume rm \$(docker volume ls --filter dangling=true -q)"
-echo    "      prune-docker-net	- docker network prune ${REMOTECOMMANDOPTION}"
-echo    "      prune-docker-vol	- docker volume prune ${REMOTECOMMANDOPTION}"
-echo -e "      prune-docker-all	- docker system prune ${REMOTECOMMANDOPTION}\n"
+echo    "      prune-docker-net	+ docker network prune ${REMOTECOMMANDOPTION}"
+echo    "      prune-docker-vol	+ docker volume prune ${REMOTECOMMANDOPTION}"
+echo -e "      prune-docker-all	+ docker system prune ${REMOTECOMMANDOPTION}\n"
 echo    "      update         - sudo apt-get update ;"
 echo    "                       /usr/lib/update-notifier/apt-check --human-readable"
 echo    "      upgrade        - sudo apt-get upgrade --assume-yes ;"
@@ -85,12 +87,15 @@ echo    "                       required' ; else echo 'no reboot required' ; fi"
 echo    "      require-upgrade - /usr/lib/update-notifier/apt-check --human-readable" # >>> not sure this is the correct command becasue one-rpi3b stated no upgrade but then did eight upgrades
 echo    "      upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Inst'"
 echo    "                        apt list --upgradeable -> does not work on Ubuntu 14.04"
+echo    "      special        + ${REMOTECOMMANDOPTION}"
+echo    "      root-special   + sudo ${REMOTECOMMANDOPTION}"
 echo -e "\nOPTIONS\n"
 echo    " >>>  REMOTECOMMAND   >>> this does not work, requires more design and testing"
 echo    " >>>  HOSTFILE        >>> File with hostnames, default /usr/local/data/us-tx-cluster-1/SYSTEMS"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/cluster-command"
 echo -e "\nEXAMPLES\n   Shutdown raspberry pi clusters\n\t${0} shutdown\n"
-echo    "   Display disk space available on file system /tmp\n\texport REMOTECOMMANDOPTION=\"/tmp\"\n\t$0{} df\n"
+echo -e "   Display disk space available on file system /tmp\n\texport REMOTECOMMANDOPTION=\"/tmp\"\n\t$0{} df\n"
+echo -e "   Remove log file that includes remote hostname\n\texport REMOTECOMMANDOPTION='rm  /usr/local/data/us-tx-cluster-1/log/\`hostname -f\`-crontab'\n\t$0{} special\n"
 #       After displaying help in english check for other languages
 if ! [ "${LANG}" == "en_US.UTF-8" ] ; then
         get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  ${LANG}, is not supported, Would you like to help translate?" 1>&2
@@ -282,6 +287,12 @@ case ${REMOTECOMMAND} in
 		;;
 	upgrade-package)
 		REMOTECOMMAND="apt-get upgrade --simulate  | grep -vE 'Conf|Inst'"
+		;;
+	special)
+		REMOTECOMMAND="${REMOTECOMMANDOPTION}"
+		;;
+	root-special)
+		REMOTECOMMAND="sudo ${REMOTECOMMANDOPTION}"
 		;;
 	*)
 		get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[INFO]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  ${REMOTECOMMAND} - NOT a supported command" 1>&2
