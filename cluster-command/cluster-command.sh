@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	cluster-command/cluster-command.sh  2.20.131  2018-12-08T15:04:37.784787-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.19  
-# 	   add options support REMOTECOMMANDOPTION close #17 close #14 
+# 	cluster-command/cluster-command.sh  2.21.132  2018-12-14T10:08:27.099551-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.20  
+# 	   updates during testing of options support REMOTECOMMAND REMOTECOMMANDOPTION   #17  #14 
 #
 ### cluster-command.sh - remote cluster system adminstration tool
 #       Order of precedence: environment variable, default code
@@ -90,8 +90,9 @@ echo    "      special        + ${REMOTECOMMANDOPTION}"
 echo    "      root-special   + sudo ${REMOTECOMMANDOPTION}"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/cluster-command"
 echo -e "\nEXAMPLES\n   Shutdown raspberry pi clusters\n\t${0} shutdown\n"
-echo -e "   Display disk space available on file system /tmp\n\texport REMOTECOMMANDOPTION=\"/tmp\"\n\t$0{} df\n"
-echo -e "   Remove log file that includes remote hostname\n\texport REMOTECOMMANDOPTION='rm  /usr/local/data/us-tx-cluster-1/log/\`hostname -f\`-crontab'\n\t$0{} special\n"
+echo -e "   Display disk space available on file system /tmp\n\texport REMOTECOMMANDOPTION=\"/tmp\"\n\t${0} df\n"
+echo -e "   Remove log file that includes remote hostname\n\texport REMOTECOMMANDOPTION='rm  /usr/local/data/us-tx-cluster-1/log/\`hostname -f\`-crontab'\n\t${0} special\n"
+echo -e "   List files in /usr/local/bin directory\n\t${0} special 'ls -l /usr/local/bin/*'\n"
 #       After displaying help in english check for other languages
 if ! [ "${LANG}" == "en_US.UTF-8" ] ; then
         get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  ${LANG}, is not supported, Would you like to help translate?" 1>&2
@@ -143,16 +144,23 @@ if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP}
 ###
 #	Execpt only commands in case statement
 REMOTECOMMAND=${1:-""}
-#	Environment variable to set option for some remote commands 
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTECOMMANDOPTION >${REMOTECOMMANDOPTION}<" 1>&2 ; fi
-
-#       Order of precedence: CLI argument, environment variable, default code
-if [ $# -ge  2 ]  ; then CLUSTER=${2} ; elif [ "${CLUSTER}" == "" ] ; then CLUSTER="us-tx-cluster-1/" ; fi
-#       Order of precedence: CLI argument, environment variable, default code
-if [ $# -ge  3 ]  ; then DATA_DIR=${1} ; elif [ "${DATA_DIR}" == "" ] ; then DATA_DIR="/usr/local/data/" ; fi
-#       order of precedence: CLI argument, environment variable, default code
-if [ $# -ge  4 ]  ; then SYSTEMS_FILE=${5} ; elif [ "${SYSTEMS_FILE}" == "" ] ; then SYSTEMS_FILE="SYSTEMS" ; fi
-#
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTECOMMAND >${REMOTECOMMAND}<" 1>&2 ; fi
+if [ "$1" == "special" ] || [ "$1" == "root-special" ] ; then
+	REMOTECOMMANDOPTION=${2}
+	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTECOMMAND >${REMOTECOMMAND}<  REMOTECOMMANDOPTION >${REMOTECOMMANDOPTION}<" 1>&2 ; fi
+	#       Set default
+	CLUSTER="us-tx-cluster-1/"
+	DATA_DIR="/usr/local/data/"
+	SYSTEMS_FILE="SYSTEMS"
+else
+	#	Environment variable to set option for some remote commands 
+	#       Order of precedence: CLI argument, environment variable, default code
+	if [ $# -ge  2 ]  ; then CLUSTER=${2} ; elif [ "${CLUSTER}" == "" ] ; then CLUSTER="us-tx-cluster-1/" ; fi
+	#       Order of precedence: CLI argument, environment variable, default code
+	if [ $# -ge  3 ]  ; then DATA_DIR=${1} ; elif [ "${DATA_DIR}" == "" ] ; then DATA_DIR="/usr/local/data/" ; fi
+	#       order of precedence: CLI argument, environment variable, default code
+	if [ $# -ge  4 ]  ; then SYSTEMS_FILE=${5} ; elif [ "${SYSTEMS_FILE}" == "" ] ; then SYSTEMS_FILE="SYSTEMS" ; fi
+fi
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  CLUSTER >${CLUSTER}<  DATA_DIR >${DATA_DIR}<  SYSTEMS_FILE ${SYSTEMS_FILE} REMOTECOMMAND >${REMOTECOMMAND}<" 1>&2 ; fi
 
 #       Check if ${SYSTEMS_FILE} file is on system, one FQDN or IP address per line for all hosts in cluster
@@ -297,7 +305,7 @@ case ${REMOTECOMMAND} in
 esac
 
 #
-if ! [ "${REMOTECOMMANDOPTION}" == "" ] ; then echo "   ${BOLD}[WARN]${NORMAL}  Environment Variable ${BOLD}REMOTECOMMANDOPTION${NORMAL} is set to >${BOLD}${REMOTECOMMANDOPTION}${NORMAL}<.  Command to be executed ${BOLD}${REMOTECOMMAND}${NORMAL}.  Press enter to continue ctrl c to stop." ; read input ; fi
+if ! [ "${REMOTECOMMANDOPTION}" == "" ] ; then echo -e "${BOLD}[WARN]${NORMAL}\tEnvironment Variable ${BOLD}REMOTECOMMANDOPTION${NORMAL} is set to >${BOLD}${REMOTECOMMANDOPTION}${NORMAL}<.\n\tCommand to be executed ${BOLD}${REMOTECOMMAND}${NORMAL}.\n\tPress enter to continue ctrl c to stop." ; read input ; fi
 
 #
 for NODE in ${REMOTEHOST} ; do
