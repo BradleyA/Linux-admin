@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.22.136  2019-01-05T08:57:21.225173-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  one-rpi3b.cptx86.com 2.21-3-g91c5586  
+# 	   updated display_help 
 # 	cluster-command/cluster-command.sh  2.21.132  2018-12-14T10:08:27.099551-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.20  
 # 	   updates during testing of options support REMOTECOMMAND REMOTECOMMANDOPTION   #17  #14 
 #
@@ -20,8 +22,9 @@ echo -e "\nThis script reads /usr/local/data/us-tx-cluster-1/SYSTEMS file for ho
 echo    "The hosts are one FQDN or IP address per line for all hosts in a cluster."
 echo    "Lines in SYSTEMS file that begin with a # are comments.  The SYSTEMS file is"
 echo    "used by Linux-admin/cluster-command/cluster-command.sh, markit/find-code.sh,"
-echo    "pi-display/create-message/create-message.sh, and other scripts.  A different"
-echo    "SYSTEMS file can be entered on the command line or environment variable."
+echo    "pi-display/create-message/create-display-message.sh, and other scripts.  A"
+echo    "different SYSTEMS file can be entered on the command line or environment"
+echo    "variable."
 echo -e "\nTo avoid many login prompts for each host in a cluster, enter the following:"
 echo    "${BOLD}ssh-copy-id uadmin@<host-name>${NORMAL} to each host in the SYSTEMS file."
 echo -e "\nEnvironment Variables"
