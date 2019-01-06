@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.22.133  2019-01-05T21:59:30.227919-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.21  
+# 	   minor change 
 # 	cluster-command/cluster-command.sh  2.21.132  2018-12-14T10:08:27.099551-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.20  
 # 	   updates during testing of options support REMOTECOMMAND REMOTECOMMANDOPTION   #17  #14 
 #
@@ -37,11 +39,11 @@ echo    "   DATA_DIR              (default /usr/local/data/)"
 echo    "   SYSTEMS_FILE          (default SYSTEMS)"
 echo    "   DEBUG                 (default '0')"
 echo    "   REMOTECOMMANDOPTION   command options (+) or special command (default '')"
+if ! [ "${REMOTECOMMANDOPTION}" == "" ] ; then echo -e "\n   ${BOLD}[WARN]${NORMAL}  Environment Variable ${BOLD}REMOTECOMMANDOPTION${NORMAL} is set to >${BOLD}${REMOTECOMMANDOPTION}${NORMAL}<"  ; else echo "   Commands that support environment variable ${BOLD}REMOTECOMMANDOPTION${NORMAL} are mark with ${BOLD}+${NORMAL}" ; fi
 echo -e "\nOPTIONS "
 echo    "   CLUSTER       name of cluster directory (default us-tx-cluster-1)"
 echo    "   DATA_DIR      path to cluster data directory (default /usr/local/data/)"
 echo -e "   SYSTEMS_FILE  name of SYSTEMS file (default SYSTEMS)\n"
-if ! [ "${REMOTECOMMANDOPTION}" == "" ] ; then echo "   ${BOLD}[WARN]${NORMAL}  Environment Variable ${BOLD}REMOTECOMMANDOPTION${NORMAL} is set to >${BOLD}${REMOTECOMMANDOPTION}${NORMAL}<"  ; else echo "   Commands that support environment variable ${BOLD}REMOTECOMMANDOPTION${NORMAL} are mark with ${BOLD}+${NORMAL}" ; fi
 echo -e "\n   PREDEFINED-COMMAND"
 echo    "      shutdown       - sudo shutdown -f now"
 echo -e "      reboot         + sudo reboot ${REMOTECOMMANDOPTION}\n"
