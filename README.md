@@ -5,6 +5,9 @@ This repository contains shell scripts for Linux administration to support my Ra
  * [cluster-command](https://github.com/BradleyA/pi-scripts/tree/master/cluster-command)
  * _
  
+#### If you like this repository, select in the upper-right corner, star, thank you.
+#### To watch future updates in this repository select in the upper-right corner, the "Watch" list, and select Watching.
+
  <img id="respberry_cluster-1" src="images/IMG_2664.JPG" width="450" >
  
 ### Clone
