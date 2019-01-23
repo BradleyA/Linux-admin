@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.24.143  2019-01-23T15:39:34.531354-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  four-rpi3b.cptx86.com 2.23  
+# 	   cluster-command/cluster-command.sh update local host last close #18 
 # 	cluster-command/cluster-command.sh  2.23.142  2019-01-23T11:27:21.815863-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.22-5-gdafdbec  
 # 	   change docker version to display both for user & server 
 # 	cluster-command/cluster-command.sh  2.21.132  2018-12-14T10:08:27.099551-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.20  
@@ -315,13 +317,13 @@ if ! [ "${REMOTECOMMANDOPTION}" == "" ] ; then echo -e "${BOLD}[WARN]${NORMAL}\t
 
 #
 for NODE in ${REMOTEHOST} ; do
-	echo -e "\n${BOLD}  -->  ${NODE}${NORMAL}	->${REMOTECOMMAND}<-" 
 	if [ "${LOCALHOST}" != "${NODE}" ] ; then
+		echo -e "\n${BOLD}  =-->  ${NODE}${NORMAL}	->${REMOTECOMMAND}<-" 
 		ssh -t ${USER}@${NODE} ${REMOTECOMMAND} 
-	else
-		eval ${REMOTECOMMAND}
 	fi
 done
+echo -e "\n${BOLD}  -->  ${LOCALHOST}${NORMAL}	->${REMOTECOMMAND}<-" 
+eval ${REMOTECOMMAND}
 
 #
 get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[INFO]${NORMAL}  Operation finished." 1>&2
