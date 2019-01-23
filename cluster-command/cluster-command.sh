@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.23.142  2019-01-23T11:27:21.815863-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.22-5-gdafdbec  
+# 	   change docker version to display both for user & server 
 # 	cluster-command/cluster-command.sh  2.21.132  2018-12-14T10:08:27.099551-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.20  
 # 	   updates during testing of options support REMOTECOMMAND REMOTECOMMANDOPTION   #17  #14 
 #
@@ -66,7 +68,7 @@ echo    "      who            + who ${REMOTECOMMANDOPTION}"
 echo    "      ip             - ip a"
 echo    "      netstat        - sudo netstat -natup"
 echo -e "      uptime         + uptime ${REMOTECOMMANDOPTION}\n"
-echo    "      docker-version - docker version | grep -m 1 'Version:'"
+echo    "      docker-version - docker version | grep 'Version:'"
 echo    "      docker-release - grep docker /etc/apt/sources.list"
 echo    "      docker-df      - docker system df"
 echo    "      docker-df-v    - docker system df --verbose"
@@ -219,7 +221,7 @@ case ${REMOTECOMMAND} in
 		REMOTECOMMAND="uptime ${REMOTECOMMANDOPTION}"
 		;;
 	docker-version)
-		REMOTECOMMAND="docker version | grep -m 1 'Version:'"
+		REMOTECOMMAND="docker version | grep 'Version:'"
 		;;
 	docker-release)
 		REMOTECOMMAND="grep docker /etc/apt/sources.list"
