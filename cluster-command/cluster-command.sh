@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.25.144  2019-01-23T15:46:18.461244-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  four-rpi3b.cptx86.com 2.24  
+# 	   cluster-command.sh --> production standard 5 include Copyright notice close #19 
 # 	cluster-command/cluster-command.sh  2.24.143  2019-01-23T15:39:34.531354-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  four-rpi3b.cptx86.com 2.23  
 # 	   cluster-command/cluster-command.sh update local host last close #18 
 # 	cluster-command/cluster-command.sh  2.23.142  2019-01-23T11:27:21.815863-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.22-5-gdafdbec  
@@ -7,7 +9,10 @@
 # 	   updates during testing of options support REMOTECOMMAND REMOTECOMMANDOPTION   #17  #14 
 #
 ### cluster-command.sh - remote cluster system adminstration tool
-#   production standard 4
+#       Copyright (c) 2019 Bradley Allen
+#       License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+###
+#   production standard 5
 #       Order of precedence: environment variable, default code
 if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 #	set -x
