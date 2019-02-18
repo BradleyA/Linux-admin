@@ -17,6 +17,11 @@ To install, change directory to the location you want to download the scripts. U
     git clone https://github.com/BradleyA/Linux-admin
     cd Linux-admin
 
+#### Author
+[<img id="twitter" src="images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
+](https://twitter.com/bradleyaustintx/)   [<img id="github" src="images/github.png" width="50" a="https://github.com/BradleyA/">
+](https://github.com/BradleyA/)    [<img src="images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen)
+
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
  * Ubuntu 16.04.3 LTS (armv7l)
