@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.26.151  2019-03-08T14:01:47.975300-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  four-rpi3b.cptx86.com 2.25-6-g048c86d  
+# 	   add SOFTWARE ARCHITECTURE to display_help 
 # 	cluster-command/cluster-command.sh  2.25.144  2019-01-23T15:46:18.461244-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  four-rpi3b.cptx86.com 2.24  
 # 	   cluster-command.sh --> production standard 5 include Copyright notice close #19 
 # 	cluster-command/cluster-command.sh  2.24.143  2019-01-23T15:39:34.531354-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  four-rpi3b.cptx86.com 2.23  
@@ -45,6 +47,10 @@ if [ "${LANG}" == "fr_CA.UTF-8" ] || [ "${LANG}" == "fr_FR.UTF-8" ] || [ "${LANG
 elif ! [ "${LANG}" == "en_US.UTF-8" ] ; then
         get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  Your language, ${LANG}, is not supported.  Would you like to translate the description section?" 1>&2
 fi
+echo -e "\nSOFTWARE ARCHITECTURE"
+echo    "/usr/local/data/                            <-- <DATA_DIR>"
+echo    "   <CLUSTER>/                               <-- <CLUSTER>"
+echo    "   └── SYSTEMS                              <-- List of hosts in cluster"
 echo -e "\nEnvironment Variables"
 echo    "If using the bash shell, enter; export CLUSTER='us-west1' on the command"
 echo    "line to set the CLUSTER environment variable to 'us-west1'.  Use the command,"
@@ -112,7 +118,7 @@ echo    "      root-special   + sudo ${REMOTECOMMANDOPTION}"
 echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/cluster-command"
 echo -e "\nEXAMPLES\n   Shutdown raspberry pi clusters\n\t${0} shutdown\n"
 echo -e "   Display disk space available on file system /tmp\n\texport REMOTECOMMANDOPTION=\"/tmp\"\n\t${0} df\n"
-echo -e "   Remove log file that includes remote hostname\n\texport REMOTECOMMANDOPTION='rm  /usr/local/data/us-tx-cluster-1/log/\`hostname -f\`-crontab'\n\t${0} special\n"
+echo -e "   Remove log file that includes remote hostname\n\texport REMOTECOMMANDOPTION='rm  /usr/local/data/us-tx-cluster-1/log/*\`hostname -f\`-crontab'\n\t${0} special\n"
 echo -e "   List files in /usr/local/bin directory\n\t${0} special 'ls -l /usr/local/bin/*'\n"
 }
 
