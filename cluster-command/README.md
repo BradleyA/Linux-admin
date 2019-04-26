@@ -17,7 +17,7 @@ ssh-agent and ssh-add before entering the following in a terminal window.
     eval $(ssh-agent)
     ssh-add
 
-Example of first argument, predefind commands (enter '**cluster-command --help**' for latest list)
+Example of first argument, predefind commands (enter '**cluster-command.sh --help**' for latest list)
 
     shutdown             - sudo shutdown -f now
     reboot               + sudo reboot
