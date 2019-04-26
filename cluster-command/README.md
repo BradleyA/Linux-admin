@@ -68,52 +68,6 @@ Example of first argument, predefind commands (enter '**cluster-command --help**
  * special        +
  * root-special   + sudo
 
-
-
- * shutdown       - sudo shutdown -f now
- * reboot         - sudo reboot
-
- * os             - lsb_release -d
- * cpu            - lscpu
- * date           - date
- * last           - lastlog | grep -v '**Never logged in**'
- * who            - who
- * ip             - ip a
- * netstat        - sudo netstat -natup
- * uptime         - uptime
-
- * docker-version - docker version | grep -m 1 'Version:'
- * docker-release - grep docker /etc/apt/sources.list
- * docker-df      - docker system df
- * docker-df-v    - docker system df --verbose
- * docker-info    - docker system info | head -6
- * ls-docker-con  - docker container ls
- * ls-docker-ima  - docker images
- * ls-docker-net  - docker network ls
- * ls-docker-vol  - docker volume ls
- * clean-docker-ima	- docker image rm $(docker image ls --filter='dangling=true' -q)
- * clean-docker-vol	- docker volume rm $(docker volume ls --filter dangling=true -q)
- * prune-docker-net	- docker network prune
- * prune-docker-vol	- docker volume prune
- * prune-docker-all	- docker system prune
-
- * showhold       - apt-mark showhold
- * update         - sudo apt-get update ;
-                    /usr/lib/update-notifier/apt-check --human-readable
- * upgrade        - sudo apt-get upgrade --assume-yes ;
-                    if [ -f /var/run/reboot-required ] ; then
-                    echo 'reboot required' ; else
-                    echo 'no reboot required' ; fi
- * dist-upgrade   - sudo apt-get dist-upgrade --assume-yes
- * autoremove     - sudo apt-get autoremove --assume-yes
- * require-reboot - if [ -f /var/run/reboot-required ]; then echo 'reboot
-                    required' ; else echo 'no reboot required' ; fi
- * require-upgrade - /usr/lib/update-notifier/apt-check --human-readable
- * upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Inst'
-
-HOSTFILE     Other file with hostnames, default /usr/local/bin/cluster-command.txt
-
-
 ## Clone
 
 To clone, change to the directory you want to download the script, README, and host file, SYSTEMS. Use git to clone these files into your directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
