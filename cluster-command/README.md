@@ -81,7 +81,7 @@ To clone, change to the directory you want to download the script, README, and h
     mkdir -p /usr/local/data/us-tx-cluster-1
     mv SYSTEMS /usr/local/data/us-tx-cluster-1/
 
-     <edit> /usr/local/data/us-tx-cluster-1/SYSTEMS
+    <edit> /usr/local/data/us-tx-cluster-1/SYSTEMS
 
 ## Usage
     $ cluster-command.sh require-upgrade
