@@ -120,7 +120,7 @@ To clone, change to the directory you want to download the script, README, and h
 
     /usr/local/data/                           <-- <DATA_DIR>
     └── <CLUSTER>/                             <-- <CLUSTER>
-        └── SYSTEMS                             <-- List of hosts in cluster
+        └── SYSTEMS                            <-- List of hosts in cluster
     
 ## Install
 
