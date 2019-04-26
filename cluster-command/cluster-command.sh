@@ -1,44 +1,50 @@
 #!/bin/bash
-# 	cluster-command/cluster-command.sh  2.26.151  2019-03-08T14:01:47.975300-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  four-rpi3b.cptx86.com 2.25-6-g048c86d  
-# 	   add SOFTWARE ARCHITECTURE to display_help 
-# 	cluster-command/cluster-command.sh  2.25.144  2019-01-23T15:46:18.461244-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  four-rpi3b.cptx86.com 2.24  
-# 	   cluster-command.sh --> production standard 5 include Copyright notice close #19 
-# 	cluster-command/cluster-command.sh  2.24.143  2019-01-23T15:39:34.531354-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  four-rpi3b.cptx86.com 2.23  
-# 	   cluster-command/cluster-command.sh update local host last close #18 
-# 	cluster-command/cluster-command.sh  2.23.142  2019-01-23T11:27:21.815863-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.22-5-gdafdbec  
-# 	   change docker version to display both for user & server 
-# 	cluster-command/cluster-command.sh  2.21.132  2018-12-14T10:08:27.099551-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.20  
-# 	   updates during testing of options support REMOTECOMMAND REMOTECOMMANDOPTION   #17  #14 
-#
-### cluster-command.sh - remote cluster system adminstration tool
+# 	cluster-command/cluster-command.sh  2.27.152  2019-04-25T23:47:55.822127-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.26  
+# 	   upgrade with template standards #23 
+### production standard 3.0 shellcheck
+### production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen
-#       License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
-###
-#   production standard 5
+#       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+### production standard 1.0 DEBUG variable
 #       Order of precedence: environment variable, default code
 if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
-#	set -x
-#	set -v
+#       set -x
+#       set -v
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
-###		
+### production standard 7.0 Default variable value
+DEFAULT_REMOTE_COMMAND=""
+DEFAULT_REMOTE_COMMAND_OPTION=""
+DEFAULT_CLUSTER="us-tx-cluster-1/"
+DEFAULT_DATA_DIR="/usr/local/data/"
+DEFAULT_SYSTEMS_FILE="SYSTEMS"
+### production standard 0.1.166 --help
 display_help() {
 echo -e "\n${NORMAL}${0} - remote cluster system adminstration tool"
-echo -e "\nUSAGE\n   ${0} [<PREDEFINED-COMMAND>] [<CLUSTER>] [<DATA_DIR>] [SYSTEMS_FILE]"
+echo -e "\nUSAGE"
+echo    "   ${0} [<PREDEFINED-COMMAND>]"
+echo    "   ${0}  <PREDEFINED-COMMAND> [<CLUSTER>]"
+echo    "   ${0}  <PREDEFINED-COMMAND>  <CLUSTER> [<DATA_DIR>]"
+echo    "   ${0}  <PREDEFINED-COMMAND>  <CLUSTER>  <DATA_DIR> [SYSTEMS_FILE]"
 echo    "   ${0} [--help | -help | help | -h | h | -?]"
 echo    "   ${0} [--version | -version | -v]"
 echo -e "\nDESCRIPTION"
 #       Displaying help DESCRIPTION in English en_US.UTF-8
 echo    "This script runs a command from a set of predefined commands on hosts."
-echo -e "\nThis script reads /usr/local/data/us-tx-cluster-1/SYSTEMS file for hosts."
-echo    "The hosts are one FQDN or IP address per line for all hosts in a cluster."
-echo    "Lines in SYSTEMS file that begin with a # are comments.  The SYSTEMS file is"
-echo    "used by Linux-admin/cluster-command/cluster-command.sh, markit/find-code.sh,"
+echo -e "\nThis script reads ${DEFAULT_DATA_DIR}${DEFAULT_CLUSTER}${DEFAULT_SYSTEMS_FILE} file for hosts."
+echo -e "\nThe <DATA_DIR>/<CLUSTER>/<SYSTEMS_FILE> includes one FQDN or IP address per"
+echo    "line for all hosts in the cluster.  Lines in <SYSTEMS_FILE> that begin with a"
+echo    "'#' are comments.  The <SYSTEMS_FILE> is used by markit/find-code.sh,"
+echo    "Linux-admin/cluster-command/cluster-command.sh, docker-TLS/copy-registry-tls.sh,"
 echo    "pi-display/create-message/create-display-message.sh, and other scripts.  A"
-echo    "different SYSTEMS file can be entered on the command line or environment"
+echo    "different <SYSTEMS_FILE> can be entered on the command line or environment"
 echo    "variable."
-echo -e "\nTo avoid many login prompts for each host in a cluster, enter the following:"
-echo    "${BOLD}ssh-copy-id uadmin@<host-name>${NORMAL} to each host in the SYSTEMS file."
+echo -e "\nThe administration user may receive password and/or passphrase prompts from a"
+echo    "remote systen; running the following may stop the prompts in your cluster."
+echo -e "\t${BOLD}ssh-copy-id <TLS_USER>@<REMOTE_HOST>${NORMAL}"
+echo    "or"
+echo -e "\t${BOLD}ssh-copy-id <TLS_USER>@<192.168.x.x>${NORMAL}"
+### production standard 4.0 Documentation Language
 #       Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
 if [ "${LANG}" == "fr_CA.UTF-8" ] || [ "${LANG}" == "fr_FR.UTF-8" ] || [ "${LANG}" == "fr_CH.UTF-8" ] ; then
         echo -e "\n--> ${LANG}"
@@ -47,56 +53,57 @@ if [ "${LANG}" == "fr_CA.UTF-8" ] || [ "${LANG}" == "fr_FR.UTF-8" ] || [ "${LANG
 elif ! [ "${LANG}" == "en_US.UTF-8" ] ; then
         get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  Your language, ${LANG}, is not supported.  Would you like to translate the description section?" 1>&2
 fi
-echo -e "\nSOFTWARE ARCHITECTURE"
-echo    "/usr/local/data/                            <-- <DATA_DIR>"
-echo    "   <CLUSTER>/                               <-- <CLUSTER>"
-echo    "   └── SYSTEMS                              <-- List of hosts in cluster"
-echo -e "\nEnvironment Variables"
-echo    "If using the bash shell, enter; export CLUSTER='us-west1' on the command"
-echo    "line to set the CLUSTER environment variable to 'us-west1'.  Use the command,"
-echo    "unset CLUSTER to remove the exported information from the CLUSTER environment"
-echo    "variable.  To set an environment variable to be defined at login, add it to"
-echo    "~/.bashrc file or you can modify this script with your default location for"
-echo    "CLUSTER, DATA_DIR, and SYSTEMS_FILE.  You are on your own defining environment"
-echo    "variables if you are using other shells."
-echo    "   CLUSTER               (default us-tx-cluster-1/)"
-echo    "   DATA_DIR              (default /usr/local/data/)"
-echo    "   SYSTEMS_FILE          (default SYSTEMS)"
-echo    "   DEBUG                 (default '0')"
-echo    "   REMOTECOMMANDOPTION   command options (+) or special command (default '')"
-if ! [ "${REMOTECOMMANDOPTION}" == "" ] ; then echo -e "\n   ${BOLD}[WARN]${NORMAL}  Environment Variable ${BOLD}REMOTECOMMANDOPTION${NORMAL} is set to >${BOLD}${REMOTECOMMANDOPTION}${NORMAL}<"  ; else echo "   Commands that support environment variable ${BOLD}REMOTECOMMANDOPTION${NORMAL} are mark with ${BOLD}+${NORMAL}" ; fi
-echo -e "\nOPTIONS "
-echo    "   CLUSTER       name of cluster directory (default us-tx-cluster-1)"
-echo    "   DATA_DIR      path to cluster data directory (default /usr/local/data/)"
-echo -e "   SYSTEMS_FILE  name of SYSTEMS file (default SYSTEMS)\n"
+echo -e "\nENVIRONMENT VARIABLES"
+echo    "If using the bash shell, enter; 'export DEBUG=1' on the command line to set"
+echo    "the DEBUG environment variable to '1' (0 = debug off, 1 = debug on).  Use the"
+echo    "command, 'unset DEBUG' to remove the exported information from the DEBUG"
+echo    "environment variable.  You are on your own defining environment variables if"
+echo    "you are using other shells."
+echo    "   DEBUG                   (default off '0')"
+echo    "   CLUSTER                 Cluster name (default '${DEFAULT_CLUSTER}')"
+echo    "   DATA_DIR                Data directory (default '${DEFAULT_DATA_DIR}')"
+echo    "   SYSTEMS_FILE            Hosts in cluster (default '${DEFAULT_SYSTEMS_FILE}')"
+echo    "   REMOTE_COMMAND_OPTION   Command options (+) or special command (default '')"
+if ! [ "${REMOTE_COMMAND_OPTION}" == "" ] ; then echo -e "\n   ${BOLD}[WARN]${NORMAL}  Environment Variable ${BOLD}REMOTE_COMMAND_OPTION${NORMAL} is set to >${BOLD}${REMOTE_COMMAND_OPTION}${NORMAL}<"  ; else echo "   Commands that support environment variable ${BOLD}REMOTE_COMMAND_OPTION${NORMAL} are mark with ${BOLD}+${NORMAL}" ; fi
+echo -e "\nOPTIONS"
+echo    "Order of precedence: CLI options, environment variable, default code."
+echo -e "   <<your environment variables information goes here>>"
+echo    "   CLUSTER                Cluster name (default '${DEFAULT_CLUSTER}')"
+echo    "   DATA_DIR               Data directory (default '${DEFAULT_DATA_DIR}')"
+echo    "   SYSTEMS_FILE           Hosts in cluster (default '${DEFAULT_SYSTEMS_FILE}')"
+### production standard 6.1.177 Architecture tree
+echo -e "\nARCHITECTURE TREE"   # STORAGE & CERTIFICATION
+echo    "/usr/local/data/                           <-- <DATA_DIR>"
+echo    "└── <CLUSTER>/                             <-- <CLUSTER>"
+echo    "   └── SYSTEMS                             <-- List of hosts in cluster"
 echo -e "\n   PREDEFINED-COMMAND"
 echo    "      shutdown       - sudo shutdown -f now"
-echo -e "      reboot         + sudo reboot ${REMOTECOMMANDOPTION}\n"
+echo -e "      reboot         + sudo reboot ${REMOTE_COMMAND_OPTION}\n"
 echo    "      os             - lsb_release -d"
 echo    "      cpu            - lscpu"
-echo    "      date           + date ${REMOTECOMMANDOPTION}"
-echo    "      df             + df ${REMOTECOMMANDOPTION}"
+echo    "      date           + date ${REMOTE_COMMAND_OPTION}"
+echo    "      df             + df ${REMOTE_COMMAND_OPTION}"
 echo    "      last           - lastlog | grep -v '**Never logged in**'"
-echo    "      who            + who ${REMOTECOMMANDOPTION}"
+echo    "      who            + who ${REMOTE_COMMAND_OPTION}"
 echo    "      ip             - ip a"
 echo    "      netstat        - sudo netstat -natup"
-echo -e "      uptime         + uptime ${REMOTECOMMANDOPTION}\n"
+echo -e "      uptime         + uptime ${REMOTE_COMMAND_OPTION}\n"
 echo    "      docker-version - docker version | grep 'Version:'"
 echo    "      docker-release - grep docker /etc/apt/sources.list"
 echo    "      docker-df      - docker system df"
 echo    "      docker-df-v    - docker system df --verbose"
-echo    "      docker-info    + docker system info ${REMOTECOMMANDOPTION}"
+echo    "      docker-info    + docker system info ${REMOTE_COMMAND_OPTION}"
 echo    "      docker-info-con - docker system info | head -6"
 echo    "      docker-info-swarm - docker system info | grep -i swarm"
-echo    "      ls-docker-con  + docker container ls ${REMOTECOMMANDOPTION}"
-echo    "      ls-docker-ima  + docker images ${REMOTECOMMANDOPTION}"
-echo    "      ls-docker-net  + docker network ls ${REMOTECOMMANDOPTION}"
-echo    "      ls-docker-vol  + docker volume ls ${REMOTECOMMANDOPTION}"
+echo    "      ls-docker-con  + docker container ls ${REMOTE_COMMAND_OPTION}"
+echo    "      ls-docker-ima  + docker images ${REMOTE_COMMAND_OPTION}"
+echo    "      ls-docker-net  + docker network ls ${REMOTE_COMMAND_OPTION}"
+echo    "      ls-docker-vol  + docker volume ls ${REMOTE_COMMAND_OPTION}"
 echo    "      clean-docker-ima	- docker image rm \$(docker image ls --filter='dangling=true' -q)"
 echo    "      clean-docker-vol	- docker volume rm \$(docker volume ls --filter dangling=true -q)"
-echo    "      prune-docker-net	+ docker network prune ${REMOTECOMMANDOPTION}"
-echo    "      prune-docker-vol	+ docker volume prune ${REMOTECOMMANDOPTION}"
-echo -e "      prune-docker-all	+ docker system prune ${REMOTECOMMANDOPTION}\n"
+echo    "      prune-docker-net	+ docker network prune ${REMOTE_COMMAND_OPTION}"
+echo    "      prune-docker-vol	+ docker volume prune ${REMOTE_COMMAND_OPTION}"
+echo -e "      prune-docker-all	+ docker system prune ${REMOTE_COMMAND_OPTION}\n"
 echo    "      update         - sudo apt-get update ;"
 echo    "                       /usr/lib/update-notifier/apt-check --human-readable"
 echo    "      upgrade        - sudo apt-get upgrade --assume-yes ;"
@@ -113,13 +120,16 @@ echo    "                       required' ; else echo 'no reboot required' ; fi"
 echo    "      require-upgrade - /usr/lib/update-notifier/apt-check --human-readable" # >>> not sure this is the correct command becasue one-rpi3b stated no upgrade but then did eight upgrades
 echo    "      upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Inst'"
 echo    "                        apt list --upgradeable -> does not work on Ubuntu 14.04"
-echo    "      special        + ${REMOTECOMMANDOPTION}"
-echo    "      root-special   + sudo ${REMOTECOMMANDOPTION}"
-echo -e "\nDOCUMENTATION\n   https://github.com/BradleyA/pi-scripts/tree/master/cluster-command"
-echo -e "\nEXAMPLES\n   Shutdown raspberry pi clusters\n\t${0} shutdown\n"
-echo -e "   Display disk space available on file system /tmp\n\texport REMOTECOMMANDOPTION=\"/tmp\"\n\t${0} df\n"
-echo -e "   Remove log file that includes remote hostname\n\texport REMOTECOMMANDOPTION='rm  /usr/local/data/us-tx-cluster-1/log/*\`hostname -f\`-crontab'\n\t${0} special\n"
-echo -e "   List files in /usr/local/bin directory\n\t${0} special 'ls -l /usr/local/bin/*'\n"
+echo    "      special        + ${REMOTE_COMMAND_OPTION}"
+echo    "      root-special   + sudo ${REMOTE_COMMAND_OPTION}"
+echo -e "\nDOCUMENTATION"
+echo    "   https://github.com/BradleyA/Linux-admin/tree/master/cluster-command"
+echo -e "\nEXAMPLES"
+echo -e "   Shutdown hosts in clusters\n\t${BOLD}${0} shutdown${NORMAL}"
+echo -e "   Display disk space available on file system /tmp\n\t${BOLD}export REMOTE_COMMAND_OPTION=\"/tmp\"\n\t${0} df${NORMAL}"
+echo -e "   Remove log file that includes remote hostname\n\t${BOLD}export REMOTE_COMMAND_OPTION='rm  /usr/local/data/us-tx-cluster-1/log/*\`hostname -f\`-crontab'\n\t${0} special${NORMAL}"
+echo -e "   List files in /usr/local/bin directory\n\t${BOLD}${0} special 'ls -l /usr/local/bin/*'${NORMAL}"
+echo -e "   Check public, private keys, and CA for hosts in cluster\n\t${BOLD}${0} special 'sudo check-host-tls.sh'${NORMAL}"
 }
 
 #       Date and time function ISO 8601
@@ -162,25 +172,25 @@ if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP}
 
 ###
 #	Execpt only commands in case statement
-REMOTECOMMAND=${1:-""}
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTECOMMAND >${REMOTECOMMAND}<" 1>&2 ; fi
+REMOTE_COMMAND=${1:-${DEFAULT_REMOTE_COMMAND}}
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTE_COMMAND >${REMOTE_COMMAND}<" 1>&2 ; fi
 if [ "$1" == "special" ] || [ "$1" == "root-special" ] ; then
-	REMOTECOMMANDOPTION=${2}
-	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTECOMMAND >${REMOTECOMMAND}<  REMOTECOMMANDOPTION >${REMOTECOMMANDOPTION}<" 1>&2 ; fi
+	REMOTE_COMMAND_OPTION=DEFAULT_REMOTE_COMMAND_OPTION
+	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTE_COMMAND >${REMOTE_COMMAND}<  REMOTE_COMMAND_OPTION >${REMOTE_COMMAND_OPTION}<" 1>&2 ; fi
 	#       Set default
-	CLUSTER="us-tx-cluster-1/"
-	DATA_DIR="/usr/local/data/"
-	SYSTEMS_FILE="SYSTEMS"
+	CLUSTER=${DEFAULT_CLUSTER}
+	DATA_DIR=${DEFAULT_DATA_DIR}
+	SYSTEMS_FILE=${DEFAULT_SYSTEMS_FILE}
 else
 	#	Environment variable to set option for some remote commands 
 	#       Order of precedence: CLI argument, environment variable, default code
-	if [ $# -ge  2 ]  ; then CLUSTER=${2} ; elif [ "${CLUSTER}" == "" ] ; then CLUSTER="us-tx-cluster-1/" ; fi
+	if [ $# -ge  2 ]  ; then CLUSTER=${2} ; elif [ "${CLUSTER}" == "" ] ; then CLUSTER=${DEFAULT_CLUSTER} ; fi
 	#       Order of precedence: CLI argument, environment variable, default code
-	if [ $# -ge  3 ]  ; then DATA_DIR=${1} ; elif [ "${DATA_DIR}" == "" ] ; then DATA_DIR="/usr/local/data/" ; fi
+	if [ $# -ge  3 ]  ; then DATA_DIR=${3} ; elif [ "${DATA_DIR}" == "" ] ; then DATA_DIR=${DEFAULT_DATA_DIR} ; fi
 	#       order of precedence: CLI argument, environment variable, default code
-	if [ $# -ge  4 ]  ; then SYSTEMS_FILE=${5} ; elif [ "${SYSTEMS_FILE}" == "" ] ; then SYSTEMS_FILE="SYSTEMS" ; fi
+	if [ $# -ge  4 ]  ; then SYSTEMS_FILE=${4} ; elif [ "${SYSTEMS_FILE}" == "" ] ; then SYSTEMS_FILE=${DEFAULT_SYSTEMS_FILE} ; fi
 fi
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  CLUSTER >${CLUSTER}<  DATA_DIR >${DATA_DIR}<  SYSTEMS_FILE ${SYSTEMS_FILE} REMOTECOMMAND >${REMOTECOMMAND}<" 1>&2 ; fi
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  CLUSTER >${CLUSTER}<  DATA_DIR >${DATA_DIR}<  SYSTEMS_FILE ${SYSTEMS_FILE} REMOTE_COMMAND >${REMOTE_COMMAND}<" 1>&2 ; fi
 
 #       Check if ${SYSTEMS_FILE} file is on system, one FQDN or IP address per line for all hosts in cluster
 if ! [ -e ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] || ! [ -s ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] ; then
@@ -197,144 +207,141 @@ if ! [ -e ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] || ! [ -s ${DATA_DIR}/${CLUST
         echo -e "${LOCALHOST}" >> ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
 fi
 
-REMOTEHOST=$(grep -v "#" ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE})
+REMOTE_HOST=$(grep -v "#" ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE})
 ###
-case ${REMOTECOMMAND} in
+case ${REMOTE_COMMAND} in
 	shutdown)
-		REMOTECOMMAND="sudo shutdown -f now"
+		REMOTE_COMMAND="sudo shutdown -f now"
 		;;
 	reboot)
-		REMOTECOMMAND="sudo reboot ${REMOTECOMMANDOPTION}"
+		REMOTE_COMMAND="sudo reboot ${REMOTE_COMMAND_OPTION}"
 		;;
 	OS|os)
-		REMOTECOMMAND="lsb_release -d"
+		REMOTE_COMMAND="lsb_release -d"
 		;;
 	CPU|cpu)
-		REMOTECOMMAND="lscpu"
+		REMOTE_COMMAND="lscpu"
 		;;
 	date)
-		REMOTECOMMAND="date ${REMOTECOMMANDOPTION}"
+		REMOTE_COMMAND="date ${REMOTE_COMMAND_OPTION}"
 		;;
 	df)
-		REMOTECOMMAND="df ${REMOTECOMMANDOPTION}"
+		REMOTE_COMMAND="df ${REMOTE_COMMAND_OPTION}"
 		;;
 	last)
-		REMOTECOMMAND="lastlog | grep -v '**Never logged in**'"
+		REMOTE_COMMAND="lastlog | grep -v '**Never logged in**'"
 		;;
 	who)
-		REMOTECOMMAND="who ${REMOTECOMMANDOPTION}"
+		REMOTE_COMMAND="who ${REMOTE_COMMAND_OPTION}"
 		;;
 	ip)
-		REMOTECOMMAND="ip a"
+		REMOTE_COMMAND="ip a"
 		;;
 	netstat)
-		REMOTECOMMAND="sudo netstat -natup"
+		REMOTE_COMMAND="sudo netstat -natup"
 		;;
 	uptime)
-		REMOTECOMMAND="uptime ${REMOTECOMMANDOPTION}"
+		REMOTE_COMMAND="uptime ${REMOTE_COMMAND_OPTION}"
 		;;
 	docker-version)
-		REMOTECOMMAND="docker version | grep 'Version:'"
+		REMOTE_COMMAND="docker version | grep 'Version:'"
 		;;
 	docker-release)
-		REMOTECOMMAND="grep docker /etc/apt/sources.list"
+		REMOTE_COMMAND="grep docker /etc/apt/sources.list"
 		;;
 	docker-df)
-		REMOTECOMMAND="docker system df"
+		REMOTE_COMMAND="docker system df"
 		;;
 	docker-df-v)
-		REMOTECOMMAND="docker system df --verbose"
+		REMOTE_COMMAND="docker system df --verbose"
 		;;
 	docker-info)
-		REMOTECOMMAND="docker system info ${REMOTECOMMANDOPTION}"
+		REMOTE_COMMAND="docker system info ${REMOTE_COMMAND_OPTION}"
 		;;
 	docker-info-con)
-		REMOTECOMMAND="docker system info | head -6"
+		REMOTE_COMMAND="docker system info | head -6"
 		;;
 	docker-info-swarm)
-		REMOTECOMMAND="docker system info | grep -i swarm"
+		REMOTE_COMMAND="docker system info | grep -i swarm"
 		;;
 	ls-docker-con)
-		REMOTECOMMAND="docker container ls ${REMOTECOMMANDOPTION}"
+		REMOTE_COMMAND="docker container ls ${REMOTE_COMMAND_OPTION}"
 		;;
 	ls-docker-ima)
-		REMOTECOMMAND="docker images ${REMOTECOMMANDOPTION}"
+		REMOTE_COMMAND="docker images ${REMOTE_COMMAND_OPTION}"
 		;;
 	ls-docker-net)
-		REMOTECOMMAND="docker network ls ${REMOTECOMMANDOPTION}"
+		REMOTE_COMMAND="docker network ls ${REMOTE_COMMAND_OPTION}"
 		;;
 	ls-docker-vol)
-		REMOTECOMMAND="docker volume ls ${REMOTECOMMANDOPTION}"
+		REMOTE_COMMAND="docker volume ls ${REMOTE_COMMAND_OPTION}"
 		;;
 	clean-docker-ima)
-		REMOTECOMMAND="docker image rm \$(docker image ls --filter='dangling=true' -q)"
+		REMOTE_COMMAND="docker image rm \$(docker image ls --filter='dangling=true' -q)"
 		;;
 	clean-docker-vol)
-		REMOTECOMMAND="docker volume rm \$(docker volume ls --filter dangling=true -q)"
+		REMOTE_COMMAND="docker volume rm \$(docker volume ls --filter dangling=true -q)"
 		;;
 	prune-docker-net)
-		REMOTECOMMAND="docker network prune ${REMOTECOMMANDOPTION}"
+		REMOTE_COMMAND="docker network prune ${REMOTE_COMMAND_OPTION}"
 		;;
 	prune-docker-vol)
-		REMOTECOMMAND="docker volume prune ${REMOTECOMMANDOPTION}"
+		REMOTE_COMMAND="docker volume prune ${REMOTE_COMMAND_OPTION}"
 		;;
 	prune-docker-all)
-		REMOTECOMMAND="docker system prune ${REMOTECOMMANDOPTION}"
+		REMOTE_COMMAND="docker system prune ${REMOTE_COMMAND_OPTION}"
 		;;
 	update)
-		REMOTECOMMAND="sudo apt-get update ; /usr/lib/update-notifier/apt-check --human-readable"
+		REMOTE_COMMAND="sudo apt-get update ; /usr/lib/update-notifier/apt-check --human-readable"
 		;;
 	upgrade)
-		REMOTECOMMAND="sudo apt-get upgrade --assume-yes ; if [ -f /var/run/reboot-required ]; then echo -e '\treboot required' ; else echo -e '\tno reboot required' ; fi"
+		REMOTE_COMMAND="sudo apt-get upgrade --assume-yes ; if [ -f /var/run/reboot-required ]; then echo -e '\treboot required' ; else echo -e '\tno reboot required' ; fi"
 		;;
 	dist-upgrade)
-		REMOTECOMMAND="sudo apt-get dist-upgrade --assume-yes"
+		REMOTE_COMMAND="sudo apt-get dist-upgrade --assume-yes"
 		;;
 	autoremove)
-		REMOTECOMMAND="sudo apt-get autoremove  --assume-yes"
+		REMOTE_COMMAND="sudo apt-get autoremove  --assume-yes"
 		;;
 	showhold)
-		REMOTECOMMAND="apt-mark showhold"
+		REMOTE_COMMAND="apt-mark showhold"
 		;;
 	unhold)
-		REMOTECOMMAND="apt-mark unhold ${REMOTECOMMANDOPTION}"
+		REMOTE_COMMAND="apt-mark unhold ${REMOTE_COMMAND_OPTION}"
 		;;
 	hold)
-		REMOTECOMMAND="apt-mark hold ${REMOTECOMMANDOPTION}"
+		REMOTE_COMMAND="apt-mark hold ${REMOTE_COMMAND_OPTION}"
 		;;
 	require-reboot)
-		REMOTECOMMAND="if [ -f /var/run/reboot-required ]; then echo 'reboot required' ; else echo 'no reboot required' ; fi"
+		REMOTE_COMMAND="if [ -f /var/run/reboot-required ]; then echo 'reboot required' ; else echo 'no reboot required' ; fi"
 		;;
 	require-upgrade|require-update)
-		REMOTECOMMAND="/usr/lib/update-notifier/apt-check --human-readable"
+		REMOTE_COMMAND="/usr/lib/update-notifier/apt-check --human-readable"
 		;;
 	upgrade-package)
-		REMOTECOMMAND="apt-get upgrade --simulate  | grep -vE 'Conf|Inst'"
+		REMOTE_COMMAND="apt-get upgrade --simulate  | grep -vE 'Conf|Inst'"
 		;;
 	special)
-		REMOTECOMMAND="${REMOTECOMMANDOPTION}"
+		REMOTE_COMMAND="${REMOTE_COMMAND_OPTION}"
 		;;
 	root-special)
-		REMOTECOMMAND="sudo ${REMOTECOMMANDOPTION}"
+		REMOTE_COMMAND="sudo ${REMOTE_COMMAND_OPTION}"
 		;;
 	*)
-		get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[INFO]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  ${REMOTECOMMAND} - NOT a supported command" 1>&2
+		get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${0} ${SCRIPT_VERSION} ${LINENO} ${BOLD}[INFO]${NORMAL}  ${LOCALHOST}  ${USER}  ${USER_ID} ${GROUP_ID}  ${REMOTE_COMMAND} - NOT a supported command" 1>&2
 		exit 0
 		;;
 esac
 
 #
-if ! [ "${REMOTECOMMANDOPTION}" == "" ] ; then echo -e "${BOLD}[WARN]${NORMAL}\tEnvironment Variable ${BOLD}REMOTECOMMANDOPTION${NORMAL} is set to >${BOLD}${REMOTECOMMANDOPTION}${NORMAL}<.\n\tCommand to be executed ${BOLD}${REMOTECOMMAND}${NORMAL}.\n\tPress enter to continue ctrl c to stop." ; read input ; fi
-
-#
-for NODE in ${REMOTEHOST} ; do
+for NODE in ${REMOTE_HOST} ; do
 	if [ "${LOCALHOST}" != "${NODE}" ] ; then
-		echo -e "\n${BOLD}  =-->  ${NODE}${NORMAL}	->${REMOTECOMMAND}<-" 
-		ssh -t ${USER}@${NODE} ${REMOTECOMMAND} 
+		echo -e "\n${BOLD}  =-->  ${NODE}${NORMAL}	->${REMOTE_COMMAND}<-" 
+		ssh -t "${USER}"@"${NODE}" ${REMOTE_COMMAND}
 	fi
 done
-echo -e "\n${BOLD}  -->  ${LOCALHOST}${NORMAL}	->${REMOTECOMMAND}<-" 
-eval ${REMOTECOMMAND}
+echo -e "\n${BOLD}  -->  ${LOCALHOST}${NORMAL}	->${REMOTE_COMMAND}<-" 
+eval "${REMOTE_COMMAND}"
 
 #
 get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[INFO]${NORMAL}  Operation finished." 1>&2
