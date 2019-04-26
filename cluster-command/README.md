@@ -6,13 +6,16 @@ This script reads /usr/local/data/us-tx-cluster-1/SYSTEMS file for hosts.  The <
 pi-display/create-message/create-display-message.sh, and other scripts.  A different <SYSTEMS_FILE> can be entered on the command line or environment variable.
 
 The user may receive password and/or passphrase prompts from a remote systen; running the following may stop the prompts in your cluster.
+
     ssh-copy-id <TLS_USER>@<REMOTE_HOST>
 or
-	ssh-copy-id <TLS_USER>@<192.168.x.x>
+
+    ssh-copy-id <TLS_USER>@<192.168.x.x>
 If that does not resolve the prompting challenge then review the man pages for
 ssh-agent and ssh-add before entering the following in a terminal window.
-	eval $(ssh-agent)
-	ssh-add
+
+    eval $(ssh-agent)
+    ssh-add
 
 
 Example of first argument, predefind commands (enter 'cluster-command -h' for latest list)
