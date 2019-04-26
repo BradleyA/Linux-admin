@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.28.153  2019-04-26T00:08:45.937194-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.27  
+# 	   tested with template standards close #23 
 # 	cluster-command/cluster-command.sh  2.27.152  2019-04-25T23:47:55.822127-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.26  
 # 	   upgrade with template standards #23 
 ### production standard 3.0 shellcheck
@@ -32,14 +34,14 @@ echo -e "\nDESCRIPTION"
 #       Displaying help DESCRIPTION in English en_US.UTF-8
 echo    "This script runs a command from a set of predefined commands on hosts."
 echo -e "\nThis script reads ${DEFAULT_DATA_DIR}${DEFAULT_CLUSTER}${DEFAULT_SYSTEMS_FILE} file for hosts."
-echo -e "\nThe <DATA_DIR>/<CLUSTER>/<SYSTEMS_FILE> includes one FQDN or IP address per"
+echo    "The <DATA_DIR>/<CLUSTER>/<SYSTEMS_FILE> includes one FQDN or IP address per"
 echo    "line for all hosts in the cluster.  Lines in <SYSTEMS_FILE> that begin with a"
 echo    "'#' are comments.  The <SYSTEMS_FILE> is used by markit/find-code.sh,"
 echo    "Linux-admin/cluster-command/cluster-command.sh, docker-TLS/copy-registry-tls.sh,"
 echo    "pi-display/create-message/create-display-message.sh, and other scripts.  A"
 echo    "different <SYSTEMS_FILE> can be entered on the command line or environment"
 echo    "variable."
-echo -e "\nThe administration user may receive password and/or passphrase prompts from a"
+echo -e "\nThe user may receive password and/or passphrase prompts from a"
 echo    "remote systen; running the following may stop the prompts in your cluster."
 echo -e "\t${BOLD}ssh-copy-id <TLS_USER>@<REMOTE_HOST>${NORMAL}"
 echo    "or"
@@ -63,11 +65,10 @@ echo    "   DEBUG                   (default off '0')"
 echo    "   CLUSTER                 Cluster name (default '${DEFAULT_CLUSTER}')"
 echo    "   DATA_DIR                Data directory (default '${DEFAULT_DATA_DIR}')"
 echo    "   SYSTEMS_FILE            Hosts in cluster (default '${DEFAULT_SYSTEMS_FILE}')"
-echo    "   REMOTE_COMMAND_OPTION   Command options (+) or special command (default '')"
+echo    "   REMOTE_COMMAND_OPTION   Commands with '+' support other options"
 if ! [ "${REMOTE_COMMAND_OPTION}" == "" ] ; then echo -e "\n   ${BOLD}[WARN]${NORMAL}  Environment Variable ${BOLD}REMOTE_COMMAND_OPTION${NORMAL} is set to >${BOLD}${REMOTE_COMMAND_OPTION}${NORMAL}<"  ; else echo "   Commands that support environment variable ${BOLD}REMOTE_COMMAND_OPTION${NORMAL} are mark with ${BOLD}+${NORMAL}" ; fi
 echo -e "\nOPTIONS"
 echo    "Order of precedence: CLI options, environment variable, default code."
-echo -e "   <<your environment variables information goes here>>"
 echo    "   CLUSTER                Cluster name (default '${DEFAULT_CLUSTER}')"
 echo    "   DATA_DIR               Data directory (default '${DEFAULT_DATA_DIR}')"
 echo    "   SYSTEMS_FILE           Hosts in cluster (default '${DEFAULT_SYSTEMS_FILE}')"
