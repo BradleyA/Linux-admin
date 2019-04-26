@@ -18,7 +18,7 @@ ssh-agent and ssh-add before entering the following in a terminal window.
     ssh-add
 
 
-Example of first argument, predefind commands (enter 'cluster-command -h' for latest list)
+Example of first argument, predefind commands (enter '**cluster-command --help**' for latest list)
 
  * shutdown       - sudo shutdown -f now
  * reboot         - sudo reboot
