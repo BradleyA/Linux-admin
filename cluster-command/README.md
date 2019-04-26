@@ -115,6 +115,12 @@ To clone, change to the directory you want to download the script, README, and h
     18 updates are security updates.
     
     /usr/local/bin/cluster-command.sh 117 [INFO]:	Done.
+
+#### ARCHITECTURE TREE
+
+    /usr/local/data/                           <-- <DATA_DIR>
+    └── <CLUSTER>/                             <-- <CLUSTER>
+        └── SYSTEMS                             <-- List of hosts in cluster
     
 ## Install
 
