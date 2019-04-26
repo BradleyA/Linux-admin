@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	cluster-command/cluster-command.sh  2.28.153  2019-04-26T00:08:45.937194-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.27  
-# 	   tested with template standards close #23 
-# 	cluster-command/cluster-command.sh  2.27.152  2019-04-25T23:47:55.822127-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.26  
-# 	   upgrade with template standards #23 
+# 	cluster-command/cluster-command.sh  2.29.154  2019-04-26T13:25:41.071702-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.28  
+# 	   update display_help passphrase and password prompting 
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen
@@ -46,6 +44,10 @@ echo    "remote systen; running the following may stop the prompts in your clust
 echo -e "\t${BOLD}ssh-copy-id <TLS_USER>@<REMOTE_HOST>${NORMAL}"
 echo    "or"
 echo -e "\t${BOLD}ssh-copy-id <TLS_USER>@<192.168.x.x>${NORMAL}"
+echo    "If that does not resolve the prompting challenge then review the man pages for"
+echo    "ssh-agent and ssh-add before entering the following in a terminal window."
+echo -e "\t${BOLD}eval \$(ssh-agent)${NORMAL}"
+echo -e "\t${BOLD}ssh-add${NORMAL}"
 ### production standard 4.0 Documentation Language
 #       Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
 if [ "${LANG}" == "fr_CA.UTF-8" ] || [ "${LANG}" == "fr_FR.UTF-8" ] || [ "${LANG}" == "fr_CH.UTF-8" ] ; then
