@@ -107,6 +107,13 @@ To clone, change to the directory you want to download the script, README, and h
 To install a new version of cluster-command.sh, change to the directory, cd /usr/local/bin, to download the script.  The following command does not download the required /usr/local/data/us-tx-cluster-1/SYSTEMS text file.
 
     curl -L https://api.github.com/repos/BradleyA/Linux-admin/tarball | tar -xzf - --wildcards */cluster-command.sh ; mv BradleyA-Linux-admin-*/cluster-command/cluster-command.sh . ; rm -rf BradleyA-Linux-admin-*
+    
+#### To watch future updates in this repository select in the upper-right corner, the "Watch" list, and select Watching.
+
+#### Author
+[<img id="twitter" src="../images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
+](https://twitter.com/bradleyaustintx/)   [<img id="github" src="../images/github.png" width="50" a="https://github.com/BradleyA/">
+](https://github.com/BradleyA/)    [<img src="../images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen)
 
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
