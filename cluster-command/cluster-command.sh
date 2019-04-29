@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.30.168  2019-04-28T20:36:01.345299-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.29-13-gd8ca534  
+# 	   correct incident using SYSTEMS file with special, need more testing 
 # 	cluster-command/cluster-command.sh  2.29.154  2019-04-26T13:25:41.071702-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.28  
 # 	   update display_help passphrase and password prompting 
 ### production standard 3.0 shellcheck
@@ -25,7 +27,8 @@ echo -e "\nUSAGE"
 echo    "   ${0} [<PREDEFINED-COMMAND>]"
 echo    "   ${0}  <PREDEFINED-COMMAND> [<CLUSTER>]"
 echo    "   ${0}  <PREDEFINED-COMMAND>  <CLUSTER> [<DATA_DIR>]"
-echo    "   ${0}  <PREDEFINED-COMMAND>  <CLUSTER>  <DATA_DIR> [SYSTEMS_FILE]"
+echo -e "   ${0}  <PREDEFINED-COMMAND>  <CLUSTER>  <DATA_DIR> [SYSTEMS_FILE]\n"
+echo    "   ${0} [special|root-special] <REMOTE_COMMAND_OPTION>"
 echo    "   ${0} [--help | -help | help | -h | h | -?]"
 echo    "   ${0} [--version | -version | -v]"
 echo -e "\nDESCRIPTION"
@@ -130,7 +133,7 @@ echo    "   https://github.com/BradleyA/Linux-admin/tree/master/cluster-command"
 echo -e "\nEXAMPLES"
 echo -e "   Shutdown hosts in clusters\n\t${BOLD}${0} shutdown${NORMAL}"
 echo -e "   Display disk space available on file system /tmp\n\t${BOLD}export REMOTE_COMMAND_OPTION=\"/tmp\"\n\t${0} df${NORMAL}"
-echo -e "   Remove log file that includes remote hostname\n\t${BOLD}export REMOTE_COMMAND_OPTION='rm  /usr/local/data/us-tx-cluster-1/log/*\`hostname -f\`-crontab'\n\t${0} special${NORMAL}"
+echo -e "   Remove log file that includes remote hostname\n\t${BOLD}export REMOTE_COMMAND_OPTION='rm  /usr/local/data/us-tx-cluster-1/log/\`hostname -f\`-crontab'\n\t${0} special${NORMAL}"
 echo -e "   List files in /usr/local/bin directory\n\t${BOLD}${0} special 'ls -l /usr/local/bin/*'${NORMAL}"
 echo -e "   Check public, private keys, and CA for hosts in cluster\n\t${BOLD}${0} special 'sudo check-host-tls.sh'${NORMAL}"
 }
@@ -178,7 +181,8 @@ if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP}
 REMOTE_COMMAND=${1:-${DEFAULT_REMOTE_COMMAND}}
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTE_COMMAND >${REMOTE_COMMAND}<" 1>&2 ; fi
 if [ "$1" == "special" ] || [ "$1" == "root-special" ] ; then
-	REMOTE_COMMAND_OPTION=DEFAULT_REMOTE_COMMAND_OPTION
+	#       Order of precedence: CLI argument, environment variable, default code
+	if [ $# -ge  2 ]  ; then REMOTE_COMMAND_OPTION=${2} ; elif [ "${REMOTE_COMMAND_OPTION}" == "" ] ; then REMOTE_COMMAND_OPTION=${DEFAULT_REMOTE_COMMAND_OPTION} ; fi
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTE_COMMAND >${REMOTE_COMMAND}<  REMOTE_COMMAND_OPTION >${REMOTE_COMMAND_OPTION}<" 1>&2 ; fi
 	#       Set default
 	CLUSTER=${DEFAULT_CLUSTER}
@@ -193,7 +197,7 @@ else
 	#       order of precedence: CLI argument, environment variable, default code
 	if [ $# -ge  4 ]  ; then SYSTEMS_FILE=${4} ; elif [ "${SYSTEMS_FILE}" == "" ] ; then SYSTEMS_FILE=${DEFAULT_SYSTEMS_FILE} ; fi
 fi
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  CLUSTER >${CLUSTER}<  DATA_DIR >${DATA_DIR}<  SYSTEMS_FILE ${SYSTEMS_FILE} REMOTE_COMMAND >${REMOTE_COMMAND}<" 1>&2 ; fi
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  CLUSTER >${CLUSTER}<  DATA_DIR >${DATA_DIR}<  SYSTEMS_FILE >${SYSTEMS_FILE}< REMOTE_COMMAND >${REMOTE_COMMAND}< REMOTE_COMMAND_OPTION >${REMOTE_COMMAND_OPTION}<" 1>&2 ; fi
 
 #       Check if ${SYSTEMS_FILE} file is on system, one FQDN or IP address per line for all hosts in cluster
 if ! [ -e ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] || ! [ -s ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] ; then
