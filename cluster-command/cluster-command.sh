@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.31.169  2019-05-20T11:50:44.361910-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.30  
+# 	   added two additional DEBUG lines close #24 
 # 	cluster-command/cluster-command.sh  2.30.168  2019-04-28T20:36:01.345299-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.29-13-gd8ca534  
 # 	   correct incident using SYSTEMS file with special, need more testing 
 # 	cluster-command/cluster-command.sh  2.29.154  2019-04-26T13:25:41.071702-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.28  
@@ -340,8 +342,11 @@ case ${REMOTE_COMMAND} in
 		;;
 esac
 
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTE_HOST >${REMOTE_HOST}<" 1>&2 ; fi
+
 #
 for NODE in ${REMOTE_HOST} ; do
+	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  NODE  >${NODE}<" 1>&2 ; fi
 	if [ "${LOCALHOST}" != "${NODE}" ] ; then
 		echo -e "\n${BOLD}  =-->  ${NODE}${NORMAL}	->${REMOTE_COMMAND}<-" 
 		ssh -t "${USER}"@"${NODE}" ${REMOTE_COMMAND}
