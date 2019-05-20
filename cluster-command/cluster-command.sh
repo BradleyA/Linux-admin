@@ -1,9 +1,7 @@
 #!/bin/bash
-# 	cluster-command/cluster-command.sh  2.32.170  2019-05-20T15:33:55.646755-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.31  
-# 	   cluster-command.sh - disable/enable user login account close #21 
+# 	cluster-command/cluster-command.sh  2.33.171  2019-05-20T15:50:02.533263-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.32  
+# 	   cluster-command.sh - add logic to support local system not in SYSTEMS file close #26 
 # 	cluster-command/cluster-command.sh  2.31.169  2019-05-20T11:50:44.361910-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.30  
-# 	   added two additional DEBUG lines close #24 
-# 	cluster-command/cluster-command.sh  2.30.168  2019-04-28T20:36:01.345299-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.29-13-gd8ca534  
 # 	   correct incident using SYSTEMS file with special, need more testing 
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
@@ -185,7 +183,7 @@ if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP}
 REMOTE_COMMAND=${1:-${DEFAULT_REMOTE_COMMAND}}
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTE_COMMAND >${REMOTE_COMMAND}< Number of options >$#<" 1>&2 ; fi
 if [ "$1" == "special" ] || [ "$1" == "root-special" ] ; then
-	# >>>	need to test more because i do not think the logic is correct with the following if
+	# >>>	need to test more because i do not think the logic is correct with the following if #22 #25
 	#       Order of precedence: CLI argument, environment variable, default code
 	if [ $# == 2 ]  ; then REMOTE_COMMAND_OPTION=${2} ; elif [ "${REMOTE_COMMAND_OPTION}" == "" ] ; then REMOTE_COMMAND_OPTION=${DEFAULT_REMOTE_COMMAND_OPTION} ; fi
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTE_COMMAND >${REMOTE_COMMAND}<  REMOTE_COMMAND_OPTION >${REMOTE_COMMAND_OPTION}<" 1>&2 ; fi
@@ -357,16 +355,22 @@ esac
 
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTE_HOST >${REMOTE_HOST}<" 1>&2 ; fi
 
+#	is LOCALHOST included in ${REMOTE_HOST} list #26
+CHECK_LOCALHOST=0
 #
 for NODE in ${REMOTE_HOST} ; do
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  NODE  >${NODE}<" 1>&2 ; fi
 	if [ "${LOCALHOST}" != "${NODE}" ] ; then
 		echo -e "\n${BOLD}  =-->  ${NODE}${NORMAL}	->${REMOTE_COMMAND}<-" 
 		ssh -t "${USER}"@"${NODE}" ${REMOTE_COMMAND}
+	else
+		CHECK_LOCALHOST=1
 	fi
 done
-echo -e "\n${BOLD}  -->  ${LOCALHOST}${NORMAL}	->${REMOTE_COMMAND}<-" 
-eval "${REMOTE_COMMAND}"
+if [ "${CHECK_LOCALHOST}" == "1" ] ; then
+	echo -e "\n${BOLD}  -->  ${LOCALHOST}${NORMAL}	->${REMOTE_COMMAND}<-" 
+	eval "${REMOTE_COMMAND}"
+fi
 
 #
 get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[INFO]${NORMAL}  Operation finished." 1>&2
