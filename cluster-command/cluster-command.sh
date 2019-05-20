@@ -1,10 +1,10 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.32.170  2019-05-20T15:33:55.646755-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.31  
+# 	   cluster-command.sh - disable/enable user login account close #21 
 # 	cluster-command/cluster-command.sh  2.31.169  2019-05-20T11:50:44.361910-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.30  
 # 	   added two additional DEBUG lines close #24 
 # 	cluster-command/cluster-command.sh  2.30.168  2019-04-28T20:36:01.345299-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.29-13-gd8ca534  
 # 	   correct incident using SYSTEMS file with special, need more testing 
-# 	cluster-command/cluster-command.sh  2.29.154  2019-04-26T13:25:41.071702-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.28  
-# 	   update display_help passphrase and password prompting 
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen
@@ -125,9 +125,11 @@ echo    "      unhold         - apt-mark unhold"
 echo    "      hold           - apt-mark hold"
 echo    "      require-reboot - if [ -f /var/run/reboot-required ]; then echo 'reboot"
 echo    "                       required' ; else echo 'no reboot required' ; fi"
-echo    "      require-upgrade - /usr/lib/update-notifier/apt-check --human-readable" # >>> not sure this is the correct command becasue one-rpi3b stated no upgrade but then did eight upgrades
+echo    "      require-upgrade - /usr/lib/update-notifier/apt-check --human-readable" # >>> not sure this is the correct command becasue one-rpi3b stated no upgrade but then did eight upgrades #12
 echo    "      upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Inst'"
 echo    "                        apt list --upgradeable -> does not work on Ubuntu 14.04"
+echo    "      disable-user   + sudo usermod --expiredate 1"  # disable user from logging in (uncluding ssh)
+echo    "      enable-user    + sudo usermod --expiredate ''" # enable user to login that was disabled
 echo    "      special        + ${REMOTE_COMMAND_OPTION}"
 echo    "      root-special   + sudo ${REMOTE_COMMAND_OPTION}"
 echo -e "\nDOCUMENTATION"
@@ -181,10 +183,11 @@ if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP}
 ###
 #	Execpt only commands in case statement
 REMOTE_COMMAND=${1:-${DEFAULT_REMOTE_COMMAND}}
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTE_COMMAND >${REMOTE_COMMAND}<" 1>&2 ; fi
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTE_COMMAND >${REMOTE_COMMAND}< Number of options >$#<" 1>&2 ; fi
 if [ "$1" == "special" ] || [ "$1" == "root-special" ] ; then
+	# >>>	need to test more because i do not think the logic is correct with the following if
 	#       Order of precedence: CLI argument, environment variable, default code
-	if [ $# -ge  2 ]  ; then REMOTE_COMMAND_OPTION=${2} ; elif [ "${REMOTE_COMMAND_OPTION}" == "" ] ; then REMOTE_COMMAND_OPTION=${DEFAULT_REMOTE_COMMAND_OPTION} ; fi
+	if [ $# == 2 ]  ; then REMOTE_COMMAND_OPTION=${2} ; elif [ "${REMOTE_COMMAND_OPTION}" == "" ] ; then REMOTE_COMMAND_OPTION=${DEFAULT_REMOTE_COMMAND_OPTION} ; fi
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTE_COMMAND >${REMOTE_COMMAND}<  REMOTE_COMMAND_OPTION >${REMOTE_COMMAND_OPTION}<" 1>&2 ; fi
 	#       Set default
 	CLUSTER=${DEFAULT_CLUSTER}
@@ -329,6 +332,16 @@ case ${REMOTE_COMMAND} in
 		;;
 	upgrade-package)
 		REMOTE_COMMAND="apt-get upgrade --simulate  | grep -vE 'Conf|Inst'"
+		;;
+	disable-user)
+		echo -e "\n\tEnter user login name to disable"
+		read USER_LOGIN
+		REMOTE_COMMAND="sudo usermod --expiredate 1 ${USER_LOGIN}"
+		;;
+	enable-user)
+		echo -e "\n\tEnter user login name to re-enable"
+		read USER_LOGIN
+		REMOTE_COMMAND="sudo usermod --expiredate '' ${USER_LOGIN}"
 		;;
 	special)
 		REMOTE_COMMAND="${REMOTE_COMMAND_OPTION}"
