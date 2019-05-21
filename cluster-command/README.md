@@ -5,17 +5,30 @@ This script runs a command from a set of predefined commands on several hosts.
 This script reads /usr/local/data/us-tx-cluster-1/SYSTEMS file for hosts.  The <DATA_DIR>/<CLUSTER>/<SYSTEMS_FILE> includes one FQDN or IP address per line for all hosts in the cluster.  Lines in <SYSTEMS_FILE> that begin with a '#' are comments.  The <SYSTEMS_FILE> is used by markit/find-code.sh, Linux-admin/cluster-command/cluster-command.sh, docker-TLS/copy-registry-tls.sh,
 pi-display/create-message/create-display-message.sh, and other scripts.  A different <SYSTEMS_FILE> can be entered on the command line or environment variable.
 
-The user may receive password and/or passphrase prompts from a remote systen; running the following may stop the prompts in your cluster.
+The user may receive password and/or passphrase prompts from a remote systen; running the following with the hostname or IP address may stop the prompts in your cluster.
 
     ssh-copy-id <TLS_USER>@<REMOTE_HOST>
-or
 
-    ssh-copy-id <TLS_USER>@<192.168.x.x>
 If that does not resolve the prompting challenge then review the man pages for
 ssh-agent and ssh-add before entering the following in a terminal window.
 
     eval $(ssh-agent)
     ssh-add
+    
+## Clone
+
+To clone, change to the directory you want to download the script, README, and host file, SYSTEMS. Use git to clone these files into your directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
+
+    git clone https://github.com/BradleyA/Linux-admin.git
+    cd Linux-admin/cluster-command
+    
+    mkdir -p /usr/local/bin
+    mv cluster-command.sh /usr/local/bin
+    
+    mkdir -p /usr/local/data/us-tx-cluster-1
+    mv SYSTEMS /usr/local/data/us-tx-cluster-1/
+
+    <edit> /usr/local/data/us-tx-cluster-1/SYSTEMS
 
 Example of first argument, predefind commands (enter '**cluster-command.sh --help**' for latest list)
 
