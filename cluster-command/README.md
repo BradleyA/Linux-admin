@@ -69,6 +69,9 @@ require-upgrade   | - | /usr/lib/update-notifier/apt-check --human-readable
 upgrade-package   | - | apt-get upgrade --simulate | grep -vE 'Conf|Inst'
 |                 |   | apt list --upgradeable -> does not work on Ubuntu 14.04
 |                 |   |     |
+disable-user      | + | sudo usermod --expiredate 1
+enable-user       | + | sudo usermod --expiredate ''
+|                 |   |     | 
 special           | + |     |
 root-special      | + | sudo
 
