@@ -31,30 +31,30 @@ Example of first argument, predefind commands (enter '**cluster-command.sh --hel
 |df                | + | df |
 |last              | - | lastlog | grep -v '**Never logged in**'|
 |who               | + | who |
-|ip                | - ip a |
-|netstat           | - sudo netstat -natup |
-|uptime            | + uptime |
+|ip                | - | ip a |
+|netstat           | - | sudo netstat -natup |
+|uptime            | + | uptime |
 |                  |   |  |
 |docker-version    | - | docker version | grep 'Version:' |
 |docker-release    | - | grep docker /etc/apt/sources.list |
 |docker-df         | - | docker system df |
 |docker-df-v       | - | docker system df --verbose |
 |docker-info       | + | docker system info |
-|docker-info-con   | - | docker system info | head -6 |
-|docker-info-swarm | - docker system info | grep -i swarm |
+|docker-info-con   | - | docker system info \| head -6 |
+|docker-info-swarm | - | docker system info \| grep -i swarm |
 |ls-docker-con     | + | docker container ls |
-|ls-docker-ima     | + docker images
-|ls-docker-net     | + docker network ls
-|ls-docker-vol     | + docker volume ls
-|clean-docker-ima  | - docker image rm $(docker image ls --filter='dangling=true' -q)
-|clean-docker-vol  | - docker volume rm $(docker volume ls --filter dangling=true -q)
-|prune-docker-net  | + docker network prune 
-|prune-docker-vol  | + docker volume prune 
-|prune-docker-all  | + docker system prune |
+|ls-docker-ima     | + | docker images
+|ls-docker-net     | + | docker network ls
+|ls-docker-vol     | + | docker volume ls
+|clean-docker-ima  | - | docker image rm $(docker image ls --filter='dangling=true' -q)
+|clean-docker-vol  | - | docker volume rm $(docker volume ls --filter dangling=true -q)
+|prune-docker-net  | + | docker network prune 
+|prune-docker-vol  | + | docker volume prune 
+|prune-docker-all  | + | docker system prune |
 |                  |   |   | 
-|update               - sudo apt-get update ;
-                       /usr/lib/update-notifier/apt-check --human-readable
-|upgrade              - sudo apt-get upgrade --assume-yes ;
+|update            | - | sudo apt-get update ; |
+|                  |   | /usr/lib/update-notifier/apt-check --human-readable|
+|upgrade           | - | sudo apt-get upgrade --assume-yes ; |
                        if [ -f /var/run/reboot-required ] ; then
                        echo 'reboot required' ; else
                        echo 'no reboot required' ; fi
