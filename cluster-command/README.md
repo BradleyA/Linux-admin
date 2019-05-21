@@ -22,9 +22,9 @@ Example of first argument, predefind commands (enter '**cluster-command.sh --hel
 
 |  Option          |   | Command |
 |------------------|:---:|-------------|
-shutdown         | - | sudo shutdown -f now
-reboot           | + | sudo reboot
-|                |   |   |
+shutdown          | - | sudo shutdown -f now
+reboot            | + | sudo reboot
+|                 |   |   |
 os                | - | lsb_release -d 
 cpu               | - | lscpu 
 date              | + | date 
@@ -55,20 +55,20 @@ prune-docker-all  | + | docker system prune
 update            | - | sudo apt-get update ; 
                   |   | /usr/lib/update-notifier/apt-check --human-readable
 upgrade           | - | sudo apt-get upgrade --assume-yes ; 
-                       if [ -f /var/run/reboot-required ] ; then
-                       echo 'reboot required' ; else
-                       echo 'no reboot required' ; fi 
-dist-upgrade         - sudo apt-get dist-upgrade --assume-yes
-autoremove           - sudo apt-get autoremove --assume-yes
-showhold             - apt-mark showhold
-unhold               - apt-mark unhold
-hold                 - apt-mark hold
-require-reboot       - if [ -f /var/run/reboot-required ]; then echo 'reboot
-                       required' ; else echo 'no reboot required' ; fi
-require-upgrade      - /usr/lib/update-notifier/apt-check --human-readable
-upgrade-package      - apt-get upgrade --simulate | grep -vE 'Conf|Inst'
-                       apt list --upgradeable -> does not work on Ubuntu 14.04
-
+                  |   | if [ -f /var/run/reboot-required ] ; then
+                  |   | echo 'reboot required' ; else
+                  |   | echo 'no reboot required' ; fi 
+dist-upgrade      | - | sudo apt-get dist-upgrade --assume-yes
+autoremove        | - | sudo apt-get autoremove --assume-yes
+showhold          | - | apt-mark showhold
+unhold            | - | apt-mark unhold
+hold              | - | apt-mark hold
+require-reboot    | - | if [ -f /var/run/reboot-required ]; then echo 'reboot
+                  |   | required' ; else echo 'no reboot required' ; fi
+require-upgrade   | - | /usr/lib/update-notifier/apt-check --human-readable
+upgrade-package   | - | apt-get upgrade --simulate | grep -vE 'Conf|Inst'
+                  |   | apt list --upgradeable -> does not work on Ubuntu 14.04
+|                 |   |     |
 special              +
 root-special         + sudo
 
