@@ -30,6 +30,43 @@ To clone, change to the directory you want to download the script, README, and h
 
     <edit> /usr/local/data/us-tx-cluster-1/SYSTEMS
 
+## Usage
+    $ cluster-command.sh require-upgrade
+
+## Data File
+    /usr/local/data/us-tx-cluster-1/SYSTEMS
+
+## Output
+      -->  one-rpi3b.cptx86.com
+    0 packages can be updated. 0 updates are security updates.
+
+      -->  two-rpi3b.cptx86.com
+        # #####   All connections monitored   ##### #
+    0 packages can be updated.
+    0 updates are security updates.
+    
+      -->  three-rpi3b.cptx86.com
+      	# #####   All connections monitored   ##### #
+    18 packages can be updated.
+    18 updates are security updates.
+    
+      -->  four-rpi3b.cptx86.com
+      	# #####   All connections monitored   ##### #
+    0 packages can be updated.
+    0 updates are security updates.
+    
+      -->  five-rpi3b.cptx86.com
+	      # #####   All connections monitored   ##### #
+    19 packages can be updated.
+    18 updates are security updates.
+    
+      -->  six-rpi3b.cptx86.com
+	      # #####   All connections monitored   ##### #
+    19 packages can be updated.
+    18 updates are security updates.
+    
+    /usr/local/bin/cluster-command.sh 117 [INFO]:	Done.
+
 Example of first argument, predefind commands (enter '**cluster-command.sh --help**' for latest list)
 
 
@@ -89,107 +126,6 @@ special           | + |     |
 root-special      | + | sudo
 
 
-
-    shutdown             - sudo shutdown -f now
-    reboot               + sudo reboot
-  
-    os                   - lsb_release -d
-    cpu                  - lscpu
-    date                 + date
-    df                   + df
-    last                 - lastlog | grep -v '**Never logged in**'
-    who                  + who
-    ip                   - ip a
-    netstat              - sudo netstat -natup
-    uptime               + uptime
-  
-    docker-version       - docker version | grep 'Version:'
-    docker-release       - grep docker /etc/apt/sources.list
-    docker-df            - docker system df
-    docker-df-v          - docker system df --verbose
-    docker-info          + docker system info
-    docker-info-con      - docker system info | head -6
-    docker-info-swarm    - docker system info | grep -i swarm
-    ls-docker-con        + docker container ls
-    ls-docker-ima        + docker images
-    ls-docker-net        + docker network ls
-    ls-docker-vol        + docker volume ls
-    clean-docker-ima     - docker image rm $(docker image ls --filter='dangling=true' -q)
-    clean-docker-vol     - docker volume rm $(docker volume ls --filter dangling=true -q)
-    prune-docker-net     + docker network prune 
-    prune-docker-vol     + docker volume prune 
-    prune-docker-all     + docker system prune 
-  
-    update               - sudo apt-get update ;
-                           /usr/lib/update-notifier/apt-check --human-readable
-    upgrade              - sudo apt-get upgrade --assume-yes ;
-                           if [ -f /var/run/reboot-required ] ; then
-                           echo 'reboot required' ; else
-                           echo 'no reboot required' ; fi
-    dist-upgrade         - sudo apt-get dist-upgrade --assume-yes
-    autoremove           - sudo apt-get autoremove --assume-yes
-    showhold             - apt-mark showhold
-    unhold               - apt-mark unhold
-    hold                 - apt-mark hold
-    require-reboot       - if [ -f /var/run/reboot-required ]; then echo 'reboot
-                           required' ; else echo 'no reboot required' ; fi
-    require-upgrade      - /usr/lib/update-notifier/apt-check --human-readable
-    upgrade-package      - apt-get upgrade --simulate | grep -vE 'Conf|Inst'
-                           apt list --upgradeable -> does not work on Ubuntu 14.04
-    special              +
-    root-special         + sudo
-
-## Clone
-
-To clone, change to the directory you want to download the script, README, and host file, SYSTEMS. Use git to clone these files into your directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
-
-    git clone https://github.com/BradleyA/Linux-admin.git
-    cd Linux-admin/cluster-command
-    
-    mkdir -p /usr/local/bin
-    mv cluster-command.sh /usr/local/bin
-    
-    mkdir -p /usr/local/data/us-tx-cluster-1
-    mv SYSTEMS /usr/local/data/us-tx-cluster-1/
-
-    <edit> /usr/local/data/us-tx-cluster-1/SYSTEMS
-
-## Usage
-    $ cluster-command.sh require-upgrade
-
-## Data File
-    /usr/local/data/us-tx-cluster-1/SYSTEMS
-
-## Output
-      -->  one-rpi3b.cptx86.com
-    0 packages can be updated. 0 updates are security updates.
-
-      -->  two-rpi3b.cptx86.com
-        # #####   All connections monitored   ##### #
-    0 packages can be updated.
-    0 updates are security updates.
-    
-      -->  three-rpi3b.cptx86.com
-      	# #####   All connections monitored   ##### #
-    18 packages can be updated.
-    18 updates are security updates.
-    
-      -->  four-rpi3b.cptx86.com
-      	# #####   All connections monitored   ##### #
-    0 packages can be updated.
-    0 updates are security updates.
-    
-      -->  five-rpi3b.cptx86.com
-	      # #####   All connections monitored   ##### #
-    19 packages can be updated.
-    18 updates are security updates.
-    
-      -->  six-rpi3b.cptx86.com
-	      # #####   All connections monitored   ##### #
-    19 packages can be updated.
-    18 updates are security updates.
-    
-    /usr/local/bin/cluster-command.sh 117 [INFO]:	Done.
 
 #### ARCHITECTURE TREE
 
