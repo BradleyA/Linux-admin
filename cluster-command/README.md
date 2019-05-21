@@ -5,7 +5,7 @@ This script runs a command from a set of predefined commands on several hosts.
 This script reads /usr/local/data/us-tx-cluster-1/SYSTEMS file for hosts.  The <DATA_DIR>/<CLUSTER>/<SYSTEMS_FILE> includes one FQDN or IP address per line for all hosts in the cluster.  Lines in <SYSTEMS_FILE> that begin with a '#' are comments.  The <SYSTEMS_FILE> is used by markit/find-code.sh, Linux-admin/cluster-command/cluster-command.sh, docker-TLS/copy-registry-tls.sh,
 pi-display/create-message/create-display-message.sh, and other scripts.  A different <SYSTEMS_FILE> can be entered on the command line or environment variable.
 
-The user may receive password and/or passphrase prompts from a remote systen; running the following with the hostname or IP address may stop the prompts in your cluster.
+The user may receive password and/or passphrase prompts from a remote systen; running the following with the remote hostname or IP address may stop the prompts in your cluster.
 
     ssh-copy-id <TLS_USER>@<REMOTE_HOST>
 
