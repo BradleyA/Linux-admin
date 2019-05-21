@@ -1,8 +1,8 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.34.185  2019-05-21T14:02:56.051905-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.33-13-gada777c  
+# 	   create new release 
 # 	cluster-command/cluster-command.sh  2.33.171  2019-05-20T15:50:02.533263-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.32  
 # 	   cluster-command.sh - add logic to support local system not in SYSTEMS file close #26 
-# 	cluster-command/cluster-command.sh  2.31.169  2019-05-20T11:50:44.361910-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.30  
-# 	   correct incident using SYSTEMS file with special, need more testing 
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen
