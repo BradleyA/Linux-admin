@@ -35,6 +35,18 @@ To clone, change to the directory you want to download the script, README, and h
 
 ## Data File
     /usr/local/data/us-tx-cluster-1/SYSTEMS
+#### CONTENT OF /usr/local/data/us-tx-cluster-1/SYSTEMS FILE
+    ###     List of hosts used by cluster-command.sh, create-message.sh
+    ###
+    #       One FQDN host on each line
+    ###
+    #  -> Raspberry Pi us-tx-cluster-1
+    one-rpi3b.cptx86.com
+    two-rpi3b.cptx86.com
+    three-rpi3b.cptx86.com
+    four-rpi3b.cptx86.com
+    five-rpi3b.cptx86.com
+    six-rpi3b.cptx86.com
 
 ## Output
       -->  one-rpi3b.cptx86.com
