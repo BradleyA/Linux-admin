@@ -67,8 +67,8 @@ To clone, change to the directory you want to download the script, README, and h
     
     /usr/local/bin/cluster-command.sh 117 [INFO]:	Done.
 
+#### SCRIPT OPTIONS
 Example of first argument, predefind commands (enter '**cluster-command.sh --help**' for latest list)
-
 
 |  Option          |   | Command |
 |------------------|:---:|-------------|
@@ -123,9 +123,7 @@ disable-user      | + | sudo usermod --expiredate 1
 enable-user       | + | sudo usermod --expiredate ''
 |                 |   |     | 
 special           | + |     |
-root-special      | + | sudo
-
-
+root-special      | + | sudo 
 
 #### ARCHITECTURE TREE
 
