@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	cluster-command/cluster-command.sh  2.37.189  2019-05-26T18:51:24.642021-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.36  
+# 	cluster-command/cluster-command.sh  2.38.194  2019-05-26T18:54:39.460128-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.37-4-gd217ece  
 # 	   ready for release 
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
