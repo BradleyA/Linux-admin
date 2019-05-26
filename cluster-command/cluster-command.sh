@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	cluster-command/cluster-command.sh  2.35.187  2019-05-26T18:15:10.041614-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.34-1-g8de5f19  
-# 	   cluster-command - incident with arg code - tested ready to release close #22 
-# 	cluster-command/cluster-command.sh  2.33.171  2019-05-20T15:50:02.533263-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.32  
-# 	   cluster-command.sh - add logic to support local system not in SYSTEMS file close #26 
+# 	cluster-command/cluster-command.sh  2.36.188  2019-05-26T18:36:16.339720-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.35  
+# 	   update display_help  cluster-command.sh - add support for echo ${REMOTE_COMMAND_OPTION} close #25 
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen
@@ -80,32 +78,32 @@ echo    "└── <CLUSTER>/                             <-- <CLUSTER>"
 echo    "   └── SYSTEMS                             <-- List of hosts in cluster"
 echo -e "\n   PREDEFINED-COMMAND"
 echo    "      shutdown       - sudo shutdown -f now"
-echo -e "      reboot         + sudo reboot ${REMOTE_COMMAND_OPTION}\n"
+echo -e "      reboot         + sudo reboot [<REMOTE_COMMAND_OPTION>]\n"
 echo    "      os             - lsb_release -d"
 echo    "      cpu            - lscpu"
-echo    "      date           + date ${REMOTE_COMMAND_OPTION}"
-echo    "      df             + df ${REMOTE_COMMAND_OPTION}"
+echo    "      date           + date [<REMOTE_COMMAND_OPTION>]"
+echo    "      df             + df [<REMOTE_COMMAND_OPTION>]"
 echo    "      last           - lastlog | grep -v '**Never logged in**'"
-echo    "      who            + who ${REMOTE_COMMAND_OPTION}"
+echo    "      who            + who [<REMOTE_COMMAND_OPTION>]"
 echo    "      ip             - ip a"
 echo    "      netstat        - sudo netstat -natup"
-echo -e "      uptime         + uptime ${REMOTE_COMMAND_OPTION}\n"
+echo -e "      uptime         + uptime [<REMOTE_COMMAND_OPTION>]\n"
 echo    "      docker-version - docker version | grep 'Version:'"
 echo    "      docker-release - grep docker /etc/apt/sources.list"
 echo    "      docker-df      - docker system df"
 echo    "      docker-df-v    - docker system df --verbose"
-echo    "      docker-info    + docker system info ${REMOTE_COMMAND_OPTION}"
+echo    "      docker-info    + docker system info [<REMOTE_COMMAND_OPTION>]"
 echo    "      docker-info-con - docker system info | head -6"
 echo    "      docker-info-swarm - docker system info | grep -i swarm"
-echo    "      ls-docker-con  + docker container ls ${REMOTE_COMMAND_OPTION}"
-echo    "      ls-docker-ima  + docker images ${REMOTE_COMMAND_OPTION}"
-echo    "      ls-docker-net  + docker network ls ${REMOTE_COMMAND_OPTION}"
-echo    "      ls-docker-vol  + docker volume ls ${REMOTE_COMMAND_OPTION}"
+echo    "      ls-docker-con  + docker container ls [<REMOTE_COMMAND_OPTION>]"
+echo    "      ls-docker-ima  + docker images [<REMOTE_COMMAND_OPTION>]"
+echo    "      ls-docker-net  + docker network ls [<REMOTE_COMMAND_OPTION>]"
+echo    "      ls-docker-vol  + docker volume ls [<REMOTE_COMMAND_OPTION>]"
 echo    "      clean-docker-ima	- docker image rm \$(docker image ls --filter='dangling=true' -q)"
 echo    "      clean-docker-vol	- docker volume rm \$(docker volume ls --filter dangling=true -q)"
-echo    "      prune-docker-net	+ docker network prune ${REMOTE_COMMAND_OPTION}"
-echo    "      prune-docker-vol	+ docker volume prune ${REMOTE_COMMAND_OPTION}"
-echo -e "      prune-docker-all	+ docker system prune ${REMOTE_COMMAND_OPTION}\n"
+echo    "      prune-docker-net	+ docker network prune [<REMOTE_COMMAND_OPTION>]"
+echo    "      prune-docker-vol	+ docker volume prune [<REMOTE_COMMAND_OPTION>]"
+echo -e "      prune-docker-all	+ docker system prune [<REMOTE_COMMAND_OPTION>]\n"
 echo    "      update         - sudo apt-get update ;"
 echo    "                       /usr/lib/update-notifier/apt-check --human-readable"
 echo    "      upgrade        - sudo apt-get upgrade --assume-yes ;"
@@ -124,8 +122,8 @@ echo    "      upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Ins
 echo    "                        apt list --upgradeable -> does not work on Ubuntu 14.04"
 echo    "      disable-user   + sudo usermod --expiredate 1"  # disable user from logging in (uncluding ssh)
 echo    "      enable-user    + sudo usermod --expiredate ''" # enable user to login that was disabled
-echo    "      special        + ${REMOTE_COMMAND_OPTION}"
-echo    "      root-special   + sudo ${REMOTE_COMMAND_OPTION}"
+echo    "      special        + <REMOTE_COMMAND_OPTION>"
+echo    "      root-special   + sudo <REMOTE_COMMAND_OPTION>"
 echo -e "\nDOCUMENTATION"
 echo    "   https://github.com/BradleyA/Linux-admin/tree/master/cluster-command"
 echo -e "\nEXAMPLES"
