@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	cluster-command/cluster-command.sh  2.36.188  2019-05-26T18:36:16.339720-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.35  
-# 	   update display_help  cluster-command.sh - add support for echo ${REMOTE_COMMAND_OPTION} close #25 
+# 	cluster-command/cluster-command.sh  2.37.189  2019-05-26T18:51:24.642021-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.36  
+# 	   ready for release 
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen
