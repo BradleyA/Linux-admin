@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	cluster-command/cluster-command.sh  2.34.185  2019-05-21T14:02:56.051905-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.33-13-gada777c  
-# 	   create new release 
+# 	cluster-command/cluster-command.sh  2.35.187  2019-05-26T18:15:10.041614-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.34-1-g8de5f19  
+# 	   cluster-command - incident with arg code - tested ready to release close #22 
 # 	cluster-command/cluster-command.sh  2.33.171  2019-05-20T15:50:02.533263-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.32  
 # 	   cluster-command.sh - add logic to support local system not in SYSTEMS file close #26 
 ### production standard 3.0 shellcheck
@@ -25,10 +25,8 @@ display_help() {
 echo -e "\n${NORMAL}${0} - remote cluster system adminstration tool"
 echo -e "\nUSAGE"
 echo    "   ${0} [<PREDEFINED-COMMAND>]"
-echo    "   ${0}  <PREDEFINED-COMMAND> [<CLUSTER>]"
-echo    "   ${0}  <PREDEFINED-COMMAND>  <CLUSTER> [<DATA_DIR>]"
-echo -e "   ${0}  <PREDEFINED-COMMAND>  <CLUSTER>  <DATA_DIR> [SYSTEMS_FILE]\n"
-echo    "   ${0} [special|root-special] <REMOTE_COMMAND_OPTION>"
+echo -e "   ${0}  <PREDEFINED-COMMAND> [<REMOTE_COMMAND_OPTION>]\n"
+echo -e "   ${0}  special|root-special  <REMOTE_COMMAND_OPTION>\n"
 echo    "   ${0} [--help | -help | help | -h | h | -?]"
 echo    "   ${0} [--version | -version | -v]"
 echo -e "\nDESCRIPTION"
@@ -40,8 +38,9 @@ echo    "line for all hosts in the cluster.  Lines in <SYSTEMS_FILE> that begin 
 echo    "'#' are comments.  The <SYSTEMS_FILE> is used by markit/find-code.sh,"
 echo    "Linux-admin/cluster-command/cluster-command.sh, docker-TLS/copy-registry-tls.sh,"
 echo    "pi-display/create-message/create-display-message.sh, and other scripts.  A"
-echo    "different <SYSTEMS_FILE> can be entered on the command line or environment"
+echo    "different <SYSTEMS_FILE> can be used by setting the SYSTEMS_FILE environment"
 echo    "variable."
+
 echo -e "\nThe user may receive password and/or passphrase prompts from a"
 echo    "remote systen; running the following may stop the prompts in your cluster."
 echo -e "\t${BOLD}ssh-copy-id <TLS_USER>@<REMOTE_HOST>${NORMAL}"
@@ -70,13 +69,10 @@ echo    "   DEBUG                   (default off '0')"
 echo    "   CLUSTER                 Cluster name (default '${DEFAULT_CLUSTER}')"
 echo    "   DATA_DIR                Data directory (default '${DEFAULT_DATA_DIR}')"
 echo    "   SYSTEMS_FILE            Hosts in cluster (default '${DEFAULT_SYSTEMS_FILE}')"
-echo    "   REMOTE_COMMAND_OPTION   Commands with '+' support other options"
-if ! [ "${REMOTE_COMMAND_OPTION}" == "" ] ; then echo -e "\n   ${BOLD}[WARN]${NORMAL}  Environment Variable ${BOLD}REMOTE_COMMAND_OPTION${NORMAL} is set to >${BOLD}${REMOTE_COMMAND_OPTION}${NORMAL}<"  ; else echo "   Commands that support environment variable ${BOLD}REMOTE_COMMAND_OPTION${NORMAL} are mark with ${BOLD}+${NORMAL}" ; fi
+echo -e "   REMOTE_COMMAND_OPTION   Commands with '+' support options\n"
+if ! [ "${REMOTE_COMMAND_OPTION}" == "" ] ; then echo -e "\n   ${BOLD}[INFO]${NORMAL}  Environment Variable ${BOLD}REMOTE_COMMAND_OPTION${NORMAL} is set to >${BOLD}${REMOTE_COMMAND_OPTION}${NORMAL}<"  ; else echo -e "   PREDEFINED-COMMAND that support environment variable ${BOLD}REMOTE_COMMAND_OPTION${NORMAL} are\n   marked with ${BOLD}+${NORMAL}" ; fi
 echo -e "\nOPTIONS"
-echo    "Order of precedence: CLI options, environment variable, default code."
-echo    "   CLUSTER                Cluster name (default '${DEFAULT_CLUSTER}')"
-echo    "   DATA_DIR               Data directory (default '${DEFAULT_DATA_DIR}')"
-echo    "   SYSTEMS_FILE           Hosts in cluster (default '${DEFAULT_SYSTEMS_FILE}')"
+echo    "   REMOTE_COMMAND_OPTION   Commands with '+' support options"
 ### production standard 6.1.177 Architecture tree
 echo -e "\nARCHITECTURE TREE"   # STORAGE & CERTIFICATION
 echo    "/usr/local/data/                           <-- <DATA_DIR>"
@@ -133,11 +129,12 @@ echo    "      root-special   + sudo ${REMOTE_COMMAND_OPTION}"
 echo -e "\nDOCUMENTATION"
 echo    "   https://github.com/BradleyA/Linux-admin/tree/master/cluster-command"
 echo -e "\nEXAMPLES"
+echo -e "   Resynchronize package index files from their sources\n\t${BOLD}${0} update${NORMAL}"
 echo -e "   Shutdown hosts in clusters\n\t${BOLD}${0} shutdown${NORMAL}"
-echo -e "   Display disk space available on file system /tmp\n\t${BOLD}export REMOTE_COMMAND_OPTION=\"/tmp\"\n\t${0} df${NORMAL}"
+echo -e "   Display disk space available on file system /tmp\n\t${BOLD}export REMOTE_COMMAND_OPTION=\"/tmp\"\n\t${0} df${NORMAL}\n   or\n\t${BOLD}${0} df /tmp${NORMAL}"
 echo -e "   Remove log file that includes remote hostname\n\t${BOLD}export REMOTE_COMMAND_OPTION='rm  /usr/local/data/us-tx-cluster-1/log/\`hostname -f\`-crontab'\n\t${0} special${NORMAL}"
 echo -e "   List files in /usr/local/bin directory\n\t${BOLD}${0} special 'ls -l /usr/local/bin/*'${NORMAL}"
-echo -e "   Check public, private keys, and CA for hosts in cluster\n\t${BOLD}${0} special 'sudo check-host-tls.sh'${NORMAL}"
+echo -e "   Check public, private keys, and CA for hosts in cluster\n\t${BOLD}${0} root-special check-host-tls.sh${NORMAL}"
 }
 
 #       Date and time function ISO 8601
@@ -179,28 +176,18 @@ get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Name_of_command >${0}< Name_of_arg1 >${1}< Name_of_arg2 >${2}< Name_of_arg3 >${3}<  Version of bash ${BASH_VERSION}" 1>&2 ; fi
 
 ###
-#	Execpt only commands in case statement
+#       Set default
 REMOTE_COMMAND=${1:-${DEFAULT_REMOTE_COMMAND}}
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTE_COMMAND >${REMOTE_COMMAND}< Number of options >$#<" 1>&2 ; fi
-if [ "$1" == "special" ] || [ "$1" == "root-special" ] ; then
-	# >>>	need to test more because i do not think the logic is correct with the following if #22 #25
-	#       Order of precedence: CLI argument, environment variable, default code
-	if [ $# == 2 ]  ; then REMOTE_COMMAND_OPTION=${2} ; elif [ "${REMOTE_COMMAND_OPTION}" == "" ] ; then REMOTE_COMMAND_OPTION=${DEFAULT_REMOTE_COMMAND_OPTION} ; fi
-	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  REMOTE_COMMAND >${REMOTE_COMMAND}<  REMOTE_COMMAND_OPTION >${REMOTE_COMMAND_OPTION}<" 1>&2 ; fi
-	#       Set default
-	CLUSTER=${DEFAULT_CLUSTER}
-	DATA_DIR=${DEFAULT_DATA_DIR}
-	SYSTEMS_FILE=${DEFAULT_SYSTEMS_FILE}
-else
-	#	Environment variable to set option for some remote commands 
-	#       Order of precedence: CLI argument, environment variable, default code
-	if [ $# -ge  2 ]  ; then CLUSTER=${2} ; elif [ "${CLUSTER}" == "" ] ; then CLUSTER=${DEFAULT_CLUSTER} ; fi
-	#       Order of precedence: CLI argument, environment variable, default code
-	if [ $# -ge  3 ]  ; then DATA_DIR=${3} ; elif [ "${DATA_DIR}" == "" ] ; then DATA_DIR=${DEFAULT_DATA_DIR} ; fi
-	#       order of precedence: CLI argument, environment variable, default code
-	if [ $# -ge  4 ]  ; then SYSTEMS_FILE=${4} ; elif [ "${SYSTEMS_FILE}" == "" ] ; then SYSTEMS_FILE=${DEFAULT_SYSTEMS_FILE} ; fi
+REMOTE_COMMAND_OPTION=${2:-${DEFAULT_REMOTE_COMMAND_OPTION}}
+if [ "${CLUSTER}" == "" ] ; then CLUSTER=${DEFAULT_CLUSTER} ; fi
+if [ "${DATA_DIR}" == "" ] ; then DATA_DIR=${DEFAULT_DATA_DIR} ; fi
+if [ "${SYSTEMS_FILE}" == "" ] ; then SYSTEMS_FILE=${DEFAULT_SYSTEMS_FILE} ; fi
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  CLUSTER >${CLUSTER}<  DATA_DIR >${DATA_DIR}<  SYSTEMS_FILE >${SYSTEMS_FILE}< REMOTE_COMMAND >${REMOTE_COMMAND}< REMOTE_COMMAND_OPTION >${REMOTE_COMMAND_OPTION}< Number of options >$#<" 1>&2 ; fi
+
+if [ "$1" == "special" ] || [ "$1" == "root-special" ] && ! [ $# == "2" ] ; then
+		get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Command not found after special|root-special." 1>&2
+		exit 1
 fi
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  CLUSTER >${CLUSTER}<  DATA_DIR >${DATA_DIR}<  SYSTEMS_FILE >${SYSTEMS_FILE}< REMOTE_COMMAND >${REMOTE_COMMAND}< REMOTE_COMMAND_OPTION >${REMOTE_COMMAND_OPTION}<" 1>&2 ; fi
 
 #       Check if ${SYSTEMS_FILE} file is on system, one FQDN or IP address per line for all hosts in cluster
 if ! [ -e ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] || ! [ -s ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE} ] ; then
