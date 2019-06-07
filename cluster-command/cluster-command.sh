@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	cluster-command/cluster-command.sh  2.41.197  2019-06-07T16:56:51.794405-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.40  
+# 	cluster-command/cluster-command.sh  2.42.202  2019-06-07T17:09:06.723711-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.41-4-g2dee103  
 # 	   ready for production 
 # 	cluster-command/cluster-command.sh  2.40.196  2019-06-07T16:46:37.648780-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.39
 # 	   cluster-command.sh - rename several docker sub commands close #27 
