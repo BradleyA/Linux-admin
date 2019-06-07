@@ -1,4 +1,4 @@
-## Linux-admin   [![Stable Release](https://img.shields.io/badge/Release-2.41-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/2.41)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/2.41.svg)](https://github.com/BradleyA/Linux-admin/commits/)
+## Linux-admin   [![Stable Release](https://img.shields.io/badge/Release-2.42-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/2.42)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/2.42.svg)](https://github.com/BradleyA/Linux-admin/commits/)
 
 This repository contains shell scripts for Linux administration to support my RaspBerry Pi clusters and x86 clusters.
 
