@@ -1,8 +1,8 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.40.196  2019-06-07T16:46:37.648780-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.39  
+# 	   cluster-command.sh - rename several docker sub commands close #27 
 # 	cluster-command/cluster-command.sh  2.39.195  2019-06-07T15:34:17.498890-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.38  
 # 	   cluster-command.sh - add support for production standard 8.0 --usage close #28 
-# 	cluster-command/cluster-command.sh  2.38.194  2019-05-26T18:54:39.460128-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  six-rpi3b.cptx86.com 2.37-4-gd217ece  
-# 	   ready for release 
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen
@@ -102,15 +102,15 @@ echo    "      docker-df-v    - docker system df --verbose"
 echo    "      docker-info    + docker system info [<REMOTE_COMMAND_OPTION>]"
 echo    "      docker-info-con - docker system info | head -6"
 echo    "      docker-info-swarm - docker system info | grep -i swarm"
-echo    "      ls-docker-con  + docker container ls [<REMOTE_COMMAND_OPTION>]"
-echo    "      ls-docker-ima  + docker images [<REMOTE_COMMAND_OPTION>]"
-echo    "      ls-docker-net  + docker network ls [<REMOTE_COMMAND_OPTION>]"
-echo    "      ls-docker-vol  + docker volume ls [<REMOTE_COMMAND_OPTION>]"
-echo    "      clean-docker-ima	- docker image rm \$(docker image ls --filter='dangling=true' -q)"
-echo    "      clean-docker-vol	- docker volume rm \$(docker volume ls --filter dangling=true -q)"
-echo    "      prune-docker-net	+ docker network prune [<REMOTE_COMMAND_OPTION>]"
-echo    "      prune-docker-vol	+ docker volume prune [<REMOTE_COMMAND_OPTION>]"
-echo -e "      prune-docker-all	+ docker system prune [<REMOTE_COMMAND_OPTION>]\n"
+echo    "      docker-con-ls  + docker container ls [<REMOTE_COMMAND_OPTION>]"
+echo    "      docker-ima-ls  + docker images [<REMOTE_COMMAND_OPTION>]"
+echo    "      docker-net-ls  + docker network ls [<REMOTE_COMMAND_OPTION>]"
+echo    "      docker-vol-ls  + docker volume ls [<REMOTE_COMMAND_OPTION>]"
+echo    "      docker-ima-clean	- docker image rm \$(docker image ls --filter='dangling=true' -q)"
+echo    "      docker-vol-clean	- docker volume rm \$(docker volume ls --filter dangling=true -q)"
+echo    "      docker-net-prune	+ docker network prune [<REMOTE_COMMAND_OPTION>]"
+echo    "      docker-vol-prune	+ docker volume prune [<REMOTE_COMMAND_OPTION>]"
+echo -e "      docker-all-prune	+ docker system prune [<REMOTE_COMMAND_OPTION>]\n"
 echo    "      update         - sudo apt-get update ;"
 echo    "                       /usr/lib/update-notifier/apt-check --human-readable"
 echo    "      upgrade        - sudo apt-get upgrade --assume-yes ;"
@@ -127,7 +127,7 @@ echo    "                       required' ; else echo 'no reboot required' ; fi"
 echo    "      require-upgrade - /usr/lib/update-notifier/apt-check --human-readable" # >>> not sure this is the correct command becasue one-rpi3b stated no upgrade but then did eight upgrades #12
 echo    "      upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Inst'"
 echo    "                        apt list --upgradeable -> does not work on Ubuntu 14.04"
-echo    "      disable-user   + sudo usermod --expiredate 1"  # disable user from logging in (uncluding ssh)
+echo    "      disable-user   + sudo usermod --expiredate 1"  # disable user from logging in (including ssh)
 echo    "      enable-user    + sudo usermod --expiredate ''" # enable user to login that was disabled
 echo    "      special        + <REMOTE_COMMAND_OPTION>"
 echo    "      root-special   + sudo <REMOTE_COMMAND_OPTION>"
@@ -270,31 +270,31 @@ case ${REMOTE_COMMAND} in
 	docker-info-swarm)
 		REMOTE_COMMAND="docker system info | grep -i swarm"
 		;;
-	ls-docker-con)
+	docker-con-ls)
 		REMOTE_COMMAND="docker container ls ${REMOTE_COMMAND_OPTION}"
 		;;
-	ls-docker-ima)
+	docker-ima-ls)
 		REMOTE_COMMAND="docker images ${REMOTE_COMMAND_OPTION}"
 		;;
-	ls-docker-net)
+	docker-net-ls)
 		REMOTE_COMMAND="docker network ls ${REMOTE_COMMAND_OPTION}"
 		;;
-	ls-docker-vol)
+	docker-vol-ls)
 		REMOTE_COMMAND="docker volume ls ${REMOTE_COMMAND_OPTION}"
 		;;
-	clean-docker-ima)
+	docker-ima-clean)
 		REMOTE_COMMAND="docker image rm \$(docker image ls --filter='dangling=true' -q)"
 		;;
-	clean-docker-vol)
+	docker-vol-clean)
 		REMOTE_COMMAND="docker volume rm \$(docker volume ls --filter dangling=true -q)"
 		;;
-	prune-docker-net)
+	docker-net-prune)
 		REMOTE_COMMAND="docker network prune ${REMOTE_COMMAND_OPTION}"
 		;;
-	prune-docker-vol)
+	docker-vol-prune)
 		REMOTE_COMMAND="docker volume prune ${REMOTE_COMMAND_OPTION}"
 		;;
-	prune-docker-all)
+	docker-all-prune)
 		REMOTE_COMMAND="docker system prune ${REMOTE_COMMAND_OPTION}"
 		;;
 	update)
