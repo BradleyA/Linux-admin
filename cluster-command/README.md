@@ -104,15 +104,15 @@ docker-df-v       | - | docker system df --verbose
 docker-info       | + | docker system info 
 docker-info-con   | - | docker system info \| head -6 
 docker-info-swarm | - | docker system info \| grep -i swarm 
-ls-docker-con     | + | docker container ls 
-ls-docker-ima     | + | docker images
-ls-docker-net     | + | docker network ls
-ls-docker-vol     | + | docker volume ls
-clean-docker-ima  | - | docker image rm $(docker image ls --filter='dangling=true' -q)
-clean-docker-vol  | - | docker volume rm $(docker volume ls --filter dangling=true -q)
-prune-docker-net  | + | docker network prune 
-prune-docker-vol  | + | docker volume prune 
-prune-docker-all  | + | docker system prune 
+docker-con-ls     | + | docker container ls 
+docker-ima-ls     | + | docker images
+docker-net-ls     | + | docker network ls
+docker-vol-ls     | + | docker volume ls
+docker-ima-clean  | - | docker image rm $(docker image ls --filter='dangling=true' -q)
+docker-vol-clean  | - | docker volume rm $(docker volume ls --filter dangling=true -q)
+docker-net-prune  | + | docker network prune 
+docker-vol-prune  | + | docker volume prune 
+docker-all-prune  | + | docker system prune 
 |                 |   |   |
 update            | - | sudo apt-get update ; 
 |                 |   | /usr/lib/update-notifier/apt-check --human-readable
