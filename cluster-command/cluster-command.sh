@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.43.203  2019-06-19T12:25:28.056430-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  one-rpi3b.cptx86.com 2.42  
+# 	   add bold around reboot required or not required 
 # 	cluster-command/cluster-command.sh  2.42.202  2019-06-07T17:09:06.723711-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.41-4-g2dee103  
 # 	   ready for production 
 # 	cluster-command/cluster-command.sh  2.40.196  2019-06-07T16:46:37.648780-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.39
@@ -117,15 +119,15 @@ echo    "      update         - sudo apt-get update ;"
 echo    "                       /usr/lib/update-notifier/apt-check --human-readable"
 echo    "      upgrade        - sudo apt-get upgrade --assume-yes ;"
 echo    "                       if [ -f /var/run/reboot-required ] ; then"
-echo    "                       echo 'reboot required' ; else"
-echo    "                       echo 'no reboot required' ; fi"
+echo    "                       echo '${BOLD}reboot required${NORMAL}' ; else"
+echo    "                       echo '${BOLD}no reboot required${NORMAL}' ; fi"
 echo    "      dist-upgrade   - sudo apt-get dist-upgrade --assume-yes"
 echo    "      autoremove     - sudo apt-get autoremove --assume-yes"
 echo    "      showhold       - apt-mark showhold"
 echo    "      unhold         - apt-mark unhold"
 echo    "      hold           - apt-mark hold"
-echo    "      require-reboot - if [ -f /var/run/reboot-required ]; then echo 'reboot"
-echo    "                       required' ; else echo 'no reboot required' ; fi"
+echo    "      require-reboot - if [ -f /var/run/reboot-required ]; then echo '${BOLD}reboot"
+echo    "                       required${NORMAL}' ; else echo '${BOLD}no reboot required${NORMAL}' ; fi"
 echo    "      require-upgrade - /usr/lib/update-notifier/apt-check --human-readable" # >>> not sure this is the correct command becasue one-rpi3b stated no upgrade but then did eight upgrades #12
 echo    "      upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Inst'"
 echo    "                        apt list --upgradeable -> does not work on Ubuntu 14.04"
@@ -303,7 +305,7 @@ case ${REMOTE_COMMAND} in
 		REMOTE_COMMAND="sudo apt-get update ; /usr/lib/update-notifier/apt-check --human-readable"
 		;;
 	upgrade)
-		REMOTE_COMMAND="sudo apt-get upgrade --assume-yes ; if [ -f /var/run/reboot-required ]; then echo -e '\treboot required' ; else echo -e '\tno reboot required' ; fi"
+		REMOTE_COMMAND="sudo apt-get upgrade --assume-yes ; if [ -f /var/run/reboot-required ]; then echo -e '\t${BOLD}reboot required${NORMAL}' ; else echo -e '\t${BOLD}no reboot required${NORMAL}' ; fi"
 		;;
 	dist-upgrade)
 		REMOTE_COMMAND="sudo apt-get dist-upgrade --assume-yes"
@@ -321,7 +323,7 @@ case ${REMOTE_COMMAND} in
 		REMOTE_COMMAND="apt-mark hold ${REMOTE_COMMAND_OPTION}"
 		;;
 	require-reboot)
-		REMOTE_COMMAND="if [ -f /var/run/reboot-required ]; then echo 'reboot required' ; else echo 'no reboot required' ; fi"
+		REMOTE_COMMAND="if [ -f /var/run/reboot-required ]; then echo '${BOLD}reboot required${NORMAL}' ; else echo '${BOLD}no reboot required${NORMAL}' ; fi"
 		;;
 	require-upgrade|require-update)
 		REMOTE_COMMAND="/usr/lib/update-notifier/apt-check --human-readable"
