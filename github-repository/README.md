@@ -7,7 +7,7 @@ To install, change directory to the location you want to download the scripts. U
     git clone https://github.com/BradleyA/Linux-admin
     cd Linux-admin/github-repository
 
-### FILE definition
+### FILE Definition and ARCHITECTURE TREE
 
 To set github login to support automation of script running on system 'two' in crontab by editing file, ~/.netrc
 
@@ -16,7 +16,7 @@ To set github login to support automation of script running on system 'two' in c
 For each repository that requires their data to be pulled will need a file that is formatted like repository:owner-repository and contains the git commands.
 
     #!/bin/bash
-    ###
+    ###	BradleyA.Search-docker-registry-v2-script.1.0
     . . . 
 
 
