@@ -9,16 +9,21 @@ To install, change directory to the location you want to download the scripts. U
 
 ### FILE definition
 
-To set github login to support automation of script running on systems in crontab
-~/.netrc
-machine api.github.com login BradleyA password secret-not-known
+To set github login to support automation of script running on system 'two' in crontab by editing file, ~/.netrc
 
-For each repository that data pull is required
+    machine api.github.com login BradleyA password secret-not-known
+
+For each repository that requires their data to be pulled will need a file that is formatted like repository:owner-repository and contains the git commands.
+
+    #!/bin/bash
+    ###
+    . . . 
+
 
 #### Author
-[<img id="twitter" src="images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
-](https://twitter.com/bradleyaustintx/)   [<img id="github" src="images/github.png" width="50" a="https://github.com/BradleyA/">
-](https://github.com/BradleyA/)    [<img src="images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen)
+[<img id="twitter" src="../images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
+](https://twitter.com/bradleyaustintx/)   [<img id="github" src="../images/github.png" width="50" a="https://github.com/BradleyA/">
+](https://github.com/BradleyA/)    [<img src="../images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen)
 
 #### System OS script tested
  * Ubuntu 14.04.3 LTS
