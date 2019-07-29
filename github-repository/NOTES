@@ -1,0 +1,29 @@
+#!/bin/bash
+#	github-repository/NOTES  2.44.208  2019-07-29T16:15:18.726420-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.43-4-g200539f  
+#	   complete ruffing out github command 
+### production standard 3.0 shellcheck
+### production standard 5.1.160 Copyright
+#       Copyright (c) 2019 Bradley Allen
+#       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+### production standard 1.0 DEBUG variable
+#       Order of precedence: environment variable, default code
+if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
+#       set -x
+#       set -v
+BOLD=$(tput -Txterm bold)
+NORMAL=$(tput -Txterm sgr0)
+### production standard 7.0 Default variable value
+COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
+DEFAULT_REPOSITORY_OWNER=$(echo "${COMMAND_NAME}" | cut -d '.' -f 1)
+DEFAULT_REPOSITORY=$(echo "${COMMAND_NAME}" | sed "s/^${DEFAULT_REPOSITORY_OWNER}\.//")
+###
+
+echo "\${DEFAULT_REPOSITORY_OWNER} >${DEFAULT_REPOSITORY_OWNER}<"
+echo "\${DEFAULT_REPOSITORY} >${DEFAULT_REPOSITORY}<"
+
+#	curl -ni https://api.github.com/repos/"${DEFAULT_REPOSITORY_OWNER}"/"${DEFAULT_REPOSITORY}"/traffic/clones | sed -e 's/[{}]/''/g' | awk -v k="text" '{n=split($0,a,","); for (i=1; i<=n; i++) print a[i]}' > ./clones-3
+#	curl -ni https://api.github.com/repos/"${DEFAULT_REPOSITORY_OWNER}"/"${DEFAULT_REPOSITORY}"/traffic/clones | sed -e 's/[{}]/''/g' > ./clones-4
+#	 curl -ni https://api.github.com/repos/"${DEFAULT_REPOSITORY_OWNER}"/"${DEFAULT_REPOSITORY}"/traffic/clones | grep -Po '"text":.*?[^\\]",'
+###
+#	curl -ni https://api.github.com/repos/BradleyA/Search-docker-registry-v2-script.1.0/traffic/clones?per=week | sed -e 's/[{}]/''/g' | grep  '\"' > ./clones-6
+curl -ni https://api.github.com/repos/"${DEFAULT_REPOSITORY_OWNER}"/"${DEFAULT_REPOSITORY}"/traffic/clones?per=week  > ./clones-7
