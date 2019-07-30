@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/setup.github.repository.sh  2.48.214  2019-07-30T14:06:39.571375-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.47  
+# 	   github-repository/setup.github.repository.sh added requirements checking with help if not met 
 # 	github-repository/setup.github.repository.sh  2.45.209  2019-07-29T22:54:36.803070-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.44  
 # 	   github-repository/setup.github.repository.sh making this up as I go . . . 
 ### production standard 3.0 shellcheck
@@ -13,38 +15,61 @@ if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, '
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
 ### production standard 7.0 Default variable value
-DEFAULT_DATA_DIR="/usr/local/data/github"
+DEFAULT_DATA_DIR="/usr/local/data/github/cron"
 
 ###	setup.github.repository.sh
+#       Order of precedence: CLI argument, environment variable
+if [ $# -ge  1 ]  ; then GITHUB_OWNER=${1} ; elif [ "${GITHUB_OWNER}" == "" ] ; then 
+        echo -e "\n\tGithub owner is required to make this work.  Either as the first argument on the command line or defined as GITHUB_OWNER environment variable.  Try again."
+        exit 1
+fi
+
+mkdir -p "${DEFAULT_DATA_DIR}"
+#       Check if <DEFAULT_DATA_DIR> directory
+if [ ! -d "${DEFAULT_DATA_DIR}" ] ; then
+        echo -e "\n\t${DEFAULT_DATA_DIR} was not created because you do not have permission."
+        exit 1
+fi
 
 #       Check if github.repository.sh file size>0 execute
 if [ ! -s "github.repository.sh" ] && [ ! -e "github.repository.sh"  ] ; then
-        echo -e "\n\tgithub.repository.sh file does not exist or is not size>0 or github.repository.sh is not executable"
+        echo -e "\n\tgithub.repository.sh file does not exist or is not size>0 or is not executable."
         exit 1
 fi
+cp -p github.repository.sh "${DEFAULT_DATA_DIR}"
 
 #       Check if github.repository.list file size>0 read
 if [ ! -s "github.repository.list" ] && [ -r "github.repository.list"  ] ; then
-        echo -e "\n\tgithub.repository.list file does not exist or is not size>0 or github.repository.sh is not readable"
+        echo -e "\n\tgithub.repository.list file does not exist or is not size>0 or is not readable"
+	echo -e "\tgithub.repository.list file should include Github owner's repository names, one per line."
         exit 1
 fi
+cp -p github.repository.list "${DEFAULT_DATA_DIR}"
 
-#       Check if <DEFAULT_DATA_DIR> directory
-if [ ! -d "${DEFAULT_DATA_DIR}" ] ; then
-        echo -e "\n\t${DEFAULT_DATA_DIR} not found "
+#       Check if owner.repository file size>0 read
+if [ ! -s "owner.repository" ] && [ -r "owner.repository"  ] ; then
+        echo -e "\n\towner.repository file does not exist or is not size>0 or is not readable"
         exit 1
-	#	. . . some would say just mkdir, others would say does the user have permission to mkdir or poor planning for not having a data directory or not knowing where your data directory is
 fi
+cp -p owner.repository "${DEFAULT_DATA_DIR}"
 
-#	read <GITHUB_OWNER> from CLI or environment_variable only
-#   create symbolic link owner.repository <-- for(repository.list) to BradleyA.Start-registry-v2-script.1.0
+#       Check if setup.github.repository.sh file size>0 execute
+if [ ! -s "setup.github.repository.sh" ] && [ -e "setup.github.repository.sh"  ] ; then
+        echo -e "\n\tsetup.github.repository.sh file does not exist or is not size>0 or is not executable."
+fi
+cp -p setup.github.repository.sh "${DEFAULT_DATA_DIR}/.."
 
-# for loop through github.repository.list
-#	ln -s ./owner.repository BradleyA.Start-registry-v2-script.1.0
+cd "${DEFAULT_DATA_DIR}"
+mkdir -p "${GITHUB_OWNER}/log"
 
+#	Loop through repository names in github.repository.list	
+for REPOSITORY in $(cat "${DEFAULT_DATA_DIR}"/github.repository.list | grep -v "#" ); do
+	#   create symbolic link owner.repository <-- for(repository.list) to BradleyA.Start-registry-v2-script.1.0
+	ln -s ./owner.repository ${GITHUB_OWNER}.${REPOSITORY}
+	echo "Add the follow line to crontab using crontab -e"
+	echo " 0 0 * * MON   ${DEFAULT_DATA_DIR}/${GITHUB_OWNER}.${REPOSITORY} >> ${DEFAULT_DATA_DIR}/log/${GITHUB_OWNER}.${REPOSITORY}-crontab 2>&1
 
-# echo syntax to add to crontab -e ' ' ; Monday noon CST
-# */2 * * * *      /usr/local/bin/create-display-message.sh >> /usr/local/data/us-tx-cluster-1/log/six-rpi3b.cptx86.com-crontab 2>&1
+done
 
 
 need to write a parser
