@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	github-repository/github.repository.sh  2.46.211  2019-07-29T23:01:30.583156-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.45-1-gf0b02ec  
-# 	   initial commit 
+# 	github-repository/github.repository.sh  2.50.216  2019-07-30T15:12:40.368075-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.49  
+# 	   new directory structure to ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/{log,data} to manage data & commands #29 
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen

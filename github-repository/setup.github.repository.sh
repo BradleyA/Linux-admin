@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	github-repository/setup.github.repository.sh  2.49.215  2019-07-30T14:42:00.913708-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.48  
-# 	   changed DATA_DIR to DATA_GITHUB_DIR 
+# 	github-repository/setup.github.repository.sh  2.50.216  2019-07-30T15:12:40.471109-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.49  
+# 	   new directory structure to ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/{log,data} to manage data & commands #29 
 # 	github-repository/setup.github.repository.sh  2.48.214  2019-07-30T14:06:39.571375-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.47  
 # 	   github-repository/setup.github.repository.sh added requirements checking with help if not met 
 # 	github-repository/setup.github.repository.sh  2.45.209  2019-07-29T22:54:36.803070-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.44  
@@ -26,7 +26,7 @@ if [ $# -ge  1 ]  ; then GITHUB_OWNER=${1} ; elif [ "${GITHUB_OWNER}" == "" ] ; 
         exit 1
 fi
 
-mkdir -p "${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}"
+mkdir -p "${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/{log,data}"
 #       Check if <DEFAULT_DATA_GITHUB_DIR> directory
 if [ ! -d "${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}" ] ; then
         echo -e "\n\t${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER} was not created maybe permission incident."
@@ -67,9 +67,9 @@ mkdir -p "${GITHUB_OWNER}/log"
 #	Loop through repository names in github.repository.list	
 for REPOSITORY in $(cat "${DEFAULT_DATA_GITHUB_DIR}"/github.repository.list | grep -v "#" ); do
 	#   create symbolic link owner.repository <-- for(repository.list) to BradleyA.Start-registry-v2-script.1.0
-	ln -s ./owner.repository ${GITHUB_OWNER}.${REPOSITORY}
+	ln -s ./owner.repository ${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}
 	echo "Add the follow line to crontab using crontab -e"
-	echo " 0 0 * * MON   ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}.${REPOSITORY} >> ${DEFAULT_DATA_GITHUB_DIR}/log/${GITHUB_OWNER}.${REPOSITORY}-crontab 2>&1
+	echo " 0 0 * * MON   ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY} >>    ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/log/${GITHUB_OWNER}.${REPOSITORY}-crontab 2>&1
 
 done
 
