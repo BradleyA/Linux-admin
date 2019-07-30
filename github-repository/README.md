@@ -11,7 +11,7 @@ To install, change directory to the location you want to download the scripts. U
 
 To set github login to support automation of script running on system 'two' in crontab by editing file, ~/.netrc
 
-    machine api.github.com login BradleyA password secret-not-known
+    machine api.github.com login BradleyA password secret-not-known-to-you
 
 For each repository that requires their data to be pulled will need a file that is formatted like repository:owner-repository and contains the git commands.
 
