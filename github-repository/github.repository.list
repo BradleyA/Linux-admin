@@ -1,14 +1,20 @@
-BradleyA.dmonitor
-BradleyA.docker-security-infrastructure
-BradleyA.github-project1.repository
-BradleyA.Linux-admin
-BradleyA.markit
-BradleyA.pi-display
-BradleyA.pi-servo
-BradleyA.pi-sound
-BradleyA.pi-video
-BradleyA.pi-wifi
-BradleyA.Search-docker-registry-v2-script.1.0
-BradleyA.Search-docker-registry-v2-script.2.0
-BradleyA.Start-registry-v2-script.1.0
-BradleyA.user-files
+#
+#	github-repository/github.repository.list  2.56.225  2019-08-01T14:19:43.745807-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.55  
+#	   github.repository.list create example file with github repository names with one on each line 
+#	Change the following lines to your github repository names
+#	One github repository name per line
+###
+dmonitor
+docker-security-infrastructure
+github-project1.repository
+Linux-admin
+markit
+pi-display
+pi-servo
+pi-sound
+pi-video
+pi-wifi
+Search-docker-registry-v2-script.1.0
+Search-docker-registry-v2-script.2.0
+Start-registry-v2-script.1.0
+user-files
