@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/setup.github.repository.sh  2.59.228  2019-08-01T14:52:15.187005-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.58  
+# 	   github-repository/setup.github.repository.sh correct location to copy setup.github.repository.sh 
 # 	github-repository/setup.github.repository.sh  2.58.227  2019-08-01T14:35:38.574365-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.57  
 # 	   github-repository/setup.github.repository.sh cleanup debug code 
 # 	github-repository/setup.github.repository.sh  2.57.226  2019-08-01T14:23:05.112592-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.56  
@@ -69,7 +71,7 @@ cp -p owner.repository "${DEFAULT_DATA_GITHUB_DIR}"
 if [ ! -s "setup.github.repository.sh" ] && [ -e "setup.github.repository.sh"  ] ; then
         echo -e "\n\tsetup.github.repository.sh file does not exist in directory or is not size>0 or is not executable."
 fi
-cp -p setup.github.repository.sh "${DEFAULT_DATA_GITHUB_DIR}/.."
+cp -p setup.github.repository.sh "${DEFAULT_DATA_GITHUB_DIR}"
 
 cd "${DEFAULT_DATA_GITHUB_DIR}"
 echo "Add the follow line(s) to crontab using crontab -e	----->"
