@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/setup.github.repository.sh  2.55.224  2019-08-01T14:04:14.284414-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.54  
+# 	   add code to test exit 1 
 # 	github-repository/setup.github.repository.sh  2.54.223  2019-08-01T12:49:53.657953-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.52-3-g9d61059  
 # 	   move location of setup.github.repository.sh when running cd /tmp 
 # 	github-repository/setup.github.repository.sh  2.51.218  2019-08-01T12:24:04.340061-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.50-1-ga153d99  
@@ -28,6 +30,7 @@ DEFAULT_DATA_GITHUB_DIR="/usr/local/data/github/"
 if [ $# -ge  1 ]  ; then GITHUB_OWNER=${1} ; elif [ "${GITHUB_OWNER}" == "" ] ; then 
         echo -e "\n\tGithub owner is required to make this work.  Either as the first argument on the command line or defined as GITHUB_OWNER environment variable.  Try again."
         exit 1
+	echo "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   why is this not exit 1"
 fi
 
 mkdir -p "${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/{log,data}"
