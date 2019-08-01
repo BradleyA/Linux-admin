@@ -7,9 +7,7 @@ To install, change directory to the location you want to download the scripts. U
     cd /tmp
     git clone https://github.com/BradleyA/Linux-admin
     cd Linux-admin/github-repository
-    xxxxxx
-    
-    
+    ./setup.github.repository.sh 
 
 ### FILE Definition and ARCHITECTURE TREE
 
