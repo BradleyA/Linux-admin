@@ -8,6 +8,15 @@ To install, change BradleyA to your Github repository owner name or who you sign
     git clone https://github.com/BradleyA/Linux-admin
     cd Linux-admin/github-repository
     ./setup.github.repository.sh BradleyA
+    
+    To run 
+    edit crontab -e and add lines
+    do something to have cron reread if needed to work ???? think not need to check pi-display code
+    add ~/.netrc
+    chmod 600 ~/.netrc
+    machine api.github.com login <github-owner-account-name> password <secret-github-password>
+    
+    
 
 ### FILE Definition and ARCHITECTURE TREE
 
