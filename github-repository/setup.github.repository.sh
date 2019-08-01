@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	github-repository/setup.github.repository.sh  2.52.219  2019-08-01T12:33:12.744940-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.51  
-# 	   move the echo help hint above the LOOP so user can copy ALL crontab lines at one time 
+# 	github-repository/setup.github.repository.sh  2.54.223  2019-08-01T12:49:53.657953-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.52-3-g9d61059  
+# 	   move location of setup.github.repository.sh when running cd /tmp 
 # 	github-repository/setup.github.repository.sh  2.51.218  2019-08-01T12:24:04.340061-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.50-1-ga153d99  
 # 	   changed permission setup.github.repository.sh 
 # 	github-repository/setup.github.repository.sh  2.50.216  2019-07-30T15:12:40.471109-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.49  
