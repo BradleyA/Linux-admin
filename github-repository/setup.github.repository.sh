@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/setup.github.repository.sh  2.61.232  2019-08-01T15:46:40.369377-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.60-1-g3149bd2  
+# 	   github-repository/setup.github.repository.sh remove data directory 
 # 	github-repository/setup.github.repository.sh  2.60.230  2019-08-01T15:11:31.316685-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.59-1-g92b694a  
 # 	   github-repository/setup.github.repository.sh change crontab time 
 # 	github-repository/setup.github.repository.sh  2.59.228  2019-08-01T14:52:15.187005-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.58  
@@ -40,7 +42,7 @@ if [ $# -ge  1 ]  ; then GITHUB_OWNER=${1} ; elif [ "${GITHUB_OWNER}" == "" ] ; 
         exit 1
 fi
 
-mkdir -p ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/{log,data}
+mkdir -p ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/log
 #       Check if <DEFAULT_DATA_GITHUB_DIR> directory
 if [ ! -d "${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}" ] ; then
         echo -e "\n\t${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER} was not created maybe permission incident."
