@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/setup.github.repository.sh  2.53.222  2019-08-01T12:48:15.317584-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.52-2-g60ff4f2  
+# 	   move location of setup.github.repository.sh when running cd /tmp 
 # 	github-repository/setup.github.repository.sh  2.52.219  2019-08-01T12:33:12.744940-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.51  
 # 	   move the echo help hint above the LOOP so user can copy ALL crontab lines at one time 
 # 	github-repository/setup.github.repository.sh  2.51.218  2019-08-01T12:24:04.340061-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.50-1-ga153d99  
@@ -30,7 +32,7 @@ if [ $# -ge  1 ]  ; then GITHUB_OWNER=${1} ; elif [ "${GITHUB_OWNER}" == "" ] ; 
         exit 1
 fi
 
-mkdir -p "${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/{log,data}"
+mkdir -p ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/{log,data}
 #       Check if <DEFAULT_DATA_GITHUB_DIR> directory
 if [ ! -d "${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}" ] ; then
         echo -e "\n\t${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER} was not created maybe permission incident."
@@ -63,7 +65,7 @@ cp -p owner.repository "${DEFAULT_DATA_GITHUB_DIR}"
 if [ ! -s "setup.github.repository.sh" ] && [ -e "setup.github.repository.sh"  ] ; then
         echo -e "\n\tsetup.github.repository.sh file does not exist in directory or is not size>0 or is not executable."
 fi
-cp -p setup.github.repository.sh "${DEFAULT_DATA_GITHUB_DIR}/.."
+cp -p setup.github.repository.sh "${DEFAULT_DATA_GITHUB_DIR}"
 
 cd "${DEFAULT_DATA_GITHUB_DIR}"
 mkdir -p "${GITHUB_OWNER}/log"
