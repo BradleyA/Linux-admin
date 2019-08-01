@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/setup.github.repository.sh  2.57.226  2019-08-01T14:23:05.112592-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.56  
+# 	   setup.github.repository.sh change ln -s 
 # 	github-repository/setup.github.repository.sh  2.55.224  2019-08-01T14:04:14.284414-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.54  
 # 	   add code to test exit 1 
 # 	github-repository/setup.github.repository.sh  2.54.223  2019-08-01T12:49:53.657953-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.52-3-g9d61059  
@@ -33,7 +35,7 @@ if [ $# -ge  1 ]  ; then GITHUB_OWNER=${1} ; elif [ "${GITHUB_OWNER}" == "" ] ; 
 	echo "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   why is this not exit 1"
 fi
 
-mkdir -p "${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/{log,data}"
+mkdir -p ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/{log,data}
 #       Check if <DEFAULT_DATA_GITHUB_DIR> directory
 if [ ! -d "${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}" ] ; then
         echo -e "\n\t${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER} was not created maybe permission incident."
@@ -69,13 +71,14 @@ fi
 cp -p setup.github.repository.sh "${DEFAULT_DATA_GITHUB_DIR}/.."
 
 cd "${DEFAULT_DATA_GITHUB_DIR}"
-mkdir -p "${GITHUB_OWNER}/log"
+#	mkdir -p "${GITHUB_OWNER}/log"
+#	mkdir -p "${GITHUB_OWNER}/data"
 
 echo "Add the follow line(s) to crontab using crontab -e	----->"
 #	Loop through repository names in github.repository.list	
 for REPOSITORY in $(cat "${DEFAULT_DATA_GITHUB_DIR}"/github.repository.list | grep -v "#" ); do
 	#   create symbolic link owner.repository <-- for(repository.list) to BradleyA.Start-registry-v2-script.1.0
-	ln -s ./owner.repository ${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}
+	ln -s ../owner.repository ${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}
 	echo " 0 0 * * MON   ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}  >>  ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/log/${GITHUB_OWNER}.${REPOSITORY}-crontab" 2>&1
 
 done
