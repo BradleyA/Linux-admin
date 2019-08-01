@@ -2,14 +2,15 @@
  
 ### Clone
 
-To install, change BradleyA to your Github repository owner name or who you signed in as on Github. Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
+To install, change **BradleyA** to your Github repository owner name or who you signed in as on Github. Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
     cd /tmp
     git clone https://github.com/BradleyA/Linux-admin
     cd Linux-admin/github-repository
     ./setup.github.repository.sh BradleyA
     
-    To run 
+To run
+    
     edit crontab -e and add lines
     do something to have cron reread if needed to work ???? think not need to check pi-display code
     add ~/.netrc
