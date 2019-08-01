@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/setup.github.repository.sh  2.52.219  2019-08-01T12:33:12.744940-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.51  
+# 	   move the echo help hint above the LOOP so user can copy ALL crontab lines at one time 
 # 	github-repository/setup.github.repository.sh  2.51.218  2019-08-01T12:24:04.340061-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.50-1-ga153d99  
 # 	   changed permission setup.github.repository.sh 
 # 	github-repository/setup.github.repository.sh  2.50.216  2019-07-30T15:12:40.471109-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.49  
@@ -66,12 +68,12 @@ cp -p setup.github.repository.sh "${DEFAULT_DATA_GITHUB_DIR}/.."
 cd "${DEFAULT_DATA_GITHUB_DIR}"
 mkdir -p "${GITHUB_OWNER}/log"
 
+echo "Add the follow line(s) to crontab using crontab -e	----->"
 #	Loop through repository names in github.repository.list	
 for REPOSITORY in $(cat "${DEFAULT_DATA_GITHUB_DIR}"/github.repository.list | grep -v "#" ); do
 	#   create symbolic link owner.repository <-- for(repository.list) to BradleyA.Start-registry-v2-script.1.0
 	ln -s ./owner.repository ${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}
-	echo "Add the follow line to crontab using crontab -e"
-	echo " 0 0 * * MON   ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY} >>    ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/log/${GITHUB_OWNER}.${REPOSITORY}-crontab" 2>&1
+	echo " 0 0 * * MON   ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}  >>  ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/log/${GITHUB_OWNER}.${REPOSITORY}-crontab" 2>&1
 
 done
 
