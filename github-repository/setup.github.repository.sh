@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/setup.github.repository.sh  2.51.218  2019-08-01T12:24:04.340061-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.50-1-ga153d99  
+# 	   changed permission setup.github.repository.sh 
 # 	github-repository/setup.github.repository.sh  2.50.216  2019-07-30T15:12:40.471109-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.49  
 # 	   new directory structure to ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/{log,data} to manage data & commands #29 
 # 	github-repository/setup.github.repository.sh  2.48.214  2019-07-30T14:06:39.571375-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.47  
@@ -69,17 +71,16 @@ for REPOSITORY in $(cat "${DEFAULT_DATA_GITHUB_DIR}"/github.repository.list | gr
 	#   create symbolic link owner.repository <-- for(repository.list) to BradleyA.Start-registry-v2-script.1.0
 	ln -s ./owner.repository ${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}
 	echo "Add the follow line to crontab using crontab -e"
-	echo " 0 0 * * MON   ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY} >>    ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/log/${GITHUB_OWNER}.${REPOSITORY}-crontab 2>&1
+	echo " 0 0 * * MON   ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY} >>    ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/log/${GITHUB_OWNER}.${REPOSITORY}-crontab" 2>&1
 
 done
 
-
-need to write a parser
-	to parse data/owner.repositry-date files into a comma separated values text files (.csv) in /usr/local/data/github/owner/repository/RAW/
-	use .csv data to create cart image
-	push images to github owner/repository/images/(clones.png,views.png, popular.referrers.list, popular.paths.list)
-	link images to github owner/repository/README.md page
- .... NOTE to self need data first and dont want to waste time creating test data
-
+#	
+#	need to write a parser
+#		to parse data/owner.repositry-date files into a comma separated values text files (.csv) in /usr/local/data/github/owner/repository/RAW/
+#		use .csv data to create cart image
+#		push images to github owner/repository/images/(clones.png,views.png, popular.referrers.list, popular.paths.list)
+#		link images to github owner/repository/README.md page
+#	 .... NOTE to self need data first and dont want to waste time creating test data
 
 ###
