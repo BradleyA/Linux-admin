@@ -1,4 +1,6 @@
 #!/bin/bash
+#	github-repository/NOTES  2.58.227  2019-08-01T14:35:38.506435-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.57  
+#	   github-repository/setup.github.repository.sh cleanup debug code 
 #	github-repository/NOTES  2.44.208  2019-07-29T16:15:18.726420-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.43-4-g200539f  
 #	   complete ruffing out github command 
 ### production standard 3.0 shellcheck

@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/setup.github.repository.sh  2.58.227  2019-08-01T14:35:38.574365-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.57  
+# 	   github-repository/setup.github.repository.sh cleanup debug code 
 # 	github-repository/setup.github.repository.sh  2.57.226  2019-08-01T14:23:05.112592-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.56  
 # 	   setup.github.repository.sh change ln -s 
 # 	github-repository/setup.github.repository.sh  2.55.224  2019-08-01T14:04:14.284414-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.54  
@@ -32,7 +34,6 @@ DEFAULT_DATA_GITHUB_DIR="/usr/local/data/github/"
 if [ $# -ge  1 ]  ; then GITHUB_OWNER=${1} ; elif [ "${GITHUB_OWNER}" == "" ] ; then 
         echo -e "\n\tGithub owner is required to make this work.  Either as the first argument on the command line or defined as GITHUB_OWNER environment variable.  Try again."
         exit 1
-	echo "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   why is this not exit 1"
 fi
 
 mkdir -p ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/{log,data}
@@ -71,14 +72,11 @@ fi
 cp -p setup.github.repository.sh "${DEFAULT_DATA_GITHUB_DIR}/.."
 
 cd "${DEFAULT_DATA_GITHUB_DIR}"
-#	mkdir -p "${GITHUB_OWNER}/log"
-#	mkdir -p "${GITHUB_OWNER}/data"
-
 echo "Add the follow line(s) to crontab using crontab -e	----->"
 #	Loop through repository names in github.repository.list	
 for REPOSITORY in $(cat "${DEFAULT_DATA_GITHUB_DIR}"/github.repository.list | grep -v "#" ); do
 	#   create symbolic link owner.repository <-- for(repository.list) to BradleyA.Start-registry-v2-script.1.0
-	ln -s ../owner.repository ${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}
+	ln -s ../owner.repository "${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}"
 	echo " 0 0 * * MON   ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}  >>  ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/log/${GITHUB_OWNER}.${REPOSITORY}-crontab" 2>&1
 
 done
