@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/setup.github.repository.sh  2.66.241  2019-08-01T23:38:30.819921-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.65  
+# 	   github-repository/setup.github.repository.sh update design notes and move some 
 # 	github-repository/setup.github.repository.sh  2.63.238  2019-08-01T23:13:27.448534-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.62-2-g2718f14  
 # 	   github-repository/setup.github.repository.sh added files parse.repository.data.sh repository.data 
 # 	github-repository/setup.github.repository.sh  2.62.235  2019-08-01T20:56:35.524533-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.61-2-g4aae73a  
@@ -106,11 +108,7 @@ for REPOSITORY in $(cat "${DEFAULT_DATA_GITHUB_DIR}"/github.repository.list | gr
 done
 
 #	
-#	need to write a parser
-#		to parse data/owner.repositry-date files into a comma separated values text files (.csv) in /usr/local/data/github/owner/repository/RAW/
-#		use .csv data or somthing to create an image or .png file
-#		push images to github owner/repository/images/(clones.png,views.png, popular.referrers.list, popular.paths.list)
-#		link images to github owner/repository/README.md page
-#	 .... NOTE to self need data first and dont want to waste time creating test data
+# >>>	think about changing all the cp -p to mv 
+#		need to test if setup.github.repository.sh has already been run thus is run in "${DEFAULT_DATA_GITHUB_DIR}"
 
 ###
