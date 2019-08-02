@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/setup.github.repository.sh  2.63.238  2019-08-01T23:13:27.448534-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.62-2-g2718f14  
+# 	   github-repository/setup.github.repository.sh added files parse.repository.data.sh repository.data 
 # 	github-repository/setup.github.repository.sh  2.62.235  2019-08-01T20:56:35.524533-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.61-2-g4aae73a  
 # 	   github-repository/setup.github.repository.sh updated notes 
 # 	github-repository/setup.github.repository.sh  2.61.232  2019-08-01T15:46:40.369377-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.60-1-g3149bd2  
@@ -78,6 +80,20 @@ if [ ! -s "setup.github.repository.sh" ] && [ -e "setup.github.repository.sh"  ]
         echo -e "\n\tsetup.github.repository.sh file does not exist in directory or is not size>0 or is not executable."
 fi
 cp -p setup.github.repository.sh "${DEFAULT_DATA_GITHUB_DIR}"
+
+#       Check if parse.repository.data.sh file size>0 execute
+if [ ! -s "parse.repository.data.sh" ] && [ -e "parse.repository.data.sh"  ] ; then
+        echo -e "\n\tparse.repository.data.sh file does not exist in directory or is not size>0 or is not executable"
+        exit 1
+fi
+cp -p parse.repository.data.sh "${DEFAULT_DATA_GITHUB_DIR}"
+
+#       Check if repository.data file size>0 read
+if [ ! -s "repository.data" ] && [ -r "repository.data"  ] ; then
+        echo -e "\n\trepository.data file does not exist in directory or is not size>0 or is not readable"
+        exit 1
+fi
+cp -p repository.data "${DEFAULT_DATA_GITHUB_DIR}"
 
 cd "${DEFAULT_DATA_GITHUB_DIR}"
 echo "Add the follow line(s) to crontab using crontab -e	----->"
