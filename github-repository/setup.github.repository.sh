@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/setup.github.repository.sh  2.62.235  2019-08-01T20:56:35.524533-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.61-2-g4aae73a  
+# 	   github-repository/setup.github.repository.sh updated notes 
 # 	github-repository/setup.github.repository.sh  2.61.232  2019-08-01T15:46:40.369377-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.60-1-g3149bd2  
 # 	   github-repository/setup.github.repository.sh remove data directory 
 # 	github-repository/setup.github.repository.sh  2.60.230  2019-08-01T15:11:31.316685-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.59-1-g92b694a  
@@ -90,7 +92,7 @@ done
 #	
 #	need to write a parser
 #		to parse data/owner.repositry-date files into a comma separated values text files (.csv) in /usr/local/data/github/owner/repository/RAW/
-#		use .csv data to create cart image
+#		use .csv data or somthing to create an image or .png file
 #		push images to github owner/repository/images/(clones.png,views.png, popular.referrers.list, popular.paths.list)
 #		link images to github owner/repository/README.md page
 #	 .... NOTE to self need data first and dont want to waste time creating test data
