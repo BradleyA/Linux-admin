@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/parse.repository.data.sh  2.69.245  2019-08-02T15:52:23.366053-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.68  
+# 	   github-repository/parse.repository.data.sh updating parse notes 
 # 	github-repository/parse.repository.data.sh  2.68.244  2019-08-02T14:48:41.130377-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.67  
 # 	   github-repository/parse.repository.data.sh add template.sh code, the to edit first draft 
 #       github-repository/parse.repository.data.sh  2.65.240  2019-08-01T23:26:27.358500-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.64  
@@ -14,6 +16,18 @@
 #        .... NOTE to self need data first and dont want to waste time creating test data
 #
 #	grep -e clone -e timestamp -e count -e uniques -e referrer -e title -e path -e views */BradleyA.*
+#
+#	RAW data file example
+#	clones
+#	timestamp, 2019-07-15, 2019-07-22, 2019-07-29
+#	count, 1, 27, 1
+#	uniques, 1, 2, 1
+#	
+#	column -t -s' ' filename
+#	soffice --convert-to png ./clones
+#	display ./clones.png
+#
+#	also look at 'paste file1 file2 file3'
 ###
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
