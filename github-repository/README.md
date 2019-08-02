@@ -8,7 +8,9 @@ To install, change **BradleyA** to your Github repository owner name or who you 
     git clone https://github.com/BradleyA/Linux-admin
     cd Linux-admin/github-repository
     ./setup.github.repository.sh BradleyA
-    
+    cd ../..
+    rm -rf Linux-admin/
+
 To run
     
     edit crontab -e and add lines
@@ -25,7 +27,7 @@ To set github login to support automation of script running on system 'two' in c
 
     machine api.github.com login BradleyA password secret-not-known-to-you
 
-For each repository that requires their data to be pulled will need a file that is formatted like repository:owner-repository and contains the git commands.
+For each repository that requires their data to be pulled will need a file that is formatted like repository:owner-repository and rm -rf Linux-admin/contains the git commands.
 
     #!/bin/bash
     ###	BradleyA.Search-docker-registry-v2-script.1.0
