@@ -1,7 +1,7 @@
 ### in design & development
 
 testing >>>
-<img id="respberry_cluster-1" src="NOTES"  >
+<src="NOTES"  >
  
 ### Clone
 
