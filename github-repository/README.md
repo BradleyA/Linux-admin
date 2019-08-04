@@ -1,7 +1,7 @@
 ### in design & development
 
 testing >>>
-<!--#include file="NOTES" -->
+<!--#include file="NOTES" type="text/plain" -->
  
 ### Clone
 
