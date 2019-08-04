@@ -1,8 +1,7 @@
 ### in design & development
 
 testing >>>
-<object width="300" height="300" type="text/plain" data="NOTES" border="0" >
-</object>
+<!--#include file="NOTES" -->
  
 ### Clone
 
