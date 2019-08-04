@@ -1,5 +1,9 @@
 ## Linux-admin   [![Stable Release](https://img.shields.io/badge/Release-2.42-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/2.42)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/2.42.svg)](https://github.com/BradleyA/Linux-admin/commits/)
-<img alt="Steam Views" src="https://img.shields.io/steam/views/100">
+<src="https://img.shields.io/static/v1?label=CLones&message=26,24,1&color=blue">
+
+https://img.shields.io/static/v1?label=<clones>&message=<MESSAGE>&color=<COLOR>
+
+<img alt="Steam Views" src="https://img.shields.io/steam/views">
 
 This repository contains shell scripts for Linux administration to support my RaspBerry Pi clusters and x86 clusters.
 
