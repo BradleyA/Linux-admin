@@ -7,6 +7,7 @@ This repository contains shell scripts for Linux administration to support my Ra
  * _
 
  <img id="respberry_cluster-1" src="images/IMG_2664.JPG" width="450" >
+ <img id="respberry_cluster-1" src="images/clone.table.png" width="450" >
  
 ### Clone
 
