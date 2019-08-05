@@ -1,20 +1,6 @@
 #!/bin/bash
-# 	github-repository/parse.repository.data.sh  2.77.284  2019-08-04T23:12:00.925469-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.76  
-# 	   github-repository/parse.repository.data.sh typo found during test 
-# 	github-repository/parse.repository.data.sh  2.76.283  2019-08-04T23:08:34.559273-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.75  
-# 	   github-repository/parse.repository.data.sh working on table layout 
-# 	github-repository/parse.repository.data.sh  2.71.277  2019-08-04T22:10:13.804909-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.70  
-# 	   github-repository/setup.github.repository.sh  changed ln -s to ln-sf to force ln and stop error message File exists 
-# 	github-repository/parse.repository.data.sh  2.70.276  2019-08-04T21:39:10.622934-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.69-30-g11a23d8  
-# 	   github-repository/. . .  changed default output file for github data 
-# 	github-repository/parse.repository.data.sh  2.69.245  2019-08-02T15:52:23.366053-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.68  
-# 	   github-repository/parse.repository.data.sh updating parse notes 
-# 	github-repository/parse.repository.data.sh  2.68.244  2019-08-02T14:48:41.130377-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.67  
-# 	   github-repository/parse.repository.data.sh add template.sh code, the to edit first draft 
-#       github-repository/parse.repository.data.sh  2.65.240  2019-08-01T23:26:27.358500-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.64  
-#          github-repository/parse.repository.data.sh added design notes 
-#       github-repository/parse.repository.data.sh  2.64.239  2019-08-01T23:19:27.795284-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.63  
-#          github-repository/parse.repository.data.sh added file 
+# 	github-repository/parse.repository.data.sh  2.78.288  2019-08-05T10:34:02.720013-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.77-3-ga8e7710  
+# 	   github-repository/parse.repository.data.sh parse data to be used in table 
 ###
 #       need to write a parser
 #               to parse data/owner.repositry.date files into a comma separated values text files (.csv) in /usr/local/data/github/owner/repository/
@@ -501,11 +487,13 @@ while read line; do
 	FIRST_LINE_STRING=$(echo ${line} | cut -d: -f 1)
 	if [ "${FIRST_LINE_STRING}" == "timestamp" ] ;  then
 		SECOND_LINE_STRING=$(echo ${line} | cut -d: -f 2)
-		CLONE_FILE_NAME="clone.${SECOND_LINE_STRING}"
-		echo ${line} | cut -d: -f 2 | cut -d\- -f 2-3 > ${CLONE_FILE_NAME}
-		echo "|:---:" >> ${CLONE_FILE_NAME}
+		CLONE_FILE_NAME="clone.data.${SECOND_LINE_STRING}"
+                tmp=$(echo ${line} | cut -d: -f 2 | cut -d\- -f 2-3)
+                echo "| ${tmp}" > ${CLONE_FILE_NAME}
+                echo "|:---:" >> ${CLONE_FILE_NAME}
 	else
-		echo ${line} | cut -d: -f 2 >> ${CLONE_FILE_NAME}
+                tmp=$(echo ${line} | cut -d: -f 2)
+                echo "| ${tmp}" >> ${CLONE_FILE_NAME}
 	fi
 done < ${FILE_ORG_NAME}.tmp
 rm  ${FILE_ORG_NAME}.tmp
@@ -516,16 +504,9 @@ paste -d ' ' clone.heading clone.* | column -t -s' ' > clone.table
 
 rm  ${FILE_ORG_NAME}.no-headers
 
-#       RAW data file example
-#       clones
-#       timestamp, 2019-07-15, 2019-07-22, 2019-07-29
-#       count, 1, 27, 1
-#       uniques, 1, 2, 1
-#       
 #       column -t -s' ' filename
 #       soffice --convert-to png ./clones
 #       display ./clones.png
-#
 #
 #	<img alt="Steam Views" src="https://img.shields.io/steam/views/100">
 #
@@ -533,9 +514,5 @@ rm  ${FILE_ORG_NAME}.no-headers
 #	git pull
 #	git commit -m '$DATE: automation the update of README table' README.md
 #	git push README.md
-#
-#
-#
-#
 #
 ###
