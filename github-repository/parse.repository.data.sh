@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/parse.repository.data.sh  2.77.284  2019-08-04T23:12:00.925469-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.76  
+# 	   github-repository/parse.repository.data.sh typo found during test 
 # 	github-repository/parse.repository.data.sh  2.76.283  2019-08-04T23:08:34.559273-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.75  
 # 	   github-repository/parse.repository.data.sh working on table layout 
 # 	github-repository/parse.repository.data.sh  2.71.277  2019-08-04T22:10:13.804909-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.70  
@@ -490,7 +492,7 @@
 ###	
 #	Remove header and other none information from file
 FILE_ORG_NAME="BradleyA.user-files.2019-07-29"
-grep -e clones -e timestamp -e count -e uniques -e views -e /popular/paths -e path -e title -e /popular/referrers  BradleyA.user-files-2019-07-29 | sed -e 's/"//g' -e 's/,//g' -e 's/T.*Z//' -e 's/[ \t]*//g' > ${FILE_ORG_NAME}.no-headers
+grep -e clones -e timestamp -e count -e uniques -e views -e /popular/paths -e path -e title -e /popular/referrers  ${FILE_ORG_NAME} | sed -e 's/"//g' -e 's/,//g' -e 's/T.*Z//' -e 's/[ \t]*//g' > ${FILE_ORG_NAME}.no-headers
 
 #	process clones
 cat  ${FILE_ORG_NAME}.no-headers | sed -e '1,/views>>>/!d' -e '1,4d' | sed '$ d' > ${FILE_ORG_NAME}.tmp 
