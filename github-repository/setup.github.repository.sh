@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/setup.github.repository.sh  2.70.276  2019-08-04T21:39:16.854053-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.69-30-g11a23d8  
+# 	   github-repository/. . .  changed default output file for github data 
 # 	github-repository/setup.github.repository.sh  2.66.241  2019-08-01T23:38:30.819921-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.65  
 # 	   github-repository/setup.github.repository.sh update design notes and move some 
 # 	github-repository/setup.github.repository.sh  2.63.238  2019-08-01T23:13:27.448534-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.62-2-g2718f14  
@@ -48,6 +50,7 @@ if [ $# -ge  1 ]  ; then GITHUB_OWNER=${1} ; elif [ "${GITHUB_OWNER}" == "" ] ; 
         exit 1
 fi
 
+#	Create log directory for crontab ${GITHUB_OWNER} jobs
 mkdir -p ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/log
 #       Check if <DEFAULT_DATA_GITHUB_DIR> directory
 if [ ! -d "${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}" ] ; then

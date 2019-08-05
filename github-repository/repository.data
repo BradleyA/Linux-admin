@@ -1,19 +1,2 @@
-#
-###
-
-cLones; "count": 31, "uniques": 2, "clones": [ { "timestamp": "2019-07-15T00:00:00Z", "count": 1, "uniques": 1 }, { "timestamp": "2019-07-22T00:00:00Z", "count": 27, "uniques": 2 }, { "timestamp": "2019-07-29T00:00:00Z", "count": 3, "uniques": 1 } ]
-
-views; "count": 312, "uniques": 1, "views": [ { "timestamp": "2019-07-22T00:00:00Z", "count": 305, "uniques": 1 }, { "timestamp": "2019-07-29T00:00:00Z", "count": 7, "uniques": 1 } ]
-
-/popular/paths; "path": "/BradleyA/user-files", "title": "BradleyA/user-files: General user files for new systems", "count": 38, "uniques": 1
-/popular/paths; "path": "/BradleyA/user-files/releases", "title": "Releases · BradleyA/user-files", "count": 36, "uniques": 1
-/popular/paths; "path": "/BradleyA/user-files/commits/master", "title": "Commits · BradleyA/user-files", "count": 24, "uniques": 1
-/popular/paths; "path": "/BradleyA/user-files/issues", "title": "Issues · BradleyA/user-files", "count": 17, "uniques": 1
-/popular/paths; "path": "/BradleyA/user-files/blob/master/README.md", "title": "user-files/README.md at master · BradleyA/user-files", "count": 13, "uniques": 1
-/popular/paths; "path": "/BradleyA/user-files/edit/master/README.md", "title": "Editing user-files/README.md at master · BradleyA/user-files", "count": 10, "uniques": 1
-/popular/paths; "path": "/BradleyA/user-files/issues/23", "title": "template.sh remove $0 from display_help sections to ${COMMAND} to help with C...", "count": 10, "uniques": 1
-/popular/paths; "path": "/BradleyA/user-files/issues/24", "title": "production standard 9.0 Parse CLI options and arguments · Issue #24 · Bradley...", "count": 8, "uniques": 1
-/popular/paths; "path": "/BradleyA/user-files/issues/22", "title": "template[sh-py] --> production standard 8 --usage · Issue #22 · BradleyA/user...", "count": 6, "uniques": 1
-/popular/paths; "path": "/BradleyA/user-files/tree/master/template/TEST/template.sh", "title": "user-files/template/TEST/template.sh at master · BradleyA/user-files", "count": 6, "uniques": 1
-
-/popular/referrers; "referrer": "github.com","count": 33,"uniques": 1
+#	github-repository/repository.data  2.70.276  2019-08-04T21:39:16.709651-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.69-30-g11a23d8  
+#	   github-repository/. . .  changed default output file for github data 

@@ -1,10 +1,6 @@
 #!/bin/bash
-#	github-repository/owner.repository  2.67.243  2019-08-02T13:10:38.077312-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.66-1-ga6bdced  
-#	   github-repository/owner.repository corrected cLones >>> to clones >>> 
-#	github-repository/owner.repository  2.47.213  2019-07-30T10:16:41.350645-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.46-1-gecc918c  
-#	   change data directory to /usr/local/data/github/${DEFAULT_REPOSITORY_OWNER}/${DEFAULT_REPOSITORY} #29 
-#	github-repository/owner.repository  2.46.211  2019-07-29T23:01:41.869793-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.45-1-gf0b02ec  
-#	   initial commit 
+#	github-repository/owner.repository  2.70.276  2019-08-04T21:39:10.476536-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.69-30-g11a23d8  
+#	   github-repository/. . .  changed default output file for github data 
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen
@@ -18,16 +14,16 @@ DEFAULT_DATA_DIR="/usr/local/data/github/${DEFAULT_REPOSITORY_OWNER}/${DEFAULT_R
 ###
 mkdir -p ${DEFAULT_DATA_DIR}
 #	Get the total number of clones over the last 14 days. 
-echo "clones >>>" > ${DEFAULT_DATA_DIR}/${COMMAND_NAME}-${TODAY}
-curl -ni https://api.github.com/repos/"${DEFAULT_REPOSITORY_OWNER}"/"${DEFAULT_REPOSITORY}"/traffic/clones?per=week  >> ${DEFAULT_DATA_DIR}/${COMMAND_NAME}-${TODAY}
+echo "clones >>>" > ${DEFAULT_DATA_DIR}/${COMMAND_NAME}.${TODAY}
+curl -ni https://api.github.com/repos/"${DEFAULT_REPOSITORY_OWNER}"/"${DEFAULT_REPOSITORY}"/traffic/clones?per=week  >> ${DEFAULT_DATA_DIR}/${COMMAND_NAME}.${TODAY}
 #	Get the total number of views over the last 14 days. 
-echo "views >>>" >> ${DEFAULT_DATA_DIR}/${COMMAND_NAME}-${TODAY}
-curl -ni https://api.github.com/repos/"${DEFAULT_REPOSITORY_OWNER}"/"${DEFAULT_REPOSITORY}"/traffic/views?per=week  >> ${DEFAULT_DATA_DIR}/${COMMAND_NAME}-${TODAY}
+echo "views >>>" >> ${DEFAULT_DATA_DIR}/${COMMAND_NAME}.${TODAY}
+curl -ni https://api.github.com/repos/"${DEFAULT_REPOSITORY_OWNER}"/"${DEFAULT_REPOSITORY}"/traffic/views?per=week  >> ${DEFAULT_DATA_DIR}/${COMMAND_NAME}.${TODAY}
 #	Get the top 10 popular contents over the last 14 days.
-echo "/popular/paths >>>" >> ${DEFAULT_DATA_DIR}/${COMMAND_NAME}-${TODAY}
-curl -ni https://api.github.com/repos/"${DEFAULT_REPOSITORY_OWNER}"/"${DEFAULT_REPOSITORY}"/traffic/popular/paths  >> ${DEFAULT_DATA_DIR}/${COMMAND_NAME}-${TODAY}
+echo "/popular/paths >>>" >> ${DEFAULT_DATA_DIR}/${COMMAND_NAME}.${TODAY}
+curl -ni https://api.github.com/repos/"${DEFAULT_REPOSITORY_OWNER}"/"${DEFAULT_REPOSITORY}"/traffic/popular/paths  >> ${DEFAULT_DATA_DIR}/${COMMAND_NAME}.${TODAY}
 #	Get the top 10 referrers over the last 14 days.
-echo "/popular/referrers >>>" >> ${DEFAULT_DATA_DIR}/${COMMAND_NAME}-${TODAY}
-curl -ni https://api.github.com/repos/"${DEFAULT_REPOSITORY_OWNER}"/"${DEFAULT_REPOSITORY}"/traffic/popular/referrers  >> ${DEFAULT_DATA_DIR}/${COMMAND_NAME}-${TODAY}
+echo "/popular/referrers >>>" >> ${DEFAULT_DATA_DIR}/${COMMAND_NAME}.${TODAY}
+curl -ni https://api.github.com/repos/"${DEFAULT_REPOSITORY_OWNER}"/"${DEFAULT_REPOSITORY}"/traffic/popular/referrers  >> ${DEFAULT_DATA_DIR}/${COMMAND_NAME}.${TODAY}
 #
 ###
