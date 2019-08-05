@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/setup.github.repository.sh  2.74.281  2019-08-04T22:42:37.034053-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.73  
+# 	   github-repository/setup.github.repository.sh added -f force to me to stop error message are the same file 
 # 	github-repository/setup.github.repository.sh  2.73.280  2019-08-04T22:37:07.714409-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.72-1-g8f5b689  
 # 	   github-repository/setup.github.repository.sh comment out Check if github.repository.sh file size>0 execute 
 # 	github-repository/setup.github.repository.sh  2.48.214  2019-07-30T14:06:39.571375-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.47  
@@ -47,34 +49,34 @@ if [ ! -s "github.repository.list" ] && [ -r "github.repository.list"  ] ; then
 	echo -e "\tgithub.repository.list file should include Github owner's repository names, one per line."
         exit 1
 fi
-mv  github.repository.list "${DEFAULT_DATA_GITHUB_DIR}"
+mv -f  github.repository.list "${DEFAULT_DATA_GITHUB_DIR}"
 
 #       Check if owner.repository file size>0 read
 if [ ! -s "owner.repository" ] && [ -r "owner.repository"  ] ; then
         echo -e "\n\towner.repository file does not exist in directory or is not size>0 or is not readable"
         exit 1
 fi
-mv  owner.repository "${DEFAULT_DATA_GITHUB_DIR}"
+mv -f  owner.repository "${DEFAULT_DATA_GITHUB_DIR}"
 
 #       Check if setup.github.repository.sh file size>0 execute
 if [ ! -s "setup.github.repository.sh" ] && [ -e "setup.github.repository.sh"  ] ; then
         echo -e "\n\tsetup.github.repository.sh file does not exist in directory or is not size>0 or is not executable."
 fi
-mv  setup.github.repository.sh "${DEFAULT_DATA_GITHUB_DIR}"
+mv -f  setup.github.repository.sh "${DEFAULT_DATA_GITHUB_DIR}"
 
 #       Check if parse.repository.data.sh file size>0 execute
 if [ ! -s "parse.repository.data.sh" ] && [ -e "parse.repository.data.sh"  ] ; then
         echo -e "\n\tparse.repository.data.sh file does not exist in directory or is not size>0 or is not executable"
         exit 1
 fi
-mv  parse.repository.data.sh "${DEFAULT_DATA_GITHUB_DIR}"
+mv -f  parse.repository.data.sh "${DEFAULT_DATA_GITHUB_DIR}"
 
 #       Check if repository.data file size>0 read
 if [ ! -s "repository.data" ] && [ -r "repository.data"  ] ; then
         echo -e "\n\trepository.data file does not exist in directory or is not size>0 or is not readable"
         exit 1
 fi
-mv  repository.data "${DEFAULT_DATA_GITHUB_DIR}"
+mv -f  repository.data "${DEFAULT_DATA_GITHUB_DIR}"
 
 cd "${DEFAULT_DATA_GITHUB_DIR}"
 echo "Add the follow line(s) to crontab using crontab -e	----->"
