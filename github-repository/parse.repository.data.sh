@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/parse.repository.data.sh  2.79.289  2019-08-05T10:38:34.277390-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.78  
+# 	   github-repository/parse.repository.data.sh correct location of clone.heading 
 # 	github-repository/parse.repository.data.sh  2.78.288  2019-08-05T10:34:02.720013-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.77-3-ga8e7710  
 # 	   github-repository/parse.repository.data.sh parse data to be used in table 
 ###
@@ -498,7 +500,7 @@ while read line; do
 done < ${FILE_ORG_NAME}.tmp
 rm  ${FILE_ORG_NAME}.tmp
 
-paste -d ' ' clone.heading clone.* | column -t -s' ' > clone.table
+paste -d ' ' ../../clone.heading clone.* | column -t -s' ' > clone.table
 
 #	process views 
 
