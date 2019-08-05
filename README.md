@@ -13,13 +13,13 @@ This repository contains shell scripts for Linux administration to support my Ra
 
  <img id="respberry_cluster-1" src="images/IMG_2664.JPG" width="450" >
  
- <img id="respberry_cluster-1" src="images/clone.table.png" width="450" >
  
+### Clones
 timestamp:|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29
 ---       |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: 
 count:     | 1      |27     |     1| 1      |   27  |     1| 1      |   27  |   1  | 1      |   27  |   1 
 uniques:   | 1      |2      |   1  | 1      |   2   |     1| 1      |   2   |     1| 1      |   2   |   1
-
+#### Clones
 timestamp: |  07-15 | 07-22 | 07-29
 --- |          ---: |  ---: | ---:
 count:     | 1      |27     |   1
