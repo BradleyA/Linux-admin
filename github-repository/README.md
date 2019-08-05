@@ -32,15 +32,18 @@ To install, change **BradleyA** to your Github repository owner name or who you 
     cd ../..
     rm -rf Linux-admin/
 
-To run
+Add lines to crontab
+
+    crontab -e
+   
+EDit ~/.netrc or what ever solution you use for authentication        
     
-    edit crontab -e and add lines
-    do something to have cron reread if needed to work ???? think not need to check pi-display code
-    add ~/.netrc
+    vi ~/.netrc
     chmod 600 ~/.netrc
+    
+x    
+    
     machine api.github.com login <github-owner-account-name> password <secret-github-password>
-    
-    
 
 ### FILE Definition and ARCHITECTURE TREE
 
