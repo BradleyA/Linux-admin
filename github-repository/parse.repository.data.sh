@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/parse.repository.data.sh  2.71.277  2019-08-04T22:10:13.804909-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.70  
+# 	   github-repository/setup.github.repository.sh  changed ln -s to ln-sf to force ln and stop error message File exists 
 # 	github-repository/parse.repository.data.sh  2.70.276  2019-08-04T21:39:10.622934-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.69-30-g11a23d8  
 # 	   github-repository/. . .  changed default output file for github data 
 # 	github-repository/parse.repository.data.sh  2.69.245  2019-08-02T15:52:23.366053-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.68  
@@ -495,7 +497,7 @@ while read line; do
 	FIRST_LINE_STRING=$(echo ${line} | cut -d: -f 1)
 	if [ "${FIRST_LINE_STRING}" == "timestamp" ] ;  then
 		SECOND_LINE_STRING=$(echo ${line} | cut -d: -f 2)
-		CLONE_FILE_NAME="clone-${SECOND_LINE_STRING}"
+		CLONE_FILE_NAME="clone.${SECOND_LINE_STRING}"
 		echo ${line} | cut -d: -f 2 | cut -d\- -f 2-3 > ${CLONE_FILE_NAME}
 	else
 		echo ${line} | cut -d: -f 2 >> ${CLONE_FILE_NAME}
