@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/setup.github.repository.sh  2.80.291  2019-08-05T10:49:54.851588-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.79-1-g07eb720  
+# 	   github-repository/setup.github.repository.sh add code for clone.heading & view.heading 
 # 	github-repository/setup.github.repository.sh  2.75.282  2019-08-04T22:48:18.336006-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.74  
 # 	   github-repository/setup.github.repository.sh mv -f cause more indidents than cp -p 
 # 	github-repository/setup.github.repository.sh  2.74.281  2019-08-04T22:42:37.034053-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.73  
@@ -73,12 +75,19 @@ if [ ! -s "parse.repository.data.sh" ] && [ -e "parse.repository.data.sh"  ] ; t
 fi
 cp -p  parse.repository.data.sh "${DEFAULT_DATA_GITHUB_DIR}"
 
-#       Check if repository.data file size>0 read
-if [ ! -s "repository.data" ] && [ -r "repository.data"  ] ; then
-        echo -e "\n\trepository.data file does not exist in directory or is not size>0 or is not readable"
+#       Check if clone.heading file size>0 read
+if [ ! -s "clone.heading" ] && [ -r "clone.heading"  ] ; then
+        echo -e "\n\tclone.heading file does not exist in directory or is not size>0 or is not readable"
         exit 1
 fi
-cp -p  repository.data "${DEFAULT_DATA_GITHUB_DIR}"
+cp -p  clone.heading "${DEFAULT_DATA_GITHUB_DIR}"
+
+#       Check if view.heading file size>0 read
+if [ ! -s "view.heading" ] && [ -r "view.heading"  ] ; then
+        echo -e "\n\tview.heading file does not exist in directory or is not size>0 or is not readable"
+        exit 1
+fi
+cp -p  view.heading "${DEFAULT_DATA_GITHUB_DIR}"
 
 cd "${DEFAULT_DATA_GITHUB_DIR}"
 echo "Add the follow line(s) to crontab using crontab -e	----->"
