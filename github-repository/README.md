@@ -2,7 +2,16 @@
 
 testing >>>
 <!--#include type="text/plain" file="NOTES"  -->
+
+
+### Clones
+timestamp:|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29
+---       |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: 
+count:     | 1      |27     |     1| 1      |   27  |     1| 1      |   27  |   1  | 1      |   27  |   1 
+uniques:   | 1      |2      |   1  | 1      |   2   |     1| 1      |   2   |     1| 1      |   2   |   1
+
  
+  
 ### Clone
 
 To install, change **BradleyA** to your Github repository owner name or who you signed in as on Github. Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
@@ -50,6 +59,17 @@ For each repository that requires their data to be pulled will need a file that 
  * Have a simple setup process and a minimal learning curve
  * Be usable as non-root - failed adminstration requires root
  * Be easy to install and configure
+
+#### Clones
+timestamp:|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29
+---       |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: 
+count:     | 1      |27     |     1| 1      |   27  |     1| 1      |   27  |   1  | 1      |   27  |   1 
+uniques:   | 1      |2      |   1  | 1      |   2   |     1| 1      |   2   |     1| 1      |   2   |   1
+#### Views
+timestamp:|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29
+---       |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: 
+count:     | 1      |27     |     1| 1      |   27  |     1| 1      |   27  |   1  | 1      |   27  |   1 
+uniques:   | 1      |2      |   1  | 1      |   2   |     1| 1      |   2   |     1| 1      |   2   |   1
 
 ## License
 MIT License
