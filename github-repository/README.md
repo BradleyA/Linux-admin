@@ -4,6 +4,12 @@
 
  <img alt="gitlab"  src="https://img.shields.io/static/v1?logo=gitlab&&message=26,24,1&color=blue">
 
+### Views:
+timestamp:  |       07-22   |  07-29
+|:---       |:---:  |:---:
+count:      |       305     |  5
+uniques:    |       1       |  1
+
 ### Clone
 
 To install, change **BradleyA** to your Github repository owner name or who you signed in as on Github. Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
@@ -55,12 +61,12 @@ For each repository that requires their data to be pulled will need a file that 
  * Be usable as non-root - failed adminstration requires root
  * Be easy to install and configure
 
-#### Clones
+#### Git clones
 timestamp:|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29
 ---       |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: 
 count:     | 1      |27     |     1| 1      |   27  |     1| 1      |   27  |   1  | 1      |   27  |   1 
 uniques:   | 1      |2      |   1  | 1      |   2   |     1| 1      |   2   |     1| 1      |   2   |   1
-#### Views
+#### Visitors
 timestamp:|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29
 ---       |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: 
 count:     | 1      |27     |     1| 1      |   27  |     1| 1      |   27  |   1  | 1      |   27  |   1 
