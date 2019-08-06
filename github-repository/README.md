@@ -4,6 +4,12 @@
 
  <img alt="gitlab"  src="https://img.shields.io/static/v1?logo=gitlab&&message=26,24,1&color=blue">
 
+### Views:
+timestamp:  |       07-22   |  07-29
+|:---       |:---:  |:---:
+count:      |       305     |  5
+uniques:    |       1       |  1
+
 ### Clone
 
 To install, change **BradleyA** to your Github repository owner name or who you signed in as on Github. Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
