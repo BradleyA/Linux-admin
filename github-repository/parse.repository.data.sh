@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/parse.repository.data.sh  2.87.309  2019-08-06T16:07:34.514840-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.86  
+# 	   github-repository/parse.repository.data.sh check if {clone,view}.data.* was created before creating table and total file 
 # 	github-repository/parse.repository.data.sh  2.86.308  2019-08-06T15:44:15.911300-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.85  
 # 	   github-repository/parse.repository.data.sh check arg 1 
 # 	github-repository/parse.repository.data.sh  2.85.307  2019-08-06T15:26:04.837936-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.84-4-g21f8ab2  
@@ -49,8 +51,10 @@ while read line; do
 done < ${FILE_ORG_NAME}.tmp
 rm  ${FILE_ORG_NAME}.tmp
 #
-awk 'FNR == 3 {total+=$2} END {print total}'  clone.data.* > clone.total
-paste -d ' ' ../../clone.heading clone.data.* | column -t -s' ' > clone.table
+if [ "clone.data.*" -s ] ; then
+	awk 'FNR == 3 {total+=$2} END {print total}'  clone.data.* > clone.total
+	paste -d ' ' ../../clone.heading clone.data.* | column -t -s' ' > clone.table
+fi
 
 #	Parse vistors (views) data from ${FILE_ORG_NAME}.no-headers
 cat  ${FILE_ORG_NAME}.no-headers | sed -e '1,/\/popular\/paths>>>/!d' -e '1,/views:\[/d' -e '/^\]/,$d'  > ${FILE_ORG_NAME}.tmp 
@@ -70,8 +74,10 @@ while read line; do
 done < ${FILE_ORG_NAME}.tmp
 rm  ${FILE_ORG_NAME}.tmp
 #
-awk 'FNR == 3 {total+=$2} END {print total}'  view.data.*     > view.total
-paste -d ' ' ../../view.heading view.data.* | column -t -s' ' > view.table
+if [ "view.data.*" -s ] ; then
+	awk 'FNR == 3 {total+=$2} END {print total}'  view.data.*     > view.total
+	paste -d ' ' ../../view.heading view.data.* | column -t -s' ' > view.table
+fi
 
 rm  ${FILE_ORG_NAME}.no-headers
 
