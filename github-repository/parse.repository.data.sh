@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/parse.repository.data.sh  2.81.298  2019-08-05T21:34:28.351199-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.80-6-gf2a8f4d  
+# 	   github-repository/parse.repository.data.sh add code for view.table 
 # 	github-repository/parse.repository.data.sh  2.79.289  2019-08-05T10:38:34.277390-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.78  
 # 	   github-repository/parse.repository.data.sh correct location of clone.heading 
 # 	github-repository/parse.repository.data.sh  2.78.288  2019-08-05T10:34:02.720013-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.77-3-ga8e7710  
@@ -483,8 +485,8 @@ FILE_ORG_NAME="BradleyA.user-files.2019-07-29"
 grep -e clones -e timestamp -e count -e uniques -e views -e /popular/paths -e path -e title -e /popular/referrers  ${FILE_ORG_NAME} | sed -e 's/"//g' -e 's/,//g' -e 's/T.*Z//' -e 's/[ \t]*//g' > ${FILE_ORG_NAME}.no-headers
 
 #	process clones
-cat  ${FILE_ORG_NAME}.no-headers | sed -e '1,/views>>>/!d' -e '1,4d' | sed '$ d' > ${FILE_ORG_NAME}.tmp 
-
+cat  ${FILE_ORG_NAME}.no-headers | sed -e '1,/views>>>/!d' -e '1,/clones:\[/d' -e '/^\]/,$d'  > ${FILE_ORG_NAME}.tmp
+#	Loop through ${FILE_ORG_NAME}.tmp and create clone.data.$timestamp files
 while read line; do
 	FIRST_LINE_STRING=$(echo ${line} | cut -d: -f 1)
 	if [ "${FIRST_LINE_STRING}" == "timestamp" ] ;  then
@@ -499,12 +501,30 @@ while read line; do
 	fi
 done < ${FILE_ORG_NAME}.tmp
 rm  ${FILE_ORG_NAME}.tmp
-
+#
 paste -d ' ' ../../clone.heading clone.* | column -t -s' ' > clone.table
 
 #	process views 
+cat  ${FILE_ORG_NAME}.no-headers | sed -e '1,/\/popular\/paths>>>/!d' -e '1,/views:\[/d' -e '/^\]/,$d'  > ${FILE_ORG_NAME}.tmp 
+#	Loop through ${FILE_ORG_NAME}.tmp and create clone.data.$timestamp files
+while read line; do
+	FIRST_LINE_STRING=$(echo ${line} | cut -d: -f 1)
+	if [ "${FIRST_LINE_STRING}" == "timestamp" ] ;  then
+		SECOND_LINE_STRING=$(echo ${line} | cut -d: -f 2)
+		CLONE_FILE_NAME="view.data.${SECOND_LINE_STRING}"
+                tmp=$(echo ${line} | cut -d: -f 2 | cut -d\- -f 2-3)
+                echo "| ${tmp}" > ${CLONE_FILE_NAME}
+                echo "|:---:" >> ${CLONE_FILE_NAME}
+	else
+                tmp=$(echo ${line} | cut -d: -f 2)
+                echo "| ${tmp}" >> ${CLONE_FILE_NAME}
+	fi
+done < ${FILE_ORG_NAME}.tmp
+rm  ${FILE_ORG_NAME}.tmp
+#
+paste -d ' ' ../../view.heading view.* | column -t -s' ' > view.table
 
-rm  ${FILE_ORG_NAME}.no-headers
+###		rm  ${FILE_ORG_NAME}.no-headers
 
 #       column -t -s' ' filename
 #       soffice --convert-to png ./clones
