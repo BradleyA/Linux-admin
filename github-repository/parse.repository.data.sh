@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/parse.repository.data.sh  2.88.310  2019-08-06T16:22:57.535341-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.87  
+# 	   github-repository/parse.repository.data.sh debug 
 # 	github-repository/parse.repository.data.sh  2.87.309  2019-08-06T16:07:34.514840-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.86  
 # 	   github-repository/parse.repository.data.sh check if {clone,view}.data.* was created before creating table and total file 
 # 	github-repository/parse.repository.data.sh  2.86.308  2019-08-06T15:44:15.911300-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.85  
@@ -51,7 +53,7 @@ while read line; do
 done < ${FILE_ORG_NAME}.tmp
 rm  ${FILE_ORG_NAME}.tmp
 #
-if [ "clone.data.*" -s ] ; then
+if [ -s "clone.data.*" ] ; then
 	awk 'FNR == 3 {total+=$2} END {print total}'  clone.data.* > clone.total
 	paste -d ' ' ../../clone.heading clone.data.* | column -t -s' ' > clone.table
 fi
@@ -74,7 +76,7 @@ while read line; do
 done < ${FILE_ORG_NAME}.tmp
 rm  ${FILE_ORG_NAME}.tmp
 #
-if [ "view.data.*" -s ] ; then
+if [ -s "view.data.*" ] ; then
 	awk 'FNR == 3 {total+=$2} END {print total}'  view.data.*     > view.total
 	paste -d ' ' ../../view.heading view.data.* | column -t -s' ' > view.table
 fi
