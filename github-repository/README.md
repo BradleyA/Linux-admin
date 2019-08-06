@@ -22,6 +22,7 @@ To install, change **BradleyA** to your Github repository owner name or who you 
     ./setup.github.repository.sh BradleyA
     cd ../..
     rm -rf Linux-admin/
+    cd /usr/local/data/github/
 
 Add lines to crontab
 
