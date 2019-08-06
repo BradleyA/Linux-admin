@@ -1,10 +1,6 @@
 #!/bin/bash
-# 	github-repository/parse.repository.data.sh  2.81.298  2019-08-05T21:34:28.351199-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.80-6-gf2a8f4d  
-# 	   github-repository/parse.repository.data.sh add code for view.table 
-# 	github-repository/parse.repository.data.sh  2.79.289  2019-08-05T10:38:34.277390-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.78  
-# 	   github-repository/parse.repository.data.sh correct location of clone.heading 
-# 	github-repository/parse.repository.data.sh  2.78.288  2019-08-05T10:34:02.720013-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.77-3-ga8e7710  
-# 	   github-repository/parse.repository.data.sh parse data to be used in table 
+# 	github-repository/parse.repository.data.sh  2.82.300  2019-08-05T23:07:12.022408-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.81-1-g9688196  
+# 	   github-repository/parse.repository.data.sh update comments 
 ###
 #       need to write a parser
 #               to parse data/owner.repositry.date files into a comma separated values text files (.csv) in /usr/local/data/github/owner/repository/
@@ -480,11 +476,11 @@
 
 #	locate the latest file
 ###	
-#	Remove header and other none information from file
+#	Parse relevant data from ${FILE_ORG_NAME} GitHub Owner REpository data
 FILE_ORG_NAME="BradleyA.user-files.2019-07-29"
 grep -e clones -e timestamp -e count -e uniques -e views -e /popular/paths -e path -e title -e /popular/referrers  ${FILE_ORG_NAME} | sed -e 's/"//g' -e 's/,//g' -e 's/T.*Z//' -e 's/[ \t]*//g' > ${FILE_ORG_NAME}.no-headers
 
-#	process clones
+#	Parse clones data from ${FILE_ORG_NAME}.no-headers
 cat  ${FILE_ORG_NAME}.no-headers | sed -e '1,/views>>>/!d' -e '1,/clones:\[/d' -e '/^\]/,$d'  > ${FILE_ORG_NAME}.tmp
 #	Loop through ${FILE_ORG_NAME}.tmp and create clone.data.$timestamp files
 while read line; do
@@ -504,7 +500,7 @@ rm  ${FILE_ORG_NAME}.tmp
 #
 paste -d ' ' ../../clone.heading clone.* | column -t -s' ' > clone.table
 
-#	process views 
+#	Parse vistors (views) data from ${FILE_ORG_NAME}.no-headers
 cat  ${FILE_ORG_NAME}.no-headers | sed -e '1,/\/popular\/paths>>>/!d' -e '1,/views:\[/d' -e '/^\]/,$d'  > ${FILE_ORG_NAME}.tmp 
 #	Loop through ${FILE_ORG_NAME}.tmp and create clone.data.$timestamp files
 while read line; do
@@ -523,6 +519,7 @@ done < ${FILE_ORG_NAME}.tmp
 rm  ${FILE_ORG_NAME}.tmp
 #
 paste -d ' ' ../../view.heading view.* | column -t -s' ' > view.table
+
 
 ###		rm  ${FILE_ORG_NAME}.no-headers
 
