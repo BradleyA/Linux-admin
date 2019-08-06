@@ -4,7 +4,7 @@
 
  <img alt="gitlab"  src="https://img.shields.io/static/v1?logo=gitlab&&message=26,24,1&color=blue">
  
- {{clone.heading}}
+ \include{clone.heading}
 
 ### Vistors:
 Date:  |       07-22   |  07-29
