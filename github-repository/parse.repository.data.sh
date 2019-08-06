@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/parse.repository.data.sh  2.84.302  2019-08-06T14:48:49.066543-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.83  
+# 	   github-repository/parse.repository.data.sh total clones include total in clone.total 
 # 	github-repository/parse.repository.data.sh  2.82.300  2019-08-05T23:07:12.022408-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.81-1-g9688196  
 # 	   github-repository/parse.repository.data.sh update comments 
 ###
@@ -492,13 +494,15 @@ while read line; do
                 echo "| ${tmp}" > ${CLONE_FILE_NAME}
                 echo "|:---:" >> ${CLONE_FILE_NAME}
 	else
-                tmp=$(echo ${line} | cut -d: -f 2)
-                echo "| ${tmp}" >> ${CLONE_FILE_NAME}
+                AMOUNT=$(echo ${line} | cut -d: -f 2)
+                echo "| ${AMOUNT}" >> ${CLONE_FILE_NAME}
 	fi
 done < ${FILE_ORG_NAME}.tmp
+echo "Total clones: ${CLONE_TOTAL}"
 rm  ${FILE_ORG_NAME}.tmp
 #
-paste -d ' ' ../../clone.heading clone.* | column -t -s' ' > clone.table
+awk 'FNR == 3 {total+=$2} END {print total}'  clone.data.* > clone.total
+paste -d ' ' ../../clone.heading clone.data.* | column -t -s' ' > clone.table
 
 #	Parse vistors (views) data from ${FILE_ORG_NAME}.no-headers
 cat  ${FILE_ORG_NAME}.no-headers | sed -e '1,/\/popular\/paths>>>/!d' -e '1,/views:\[/d' -e '/^\]/,$d'  > ${FILE_ORG_NAME}.tmp 
