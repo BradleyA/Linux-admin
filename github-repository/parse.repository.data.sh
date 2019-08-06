@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/parse.repository.data.sh  2.86.308  2019-08-06T15:44:15.911300-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.85  
+# 	   github-repository/parse.repository.data.sh check arg 1 
 # 	github-repository/parse.repository.data.sh  2.85.307  2019-08-06T15:26:04.837936-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.84-4-g21f8ab2  
 # 	   github-repository/parse.repository.data.sh add missing code from last night 
 ###
@@ -16,13 +18,17 @@
 #	Copyright (c) 2019 Bradley Allen
 #	MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
 ###
+###     parse.repository.data.sh
 
+DATA_GITHUB_DIR="/usr/local/data/github/"
 
+#       Order of precedence: CLI argument, environment variable
+if [ $# -ge  1 ]  ; then FILE_ORG_NAME=${1} ; elif [ "${FILE_ORG_NAME}" == "" ] ; then
+        echo -e "\n\t:OWNER.:REPO.DATE is required to make this work.  Either as the first argument on the command line or defined as FILE_ORG_NAME environment variable.  Try again."
+        exit 1
+fi
 
-#	locate the latest file
-###	
-#	Parse relevant data from ${FILE_ORG_NAME} GitHub Owner REpository data
-FILE_ORG_NAME="BradleyA.user-files.2019-07-29"
+#	Parse relevant data from ${FILE_ORG_NAME} GitHub Owner Repository data
 grep -e clones -e timestamp -e count -e uniques -e views -e /popular/paths -e path -e title -e /popular/referrers -e '\]' -e '\['  ${FILE_ORG_NAME} | sed -e 's/"//g' -e 's/,//g' -e 's/T.*Z//' -e 's/[ \t]*//g' > ${FILE_ORG_NAME}.no-headers
 
 #	Parse clones data from ${FILE_ORG_NAME}.no-headers
@@ -67,7 +73,7 @@ rm  ${FILE_ORG_NAME}.tmp
 awk 'FNR == 3 {total+=$2} END {print total}'  view.data.*     > view.total
 paste -d ' ' ../../view.heading view.data.* | column -t -s' ' > view.table
 
-#		rm  ${FILE_ORG_NAME}.no-headers
+rm  ${FILE_ORG_NAME}.no-headers
 
 #       column -t -s' ' filename
 #       soffice --convert-to png ./clones
