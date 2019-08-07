@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/parse.repository.data.sh  2.92.332  2019-08-07T13:57:42.546041-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.91-2-g4df67ee  
+# 	   github-repository/parse.repository.data.sh add section markup to table.md files 
 # 	github-repository/parse.repository.data.sh  2.91.329  2019-08-07T12:18:22.878926-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.90-10-gf634ab4  
 # 	   github-repository/parse.repository.data.sh add '.md' to table file names 
 # 	github-repository/parse.repository.data.sh  2.90.318  2019-08-07T00:12:51.398723-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.89-2-ge1ea47b  
@@ -40,7 +42,7 @@ while read line; do
 		SECOND_LINE_STRING=$(echo ${line} | cut -d: -f 2)
 		CLONE_FILE_NAME="clone.data.${SECOND_LINE_STRING}"
                 tmp=$(echo ${line} | cut -d: -f 2 | cut -d\- -f 2-3)
-                echo "| ${tmp}" > ${CLONE_FILE_NAME}
+                echo "| ${tmp}" >> ${CLONE_FILE_NAME}
                 echo "|:---:" >> ${CLONE_FILE_NAME}
 	else
                 AMOUNT=$(echo ${line} | cut -d: -f 2)
@@ -48,11 +50,15 @@ while read line; do
 	fi
 done < ${FILE_ORG_NAME}.tmp
 rm  ${FILE_ORG_NAME}.tmp
-#
+CLONE_TOTAL=0
+#	Do clone.data.* files exists and size greater than zero
+# >>>	need to test this create an empty file in a repository that has many data file ????
 if [ -s "clone.data.*" ] ; then
+#	Total third line of clone.data.* files
 	CLONE_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  clone.data.*)
 	echo ${CLONE_TOTAL}  > view.total
 	paste -d ' ' ../../clone.heading clone.data.* | column -t -s' ' > clone.table.md
+	sed -i '1 i\#### Git clones' clone.table.md
 fi
 echo -e "\nTotal clones: ${CLONE_TOTAL}"  >> clone.table.md
 
@@ -73,11 +79,15 @@ while read line; do
 	fi
 done < ${FILE_ORG_NAME}.tmp
 rm  ${FILE_ORG_NAME}.tmp
-#
+VIEW_TOTAL=0
+#	Do view.data.* files exists and size greater than zero
+# >>>   need to test this create an empty file in a repository that has many data file ????
 if [ -s "view.data.*" ] ; then
+#       Total third line of view.data.* files
 	VIEW_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  view.data.*)
 	echo ${VIEW_TOTAL}  > view.total
 	paste -d ' ' ../../view.heading view.data.* | column -t -s' ' > view.table.md
+	sed -i '1 i\#### Visitors' clone.table.md
 fi
 echo -e "\nTotal views: ${VIEW_TOTAL}"  >> view.table.md
 
