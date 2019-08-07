@@ -20,12 +20,11 @@ Add lines to crontab
 
     crontab -e
    
-EDit ~/.netrc or what ever solution you use for authentication        
+Edit ~/.netrc or what ever solution you use for authentication  (No you don't push any file like this to anywhere. Duh!)     
     
     vi ~/.netrc
     chmod 600 ~/.netrc
     
-x    
     
     machine api.github.com login <github-owner-account-name> password <secret-github-password>
 
