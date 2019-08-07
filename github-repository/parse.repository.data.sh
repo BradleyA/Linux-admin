@@ -1,14 +1,6 @@
 #!/bin/bash
-# 	github-repository/parse.repository.data.sh  2.89.315  2019-08-06T23:29:02.791767-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.88-4-gce2f912  
-# 	   github-repository/parse.repository.data.sh github-repository/setup.github.repository.sh updated user hint with ticvket information I need to enter 
-# 	github-repository/parse.repository.data.sh  2.88.310  2019-08-06T16:22:57.535341-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.87  
-# 	   github-repository/parse.repository.data.sh debug 
-# 	github-repository/parse.repository.data.sh  2.87.309  2019-08-06T16:07:34.514840-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.86  
-# 	   github-repository/parse.repository.data.sh check if {clone,view}.data.* was created before creating table and total file 
-# 	github-repository/parse.repository.data.sh  2.86.308  2019-08-06T15:44:15.911300-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.85  
-# 	   github-repository/parse.repository.data.sh check arg 1 
-# 	github-repository/parse.repository.data.sh  2.85.307  2019-08-06T15:26:04.837936-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.84-4-g21f8ab2  
-# 	   github-repository/parse.repository.data.sh add missing code from last night 
+# 	github-repository/parse.repository.data.sh  2.90.318  2019-08-07T00:12:51.398723-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.89-2-ge1ea47b  
+# 	   github-repository/parse.repository.data.sh add totals to tables 
 ###
 #       need to write a parser
 #               push files/README.md/images to github owner/repository/images/(clones,views, NOT popular.referrers.list, popular.paths.list)
@@ -56,9 +48,11 @@ done < ${FILE_ORG_NAME}.tmp
 rm  ${FILE_ORG_NAME}.tmp
 #
 if [ -s "clone.data.*" ] ; then
-	awk 'FNR == 3 {total+=$2} END {print total}'  clone.data.* > clone.total
+	CLONE_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  clone.data.*)
+	echo ${CLONE_TOTAL}  > view.total
 	paste -d ' ' ../../clone.heading clone.data.* | column -t -s' ' > clone.table
 fi
+echo -e "\nTotal clones: ${CLONE_TOTAL}"  >> clone.table
 
 #	Parse vistors (views) data from ${FILE_ORG_NAME}.no-headers
 cat  ${FILE_ORG_NAME}.no-headers | sed -e '1,/\/popular\/paths>>>/!d' -e '1,/views:\[/d' -e '/^\]/,$d'  > ${FILE_ORG_NAME}.tmp 
@@ -67,21 +61,23 @@ while read line; do
 	FIRST_LINE_STRING=$(echo ${line} | cut -d: -f 1)
 	if [ "${FIRST_LINE_STRING}" == "timestamp" ] ;  then
 		SECOND_LINE_STRING=$(echo ${line} | cut -d: -f 2)
-		CLONE_FILE_NAME="view.data.${SECOND_LINE_STRING}"
+		VIEW_FILE_NAME="view.data.${SECOND_LINE_STRING}"
                 tmp=$(echo ${line} | cut -d: -f 2 | cut -d\- -f 2-3)
-                echo "| ${tmp}" > ${CLONE_FILE_NAME}
-                echo "|:---:" >> ${CLONE_FILE_NAME}
+                echo "| ${tmp}" > ${VIEW_FILE_NAME}
+                echo "|:---:" >> ${VIEW_FILE_NAME}
 	else
                 AMOUNT=$(echo ${line} | cut -d: -f 2)
-                echo "| ${AMOUNT}" >> ${CLONE_FILE_NAME}
+                echo "| ${AMOUNT}" >> ${VIEW_FILE_NAME}
 	fi
 done < ${FILE_ORG_NAME}.tmp
 rm  ${FILE_ORG_NAME}.tmp
 #
 if [ -s "view.data.*" ] ; then
-	awk 'FNR == 3 {total+=$2} END {print total}'  view.data.*     > view.total
+	VIEW_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  view.data.*)
+	echo ${VIEW_TOTAL}  > view.total
 	paste -d ' ' ../../view.heading view.data.* | column -t -s' ' > view.table
 fi
+echo -e "\nTotal views: ${VIEW_TOTAL}"  >> view.table
 
 rm  ${FILE_ORG_NAME}.no-headers
 
