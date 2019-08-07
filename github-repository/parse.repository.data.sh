@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/parse.repository.data.sh  2.91.329  2019-08-07T12:18:22.878926-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.90-10-gf634ab4  
+# 	   github-repository/parse.repository.data.sh add '.md' to table file names 
 # 	github-repository/parse.repository.data.sh  2.90.318  2019-08-07T00:12:51.398723-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.89-2-ge1ea47b  
 # 	   github-repository/parse.repository.data.sh add totals to tables 
 ###
@@ -26,7 +28,7 @@ if [ $# -ge  1 ]  ; then FILE_ORG_NAME=${1} ; elif [ "${FILE_ORG_NAME}" == "" ] 
         exit 1
 fi
 
-#	Parse relevant data from ${FILE_ORG_NAME} GitHub Owner Repository data
+#	Parse relevant data out of ${FILE_ORG_NAME}
 grep -e clones -e timestamp -e count -e uniques -e views -e /popular/paths -e path -e title -e /popular/referrers -e '\]' -e '\['  ${FILE_ORG_NAME} | sed -e 's/"//g' -e 's/,//g' -e 's/T.*Z//' -e 's/[ \t]*//g' > ${FILE_ORG_NAME}.no-headers
 
 #	Parse clones data from ${FILE_ORG_NAME}.no-headers
@@ -50,9 +52,9 @@ rm  ${FILE_ORG_NAME}.tmp
 if [ -s "clone.data.*" ] ; then
 	CLONE_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  clone.data.*)
 	echo ${CLONE_TOTAL}  > view.total
-	paste -d ' ' ../../clone.heading clone.data.* | column -t -s' ' > clone.table
+	paste -d ' ' ../../clone.heading clone.data.* | column -t -s' ' > clone.table.md
 fi
-echo -e "\nTotal clones: ${CLONE_TOTAL}"  >> clone.table
+echo -e "\nTotal clones: ${CLONE_TOTAL}"  >> clone.table.md
 
 #	Parse vistors (views) data from ${FILE_ORG_NAME}.no-headers
 cat  ${FILE_ORG_NAME}.no-headers | sed -e '1,/\/popular\/paths>>>/!d' -e '1,/views:\[/d' -e '/^\]/,$d'  > ${FILE_ORG_NAME}.tmp 
@@ -75,9 +77,9 @@ rm  ${FILE_ORG_NAME}.tmp
 if [ -s "view.data.*" ] ; then
 	VIEW_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  view.data.*)
 	echo ${VIEW_TOTAL}  > view.total
-	paste -d ' ' ../../view.heading view.data.* | column -t -s' ' > view.table
+	paste -d ' ' ../../view.heading view.data.* | column -t -s' ' > view.table.md
 fi
-echo -e "\nTotal views: ${VIEW_TOTAL}"  >> view.table
+echo -e "\nTotal views: ${VIEW_TOTAL}"  >> view.table.md
 
 rm  ${FILE_ORG_NAME}.no-headers
 
