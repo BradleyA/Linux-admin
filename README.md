@@ -2,11 +2,11 @@
 
 This repository contains shell scripts for Linux administration to support my RaspBerry Pi clusters and x86 clusters.
 
- * [cluster-command](https://github.com/BradleyA/pi-scripts/tree/master/cluster-command)
- * [github-repository](https://github.com/BradleyA/pi-scripts/tree/master/github-repository)
+ * [cluster-command](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command)
+ * [github-repository](https://github.com/BradleyA/Linux-admin/tree/master/github-repository)
  * _
  
-[Clones](https://github.com/BradleyA/pi-scripts/tree/master/images/clone.table.md)
+[Clones](images/clone.table.md)
 
 ![](https://github.com/BradleyA/pi-scripts/tree/master/images/clone.table.md)
 
