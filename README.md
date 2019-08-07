@@ -6,7 +6,9 @@ This repository contains shell scripts for Linux administration to support my Ra
  * [github-repository](https://github.com/BradleyA/pi-scripts/tree/master/github-repository)
  * _
  
-[cones](https://github.com/BradleyA/pi-scripts/tree/master/images/clone.table.md)
+[Clones](https://github.com/BradleyA/pi-scripts/tree/master/images/clone.table.md)
+
+![](https://github.com/BradleyA/pi-scripts/tree/master/images/clone.table.md)
 
  <img id="respberry_cluster-1" src="images/clone.table.md" >
 
