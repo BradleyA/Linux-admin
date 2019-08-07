@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/parse.repository.data.sh  2.93.333  2019-08-07T16:36:19.789291-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.92  
+# 	   github-repository/parse.repository.data.sh change code that check if there are any files 
 # 	github-repository/parse.repository.data.sh  2.92.332  2019-08-07T13:57:42.546041-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.91-2-g4df67ee  
 # 	   github-repository/parse.repository.data.sh add section markup to table.md files 
 # 	github-repository/parse.repository.data.sh  2.91.329  2019-08-07T12:18:22.878926-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.90-10-gf634ab4  
@@ -53,7 +55,7 @@ rm  ${FILE_ORG_NAME}.tmp
 CLONE_TOTAL=0
 #	Do clone.data.* files exists and size greater than zero
 # >>>	need to test this create an empty file in a repository that has many data file ????
-if [ -s "clone.data.*" ] ; then
+if ls clone.data.* 1>/dev/null 2>&1 ; then
 #	Total third line of clone.data.* files
 	CLONE_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  clone.data.*)
 	echo ${CLONE_TOTAL}  > view.total
@@ -82,7 +84,7 @@ rm  ${FILE_ORG_NAME}.tmp
 VIEW_TOTAL=0
 #	Do view.data.* files exists and size greater than zero
 # >>>   need to test this create an empty file in a repository that has many data file ????
-if [ -s "view.data.*" ] ; then
+if ls view.data.* 1>/dev/null 2>&1 ; then
 #       Total third line of view.data.* files
 	VIEW_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  view.data.*)
 	echo ${VIEW_TOTAL}  > view.total
