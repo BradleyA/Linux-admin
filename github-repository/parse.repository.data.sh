@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/parse.repository.data.sh  2.89.315  2019-08-06T23:29:02.791767-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.88-4-gce2f912  
+# 	   github-repository/parse.repository.data.sh github-repository/setup.github.repository.sh updated user hint with ticvket information I need to enter 
 # 	github-repository/parse.repository.data.sh  2.88.310  2019-08-06T16:22:57.535341-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.87  
 # 	   github-repository/parse.repository.data.sh debug 
 # 	github-repository/parse.repository.data.sh  2.87.309  2019-08-06T16:07:34.514840-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.86  
@@ -23,12 +25,12 @@
 #	MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
 ###
 ###     parse.repository.data.sh
-
+#
 DATA_GITHUB_DIR="/usr/local/data/github/"
 
 #       Order of precedence: CLI argument, environment variable
 if [ $# -ge  1 ]  ; then FILE_ORG_NAME=${1} ; elif [ "${FILE_ORG_NAME}" == "" ] ; then
-        echo -e "\n\t:OWNER.:REPO.DATE is required to make this work.  Either as the first argument on the command line or defined as FILE_ORG_NAME environment variable.  Try again."
+        echo -e "\n\t<OWNER>.<REPO> is required to make this work.  Either as the first argument on the command line or defined as FILE_ORG_NAME environment variable << BUT I HAVE NOT coded that yet >>>.  Try again."
         exit 1
 fi
 

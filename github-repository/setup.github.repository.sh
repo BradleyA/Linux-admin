@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/setup.github.repository.sh  2.89.315  2019-08-06T23:29:02.911113-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.88-4-gce2f912  
+# 	   github-repository/parse.repository.data.sh github-repository/setup.github.repository.sh updated user hint with ticvket information I need to enter 
 # 	github-repository/setup.github.repository.sh  2.80.291  2019-08-05T10:49:54.851588-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.79-1-g07eb720  
 # 	   github-repository/setup.github.repository.sh add code for clone.heading & view.heading 
 # 	github-repository/setup.github.repository.sh  2.75.282  2019-08-04T22:48:18.336006-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.74  
@@ -28,7 +30,7 @@ DEFAULT_DATA_GITHUB_DIR="/usr/local/data/github/"
 ###	setup.github.repository.sh
 #       Order of precedence: CLI argument, environment variable
 if [ $# -ge  1 ]  ; then GITHUB_OWNER=${1} ; elif [ "${GITHUB_OWNER}" == "" ] ; then 
-        echo -e "\n\tGithub owner is required to make this work.  Either as the first argument on the command line or defined as GITHUB_OWNER environment variable.  Try again."
+        echo -e "\n\tGithub owner is required to make this work.  Either as the first argument on the command line or defined as GITHUB_OWNER environment variable   << BUT I HAVE NOT coded that yet >>>.  Try again."
         exit 1
 fi
 
