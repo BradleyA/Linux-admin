@@ -1,14 +1,6 @@
 #!/bin/bash
-# 	github-repository/parse.repository.data.sh  2.94.339  2019-08-08T15:45:02.187133-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.93-5-g902de58  
-# 	   github-repository/parse.repository.data.sh  change 2 variable names, corrected incident appending to table.md file vers create new table.md 
-# 	github-repository/parse.repository.data.sh  2.93.333  2019-08-07T16:36:19.789291-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.92  
-# 	   github-repository/parse.repository.data.sh change code that check if there are any files 
-# 	github-repository/parse.repository.data.sh  2.92.332  2019-08-07T13:57:42.546041-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.91-2-g4df67ee  
-# 	   github-repository/parse.repository.data.sh add section markup to table.md files 
-# 	github-repository/parse.repository.data.sh  2.91.329  2019-08-07T12:18:22.878926-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.90-10-gf634ab4  
-# 	   github-repository/parse.repository.data.sh add '.md' to table file names 
-# 	github-repository/parse.repository.data.sh  2.90.318  2019-08-07T00:12:51.398723-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.89-2-ge1ea47b  
-# 	   github-repository/parse.repository.data.sh add totals to tables 
+# 	github-repository/parse.repository.data.sh  2.95.344  2019-08-08T15:57:43.072310-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.94-4-gb651445  
+# 	   github-repository/parse.repository.data.sh added date to view.table.md 
 ###
 #       need to write a parser
 #               push files/README.md/images to github owner/repository/images/(clones,views, NOT popular.referrers.list, popular.paths.list)
@@ -64,7 +56,7 @@ if ls clone.data.* 1>/dev/null 2>&1 ; then
 	paste -d ' ' ../../clone.heading clone.data.* | column -t -s' ' > clone.table.md
 	sed -i '1 i\#### Git clones' clone.table.md
 fi
-echo -e "\nTotal clones: ${CLONE_TOTAL}\n###### Updated: $(date +%Y-%m-%d))"  >> clone.table.md
+echo -e "\nTotal clones: ${CLONE_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> clone.table.md
 
 #	Parse vistors (views) data from ${FILE_ORG_NAME}.no-headers
 cat  ${FILE_ORG_NAME}.no-headers | sed -e '1,/\/popular\/paths>>>/!d' -e '1,/views:\[/d' -e '/^\]/,$d'  > ${FILE_ORG_NAME}.tmp 
@@ -93,7 +85,7 @@ if ls view.data.* 1>/dev/null 2>&1 ; then
 	paste -d ' ' ../../view.heading view.data.* | column -t -s' ' > view.table.md
 	sed -i '1 i\#### Visitors' view.table.md
 fi
-echo -e "\nTotal views: ${VIEW_TOTAL}"  >> view.table.md
+echo -e "\nTotal views: ${VIEW_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> view.table.md
 
 rm  ${FILE_ORG_NAME}.no-headers
 
