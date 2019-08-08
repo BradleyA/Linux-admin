@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository/parse.repository.data.sh  2.96.349  2019-08-08T16:17:52.415918-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.95-4-g773f851  
+# 	   github-repository/parse.repository.data.sh correct incident changed view.total to clone.total in clonde sectionof code 
 # 	github-repository/parse.repository.data.sh  2.95.344  2019-08-08T15:57:43.072310-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.94-4-gb651445  
 # 	   github-repository/parse.repository.data.sh added date to view.table.md 
 ###
@@ -52,7 +54,7 @@ CLONE_TOTAL=0
 if ls clone.data.* 1>/dev/null 2>&1 ; then
 #	Total third line of clone.data.* files
 	CLONE_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  clone.data.*)
-	echo ${CLONE_TOTAL}  > view.total
+	echo ${CLONE_TOTAL}  > clone.total
 	paste -d ' ' ../../clone.heading clone.data.* | column -t -s' ' > clone.table.md
 	sed -i '1 i\#### Git clones' clone.table.md
 fi
