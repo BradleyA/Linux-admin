@@ -10,10 +10,6 @@ This repository contains shell scripts for Linux administration to support my Ra
  
 [Clones](images/clone.table.md)
 
-![](https://github.com/BradleyA/pi-scripts/tree/master/images/clone.table.md)
-
- <img id="respberry_cluster-1" src="images/clone.table.md" >
-
 
  <img id="respberry_cluster-1" src="images/IMG_2664.JPG" width="450" >
  
