@@ -5,5 +5,4 @@ Clones:  |        1       |       27     |  4
 Unique   clones:  |       1       |      2  |      1
 
 Total clones: XX
-
 ###### Updated: 2019-04-20
