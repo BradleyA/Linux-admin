@@ -22,7 +22,8 @@ To install, change directory to the location you want to download the scripts. U
 
 <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=29&color=blue"> <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=203&color=blue">
 
-[Clones Table](images/clone.table.md) [Views Table](images/view.table.md)
+[Clones Table](images/clone.table.md)
+[Views Table](images/view.table.md)
 
 #### Author
 [<img id="twitter" src="images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
