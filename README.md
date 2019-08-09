@@ -11,7 +11,7 @@ This repository contains shell scripts for Linux administration to support my Ra
  * [github-repository](https://github.com/BradleyA/Linux-admin/tree/master/github-repository)
  * _
  
-[Clones](images/clone.table.md)
+[Clones Table](images/clone.table.md)
 
 
  <img id="respberry_cluster-1" src="images/IMG_2664.JPG" width="450" >
