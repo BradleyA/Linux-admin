@@ -40,6 +40,10 @@ For each repository that requires their data to be pulled will need a file that 
     ###	BradleyA.Search-docker-registry-v2-script.1.0
     . . . 
 
+#### Traffic
+
+ * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=29&color=blue">  [Clones Table](images/clone.table.md)
+ * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=203&color=blue">  [Views Table](images/view.table.md)
 
 #### Author
 [<img id="twitter" src="../images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
