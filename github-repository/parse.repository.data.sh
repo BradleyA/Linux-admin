@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	github-repository/parse.repository.data.sh  2.97.369  2019-08-08T23:45:37.862670-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.96-19-g95b7842  
-# 	   #       column -t -s' ' filename 
+# 	github-repository/parse.repository.data.sh  2.98.370  2019-08-08T23:47:37.538761-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.97  
+# 	   github-repository/parse.repository.data.sh design complete, ready to create test cases 
 ###
 #               push files to images/clone.table.md images/view.table.md to github owner/repository/images/(clones,views, NOT popular.referrers.list, popular.paths.list)
 #               link *.table.md to README.md badges
