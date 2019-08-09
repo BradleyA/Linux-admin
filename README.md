@@ -6,10 +6,8 @@ This repository contains shell scripts for Linux administration to support my Ra
  * [github-repository](https://github.com/BradleyA/Linux-admin/tree/master/github-repository)
  * _
 
-
 <img id="respberry_cluster-1" src="images/IMG_2664.JPG" width="450" >
- 
- 
+
 ### Clone
 
 To install, change directory to the location you want to download the scripts. Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
@@ -22,8 +20,8 @@ To install, change directory to the location you want to download the scripts. U
 
 <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=29&color=blue"> <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=203&color=blue">
 
-[Clones Table](images/clone.table.md)
-[Views Table](images/view.table.md)
+ * [Clones Table](images/clone.table.md)
+ * [Views Table](images/view.table.md)
 
 #### Author
 [<img id="twitter" src="images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
