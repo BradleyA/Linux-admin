@@ -1,17 +1,22 @@
 #!/bin/bash
-# 	github-repository/parse.repository.data.sh  2.96.349  2019-08-08T16:17:52.415918-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.95-4-g773f851  
-# 	   github-repository/parse.repository.data.sh correct incident changed view.total to clone.total in clonde sectionof code 
-# 	github-repository/parse.repository.data.sh  2.95.344  2019-08-08T15:57:43.072310-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.94-4-gb651445  
-# 	   github-repository/parse.repository.data.sh added date to view.table.md 
+# 	github-repository/parse.repository.data.sh  2.97.369  2019-08-08T23:45:37.862670-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.96-19-g95b7842  
+# 	   #       column -t -s' ' filename 
 ###
-#       need to write a parser
-#               push files/README.md/images to github owner/repository/images/(clones,views, NOT popular.referrers.list, popular.paths.list)
-#               link images to github owner/repository/README.md page
+#               push files to images/clone.table.md images/view.table.md to github owner/repository/images/(clones,views, NOT popular.referrers.list, popular.paths.list)
+#               link *.table.md to README.md badges
 #        .... NOTE to self need data first and dont want to waste time creating test data
 #
 #	column -t -s' ' filename
 #	soffice --convert-to png ./clones
 #	display ./clones.png
+#
+#       <img alt="Steam Views" src="https://img.shields.io/steam/views/100">
+#
+#       cd ~/github/BradleyA/automate/:repo
+#       git pull
+#       git commit -m '$DATE: automation the update of README table' README.md
+#       git push README.md
+
 ###
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
@@ -91,15 +96,4 @@ echo -e "\nTotal views: ${VIEW_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> vi
 
 rm  ${FILE_ORG_NAME}.no-headers
 
-#       column -t -s' ' filename
-#       soffice --convert-to png ./clones
-#       display ./clones.png
-#
-#	<img alt="Steam Views" src="https://img.shields.io/steam/views/100">
-#
-#	cd ~/github/BradleyA/automate/:repo
-#	git pull
-#	git commit -m '$DATE: automation the update of README table' README.md
-#	git push README.md
-#
 ###
