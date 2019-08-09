@@ -1,9 +1,6 @@
 ## Linux-admin   [![Stable Release](https://img.shields.io/badge/Release-2.42-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/2.42)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/2.42.svg)](https://github.com/BradleyA/Linux-admin/commits/)
 
-<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=29&color=blue">
-<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=29&color=blue">
-(https://github.com/BradleyA/Linux-admin/images/clone.table.md)
-<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=203&color=blue">
+
 
 This repository contains shell scripts for Linux administration to support my RaspBerry Pi clusters and x86 clusters.
 
@@ -11,7 +8,7 @@ This repository contains shell scripts for Linux administration to support my Ra
  * [github-repository](https://github.com/BradleyA/Linux-admin/tree/master/github-repository)
  * _
  
-[Clones Table](images/clone.table.md)
+
 
 
  <img id="respberry_cluster-1" src="images/IMG_2664.JPG" width="450" >
@@ -26,6 +23,13 @@ To install, change directory to the location you want to download the scripts. U
 
 #### If you like this repository, select in the upper-right corner, star, thank you.
 #### To watch future updates in this repository select in the upper-right corner, the "Watch" list, and select Watching.
+
+
+<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=29&color=blue">
+
+<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=203&color=blue">
+
+[Clones Table](images/clone.table.md)
 
 #### Author
 [<img id="twitter" src="images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
