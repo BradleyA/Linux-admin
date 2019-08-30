@@ -62,6 +62,16 @@ For each repository that requires their data to be pulled will need a file that 
  * Be easy to install and configure
 
 #### Git clones
+Date:    |        07-15   |       07-22   |       07-29  |  08-05  |  08-12
+|:---    |:---:   |:---:  |:---:  |:---:  |:---:
+Clones:  |        4       |       26      |       4      |  5      |  2
+Unique   clones:  |       2       |       4       |      3  |      4  |      2
+
+Total clones: 41
+###### Updated: 2019-08-29
+
+
+#### Git clones
 Date:|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29
 ---       |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: 
 Clones:     | 1      |27     |     1| 1      |   27  |     1| 1      |   27  |   1  | 1      |   27  |   1 
