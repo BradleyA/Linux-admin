@@ -1,10 +1,12 @@
 #!/bin/bash
+# 	github-repository/parse.repository.data.sh  2.100.373  2019-08-29T22:21:11.667309-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.99  
+# 	   github-repository/parse.repository.data.sh  comment rm so tmp file can be viewed 
 # 	github-repository/parse.repository.data.sh  2.98.370  2019-08-08T23:47:37.538761-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.97  
 # 	   github-repository/parse.repository.data.sh design complete, ready to create test cases 
 ###
 #               push files to images/clone.table.md images/view.table.md to github owner/repository/images/(clones,views, NOT popular.referrers.list, popular.paths.list)
 #               link *.table.md to README.md badges
-#        .... NOTE to self need data first and dont want to waste time creating test data
+#        .... NOTE to self ..... need data first and doa'nt want to waste time creating test data come back in a month or so
 #
 #	column -t -s' ' filename
 #	soffice --convert-to png ./clones
@@ -16,7 +18,10 @@
 #       git pull
 #       git commit -m '$DATE: automation the update of README table' README.md
 #       git push README.md
-
+#
+#####	How to test on two
+#	cd /usr/local/data/github
+#	./parse.repository.data.sh BradleyA/dmonitor/BradleyA.dmonitor.2019-07-29
 ###
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
@@ -52,7 +57,7 @@ while read line; do
                 echo "| ${AMOUNT}" >> ${CLONE_FILE_NAME}
 	fi
 done < ${FILE_ORG_NAME}.tmp
-rm  ${FILE_ORG_NAME}.tmp
+#	rm  ${FILE_ORG_NAME}.tmp
 CLONE_TOTAL=0
 #	Do clone.data.* files exists and size greater than zero
 # >>>	need to test this create an empty file in a repository that has many data file ????
@@ -81,7 +86,7 @@ while read line; do
                 echo "| ${AMOUNT}" >> ${VIEW_FILE_NAME}
 	fi
 done < ${FILE_ORG_NAME}.tmp
-rm  ${FILE_ORG_NAME}.tmp
+#	rm  ${FILE_ORG_NAME}.tmp
 VIEW_TOTAL=0
 #	Do view.data.* files exists and size greater than zero
 # >>>   need to test this create an empty file in a repository that has many data file ????
@@ -94,6 +99,6 @@ if ls view.data.* 1>/dev/null 2>&1 ; then
 fi
 echo -e "\nTotal views: ${VIEW_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> view.table.md
 
-rm  ${FILE_ORG_NAME}.no-headers
+#	rm  ${FILE_ORG_NAME}.no-headers
 
 ###
