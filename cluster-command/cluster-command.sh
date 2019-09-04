@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.101.376  2019-09-04T14:39:38.663368-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.100-2-g16a6f72  
+# 	   cluster-command.sh  upgrade to Production standard 1.3.496 DEBUG variable ; shellcheck version section corrected 
 # 	cluster-command/cluster-command.sh  2.43.203  2019-06-19T12:25:28.056430-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  one-rpi3b.cptx86.com 2.42  
 # 	   add bold around reboot required or not required 
 # 	cluster-command/cluster-command.sh  2.42.202  2019-06-07T17:09:06.723711-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.41-4-g2dee103  
@@ -7,24 +9,27 @@
 # 	   cluster-command.sh - rename several docker sub commands close #27 
 # 	cluster-command/cluster-command.sh  2.39.195  2019-06-07T15:34:17.498890-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.38
 # 	   cluster-command.sh - add support for production standard 8.0 --usage close #28 
-### production standard 3.0 shellcheck
-### production standard 5.1.160 Copyright
-#       Copyright (c) 2019 Bradley Allen
-#       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
-### production standard 1.0 DEBUG variable
-#       Order of precedence: environment variable, default code
-if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
-#       set -x
-#       set -v
+#86# cluster-command/cluster-command.sh - remote cluster system adminstration tool
+###  Production standard 3.0 shellcheck
+###  Production standard 5.1.160 Copyright
+#    Copyright (c) 2019 Bradley Allen
+#    MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+###  Production standard 1.3.496 DEBUG variable
+#    Order of precedence: environment variable, default code
+if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
+if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
+if [[ "${DEBUG}" == "3" ]] ; then set -v    ; fi   # Print shell input lines as they are read
+if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit command has a non-zero exit status
+#
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
-### production standard 7.0 Default variable value
+###  Production standard 7.0 Default variable value
 DEFAULT_REMOTE_COMMAND=""
 DEFAULT_REMOTE_COMMAND_OPTION=""
 DEFAULT_CLUSTER="us-tx-cluster-1/"
 DEFAULT_DATA_DIR="/usr/local/data/"
 DEFAULT_SYSTEMS_FILE="SYSTEMS"
-### production standard 8.0 --usage
+###  Production standard 8.0 --usage
 display_usage() {
 echo -e "\n${NORMAL}${0} - remote cluster system adminstration tool"
 echo -e "\nUSAGE"
@@ -35,10 +40,10 @@ echo    "   ${0} [--help | -help | help | -h | h | -?]"
 echo    "   ${0} [--usage | -usage | -u]"
 echo    "   ${0} [--version | -version | -v]"
 }
-### production standard 0.1.166 --help
+###  Production standard 0.1.166 --help
 display_help() {
 display_usage
-#       Displaying help DESCRIPTION in English en_US.UTF-8
+#    Displaying help DESCRIPTION in English en_US.UTF-8
 echo -e "\nDESCRIPTION"
 echo    "This script runs a command from a set of predefined commands on hosts."
 echo -e "\nThis script reads ${DEFAULT_DATA_DIR}${DEFAULT_CLUSTER}${DEFAULT_SYSTEMS_FILE} file for hosts."
@@ -157,8 +162,8 @@ DATE_STAMP="${DATE_STAMP} (${TEMP})"
 LOCALHOST=$(hostname -f)
 
 #       Version
-SCRIPT_NAME=$(head -2 "${0}" | awk {'printf $2'})
-SCRIPT_VERSION=$(head -2 "${0}" | awk {'printf $3'})
+SCRIPT_NAME=$(head -2 "${0}" | awk '{printf $2}')
+SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
 
 #       UID and GID
 USER_ID=$(id -u)
