@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.104.379  2019-10-22T12:03:43.784055-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.103  
+# 	   cluster-command/cluster-command.sh   add color to hostname and command syntax 
 # 	cluster-command/cluster-command.sh  2.103.378  2019-10-21T21:15:40.076465-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.102  
 # 	   cluster-command/cluster-command.sh   added color to command output 
 # 	cluster-command/cluster-command.sh  2.102.377  2019-10-21T20:19:59.927128-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.101  
@@ -30,6 +32,8 @@ BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
 RED=$(tput    setaf 1)
 YELLOW=$(tput setaf 3)
+PURPLE=$(tput setaf 5)
+CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 
 ###  Production standard 7.0 Default variable value
@@ -321,14 +325,14 @@ CHECK_LOCALHOST=0
 for NODE in ${REMOTE_HOST} ; do
   if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  NODE  >${NODE}<" 1>&2 ; fi
   if [[ "${LOCALHOST}" != "${NODE}" ]] ; then
-    echo -e "\n${BOLD}  =-->  ${NODE}${NORMAL}	->${REMOTE_COMMAND}<-" 
+    echo -e "\n${BOLD}  =-->  ${CYAN}${NODE}${WHITE}	->${PURPLE}${REMOTE_COMMAND}${WHITE}<-" 
     ssh -t "${USER}"@"${NODE}" "echo -n ${BOLD} ${YELLOW} ; ${REMOTE_COMMAND} ; echo -n ${WHITE}"
   else
     CHECK_LOCALHOST=1
   fi
 done
 if [[ "${CHECK_LOCALHOST}" == "1" ]] ; then
-  echo -e "\n${WHITE}${BOLD}  -->  ${LOCALHOST}${NORMAL}	->${REMOTE_COMMAND}<-${BOLD}${YELLOW}"
+  echo -e "\n${BOLD}  -->  ${CYAN}${LOCALHOST}${WHITE}	->${PURPLE}${REMOTE_COMMAND}${WHITE}<-${YELLOW}"
   eval "${REMOTE_COMMAND}"
   echo -n "${NORMAL}"
 fi
