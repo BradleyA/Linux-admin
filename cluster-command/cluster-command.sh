@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.103.378  2019-10-21T21:15:40.076465-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.102  
+# 	   cluster-command/cluster-command.sh   added color to command output 
 # 	cluster-command/cluster-command.sh  2.102.377  2019-10-21T20:19:59.927128-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.101  
 # 	   cluster-command/cluster-command.sh   upgrade or add  1.3.531 DEBUG variable, 8.3.530 --usage, 0.3.214 --help, 4.3.534 Documentation Language, 9.3.513 Parse CLI options and arguments, 7.0 Default variable value 
 # 	cluster-command/cluster-command.sh  2.101.376  2019-09-04T14:39:38.663368-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.100-2-g16a6f72  
@@ -27,7 +29,6 @@ if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately i
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
 RED=$(tput    setaf 1)
-GREEN=$(tput  setaf 2)
 YELLOW=$(tput setaf 3)
 WHITE=$(tput  setaf 7)
 
@@ -46,6 +47,7 @@ echo -e "\n${BOLD}USAGE${NORMAL}"
 echo    "   ${YELLOW}Positional Arguments${NORMAL}"
 echo    "   ${COMMAND_NAME} [<PREDEFINED-COMMAND>]"
 echo -e "   ${COMMAND_NAME}  <PREDEFINED-COMMAND> [<REMOTE_COMMAND_OPTION>]\n"
+echo    "   ${YELLOW}Positional Arguments${NORMAL}"
 echo -e "   ${COMMAND_NAME}  special|root-special  <REMOTE_COMMAND_OPTION>\n"
 echo    "   ${COMMAND_NAME} [--help | -help | help | -h | h | -?]"
 echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
@@ -320,14 +322,15 @@ for NODE in ${REMOTE_HOST} ; do
   if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  NODE  >${NODE}<" 1>&2 ; fi
   if [[ "${LOCALHOST}" != "${NODE}" ]] ; then
     echo -e "\n${BOLD}  =-->  ${NODE}${NORMAL}	->${REMOTE_COMMAND}<-" 
-    ssh -t "${USER}"@"${NODE}" ${REMOTE_COMMAND}
+    ssh -t "${USER}"@"${NODE}" "echo -n ${BOLD} ${YELLOW} ; ${REMOTE_COMMAND} ; echo -n ${WHITE}"
   else
     CHECK_LOCALHOST=1
   fi
 done
 if [[ "${CHECK_LOCALHOST}" == "1" ]] ; then
-  echo -e "\n${BOLD}  -->  ${LOCALHOST}${NORMAL}	->${REMOTE_COMMAND}<-" 
+  echo -e "\n${WHITE}${BOLD}  -->  ${LOCALHOST}${NORMAL}	->${REMOTE_COMMAND}<-${BOLD}${YELLOW}"
   eval "${REMOTE_COMMAND}"
+  echo -n "${NORMAL}"
 fi
 
 #
