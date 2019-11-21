@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.105.382  2019-11-20T22:14:06.745343-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.104-2-ge97d7cd  
+# 	   cluster-command/cluster-command.sh   add DEBUG line and update EXAMPLES 
 # 	cluster-command/cluster-command.sh  2.104.379  2019-10-22T12:03:43.784055-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.103  
 # 	   cluster-command/cluster-command.sh   add color to hostname and command syntax 
 # 	cluster-command/cluster-command.sh  2.103.378  2019-10-21T21:15:40.076465-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.102  
@@ -181,12 +183,12 @@ echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
 echo    "   https://github.com/BradleyA/Linux-admin/blob/master/cluster-command/README.md"
 
 echo -e "\n${BOLD}EXAMPLES${NORMAL}"
-echo -e "   Resynchronize package index files from their sources\n\t${BOLD}${0} update${NORMAL}"
-echo -e "   Shutdown hosts in clusters\n\t${BOLD}${0} shutdown${NORMAL}"
-echo -e "   Display disk space available on file system /tmp\n\t${BOLD}export REMOTE_COMMAND_OPTION=\"/tmp\"\n\t${0} df${NORMAL}\n   or\n\t${BOLD}${0} df /tmp${NORMAL}"
-echo -e "   Remove log file that includes remote hostname\n\t${BOLD}export REMOTE_COMMAND_OPTION='rm  /usr/local/data/us-tx-cluster-1/log/\`hostname -f\`-crontab'\n\t${0} special${NORMAL}"
-echo -e "   List files in /usr/local/bin directory\n\t${BOLD}${0} special 'ls -l /usr/local/bin/*'${NORMAL}"
-echo -e "   Check public, private keys, and CA for hosts in cluster\n\t${BOLD}${0} root-special check-host-tls.sh${NORMAL}"
+echo -e "   Resynchronize package index files from their sources\n\t${BOLD}${COMMAND_NAME} update${NORMAL}"
+echo -e "   Shutdown hosts in clusters\n\t${BOLD}${COMMAND_NAME} shutdown${NORMAL}"
+echo -e "   Display disk space available on file system /tmp\n\t${BOLD}export REMOTE_COMMAND_OPTION=\"/tmp\"\n\t${COMMAND_NAME} df${NORMAL}\n   or\n\t${BOLD}${COMMAND_NAME} df /tmp${NORMAL}"
+echo -e "   Remove log file that includes remote hostname\n\t${BOLD}export REMOTE_COMMAND_OPTION='rm  /usr/local/data/us-tx-cluster-1/log/\`hostname -f\`-crontab'\n\t${COMMAND_NAME} special${NORMAL}"
+echo -e "   List files in /usr/local/bin directory\n\t${BOLD}${COMMAND_NAME} special 'ls -l /usr/local/bin/*'${NORMAL}"
+echo -e "   Check public, private keys, and CA for hosts in cluster\n\t${BOLD}${COMMAND_NAME} root-special check-host-tls.sh${NORMAL}"
 }
 
 #    Date and time function ISO 8601
@@ -243,6 +245,7 @@ done
 #    Order of precedence: CLI argument, environment variable, default code
 REMOTE_COMMAND=${1:-${DEFAULT_REMOTE_COMMAND}}
 REMOTE_COMMAND_OPTION=${2:-${DEFAULT_REMOTE_COMMAND_OPTION}}
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  CLUSTER >${CLUSTER}<  DATA_DIR >${DATA_DIR}<  SYSTEMS_FILE >${SYSTEMS_FILE}< REMOTE_COMMAND >${REMOTE_COMMAND}< REMOTE_COMMAND_OPTION >${REMOTE_COMMAND_OPTION}< Number of options >$#<" 1>&2 ; fi
 if [[ "${CLUSTER}" == "" ]] ; then CLUSTER=${DEFAULT_CLUSTER} ; fi
 if [[ "${DATA_DIR}" == "" ]] ; then DATA_DIR=${DEFAULT_DATA_DIR} ; fi
 if [[ "${SYSTEMS_FILE}" == "" ]] ; then SYSTEMS_FILE=${DEFAULT_SYSTEMS_FILE} ; fi
