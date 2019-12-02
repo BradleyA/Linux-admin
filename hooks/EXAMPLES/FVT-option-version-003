@@ -1,0 +1,88 @@
+#!/bin/bash
+#	hooks/EXAMPLES/FVT-option-version-003  2.171.827  2019-10-01T14:43:31.704009-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.170  
+#	   #37    added color in output 
+#	hooks/EXAMPLES/FVT-option-version-003  2.138.787  2019-09-27T12:33:27.277519-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
+#	   close #34    EXAMPLES/SA-* FVT-*   added NO -x ${1} exit ERROR 126 
+#86# hooks/EXAMPLES/FVT-option-version-003 - test case
+###  Production standard 3.0 shellcheck
+###  Production standard 5.1.160 Copyright
+#    Copyright (c) 2019 Bradley Allen
+#    MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+###  Production standard 1.3.496 DEBUG variable
+#    Order of precedence: environment variable, default code
+if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
+if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
+if [[ "${DEBUG}" == "3" ]] ; then set -v    ; fi   # Print shell input lines as they are read
+if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit command has a non-zero exit status
+#
+BOLD=$(tput -Txterm bold)
+NORMAL=$(tput -Txterm sgr0)
+RED=$(tput    setaf 1)
+GREEN=$(tput  setaf 2)
+YELLOW=$(tput setaf 3)
+CYAN=$(tput   setaf 6)
+#    Date and time function ISO 8601
+get_date_stamp() {
+  DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
+  TEMP=$(date +%Z)
+  DATE_STAMP="${DATE_STAMP} (${TEMP})"
+}
+
+#    Fully qualified domain name FQDN hostname
+LOCALHOST=$(hostname -f)
+
+#    Version
+#    Assumptions for the next two lines of code:  The second line in this script includes the script path & name as the second item and
+#    the script version as the third item separated with space(s).  The tool I use is called 'markit'. See example line below:
+#       template/template.sh  3.517.783  2019-09-13T18:20:42.144356-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.516  
+SCRIPT_NAME=$(head -2 "${0}" | awk '{printf $2}')
+SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
+if [[ "${SCRIPT_NAME}" == "" ]] ; then SCRIPT_NAME="${0}" ; fi
+if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
+
+#    UID and GID
+USER_ID=$(id -u)
+GROUP_ID=$(id -g)
+
+###  Production standard 2.3.512 log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+new_message() {  #  $1="${SCRIPT_NAME}"  $2="${LINENO}"  $3="DEBUG INFO ERROR WARN"  $4="message"
+  get_date_stamp
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${1}[$$] ${SCRIPT_VERSION} ${2} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[${3}]${NORMAL}  ${4}"
+}
+
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Started..." 1>&2 ; fi
+
+if [[ ! -x ${1} ]] ; then  #  #34  Command invoked does not exist or cannot execute
+  RETURN_CODE=126
+  new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "${RETURN_CODE} - File, ${1}, does not exist or have execute permission" 1>&2
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 126 - File, ${1}, does not exist or have execute permission - ${BOLD}${CYAN}ERROR - ERROR${NORMAL}"
+  exit "${RETURN_CODE}"
+fi
+
+###  Place test case here
+
+TEST_VERSION=$(head -2 "${1}" | awk '{printf $3}')
+if [[ -z "${TEST_VERSION}" ]] ; then echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 1 - Test script setup FAIL: TEST_VERSION is zero length - ${BOLD}${RED}FAIL - FAIL${NORMAL}" ; exit 1 ; fi
+TEST_NAME=$(head -2 "${1}" | awk '{printf $2}')
+if [[ -z "${TEST_NAME}" ]] ; then echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 1 - Test script setup FAIL: TEST_NAME is zero length - ${BOLD}${RED}FAIL - FAIL${NORMAL}" ; exit 1 ; fi
+echo "${TEST_NAME} ${TEST_VERSION=}" > "${0}.expected"
+
+"${1}" -v > "${0}".test-case-output
+
+diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
+RETURN_CODE=${?}
+if [[ "${RETURN_CODE}" -eq 0 ]] ; then
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 0 - No difference with expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
+  exit 0
+elif [[ "${RETURN_CODE}" -eq 1 ]] ; then
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 1 - Differences with expected output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
+  diff -y "${0}".expected "${0}".test-case-output
+  exit 1
+else
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 2 - Test script logic ERROR - ${BOLD}${CYAN}ERROR - ERROR${NORMAL}"
+  exit 2
+fi
+
+echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 124 - Test script logic ERROR - ${BOLD}${CYAN}ERROR - ERROR${NORMAL}"
+exit 124
+###

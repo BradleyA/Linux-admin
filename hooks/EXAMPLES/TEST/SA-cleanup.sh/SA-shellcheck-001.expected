@@ -1,0 +1,5 @@
+
+In SA-shellcheck-001 line 51:
+for k in $(ls -1 SA-*) ; do
+         ^-- SC2045: Iterating over ls output is fragile. Use globs.
+
