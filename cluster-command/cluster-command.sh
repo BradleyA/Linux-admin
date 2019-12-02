@@ -1,9 +1,9 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.109.389  2019-12-02T13:05:44.221471-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  five-rpi3b.cptx86.com 2.108-3-g6d124f5  
+# 	   cluster-command/cluster-command.sh   add git-TEST-commit-automation 
 # 	cluster-command/cluster-command.sh  2.108.385  2019-12-02T12:37:22.679518-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.107  
 # 	   cluster-command/cluster-command.sh   add reboot user hint to dist-upgrade 
 # 	cluster-command/cluster-command.sh  2.107.384  2019-12-02T12:30:20.247306-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.106  
-# 	   cluster-command/cluster-command.sh   added color in reboot user hint 
-# 	cluster-command/cluster-command.sh  2.106.383  2019-12-02T11:58:56.101371-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.105  
 # 	   cluster-command/cluster-command.sh   added color in reboot user hint 
 # 	cluster-command/cluster-command.sh  2.105.382  2019-11-20T22:14:06.745343-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.104-2-ge97d7cd  
 # 	   cluster-command/cluster-command.sh   add DEBUG line and update EXAMPLES 
