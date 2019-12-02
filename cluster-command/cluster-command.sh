@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.106.383  2019-12-02T11:58:56.101371-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.105  
+# 	   cluster-command/cluster-command.sh   added color in reboot user hint 
 # 	cluster-command/cluster-command.sh  2.105.382  2019-11-20T22:14:06.745343-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.104-2-ge97d7cd  
 # 	   cluster-command/cluster-command.sh   add DEBUG line and update EXAMPLES 
 # 	cluster-command/cluster-command.sh  2.104.379  2019-10-22T12:03:43.784055-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.103  
@@ -33,6 +35,7 @@ if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately i
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
 RED=$(tput    setaf 1)
+GREEN=$(tput  setaf 2)
 YELLOW=$(tput setaf 3)
 PURPLE=$(tput setaf 5)
 CYAN=$(tput   setaf 6)
@@ -162,8 +165,8 @@ echo    "      update         - sudo apt-get update ;"
 echo    "                       /usr/lib/update-notifier/apt-check --human-readable"
 echo    "      upgrade        - sudo apt-get upgrade --assume-yes ;"
 echo    "                       if [ -f /var/run/reboot-required ] ; then"
-echo    "                       echo '${BOLD}reboot required${NORMAL}' ; else"
-echo    "                       echo '${BOLD}no reboot required${NORMAL}' ; fi"
+echo    "                       echo '${BOLD}${RED}reboot required${NORMAL}' ; else"
+echo    "                       echo '${BOLD}${GREEN}no reboot required${NORMAL}' ; fi"
 echo    "      dist-upgrade   - sudo apt-get dist-upgrade --assume-yes"
 echo    "      autoremove     - sudo apt-get autoremove --assume-yes"
 echo    "      showhold       - apt-mark showhold"
