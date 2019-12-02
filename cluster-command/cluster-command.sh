@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  2.108.385  2019-12-02T12:37:22.679518-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.107  
+# 	   cluster-command/cluster-command.sh   add reboot user hint to dist-upgrade 
 # 	cluster-command/cluster-command.sh  2.107.384  2019-12-02T12:30:20.247306-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.106  
 # 	   cluster-command/cluster-command.sh   added color in reboot user hint 
 # 	cluster-command/cluster-command.sh  2.106.383  2019-12-02T11:58:56.101371-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.105  
@@ -169,7 +171,10 @@ echo    "      upgrade        - sudo apt-get upgrade --assume-yes ;"
 echo    "                       if [ -f /var/run/reboot-required ] ; then"
 echo    "                       echo '${BOLD}reboot required${NORMAL}' ; else"
 echo    "                       echo '${BOLD}no reboot required${NORMAL}' ; fi"
-echo    "      dist-upgrade   - sudo apt-get dist-upgrade --assume-yes"
+echo    "      dist-upgrade   - sudo apt-get dist-upgrade --assume-yes ;"
+echo    "                       if [ -f /var/run/reboot-required ] ; then"
+echo    "                       echo '${BOLD}reboot required${NORMAL}' ; else"
+echo    "                       echo '${BOLD}no reboot required${NORMAL}' ; fi"
 echo    "      autoremove     - sudo apt-get autoremove --assume-yes"
 echo    "      showhold       - apt-mark showhold"
 echo    "      unhold         - apt-mark unhold"
@@ -308,7 +313,7 @@ case ${REMOTE_COMMAND} in
   docker-all-prune) REMOTE_COMMAND="docker system prune ${REMOTE_COMMAND_OPTION}" ;;
   update) REMOTE_COMMAND="sudo apt-get update ; /usr/lib/update-notifier/apt-check --human-readable" ;;
   upgrade) REMOTE_COMMAND="sudo apt-get upgrade --assume-yes ; if [[ -f /var/run/reboot-required ]] ; then echo -e '\t${BOLD}${RED}reboot required${PURPLE}' ; else echo -e '\t${BOLD}${GREEN}no reboot required${NORMAL}' ; fi" ;;
-  dist-upgrade) REMOTE_COMMAND="sudo apt-get dist-upgrade --assume-yes" ;;
+  dist-upgrade) REMOTE_COMMAND="sudo apt-get dist-upgrade --assume-yes ; if [[ -f /var/run/reboot-required ]] ; then echo -e '\t${BOLD}${RED}reboot required${PURPLE}' ; else echo -e '\t${BOLD}${GREEN}no reboot required${NORMAL}' ; fi" ;;
   autoremove) REMOTE_COMMAND="sudo apt-get autoremove  --assume-yes" ;;
   showhold) REMOTE_COMMAND="apt-mark showhold" ;;
   unhold) REMOTE_COMMAND="apt-mark unhold ${REMOTE_COMMAND_OPTION}" ;;
