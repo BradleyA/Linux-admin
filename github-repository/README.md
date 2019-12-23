@@ -44,8 +44,8 @@ For each repository that requires their data to be pulled will need a file that 
 
 #### Traffic
 
- * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=29&color=blue">  [Clones Table](images/clone.table.md)
- * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=203&color=blue">  [Views Table](images/view.table.md)
+ * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=77&color=blue">  [Clones Table](images/clone.table.md)
+ * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=446&color=blue">  [Views Table](images/view.table.md)
 
 #### Author
 [<img id="twitter" src="../images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
@@ -61,31 +61,6 @@ For each repository that requires their data to be pulled will need a file that 
  * Be usable as non-root - failed adminstration requires root
  * Be easy to install and configure
 
-#### Git clones
-Date:    |        07-15   |       07-22   |       07-29  |  08-05  |  08-12
-|:---    |:---:   |:---:  |:---:  |:---:  |:---:
-Clones:  |        4       |       26      |       4      |  5      |  2
-Unique   clones:  |       2       |       4       |      3  |      4  |      2
-
-Total clones: 41
-###### Updated: 2019-08-29
-
-
-#### Git clones
-Date:|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29
----       |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: 
-Clones:     | 1      |27     |     1| 1      |   27  |     1| 1      |   27  |   1  | 1      |   27  |   1 
-Unique clones:   | 1      |2      |   1  | 1      |   2   |     1| 1      |   2   |     1| 1      |   2   |   1
-
-Total clones: 32
-
-#### Visitors
-Date:|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29|  07-15 | 07-22 | 07-29
----       |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: |    ---:|   ---:| ---: 
-Views:     | 1      |27     |     1| 1      |   27  |     1| 1      |   27  |   1  | 1      |   27  |   1 
-Unique vistors:   | 1      |2      |   1  | 1      |   2   |     1| 1      |   2   |     1| 1      |   2   |   1
-
-Total views: 312
 ###### TESTing
 
 #### Git clones
