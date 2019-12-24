@@ -62,6 +62,14 @@ For each repository that requires their data to be pulled will need a file that 
  * Be easy to install and configure
 
 ###### TESTing
+##### quick note:
+    cd uadmin@two: /usr/local/data/github/BradleyA/Search-docker-registry-v2-script.1.0
+    rm clone.table.md view.table.md   # this is not required, only process the latest files by cron or docker in future
+     ../../parse.repository.data.sh BradleyA.Search-docker-registry-v2-script.1.0.2019-07-29
+    ../../parse.repository.data.sh BradleyA.Search-docker-registry-v2-script.1.0.2019-08-05
+    . . .
+    cat clone.table.md
+    cat view.table.md
 
 #### Git clones
 Date:    |        07-29   |       08-05   |       08-12   |       08-19  |  08-26  |  09-02  |  09-09
