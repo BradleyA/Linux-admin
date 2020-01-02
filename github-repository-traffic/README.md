@@ -2,14 +2,6 @@
 
 This subdirectory contains shell scripts that download traffic information before it is lost on GitHub.  Most scripts in this repository support --help and --usage options.
 
-### in design & development  (7/2019)
-
-<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=32&color=blue"> <img alt="Views"  src="https://img.shields.io/static/v1?label=Views&message=312&color=blue">
-
- <img alt="gitlab"  src="https://img.shields.io/static/v1?logo=gitlab&&message=26,24,1&color=blue">
- 
-**WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
- 
 ### Clone
 
 To install, follow these steps.  Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
@@ -72,6 +64,10 @@ To set GitHub login to support automation of scripts running in cron, edit ~/.ne
  * Be usable as non-root - failed adminstration requires root
  * Be easy to install and configure
 
+### in design & development  (7/2019)
+ 
+**WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
+ 
 ###### TESTing
 ##### quick note:
     cd uadmin@two: /usr/local/data/github/BradleyA/Search-docker-registry-v2-script.1.0
