@@ -1,4 +1,5 @@
-### github-repository-traffic
+# github-repository-traffic  [![Stable Release](https://img.shields.io/badge/Release-4.1-blue.svg)](https://github.com/BradleyA/docker-security-infrastructure/releases/tag/4.1)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/docker-security-infrastructure/4.1.svg)](https://github.com/BradleyA/docker-security-infrastructure/commits/)
+This repository contains shell scripts that download traffic before it is lost on guthub.  Most scripts in this repository support --help and --usage options.
 
 ### in design & development
 
