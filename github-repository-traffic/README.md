@@ -34,18 +34,18 @@ To set GitHub login to support automation of scripts running in cron, edit ~/.ne
     chmod 600 ~/.netrc
 
 ### ARCHITECTURE TREE
-/usr/local/data/                           <-- <DATA_DIR>
-└── github                                 <-- Github repository traffic
-    ├── clone.heading                      <-- Clone table headings
-    ├── github.repository.list             <-- Github repository names
-    ├── owner.repository                   <-- Default cron job for repositpry
-    │                                          download of clone and views data
-    ├── parse.repository.data.sh           <-- Parse relevant data out of cron
-    │                                          job data files
-    ├── setup.github.repository.sh         <-- Setup github repository data
-    │                                          tools
-    ├── view.heading                       <-- View table headings
-    └── <GITHUB_OWNER>                     <-- Github repository traffic data
+    /usr/local/data/                           <-- <DATA_DIR>
+    └── github                                 <-- Github repository traffic
+        ├── clone.heading                      <-- Clone table headings
+        ├── github.repository.list             <-- Github repository names
+        ├── owner.repository                   <-- Default cron job for repositpry
+        │                                          download of clone and views data
+        ├── parse.repository.data.sh           <-- Parse relevant data out of cron
+        │                                          job data files
+        ├── setup.github.repository.sh         <-- Setup github repository data
+        │                                          tools
+        ├── view.heading                       <-- View table headings
+        └── <GITHUB_OWNER>                     <-- Github repository traffic data
 
 #### Traffic
 
