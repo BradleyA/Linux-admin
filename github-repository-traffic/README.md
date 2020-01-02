@@ -14,12 +14,14 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
 2) Change the lines in github.repository.list file to your GitHub repository names
 
        ./setup.github.repository.sh BradleyA
-       cd ../..
-       rm -rf Linux-admin/
-       cd /usr/local/data/github/
+
 
 ## Output
 <img id="setup.github.repository.sh" src="../images/setup.github.repository.gif" >
+
+    cd ../..
+    rm -rf Linux-admin/
+    cd /usr/local/data/github/
 
 Enter crontab -e to add the lines from setup.github.repository.sh to crontab 
 
