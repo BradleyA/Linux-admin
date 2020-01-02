@@ -21,10 +21,10 @@ To install, follow these steps.  Use git to pull or clone these scripts into the
 1) Change **BradleyA** below to your GitHub repository owner name or who you signed in as on GitHub
 2) Change the lines in github.repository.list file to your GitHub repository names
 
-    ./setup.github.repository.sh BradleyA
-    cd ../..
-    rm -rf Linux-admin/
-    cd /usr/local/data/github/
+       ./setup.github.repository.sh BradleyA
+       cd ../..
+       rm -rf Linux-admin/
+       cd /usr/local/data/github/
 
 Add lines to crontab
 
