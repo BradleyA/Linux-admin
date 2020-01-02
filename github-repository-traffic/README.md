@@ -63,15 +63,14 @@ To set GitHub login to support automation of scripts running in cron, edit ~/.ne
 
 #### Design Principles
  * Have a simple setup process and a minimal learning curve
- * Be usable as non-root - failed adminstration requires root
+ * Be usable as non-root
  * Be easy to install and configure
 
-### in design & development  (7/2019)
+#### In design & development  (7/2019)
  
-**WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
+**WARNING**: These instructions below are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
  
-###### TESTing
-##### quick note:
+#### Quick Notes:
     cd uadmin@two: /usr/local/data/github/BradleyA/Search-docker-registry-v2-script.1.0
     rm clone.table.md view.table.md   # this is not required, only process the latest files by cron or docker in future
      ../../parse.repository.data.sh BradleyA.Search-docker-registry-v2-script.1.0.2019-07-29
