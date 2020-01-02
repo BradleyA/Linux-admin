@@ -52,20 +52,6 @@ To set GitHub login to support automation of scripts running in cron, edit ~/.ne
  * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=77&color=blue">  [Clones Table](images/clone.table.md)
  * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=446&color=blue">  [Views Table](images/view.table.md)
 
-#### Author
-[<img id="twitter" src="../images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
-](https://twitter.com/bradleyaustintx/)   [<img id="github" src="../images/github.png" width="50" a="https://github.com/BradleyA/">
-](https://github.com/BradleyA/)    [<img src="../images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen)
-
-#### System OS script tested
- * Ubuntu 14.04.3 LTS
- * Ubuntu 16.04.3 LTS (armv7l)
-
-#### Design Principles
- * Have a simple setup process and a minimal learning curve
- * Be usable as non-root
- * Be easy to install and configure
-
 #### In design & development  (7/2019)
  
 **WARNING**: These instructions below are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
@@ -96,6 +82,20 @@ Unique  vistors:  |       2       |       2       |       3       |       1     
 
 Total views: 446
 ###### Updated: 2019-12-23
+
+#### Author
+[<img id="twitter" src="../images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
+](https://twitter.com/bradleyaustintx/)   [<img id="github" src="../images/github.png" width="50" a="https://github.com/BradleyA/">
+](https://github.com/BradleyA/)    [<img src="../images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen)
+
+#### System OS script tested
+ * Ubuntu 14.04.3 LTS
+ * Ubuntu 16.04.3 LTS (armv7l)
+
+#### Design Principles
+ * Have a simple setup process and a minimal learning curve
+ * Be usable as non-root
+ * Be easy to install and configure
 
 ## License
 MIT License
