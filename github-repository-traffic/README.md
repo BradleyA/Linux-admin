@@ -33,13 +33,11 @@ Enter crontab -e to add the lines from setup.github.repository.sh to crontab
 
     crontab -e
    
-Edit ~/.netrc or what ever solution you use for authentication  (No you don't push any file like this to anywhere. Duh!)     
+Edit ~/.netrc and add an authentication token to github.  (No you don't push any file like this to anywhere. Duh!)  machine api.github.com login BradleyA password [XXXXXXX](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)
     
     vi ~/.netrc
+       machine api.github.com login <github-owner-account-name> password <secret-github-password>
     chmod 600 ~/.netrc
-    
-    
-    machine api.github.com login <github-owner-account-name> password <secret-github-password>
 
 ### FILE Definition and ARCHITECTURE TREE
 
