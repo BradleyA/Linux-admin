@@ -26,6 +26,9 @@ To install, follow these steps.  Use git to pull or clone these scripts into the
        rm -rf Linux-admin/
        cd /usr/local/data/github/
 
+## Output
+<img id="setup.github.repository.sh" src="../images/setup.github.repository.gif" >
+
 Add lines to crontab
 
     crontab -e
