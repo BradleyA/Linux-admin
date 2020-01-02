@@ -33,23 +33,25 @@ Enter crontab -e to add the lines from setup.github.repository.sh to crontab
 
     crontab -e
    
-Edit ~/.netrc and add an authentication token to github. [Creating a personal access token for the command line.](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)   No you don't push any file like this to anywhere. Duh!
+To set GitHub login to support automation of scripts running in cron, edit ~/.netrc and add an authentication token to github. [Creating a personal access token for the command line.](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)   No you don't push any file like ~/.netrc to anywhere. Duh!
     
     vi ~/.netrc
        machine api.github.com login BradleyA password <secret-github-token>
     chmod 600 ~/.netrc
 
-### FILE Definition and ARCHITECTURE TREE
-
-To set github login to support automation of script running on system 'two' in crontab by editing file, ~/.netrc
-
-    machine api.github.com login BradleyA password secret-not-known-to-you
-
-For each repository that requires their data to be pulled will need a file that is formatted like repository:owner-repository and rm -rf Linux-admin/contains the git commands.
-
-    #!/bin/bash
-    ###	BradleyA.Search-docker-registry-v2-script.1.0
-    . . . 
+### ARCHITECTURE TREE
+/usr/local/data/                           <-- <DATA_DIR>
+└── github                                 <-- Github repository traffic
+    ├── clone.heading                      <-- Clone table headings
+    ├── github.repository.list             <-- Github repository names
+    ├── owner.repository                   <-- Default cron job for repositpry
+    │                                          download of clone and views data
+    ├── parse.repository.data.sh           <-- Parse relevant data out of cron
+    │                                          job data files
+    ├── setup.github.repository.sh         <-- Setup github repository data
+    │                                          tools
+    ├── view.heading                       <-- View table headings
+    └── <GITHUB_OWNER>                     <-- Github repository traffic data
 
 #### Traffic
 
