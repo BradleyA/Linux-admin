@@ -27,7 +27,7 @@ Enter crontab -e to add the lines from setup.github.repository.sh to crontab
 
     crontab -e
    
-To set GitHub login to support automation of scripts running in cron, edit ~/.netrc and add an authentication token to github. [Creating a personal access token for the command line.](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)   No you don't push any file like ~/.netrc to anywhere. Duh!
+To set GitHub login to support automation of scripts running in cron, edit ~/.netrc and add a personal access token for authentication from GitHub. [Creating a personal access token for the command line.](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)   No you don't push any file like ~/.netrc to anywhere. Duh!
     
     vi ~/.netrc
        machine api.github.com login BradleyA password <secret-github-token>
