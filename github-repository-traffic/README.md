@@ -1,6 +1,6 @@
 # github-repository-traffic 
 
-This repository contains shell scripts that download traffic before it is lost on GitHub.  Most scripts in this repository support --help and --usage options.
+This subdirectory contains shell scripts that download traffic information before it is lost on GitHub.  Most scripts in this repository support --help and --usage options.
 
 ### in design & development  (7/2019)
 
