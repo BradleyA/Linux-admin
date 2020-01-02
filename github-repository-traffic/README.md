@@ -29,7 +29,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into the
 ## Output
 <img id="setup.github.repository.sh" src="../images/setup.github.repository.gif" >
 
-Add lines to crontab
+Enter crontab -e to add the lines from setup.github.repository.sh to crontab 
 
     crontab -e
    
