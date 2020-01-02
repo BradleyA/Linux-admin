@@ -1,7 +1,8 @@
  This repository contains shell scripts for Linux administration to support my RaspBerry Pi clusters and x86 clusters.
  
   * [cluster-command](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command)
-  * [github-repository](https://github.com/BradleyA/Linux-admin/tree/master/github-repository)
+  * [github-animated-GIF](https://github.com/BradleyA/Linux-admin/tree/master/github-animated-GIF)
+  * [github-repository-traffic](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic)
   * _
  
  <img id="respberry_cluster-1" src="images/IMG_2664.JPG" width="450" >
