@@ -66,7 +66,7 @@ Need to automate the running of these commands and then push the updated tables 
 
     cd uadmin@two: /usr/local/data/github/BradleyA/Search-docker-registry-v2-script.1.0
     # rm clone.table.md view.table.md   # this is not required, only process the latest files by cron or docker in future
-     ../../parse.repository.data.sh BradleyA.Search-docker-registry-v2-script.1.0.2019-07-29
+    ../../parse.repository.data.sh BradleyA.Search-docker-registry-v2-script.1.0.2019-07-29
     ../../parse.repository.data.sh BradleyA.Search-docker-registry-v2-script.1.0.2019-08-05
     . . .
     cat clone.table.md ; git add clone.table.md ; git commit -m 'updated table' clone.table.md ; git push clone.table.md
