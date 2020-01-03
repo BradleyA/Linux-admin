@@ -32,9 +32,11 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
    
 5) To set GitHub login to support automation of scripts running in cron, edit ~/.netrc and add a personal access token for authentication from GitHub. [Creating a personal access token for the command line.](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)   No you don't push any file like ~/.netrc to anywhere. Duh!
     
-    vi ~/.netrc
-       machine api.github.com login BradleyA password <secret-github-token>
-    chmod 600 ~/.netrc
+       vi ~/.netrc
+    
+           machine api.github.com login BradleyA password <secret-github-token>
+       
+       chmod 600 ~/.netrc
 
 ### ARCHITECTURE TREE
     /usr/local/data/                           <-- <DATA_DIR>
