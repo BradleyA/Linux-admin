@@ -54,8 +54,8 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
 
 #### Traffic
 
- * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=77&color=blue">  [Clones Table](images/clone.table.md)
- * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=446&color=blue">  [Views Table](images/view.table.md)
+ * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=77&color=blue">  [Clones Table](../images/clone.table.md)
+ * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=446&color=blue">  [Views Table](../images/view.table.md)
 
 #### In design & development  (7/2019)
  
