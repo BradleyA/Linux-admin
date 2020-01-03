@@ -62,6 +62,8 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
 **WARNING**: These instructions below are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
  
 #### Quick Notes:
+Need to automate the running of these commands and then push the updated tables to the correct repositories.  The design should support the automation just need a way to create a new table for each future years.
+
     cd uadmin@two: /usr/local/data/github/BradleyA/Search-docker-registry-v2-script.1.0
     rm clone.table.md view.table.md   # this is not required, only process the latest files by cron or docker in future
      ../../parse.repository.data.sh BradleyA.Search-docker-registry-v2-script.1.0.2019-07-29
