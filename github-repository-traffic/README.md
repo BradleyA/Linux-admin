@@ -8,7 +8,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
 
     cd /tmp
     git clone https://github.com/BradleyA/Linux-admin
-    cd Linux-admin/github-repository
+    cd Linux-admin/github-repository-traffic
     
 1) Change **BradleyA** below to your GitHub repository owner name or who you signed in as on GitHub
 2) Change the lines in github.repository.list file to your GitHub repository names
