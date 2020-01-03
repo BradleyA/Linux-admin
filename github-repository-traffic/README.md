@@ -11,10 +11,13 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
     cd Linux-admin/github-repository-traffic
     
 1) Change **BradleyA** below to your GitHub repository owner name or who you signed in as on GitHub
-2) Change the lines in github.repository.list file to your GitHub repository names and run the setup command.
+2) Change the lines in github.repository.list file to your GitHub repository names.
 
+       vi ./github.repository.list
+
+3) Run the following to setup the GitHub repository traffic.
+       
        ./setup.github.repository.sh BradleyA
-
 
 ## Output
 <img id="setup.github.repository.sh" src="../images/setup.github.repository.gif" >
