@@ -69,8 +69,8 @@ Need to automate the running of these commands and then push the updated tables 
      ../../parse.repository.data.sh BradleyA.Search-docker-registry-v2-script.1.0.2019-07-29
     ../../parse.repository.data.sh BradleyA.Search-docker-registry-v2-script.1.0.2019-08-05
     . . .
-    cat clone.table.md
-    cat view.table.md
+    cat clone.table.md ; git add clone.table.md ; git commit -m 'updated table' clone.table.md ; git push clone.table.md
+    cat view.table.md ; git add view.table.md ; git commit -m 'updated table' view.table.md ; git push view.table.md
 
 #### Git clones
 Date:    |        07-29   |       08-05   |       08-12   |       08-19  |  08-26  |  09-02  |  09-09
