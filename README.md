@@ -19,7 +19,7 @@
   
  #### Traffic
   * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=90&color=blue">  [Clones Table](images/clone.table.md)
-  * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=203&color=blue">  [Views Table](images/view.table.md)
+  * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=607&color=blue">  [Views Table](images/view.table.md)
  
 #### Author
  [<img id="twitter" src="images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
