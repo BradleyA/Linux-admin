@@ -18,7 +18,7 @@
  #### To watch future updates in this repository select in the upper-right corner, the "Watch" list, and select Watching.
   
  #### Traffic
-  * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=29&color=blue">  [Clones Table](images/clone.table.md)
+  * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=90&color=blue">  [Clones Table](images/clone.table.md)
   * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=203&color=blue">  [Views Table](images/view.table.md)
  
 #### Author
@@ -35,7 +35,7 @@
   * Be usable as non-root - failed adminstration requires root
   * Be easy to install and configure
  
- ## License
+ #### License
  MIT License
  
  Copyright (c) 2020  [Bradley Allen](https://www.linkedin.com/in/bradleyhallen)
