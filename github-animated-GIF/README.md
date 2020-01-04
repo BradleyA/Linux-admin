@@ -2,6 +2,7 @@
     https://medium.com/@pczarkowski/how-to-make-an-animated-gif-of-your-terminal-commands-62b08dfb6089
     
     my notes:
+    Thanks Paul!
     ssh -X uadmin@five-rpi3b.cptx86.com
 
     cd ~/github/animated-GIF/
