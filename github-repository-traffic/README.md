@@ -53,11 +53,10 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
         └── <GITHUB_OWNER>                     <-- Github repository traffic data
 
 #### Traffic
+ * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=90&color=blue">  [Clones Table](../images/clone.table.md)
+ * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=607&color=blue">  [Views Table](../images/view.table.md)
 
- * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=77&color=blue">  [Clones Table](../images/clone.table.md)
- * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=446&color=blue">  [Views Table](../images/view.table.md)
-
-#### In design & development  (7/2019)
+#### In design & development  (7/2019 - )
  
 **WARNING**: These instructions below are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
  
@@ -73,22 +72,22 @@ Need to automate the running of these commands and then push the updated table f
     cat view.table.md ; git add view.table.md ; git commit -m 'updated table' view.table.md ; git push view.table.md
 
 #### Git clones
-Date:    |        07-29   |       08-05   |       08-12   |       08-19  |  08-26  |  09-02  |  09-09
-|:---    |:---:   |:---:  |:---:  |:---:  |:---:  |:---:  |:---:
-Clones:  |        34      |       31      |       2       |       2      |  4      |  2      |  2
-Unique   clones:  |       2       |       3       |       2       |      2  |      2  |      2  |      2
+Date:    |        07-29   |       08-05   |       08-12   |       08-19   |       08-26   |       09-02  |  09-09  |  12-09  |  12-16  |  12-23  |  12-30
+|:---    |:---:   |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:
+Clones:  |        34      |       31      |       2       |       2       |       4       |       2      |  2      |  1      |  2      |  9      |  1
+Unique   clones:  |       2       |       3       |       2       |       2       |       2       |      2  |      2  |      1  |      2  |      8  |      1
 
-Total clones: 77
-###### Updated: 2019-12-23
+Total clones: 90
+###### Updated: 2020-01-04
 
 #### Visitors
-Date:   |         07-22   |       07-29   |       08-05   |       08-12   |       08-19   |  08-26  |  09-23  |  09-30  |  10-07  |  10-14
-|:---   |:---:    |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:
-Views:  |         2       |       139     |       273     |       2       |       2       |  14     |  6      |  2      |  1      |  5
-Unique  vistors:  |       2       |       2       |       3       |       1       |       1  |      2  |      2  |      2  |      1  |      1
+Date:   |         07-22   |       07-29   |       08-05   |       08-12   |       08-19   |       08-26   |       09-23   |  09-30  |  10-07  |  10-14  |  12-09  |  12-16  |  12-23  |  12-30
+|:---   |:---:    |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:
+Views:  |         2       |       139     |       273     |       2       |       2       |       14      |       6       |  2      |  1      |  5      |  12     |  1      |  140    |  8
+Unique  vistors:  |       2       |       2       |       3       |       1       |       1       |       2       |       2  |      2  |      1  |      1  |      1  |      1  |      2  |      2
 
-Total views: 446
-###### Updated: 2019-12-23
+Total views: 607
+###### Updated: 2020-01-04
 
 #### Author
 [<img id="twitter" src="../images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
@@ -104,10 +103,10 @@ Total views: 446
  * Be usable as non-root
  * Be easy to install and configure
 
-## License
+#### License
 MIT License
 
-Copyright (c) 2019  [Bradley Allen](https://www.linkedin.com/in/bradleyhallen)
+Copyright (c) 2020  [Bradley Allen](https://www.linkedin.com/in/bradleyhallen)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
