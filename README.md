@@ -11,6 +11,8 @@ This is how to make an animated git of a terminal session.
 
   * [github-animated-GIF](https://github.com/BradleyA/Linux-admin/tree/master/github-animated-GIF)
   
+  how to make a web site on github https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1
+  
   * _
  
  <img id="respberry_cluster-1" src="images/IMG_2664.JPG" width="450" >
