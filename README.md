@@ -7,7 +7,7 @@ A very simple shell script that uses crontab to schedule and automatically downl
   
   * [github-repository-traffic](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic)
   
-This is how to make an animated git of a terminal session.
+This is how to make an animated GIF of a terminal session.
 
   * [github-animated-GIF](https://github.com/BradleyA/Linux-admin/tree/master/github-animated-GIF)
   
