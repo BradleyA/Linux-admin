@@ -2,8 +2,14 @@
 For Linux administrators the cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It helps with cluster system adminstration of hosts with a set of predefined commands and allow custom commands.
  
   * [cluster-command](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command)
+  
+This is how to make an animated git of a terminal session.
+
   * [github-animated-GIF](https://github.com/BradleyA/Linux-admin/tree/master/github-animated-GIF)
+  
+  
   * [github-repository-traffic](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic)
+  
   * _
  
  <img id="respberry_cluster-1" src="images/IMG_2664.JPG" width="450" >
