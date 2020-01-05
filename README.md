@@ -1,5 +1,5 @@
  # Linux-admin
-This repository contains shell scripts for Linux administration to support my RaspBerry Pi clusters and x86 clusters.
+This repository contains a cluster command to loop through systems in a cluster for Linux administration that help me support my three RaspBerry Pi clusters and x86 clusters.
  
   * [cluster-command](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command)
   * [github-animated-GIF](https://github.com/BradleyA/Linux-admin/tree/master/github-animated-GIF)
