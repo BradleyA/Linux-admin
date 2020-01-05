@@ -3,7 +3,7 @@ For Linux administrators, the cluster-command loops through my RaspBerry Pi clus
  
   * [cluster-command](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command)
   
-A very simple shell script that uses crontab to schedule and automatically downlad and store GitHub traffic statistics in plain text from your GitHub repositories. It takes minutes to setup.  <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=607&color=blue">  [Views Table](images/view.table.md)
+A very simple shell script that uses crontab to schedule and automatically downlad and store GitHub traffic statistics in plain text from your GitHub repositories. It takes minutes to setup but weeks to get enough data.  <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=607&color=blue">  [Views Table](images/view.table.md)
   
   * [github-repository-traffic](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic)
   
