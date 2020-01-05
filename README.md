@@ -1,5 +1,5 @@
  # Linux-admin
-For Linux administrators the cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It helps with cluster system adminstration of hosts with a set of predefined commands and allow custom commands.
+For Linux administrators the cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It helps with cluster system adminstration of hosts with a set of predefined commands and allows custom commands.
  
   * [cluster-command](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command)
   
