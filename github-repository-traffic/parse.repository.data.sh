@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository-traffic/parse.repository.data.sh  2.112.494  2020-02-05T14:36:08.880963-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.111  
+# 	   github-repository-traffic/parse.repository.data.sh   begin cleanup edit 
 # 	github-repository-traffic/parse.repository.data.sh  2.111.493  2020-02-05T12:32:59.152646-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.110-70-gd847014  
 # 	   github-repository-traffic/parse.repository.data.sh   first edit adding production standards #33 
 # 	github-repository-data/parse.repository.data.sh  3.573.883  2020-02-04T17:15:46.345047-06:00 (CST)  https://github.com/BradleyA/user-files.git  master  uadmin  one-rpi3b.cptx86.com 3.572  
@@ -8,7 +10,7 @@
 ###
 #               push files to images/clone.table.md images/view.table.md to github owner/repository/images/(clones,views, NOT popular.referrers.list, popular.paths.list)
 #               link *.table.md to README.md badges
-#        .... NOTE to self ..... need data first and doa'nt want to waste time creating test data come back in a month or so
+#        .... NOTE to self ..... need data first and do'nt want to waste time creating test data ....  come back in a month or six
 #
 #	column -t -s' ' filename
 #	soffice --convert-to png ./clones
@@ -44,7 +46,10 @@ WHITE=$(tput  setaf 7)
 
 ###  Production standard 7.0 Default variable value
 DEFAULT_DATA_GITHUB_DIR="/usr/local/data/github/"
-DEFAULT_DATA_YEAR=$(date +%G)
+GITHUB_OWNER="BradleyA"
+GITHUB_REPOSITORY_TRAFFIC_DATA=""
+DEFAULT_YEAR=$(date +%G)
+TODAY=$(date +%Y-%m-%d)
 
 ###  Production standard 8.3.541 --usage
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')                                               # 3.541
@@ -98,9 +103,8 @@ echo    "                   some exceptions.  Setting 5 (set -e -o pipefail) wil
 echo    "                   setting 4 and exit if any command in a pipeline errors.  For"   # 3.550
 echo    "                   more information about the set options, see man bash."          # 3.550
 #
-DEFAULT_DATA_GITHUB_DIR="/usr/local/data/github/"
-DEFAULT_DATA_YEAR=$(date +%G)
-echo    "   CLONE_FILE_NAME Cron job data file (/usr/local/data/github/<GITHUB_OWNER>/<REPOSITORY>)"
+echo    "   CLONE_FILE_NAME Cron job data file"
+echo    "                   (default ${DEFAULT_DATA_GITHUB_DIR}/<GITHUB_OWNER>/<REPOSITORY>/<GITHUB_OWNER>.<REPOSITORY>.<date>)"
 
 echo -e "\n${BOLD}OPTIONS${NORMAL}"
 echo -e "Order of precedence: CLI options, environment variable, default value.\n"     # 3.572
