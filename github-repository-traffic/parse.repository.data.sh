@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository-traffic/parse.repository.data.sh  2.113.495  2020-02-06T00:06:05.666514-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.112  
+# 	   github-repository-traffic/parse.repository.data.sh   create display_help description #33 
 # 	github-repository-traffic/parse.repository.data.sh  2.112.494  2020-02-05T14:36:08.880963-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.111  
 # 	   github-repository-traffic/parse.repository.data.sh   begin cleanup edit 
 # 	github-repository-traffic/parse.repository.data.sh  2.111.493  2020-02-05T12:32:59.152646-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.110-70-gd847014  
@@ -57,7 +59,7 @@ display_usage() {
 echo -e "\n${NORMAL}${COMMAND_NAME}\n   Parse relevant data out of cron job data files"
 echo -e "\n${BOLD}USAGE${NORMAL}"
 echo    "   ${YELLOW}Positional Arguments${NORMAL}"
-echo -e "   ${COMMAND_NAME}  <FILE_ORG_NAME>\n"
+echo -e "   ${COMMAND_NAME}  <GITHUB_REPOSITORY_TRAFFIC_DATA>\n"
 echo    "   ${COMMAND_NAME} [--help | -help | help | -h | h | -?]"
 echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
 echo    "   ${COMMAND_NAME} [--version | -version | -v]"
@@ -68,10 +70,11 @@ display_help() {
 display_usage
 #    Displaying help DESCRIPTION in English en_US.UTF-8, en.UTF-8, C.UTF-8                  # 3.550
 echo -e "\n${BOLD}DESCRIPTION${NORMAL}"
-echo -e "\n<your help goes here>"
-echo    ">>> NEED TO COMPLETE THIS SOON, ONCE I KNOW HOW IT IS GOING TO WORK :-) <<<    |"
-
-echo -e "\n<<Paragraph two>>"
+echo -e "\nParse relevant data from cron output data file to create"
+echo    " [clone,view].table.md, [clone,view].total, and [clone,view].<DATE> files."
+echo    "The default cron output data file is ${DEFAULT_DATA_GITHUB_DIR}<GITHUB_OWNER>/"
+echo    "<REPOSITORY>/<GITHUB_OWNER>.<REPOSITORY>.<date>.  This cron output data file is"
+echo    "created with owner.repository script."
 
 ###  Production standard 4.3.550 Documentation Language                                     # 3.550
 #    Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
@@ -104,7 +107,9 @@ echo    "                   setting 4 and exit if any command in a pipeline erro
 echo    "                   more information about the set options, see man bash."          # 3.550
 #
 echo    "   CLONE_FILE_NAME Cron job data file"
-echo    "                   (default ${DEFAULT_DATA_GITHUB_DIR}/<GITHUB_OWNER>/<REPOSITORY>/<GITHUB_OWNER>.<REPOSITORY>.<date>)"
+echo    "                   (default ${DEFAULT_DATA_GITHUB_DIR}<GITHUB_OWNER>/<REPOSITORY>/<GITHUB_OWNER>.<REPOSITORY>.<date>)"
+echo    "   GITHUB_REPOSITORY_TRAFFIC_DATA"
+echo    "                   X"
 
 echo -e "\n${BOLD}OPTIONS${NORMAL}"
 echo -e "Order of precedence: CLI options, environment variable, default value.\n"     # 3.572
@@ -125,17 +130,18 @@ echo    "    ├── github.repository.list             <-- GitHub repository 
 echo    "    ├── owner.repository                   <-- Default cron job for repositpry"
 echo    "    │                                          download of clone and views data"
 echo    "    ├── parse.repository.data.sh           <-- Parse relevant data out of cron"
-echo    "    │                                          job data files"
+echo    "    │                                          output data file"
 echo    "    ├── setup.github.repository.sh         <-- Setup github repository data"
 echo    "    │                                          tools"
 echo    "    ├── view.heading                       <-- View table headings"
 echo -e "    └── <GITHUB_OWNER>                     <-- GitHub repository traffic data\n"
 
 echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
-echo    "   https://github.com/BradleyA/Linux-admin/blob/master/github-repository-traffic/README.md#github-repository-traffic"
+echo    "   https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic"
 
 echo -e "\n${BOLD}EXAMPLES${NORMAL}"
-echo -e "   Parse relevant data out of cron job data file and create table.md files\n\t${BOLD}${COMMAND_NAME} /usr/local/data/github/<GITHUB_OWNER>/<REPOSITORY>/<GITHUB_OWNER>.<REPOSITORY>.<DATE>${NORMAL}\n" # 3.550
+echo -e "   Parse relevant data from cron output data file." # 3.550
+echo -e "\t${BOLD}${COMMAND_NAME} ${DEFAULT_DATA_GITHUB_DIR}<GITHUB_OWNER>/<REPOSITORY>/<GITHUB_OWNER>.<REPOSITORY>.${TODAY}${NORMAL}\n" # 3.550
 
 echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
 echo    "   ${BOLD}setup.github.repository.sh${NORMAL} (URL)"
@@ -146,7 +152,7 @@ echo -e "\n${BOLD}AUTHOR${NORMAL}"                                              
 echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"         # 3.550
 
 echo -e "\n${BOLD}REPORTING BUGS${NORMAL}"                                                  # 3.550
-echo    "   Report ${COMMAND_NAME} bugs https://github.com/BradleyA/user-files/issues/new/choose"  # 3.550
+echo    "   Report ${COMMAND_NAME} bugs https://github.com/BradleyA/Linux-admin/issues/new?assignees=BradleyA&labels=bug&template=incident-report.md&title=%5Benter+command+causing+incident%5D+-+%5Benter+brief+description%5D"  # 3.550
 
 ###  Production standard 5.3.559 Copyright                                            # 3.559
 echo -e "\n${BOLD}COPYRIGHT${NORMAL}"                                                       # 3.550
@@ -200,43 +206,6 @@ while [[ "${#}" -gt 0 ]] ; do
     --help|-help|help|-h|h|-\?)  display_help | more ; exit 0 ;;
     --usage|-usage|usage|-u)  display_usage ; exit 0  ;;
     --version|-version|version|-v)  echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" ; exit 0  ;;
-    -a|--all)   if [[ "${CLI_OPTION}" != "" ]] ; then
-        echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1
-      else
-        CLI_OPTION="a" ; shift
-      fi ;;
-    --add) DEFAULT_ADD_TEST_CASE="YES" ; shift ;;  #  #29
-    -c|--clean) if [[ "${CLI_OPTION}" != "" ]] ; then
-        echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1
-      else
-        CLI_OPTION="c" ; shift
-      fi ;;
-    -f|--filename) if [[ "${CLI_OPTION}" != "" ]] ; then
-        echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1
-      else
-        CLI_OPTION="f"
-        #    Check if FILE_NAME is missing
-        if [[ "${2}" == "" ]]    ; then echo -e "\n${BOLD}    Argument for ${1} is not found on command line\n" ; exit 1 ; fi
-        #    Check if option (-) is next not FILE_NAME
-        if [[ ${2:0:1} == "-" ]] ; then echo -e "\n${BOLD}    Argument for ${1} is not found on command line\n" ; exit 1 ; fi
-        FILE_NAME=${2} ; shift 2
-      fi ;;
-    --hooks|-hooks) ALL_TEST_CASES="YES" ; shift ;;
-    -n|--none) if [[ "${CLI_OPTION}" != "" ]] ; then  #  #18
-        echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1
-      else
-        CLI_OPTION="n" ; shift
-      fi ;;
-    -c|--cluster)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; CLUSTER=${2} ; shift 2 ;;
-    -c=*|--cluster=*)  CLUSTER=$(echo "${1}" | cut -d '=' -f 2) ; shift  ;;
-    -d|--datadir)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; DATA_DIR=${2} ; shift 2 ;;
-    -d=*|--datadir=*)  DATA_DIR=$(echo "${1}" | cut -d '=' -f 2) ; shift  ;;
-    -f|--filename) CLI_OPTION="f" ; if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; FILE_NAME=${2} ; shift 2 ;;
-    -f=*|--filename=*)  FILE_NAME=$(echo "${1}" | cut -d '=' -f 2) ; shift  ;;
-    -S|--ssh_user)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; SSH_USER=${2} ; shift 2 ;;
-    -S=*|--ssh_user=*)  SSH_USER=$(echo "${1}" | cut -d '=' -f 2) ; shift   ;;
-    -U|--user_home)  if [[ "${2}" == "" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi ; USER_HOME=${2} ; shift 2 ;;
-    -U=*|--user_home=*)  USER_HOME=$(echo "${1}" | cut -d '=' -f 2) ; shift  ;;
 #    echo -e "\n${BOLD}    Option, ${YELLOW}${1}${WHITE}, is not supported.  Try  ${YELLOW}${COMMAND_NAME} --usage${NORMAL}\n" ; exit 1 ; ;;
 # OR
     *) break ;;
@@ -250,17 +219,17 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...
 
 
 #       Order of precedence: CLI argument, environment variable
-if [ $# -ge  1 ]  ; then FILE_ORG_NAME=${1} ; elif [ "${FILE_ORG_NAME}" == "" ] ; then
-        echo -e "\n\t<OWNER>.<REPO> is required to make this work.  Either as the first argument on the command line or defined as FILE_ORG_NAME environment variable << BUT I HAVE NOT coded that yet >>>.  Try again."
-        exit 1
+if [[ $# -ge  1 ]]  ; then GITHUB_REPOSITORY_TRAFFIC_DATA=${1} ; elif [[ "${GITHUB_REPOSITORY_TRAFFIC_DATA}" == "" ]] ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "<GITHUB_OWNER>.<REPOSITORY>.<date> is required to make this work.  Either as the first argument on the command line or defined as GITHUB_REPOSITORY_TRAFFIC_DATA environment variable."
+  exit 1
 fi
 
-#	Parse relevant data out of ${FILE_ORG_NAME}
-grep -e clones -e timestamp -e count -e uniques -e views -e /popular/paths -e path -e title -e /popular/referrers -e '\]' -e '\['  ${FILE_ORG_NAME} | sed -e 's/"//g' -e 's/,//g' -e 's/T.*Z//' -e 's/[ \t]*//g' > ${FILE_ORG_NAME}.no-headers
+#	Parse relevant data out of ${GITHUB_REPOSITORY_TRAFFIC_DATA}
+grep -e clones -e timestamp -e count -e uniques -e views -e /popular/paths -e path -e title -e /popular/referrers -e '\]' -e '\['  ${GITHUB_REPOSITORY_TRAFFIC_DATA} | sed -e 's/"//g' -e 's/,//g' -e 's/T.*Z//' -e 's/[ \t]*//g' > ${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers
 
-#	Parse clones data from ${FILE_ORG_NAME}.no-headers
-cat  ${FILE_ORG_NAME}.no-headers | sed -e '1,/views>>>/!d' -e '1,/clones:\[/d' -e '/^\]/,$d'  > ${FILE_ORG_NAME}.tmp
-#	Loop through ${FILE_ORG_NAME}.tmp and create clone.data.$timestamp files
+#	Parse clones data from ${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers
+cat  ${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers | sed -e '1,/views>>>/!d' -e '1,/clones:\[/d' -e '/^\]/,$d'  > ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp
+#	Loop through ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp and create clone.data.$timestamp files
 while read line; do
 	FIRST_WORD=$(echo ${line} | cut -d: -f 1)
 	if [ "${FIRST_WORD}" == "timestamp" ] ;  then
@@ -273,8 +242,8 @@ while read line; do
                 AMOUNT=$(echo ${line} | cut -d: -f 2)
                 echo "| ${AMOUNT}" >> ${CLONE_FILE_NAME}
 	fi
-done < ${FILE_ORG_NAME}.tmp
-rm  ${FILE_ORG_NAME}.tmp
+done < ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp
+rm  ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp
 CLONE_TOTAL=0
 #	Do clone.data.* files exists and size greater than zero
 # >>>	need to test this create an empty file in a repository that has many data file ????
@@ -287,9 +256,9 @@ if ls clone.data.* 1>/dev/null 2>&1 ; then
 fi
 echo -e "\nTotal clones: ${CLONE_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> clone.table.md
 
-#	Parse vistors (views) data from ${FILE_ORG_NAME}.no-headers
-cat  ${FILE_ORG_NAME}.no-headers | sed -e '1,/\/popular\/paths>>>/!d' -e '1,/views:\[/d' -e '/^\]/,$d'  > ${FILE_ORG_NAME}.tmp 
-#	Loop through ${FILE_ORG_NAME}.tmp and create clone.data.$timestamp files
+#	Parse vistors (views) data from ${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers
+cat  ${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers | sed -e '1,/\/popular\/paths>>>/!d' -e '1,/views:\[/d' -e '/^\]/,$d'  > ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp 
+#	Loop through ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp and create clone.data.$timestamp files
 while read line; do
 	FIRST_WORD=$(echo ${line} | cut -d: -f 1)
 	if [ "${FIRST_WORD}" == "timestamp" ] ;  then
@@ -302,8 +271,8 @@ while read line; do
                 AMOUNT=$(echo ${line} | cut -d: -f 2)
                 echo "| ${AMOUNT}" >> ${VIEW_FILE_NAME}
 	fi
-done < ${FILE_ORG_NAME}.tmp
-rm  ${FILE_ORG_NAME}.tmp
+done < ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp
+rm  ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp
 VIEW_TOTAL=0
 #	Do view.data.* files exists and size greater than zero
 # >>>   need to test this create an empty file in a repository that has many data file ????
@@ -316,6 +285,6 @@ if ls view.data.* 1>/dev/null 2>&1 ; then
 fi
 echo -e "\nTotal views: ${VIEW_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> view.table.md
 
-rm  ${FILE_ORG_NAME}.no-headers
+rm  ${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers
 
 ###
