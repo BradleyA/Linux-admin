@@ -15,6 +15,10 @@ The default cron output data file is /usr/local/data/github/<GITHUB_OWNER>/
 created with owner.repository script linked to <GITHUB_OWNER>.<REPOSITORY>.  It
 is scheduled to run once a week using crontab but can be scheduled more or less
 often.
+    owner.repository
+    parse.repository.data.sh
+    setup.github.repository.sh
+    
 
 
 ### Install
