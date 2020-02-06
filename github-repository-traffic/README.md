@@ -2,7 +2,11 @@
 
 This subdirectory contains shell scripts that download traffic information before it is lost on GitHub.  Most scripts in this repository support --help and --usage options.
 
-Parse relevant data from cron output data file to create
+#### Download files:
+##### owner.repository
+
+#### parse.repository.data.sh
+    Parse relevant data from cron output data file to create
 [clone,view].table.md, [clone,view].total, and [clone,view].<DATE> files.
 These files ([clone,view].table.md, [clone,view].total) are used to update
 your <GITHUB_OWNER>/<REPOSITORY>/README.md file on GitHub.   A copy of the
@@ -15,8 +19,7 @@ The default cron output data file is /usr/local/data/github/<GITHUB_OWNER>/
 created with owner.repository script linked to <GITHUB_OWNER>.<REPOSITORY>.  It
 is scheduled to run once a week using crontab but can be scheduled more or less
 often.
-    owner.repository
-    parse.repository.data.sh
+
     setup.github.repository.sh
     
 
