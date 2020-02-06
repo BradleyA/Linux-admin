@@ -5,8 +5,8 @@ This subdirectory contains shell scripts that download traffic information befor
 #### Download files:
 ##### owner.repository
 
-#### parse.repository.data.sh
-    Parse relevant data from cron output data file to create
+##### parse.repository.data.sh 
+Parse relevant data from cron output data file to create
 [clone,view].table.md, [clone,view].total, and [clone,view].<DATE> files.
 These files ([clone,view].table.md, [clone,view].total) are used to update
 your <GITHUB_OWNER>/<REPOSITORY>/README.md file on GitHub.   A copy of the
