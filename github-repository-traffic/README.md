@@ -3,9 +3,12 @@
 This subdirectory contains shell scripts that download traffic information before it is lost on GitHub.  Most scripts in this repository support --help and --usage options.
 
 #### Download files:
-**clone.heading** - Clone table headings in markdown
-**github.repository.list** - 
-**775owner.repository** - 
+
+**644 clone.heading** - Clone table headings in GitHub markdown
+
+**664 github.repository.list** - GitHub repository names with one on each line 
+
+**775 owner.repository** - 
 
 **775 parse.repository.data.sh** - 
 Parse relevant data from cron output data file to create
@@ -23,7 +26,7 @@ is scheduled to run once a week using crontab but can be scheduled more or less
 often.
 
 **setup.github.repository.sh** - 
-**view.heading** - View table headings in markdown
+**644 view.heading** - View table headings in GitHub markdown
    
 
 
