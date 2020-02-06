@@ -40,17 +40,24 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
 
 ### ARCHITECTURE TREE
     /usr/local/data/                           <-- <DATA_DIR>
-    └── github                                 <-- Github repository traffic
+    └── github                                 <-- GitHub long term traffic solution
         ├── clone.heading                      <-- Clone table headings
-        ├── github.repository.list             <-- Github repository names
-        ├── owner.repository                   <-- Default cron job for repositpry
-        │                                          download of clone and views data
+        ├── github.repository.list             <-- GitHub repository names
+        ├── owner.repository                   <-- Default cron job for repository
+        │                                          download of GitHub traffic data
         ├── parse.repository.data.sh           <-- Parse relevant data out of cron
-        │                                          job data files
-        ├── setup.github.repository.sh         <-- Setup github repository data
-        │                                          tools
+        │                                          job data file
+        ├── setup.github.repository.sh         <-- Setup GitHub long term traffic
+        │                                          solution
         ├── view.heading                       <-- View table headings
-        └── <GITHUB_OWNER>                     <-- Github repository traffic data
+        ├── <GITHUB_OWNER>                     <-- Links to ../owner.repository
+        │   ├── <REPOSITORY-1>                 <-- Current year of GitHub repository
+        │   │   │                                  traffic data
+        │   │   └── <YEAR>                     <-- Previous years of GitHub
+        │   │                                      repository traffic data
+        │   └── <REPOSITORY-2>                 <-- Current year of GitHub repository
+        │                                          traffic data
+        └── <GITHUB_OWNER>                     <-- Links to ../owner.repository
 
 #### Traffic
  * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=90&color=blue">  [Clones Table](../images/clone.table.md)
