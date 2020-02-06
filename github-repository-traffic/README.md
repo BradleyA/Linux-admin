@@ -2,6 +2,21 @@
 
 This subdirectory contains shell scripts that download traffic information before it is lost on GitHub.  Most scripts in this repository support --help and --usage options.
 
+Parse relevant data from cron output data file to create
+[clone,view].table.md, [clone,view].total, and [clone,view].<DATE> files.
+These files ([clone,view].table.md, [clone,view].total) are used to update
+your <GITHUB_OWNER>/<REPOSITORY>/README.md file on GitHub.   A copy of the
+[clone,view].table.md file will be copied to <GITHUB_OWNER>/<REPOSITORY>/images
+directory in future automation upgrades.  The [clone,view].<DATE> file contains
+one column of formated data to be used in [clone,view].table.md file.
+
+The default cron output data file is /usr/local/data/github/<GITHUB_OWNER>/
+<REPOSITORY>/<GITHUB_OWNER>.<REPOSITORY>.<date>.  This cron output data file is
+created with owner.repository script linked to <GITHUB_OWNER>.<REPOSITORY>.  It
+is scheduled to run once a week using crontab but can be scheduled more or less
+often.
+
+
 ### Install
 
 To install, follow these steps.  Use git to pull or clone these scripts into a directory. If you do not have git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
