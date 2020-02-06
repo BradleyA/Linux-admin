@@ -3,9 +3,11 @@
 This subdirectory contains shell scripts that download traffic information before it is lost on GitHub.  Most scripts in this repository support --help and --usage options.
 
 #### Download files:
-##### owner.repository
+**clone.heading** - Clone table headings in markdown
+**github.repository.list** - 
+**775owner.repository** - 
 
-##### parse.repository.data.sh 
+**775 parse.repository.data.sh** - 
 Parse relevant data from cron output data file to create
 [clone,view].table.md, [clone,view].total, and [clone,view].<DATE> files.
 These files ([clone,view].table.md, [clone,view].total) are used to update
@@ -20,8 +22,9 @@ created with owner.repository script linked to <GITHUB_OWNER>.<REPOSITORY>.  It
 is scheduled to run once a week using crontab but can be scheduled more or less
 often.
 
-    setup.github.repository.sh
-    
+**setup.github.repository.sh** - 
+**view.heading** - View table headings in markdown
+   
 
 
 ### Install
