@@ -2,16 +2,18 @@
 
 This subdirectory contains shell scripts that download traffic information before it is lost on GitHub.  Most scripts in this repository support --help and --usage options.
 
+**WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
+
 #### Download files:
 
 **644 clone.heading** - Clone table headings in GitHub markdown
 
 **664 github.repository.list** - GitHub repository names with one on each line.  Lines that begin with a '#' are comments.
 
-**775 owner.repository** - The default cron output data file is /usr/local/data/github/<GITHUB_OWNER>/<REPOSITORY>/<GITHUB_OWNER>.<REPOSITORY>.<date>.  This cron output data file is created with owner.repository script linked to <GITHUB_OWNER>.<REPOSITORY>.  It
+**775 owner.repository** - The default cron output data file is /usr/local/data/github/\<GITHUB_OWNER>/\<REPOSITORY>/\<GITHUB_OWNER>.\<REPOSITORY>.\<date>.  This cron output data file is created with owner.repository script linked to \<GITHUB_OWNER>.\<REPOSITORY>.  It
 is scheduled to run once a week using crontab but can be scheduled more or less often.
 
-**775 parse.repository.data.sh** - Parse relevant data from cron output data file to create [clone,view].table.md, [clone,view].total, and [clone,view].<DATE> files.  These files ([clone,view].table.md, [clone,view].total) are used to update your <GITHUB_OWNER>/<REPOSITORY>/README.md file on GitHub.   A copy of the [clone,view].table.md file will be copied to <GITHUB_OWNER>/<REPOSITORY>/images directory in future automation upgrades.  The [clone,view].<DATE> file contains one column of formated data to be used in [clone,view].table.md file.
+**775 parse.repository.data.sh** - Parse relevant data from cron output data file to create [clone,view].table.md, [clone,view].total, and [clone,view].<DATE> files.  These files ([clone,view].table.md, [clone,view].total) are used to update your \<GITHUB_OWNER>/\<REPOSITORY>/README.md file on GitHub.   A copy of the [clone,view].table.md file will be copied to \<GITHUB_OWNER>/\<REPOSITORY>/images directory in future automation upgrades.  The [clone,view].\<DATE> file contains one column of formated data to be used in [clone,view].table.md file.
 
 **setup.github.repository.sh** - 
 
