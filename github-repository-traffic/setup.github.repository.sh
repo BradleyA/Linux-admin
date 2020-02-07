@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository-traffic/setup.github.repository.sh  2.114.497  2020-02-06T22:58:58.962412-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.113-1-g9797258  
+# 	   github-repository-traffic/parse.repository.data.sh   update display_help and ARCHITECTURE TREE 
 # 	github-repository-traffic/setup.github.repository.sh  2.110.422  2020-01-02T14:29:22.707637-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.109-32-gf918a75  
 # 	   github-repository-traffic/setup.github.repository.sh   upgrade script Production standards 
 # 	github-repository/setup.github.repository.sh  2.80.291  2019-08-05T10:49:54.851588-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.79-1-g07eb720  
@@ -27,6 +29,7 @@ WHITE=$(tput  setaf 7)
 
 ### production standard 7.0 Default variable value
 DEFAULT_DATA_GITHUB_DIR="/usr/local/data/github/"
+# >>>	GITHUB_OWNER= GitHub owner is required for this script to work.  Either as the first argument on the command line or defined as GITHUB_OWNER environment variable
 
 ###  Production standard 8.3.541 --usage
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')                                               # 3.541

@@ -1,12 +1,8 @@
 #!/bin/bash
+# 	github-repository-traffic/parse.repository.data.sh  2.114.497  2020-02-06T22:58:58.814782-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.113-1-g9797258  
+# 	   github-repository-traffic/parse.repository.data.sh   update display_help and ARCHITECTURE TREE 
 # 	github-repository-traffic/parse.repository.data.sh  2.113.495  2020-02-06T00:06:05.666514-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.112  
 # 	   github-repository-traffic/parse.repository.data.sh   create display_help description #33 
-# 	github-repository-traffic/parse.repository.data.sh  2.112.494  2020-02-05T14:36:08.880963-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.111  
-# 	   github-repository-traffic/parse.repository.data.sh   begin cleanup edit 
-# 	github-repository-traffic/parse.repository.data.sh  2.111.493  2020-02-05T12:32:59.152646-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.110-70-gd847014  
-# 	   github-repository-traffic/parse.repository.data.sh   first edit adding production standards #33 
-# 	github-repository-data/parse.repository.data.sh  3.573.883  2020-02-04T17:15:46.345047-06:00 (CST)  https://github.com/BradleyA/user-files.git  master  uadmin  one-rpi3b.cptx86.com 3.572  
-# 	   github-repository-data/parse.repository.data.sh   ready for first edit adding production standards #32 
 # 	github-repository/parse.repository.data.sh  2.98.370  2019-08-08T23:47:37.538761-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.97  
 # 	   github-repository/parse.repository.data.sh design complete, ready to create test cases 
 ###
@@ -24,7 +20,7 @@
 #       git pull
 #       git commit -m '$DATE: automation the update of README table' README.md
 #       git push README.md
-
+###
 #86# github-repository-data/parse.repository.data.sh
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559
@@ -50,7 +46,7 @@ WHITE=$(tput  setaf 7)
 DEFAULT_DATA_GITHUB_DIR="/usr/local/data/github/"
 GITHUB_OWNER="BradleyA"
 GITHUB_REPOSITORY_TRAFFIC_DATA=""
-DEFAULT_YEAR=$(date +%G)
+DEFAULT_YEAR=$(date +%G)  #  short and long term stroage strategy
 TODAY=$(date +%Y-%m-%d)
 
 ###  Production standard 8.3.541 --usage
@@ -71,10 +67,17 @@ display_usage
 #    Displaying help DESCRIPTION in English en_US.UTF-8, en.UTF-8, C.UTF-8                  # 3.550
 echo -e "\n${BOLD}DESCRIPTION${NORMAL}"
 echo -e "\nParse relevant data from cron output data file to create"
-echo    " [clone,view].table.md, [clone,view].total, and [clone,view].<DATE> files."
-echo    "The default cron output data file is ${DEFAULT_DATA_GITHUB_DIR}<GITHUB_OWNER>/"
+echo    "[clone,view].table.md, [clone,view].total, and [clone,view].<DATE> files."
+echo    "These files ([clone,view].table.md, [clone,view].total) are used to update"
+echo    "your <GITHUB_OWNER>/<REPOSITORY>/README.md file on GitHub.   A copy of the"
+echo    "[clone,view].table.md file will be copied to <GITHUB_OWNER>/<REPOSITORY>/images"
+echo    "directory in future automation upgrades.  The [clone,view].<DATE> file contains"
+echo    "one column of formated data to be used in [clone,view].table.md file."
+echo -e "\nThe default cron output data file is ${DEFAULT_DATA_GITHUB_DIR}<GITHUB_OWNER>/"
 echo    "<REPOSITORY>/<GITHUB_OWNER>.<REPOSITORY>.<date>.  This cron output data file is"
-echo    "created with owner.repository script."
+echo    "created with owner.repository script linked to <GITHUB_OWNER>.<REPOSITORY>.  It"
+echo    "is scheduled to run once a week using crontab but can be scheduled more or less"
+echo    "often."
 
 ###  Production standard 4.3.550 Documentation Language                                     # 3.550
 #    Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
@@ -124,17 +127,24 @@ echo -e "\tOn-line command version\n"                                           
 ###  Production standard 6.3.547  Architecture tree
 echo -e "\n${BOLD}ARCHITECTURE TREE${NORMAL}"  # STORAGE & CERTIFICATION
 echo    "/usr/local/data/                           <-- <DATA_DIR>"
-echo    "└── github                                 <-- GitHub repository traffic"
+echo    "└── github                                 <-- GitHub long term traffic solution"
 echo    "    ├── clone.heading                      <-- Clone table headings"
 echo    "    ├── github.repository.list             <-- GitHub repository names"
-echo    "    ├── owner.repository                   <-- Default cron job for repositpry"
-echo    "    │                                          download of clone and views data"
+echo    "    ├── owner.repository                   <-- Default cron job for repository"
+echo    "    │                                          download of GitHub traffic data"
 echo    "    ├── parse.repository.data.sh           <-- Parse relevant data out of cron"
-echo    "    │                                          output data file"
-echo    "    ├── setup.github.repository.sh         <-- Setup github repository data"
-echo    "    │                                          tools"
+echo    "    │                                          job data file"
+echo    "    ├── setup.github.repository.sh         <-- Setup GitHub long term traffic"
+echo    "    │                                          solution"
 echo    "    ├── view.heading                       <-- View table headings"
-echo -e "    └── <GITHUB_OWNER>                     <-- GitHub repository traffic data\n"
+echo    "    ├── <GITHUB_OWNER>                     <-- Links to ../owner.repository"
+echo    "    │   ├── <REPOSITORY-1>                 <-- Current year of GitHub repository"
+echo    "    │   │   │                                  traffic data"
+echo    "    │   │   └── <YEAR>                     <-- Previous years of GitHub"
+echo    "    │   │                                      repository traffic data"
+echo    "    │   └── <REPOSITORY-2>                 <-- Current year of GitHub repository"
+echo    "    │                                          traffic data"
+echo -e "    └── <GITHUB_OWNER>                     <-- Links to ../owner.repository\n"
 
 echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
 echo    "   https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic"
@@ -144,7 +154,7 @@ echo -e "   Parse relevant data from cron output data file." # 3.550
 echo -e "\t${BOLD}${COMMAND_NAME} ${DEFAULT_DATA_GITHUB_DIR}<GITHUB_OWNER>/<REPOSITORY>/<GITHUB_OWNER>.<REPOSITORY>.${TODAY}${NORMAL}\n" # 3.550
 
 echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
-echo    "   ${BOLD}setup.github.repository.sh${NORMAL} (URL)"
+echo    "   ${BOLD}setup.github.repository.sh${NORMAL} (https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#install)"
 echo    "   ${BOLD}owner.repository${NORMAL} (URL)"
 echo    "   ${BOLD}<command>${NORMAL} (URL)"
 
