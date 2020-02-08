@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	github-repository-traffic/parse.repository.data.sh  2.115.508  2020-02-06T23:25:52.809334-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.114-10-g19b04fc  
-# 	   github-repository-traffic/parse.repository.data.sh   coding text formating 
+# 	github-repository-traffic/parse.repository.data.sh  2.116.511  2020-02-08T12:24:01.364285-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.115-2-g9edbebe  
+# 	   github-repository-traffic/parse.repository.data.sh   Upgrade all Production standards close #33 
 # 	github-repository-traffic/parse.repository.data.sh  2.114.497  2020-02-06T22:58:58.814782-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.113-1-g9797258  
 # 	   github-repository-traffic/parse.repository.data.sh   update display_help and ARCHITECTURE TREE 
 # 	github-repository-traffic/parse.repository.data.sh  2.113.495  2020-02-06T00:06:05.666514-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.112  
@@ -8,6 +8,7 @@
 # 	github-repository/parse.repository.data.sh  2.98.370  2019-08-08T23:47:37.538761-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.97  
 # 	   github-repository/parse.repository.data.sh design complete, ready to create test cases 
 ### >>> Need to move this design information into the documentation and then remove from here <<<
+# >>>	Remove when complete
 #               push files to images/clone.table.md images/view.table.md to github owner/repository/images/(clones,views, NOT popular.referrers.list, popular.paths.list)
 #               link *.table.md to README.md badges
 #        .... NOTE to self ..... need data first and do'nt want to waste time creating test data ....  come back in a month or six
@@ -23,6 +24,7 @@
 #       git commit -m '$DATE: automation the update of README table' README.md
 #       git push README.md
 ###
+# >>>	Remove when complete
 #86# github-repository-data/parse.repository.data.sh
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559
@@ -54,7 +56,7 @@ TODAY=$(date +%Y-%m-%d)
 ###  Production standard 8.3.541 --usage
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')                                               # 3.541
 display_usage() {
-echo -e "\n${NORMAL}${COMMAND_NAME}\n   Parse relevant data out of cron job data files"
+echo -e "\n${NORMAL}${COMMAND_NAME}\n   Parse relevant data from owner.repository output"
 echo -e "\n${BOLD}USAGE${NORMAL}"
 echo    "   ${YELLOW}Positional Arguments${NORMAL}"
 echo -e "   ${COMMAND_NAME}  <GITHUB_REPOSITORY_TRAFFIC_DATA>\n"
@@ -68,7 +70,7 @@ display_help() {
 display_usage
 #    Displaying help DESCRIPTION in English en_US.UTF-8, en.UTF-8, C.UTF-8                  # 3.550
 echo -e "\n${BOLD}DESCRIPTION${NORMAL}"
-echo -e "\nParse relevant data from cron output data file to create"
+echo -e "\nParse relevant data from owner.repository (cron) output data file to create"
 echo    "[clone,view].table.md, [clone,view].total, and [clone,view].<DATE> files."
 echo    "These files ([clone,view].table.md, [clone,view].total) are used to update"
 echo    "your <GITHUB_OWNER>/<REPOSITORY>/README.md file on GitHub.   A copy of the"
@@ -110,11 +112,15 @@ echo    "                   exit immediately if non-zero exit status is recieved
 echo    "                   some exceptions.  Setting 5 (set -e -o pipefail) will do"       # 3.550
 echo    "                   setting 4 and exit if any command in a pipeline errors.  For"   # 3.550
 echo    "                   more information about the set options, see man bash."          # 3.550
-# >>>
+
+# >>>	Remove when complete
+echo    ">>> NEED TO COMPLETE THIS SOON, ONCE I KNOW HOW IT IS GOING TO WORK :-) <<<    |"
+
 echo    "   CLONE_FILE_NAME Cron job data file"
 echo    "                   (default ${DEFAULT_DATA_GITHUB_DIR}<GITHUB_OWNER>/<REPOSITORY>/<GITHUB_OWNER>.<REPOSITORY>.<date>)"
 echo    "   GITHUB_REPOSITORY_TRAFFIC_DATA"
 echo    "                   X"
+# >>>	Remove when complete
 
 echo -e "\n${BOLD}OPTIONS${NORMAL}"
 echo -e "Order of precedence: CLI options, environment variable, default value.\n"     # 3.572
@@ -123,7 +129,7 @@ echo -e "\tOn-line brief reference manual\n"                                    
 echo    "   --usage, -usage, -u"                                                       # 3.572
 echo -e "\tOn-line command usage\n"                                                    # 3.572
 echo    "   --version, -version, -v]"                                                  # 3.572
-echo -e "\tOn-line command version\n"                                                  # 3.572
+echo -e "\tOn-line command version"                                                  # 3.572
 #
 
 ###  Production standard 6.3.547  Architecture tree
@@ -146,19 +152,23 @@ echo    "    │   │   └── <YEAR>                     <-- Previous years
 echo    "    │   │                                      repository traffic data"
 echo    "    │   └── <REPOSITORY-2>                 <-- Current year of GitHub repository"
 echo    "    │                                          traffic data"
-echo -e "    └── <GITHUB_OWNER>                     <-- Links to ../owner.repository\n"
+echo    "    └── <GITHUB_OWNER>                     <-- Links to ../owner.repository"
 
 echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
 echo    "   https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic"
 
 echo -e "\n${BOLD}EXAMPLES${NORMAL}"
 echo -e "   Parse relevant data from cron output data file." # 3.550
-echo -e "\t${BOLD}${COMMAND_NAME} ${DEFAULT_DATA_GITHUB_DIR}<GITHUB_OWNER>/<REPOSITORY>/<GITHUB_OWNER>.<REPOSITORY>.${TODAY}${NORMAL}\n" # 3.550
+echo -e "\t${BOLD}${COMMAND_NAME} ../../<GITHUB_OWNER>.<REPOSITORY>.${TODAY}${NORMAL}" # 3.550
 
 echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
 echo    "   ${BOLD}setup.github.repository.sh${NORMAL} (https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#install)"
+
+# >>>	Remove when complete
+echo    ">>> NEED TO COMPLETE THIS SOON, ONCE I KNOW HOW IT IS GOING TO WORK :-) <<<    |"
 echo    "   ${BOLD}owner.repository${NORMAL} (URL)"
 echo    "   ${BOLD}<command>${NORMAL} (URL)"
+# >>>	Remove when complete
 
 echo -e "\n${BOLD}AUTHOR${NORMAL}"                                                          # 3.550
 echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"         # 3.550
@@ -201,8 +211,6 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 }
 
 #    INFO
-#       new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2
-#    Or
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
 
 #    Added following code because USER is not defined in crobtab jobs
@@ -233,66 +241,66 @@ if [[ $# -ge  1 ]]  ; then GITHUB_REPOSITORY_TRAFFIC_DATA=${1} ; elif [[ "${GITH
 fi
 
 #    Parse relevant data out of ${GITHUB_REPOSITORY_TRAFFIC_DATA}
-grep -e clones -e timestamp -e count -e uniques -e views -e /popular/paths -e path -e title -e /popular/referrers -e '\]' -e '\['  ${GITHUB_REPOSITORY_TRAFFIC_DATA} | sed -e 's/"//g' -e 's/,//g' -e 's/T.*Z//' -e 's/[ \t]*//g' > ${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers
+grep -e clones -e timestamp -e count -e uniques -e views -e /popular/paths -e path -e title -e /popular/referrers -e '\]' -e '\['  "${GITHUB_REPOSITORY_TRAFFIC_DATA}" | sed -e 's/"//g' -e 's/,//g' -e 's/T.*Z//' -e 's/[ \t]*//g' > "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers"
 
 #    Parse clones data from ${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers
-cat  ${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers | sed -e '1,/views>>>/!d' -e '1,/clones:\[/d' -e '/^\]/,$d'  > ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp
+cat  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" | sed -e '1,/views>>>/!d' -e '1,/clones:\[/d' -e '/^\]/,$d'  > "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 #    Loop through ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp and create clone.data.$timestamp files
 while read line; do
-  FIRST_WORD=$(echo ${line} | cut -d: -f 1)
+  FIRST_WORD=$(echo "${line}" | cut -d: -f 1)
   if [[ "${FIRST_WORD}" == "timestamp" ]] ;  then
-    SECOND_WORD=$(echo ${line} | cut -d: -f 2)
+    SECOND_WORD=$(echo "${line}" | cut -d: -f 2)
     CLONE_FILE_NAME="clone.data.${SECOND_WORD}"
-    tmp=$(echo ${line} | cut -d: -f 2 | cut -d\- -f 2-3)
-    echo "| ${tmp}" > ${CLONE_FILE_NAME}
-    echo "|:---:" >> ${CLONE_FILE_NAME}
+    tmp=$(echo "${line}" | cut -d: -f 2 | cut -d\- -f 2-3)
+    echo "| ${tmp}" > "${CLONE_FILE_NAME}"
+    echo "|:---:" >> "${CLONE_FILE_NAME}"
   else
-    AMOUNT=$(echo ${line} | cut -d: -f 2)
-    echo "| ${AMOUNT}" >> ${CLONE_FILE_NAME}
+    AMOUNT=$(echo "${line}" | cut -d: -f 2)
+    echo "| ${AMOUNT}" >> "${CLONE_FILE_NAME}"
   fi
-done < ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp
-rm  ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp
+done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
+rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 CLONE_TOTAL=0
 # >>>	Do clone.data.* files exists and size greater than zero
 # >>>	need to test this create an empty file in a repository that has many data file ????
 if ls clone.data.* 1>/dev/null 2>&1 ; then
 #    Total third line of clone.data.* files
   CLONE_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  clone.data.*)
-  echo ${CLONE_TOTAL}  > clone.total
+  echo "${CLONE_TOTAL}" > clone.total
   paste -d ' ' ../../clone.heading clone.data.* | column -t -s' ' > clone.table.md
   sed -i '1 i\#### Git clones' clone.table.md
 fi
 echo -e "\nTotal clones: ${CLONE_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> clone.table.md
 
 #    Parse vistors (views) data from ${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers
-cat  ${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers | sed -e '1,/\/popular\/paths>>>/!d' -e '1,/views:\[/d' -e '/^\]/,$d'  > ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp 
+cat  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" | sed -e '1,/\/popular\/paths>>>/!d' -e '1,/views:\[/d' -e '/^\]/,$d'  > "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 #    Loop through ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp and create clone.data.$timestamp files
 while read line; do
-  FIRST_WORD=$(echo ${line} | cut -d: -f 1)
+  FIRST_WORD=$(echo "${line}" | cut -d: -f 1)
   if [[ "${FIRST_WORD}" == "timestamp" ]] ;  then
-    SECOND_WORD=$(echo ${line} | cut -d: -f 2)
+    SECOND_WORD=$(echo "${line}" | cut -d: -f 2)
     VIEW_FILE_NAME="view.data.${SECOND_WORD}"
-    tmp=$(echo ${line} | cut -d: -f 2 | cut -d\- -f 2-3)
-    echo "| ${tmp}" > ${VIEW_FILE_NAME}
-   echo "|:---:" >> ${VIEW_FILE_NAME}
+    tmp=$(echo "${line}" | cut -d: -f 2 | cut -d\- -f 2-3)
+    echo "| ${tmp}" > "${VIEW_FILE_NAME}"
+   echo "|:---:" >> "${VIEW_FILE_NAME}"
   else
-   AMOUNT=$(echo ${line} | cut -d: -f 2)
-   echo "| ${AMOUNT}" >> ${VIEW_FILE_NAME}
+   AMOUNT=$(echo "${line}" | cut -d: -f 2)
+   echo "| ${AMOUNT}" >> "${VIEW_FILE_NAME}"
   fi
-done < ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp
-rm  ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp
+done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
+rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 VIEW_TOTAL=0
 # >>>	Do view.data.* files exists and size greater than zero
 # >>>   need to test this create an empty file in a repository that has many data file ????
 if ls view.data.* 1>/dev/null 2>&1 ; then
 #    Total third line of view.data.* files
   VIEW_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  view.data.*)
-  echo ${VIEW_TOTAL}  > view.total
+  echo "${VIEW_TOTAL}"  > view.total
   paste -d ' ' ../../view.heading view.data.* | column -t -s' ' > view.table.md
   sed -i '1 i\#### Visitors' view.table.md
 fi
 echo -e "\nTotal views: ${VIEW_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> view.table.md
-rm  ${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers
+rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers"
 
 #
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
