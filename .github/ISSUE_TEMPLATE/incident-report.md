@@ -10,11 +10,13 @@ assignees: BradleyA
 **Describe the incident:**
 A clear and concise description of what the incident is.
 
+->
+
 **To reproduce the incident:**
 Steps to reproduce the behavior:
-1. Go to ' ... '
-2. Enter/Click on ' .... '
-3. Select/Scroll-Down to ' .... '
+1. Go to ->
+2. Enter/Click on ->
+3. Select/Scroll-Down to ->
 
 **Actual results:**
 
