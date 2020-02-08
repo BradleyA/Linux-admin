@@ -14,7 +14,7 @@ This subdirectory contains shell scripts that download traffic information befor
 
 **775 parse.repository.data.sh** - Parse relevant data from cron output data file to create [clone,view].table.md, [clone,view].total, and [clone,view].\<DATE> files.  These files ([clone,view].table.md, [clone,view].total) are used to update your \<GITHUB_OWNER>/\<REPOSITORY>/README.md file on GitHub.   A copy of the [clone,view].table.md file will be copied to \<GITHUB_OWNER>/\<REPOSITORY>/images directory in future automation upgrades.  The [clone,view].\<DATE> file contains one column of formated data to be used in [clone,view].table.md file.
 
-**Note**>>>  Complete napkin notes <<< from here to page end.
+**Note --->>>**  Complete **napkin notes** from here to **page end <<<---*
 
 **750 setup.github.repository.sh** - GitHub owner is required for this script to work.  Either as the first argument on the command line or defined as GITHUB_OWNER environment variable #34.  Data storage is required for this solution, so you need to have permission to create in /usr/local/data/github for short and long term storage ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER} was not created maybe permission incident.
 
@@ -30,7 +30,7 @@ This subdirectory contains shell scripts that download traffic information befor
 
 ### Install
 
-To install, follow these steps.  Use git to pull or clone these scripts into a directory. If you do not have git then enter; "sudo apt-get install git". On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
+To install, follow these steps.  Use git to pull or clone these scripts into a directory. If you do not have git then enter; "sudo apt-get install git" if using Ubuntu. On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
     cd /tmp
     git clone https://github.com/BradleyA/Linux-admin
