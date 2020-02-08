@@ -18,8 +18,12 @@ Steps to reproduce the behavior:
 
 **Actual results:**
 
+    ->
+
 **Expected results:**
 A clear and concise description of what you expected to happen.
+
+    ->
 
 **Version:**
  - OS: [e.g. Ubuntu 16.04.6 (lsb_release -a)]
