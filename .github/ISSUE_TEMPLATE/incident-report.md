@@ -13,8 +13,8 @@ A clear and concise description of what the incident is.
 **To reproduce the incident:**
 Steps to reproduce the behavior:
 1. Go to ' ... '
-2. Click on ' .... '
-3. Scroll down to ' .... '
+2. Enter/Click on ' .... '
+3. Select/Scroll-Down to ' .... '
 
 **Actual results:**
 
@@ -27,7 +27,7 @@ A clear and concise description of what you expected to happen.
 
 **Version:**
  - OS (lsb_release -a): [ Ubuntu 16.04.6 ]
- - Command: [e.g. hooks/post-commit  2.199.861]
+ - Command: [ hooks/post-commit  2.199.861 ]
 
 **Screenshots:**
 If applicable, add screenshots to help explain your incident.
