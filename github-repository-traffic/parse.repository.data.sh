@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository-traffic/parse.repository.data.sh  2.117.523  2020-02-08T21:41:08.858633-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.116-11-gef74032  
+# 	   github-repository-traffic/parse.repository.data.sh    check if filename not found; ERROR; exit 1; exit 1 close #35 
 # 	github-repository-traffic/parse.repository.data.sh  2.116.511  2020-02-08T12:24:01.364285-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.115-2-g9edbebe  
 # 	   github-repository-traffic/parse.repository.data.sh   Upgrade all Production standards close #33 
 # 	github-repository-traffic/parse.repository.data.sh  2.114.497  2020-02-06T22:58:58.814782-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.113-1-g9797258  
@@ -240,6 +242,12 @@ if [[ $# -ge  1 ]]  ; then GITHUB_REPOSITORY_TRAFFIC_DATA=${1} ; elif [[ "${GITH
   exit 1
 fi
 
+#    GITHUB_REPOSITORY_TRAFFIC_DATA FILE exists and read permission && exists and has a size greater than zero
+if [[ ! -r "${GITHUB_REPOSITORY_TRAFFIC_DATA}" ]] || [[ ! -s "${GITHUB_REPOSITORY_TRAFFIC_DATA}"  ]] ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${GITHUB_REPOSITORY_TRAFFIC_DATA} file does not exist, or does not have read permission, or has size of zero."
+  exit 1
+fi
+
 #    Parse relevant data out of ${GITHUB_REPOSITORY_TRAFFIC_DATA}
 grep -e clones -e timestamp -e count -e uniques -e views -e /popular/paths -e path -e title -e /popular/referrers -e '\]' -e '\['  "${GITHUB_REPOSITORY_TRAFFIC_DATA}" | sed -e 's/"//g' -e 's/,//g' -e 's/T.*Z//' -e 's/[ \t]*//g' > "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers"
 
@@ -259,6 +267,7 @@ while read line; do
     echo "| ${AMOUNT}" >> "${CLONE_FILE_NAME}"
   fi
 done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
+#if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file if DEBUG is not set
 rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 CLONE_TOTAL=0
 # >>>	Do clone.data.* files exists and size greater than zero
@@ -288,6 +297,7 @@ while read line; do
    echo "| ${AMOUNT}" >> "${VIEW_FILE_NAME}"
   fi
 done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
+#	if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file if DEBUG is not set
 rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 VIEW_TOTAL=0
 # >>>	Do view.data.* files exists and size greater than zero
@@ -300,6 +310,7 @@ if ls view.data.* 1>/dev/null 2>&1 ; then
   sed -i '1 i\#### Visitors' view.table.md
 fi
 echo -e "\nTotal views: ${VIEW_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> view.table.md
+#	if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" ; fi  #  Remove file if DEBUG is not set
 rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers"
 
 #
