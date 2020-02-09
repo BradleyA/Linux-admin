@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository-traffic/parse.repository.data.sh  2.119.526  2020-02-09T17:05:22.786367-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.118-1-gec42ae8  
+# 	   github-repository-traffic/parse.repository.data.sh   DEBUG building of table.md file 
 # 	github-repository-traffic/parse.repository.data.sh  2.118.524  2020-02-08T21:50:46.421564-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.117  
 # 	   github-repository-traffic/parse.repository.data.sh   add DEBUG around rm to preventing from being removed when DEBUG is not equal to 0  close #36 
 # 	github-repository-traffic/parse.repository.data.sh  2.117.523  2020-02-08T21:41:08.858633-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.116-11-gef74032  
@@ -277,10 +279,30 @@ if ls clone.data.* 1>/dev/null 2>&1 ; then
 #    Total third line of clone.data.* files
   CLONE_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  clone.data.*)
   echo "${CLONE_TOTAL}" > clone.total
+
+# >>>	Remove when complete
+cat clone.table.md
+# >>>	Remove when complete
+
   paste -d ' ' ../../clone.heading clone.data.* | column -t -s' ' > clone.table.md
+
+# >>>	Remove when complete
+cat clone.table.md
+# >>>	Remove when complete
+
   sed -i '1 i\#### Git clones' clone.table.md
 fi
+
+# >>>	Remove when complete
+cat clone.table.md
+# >>>	Remove when complete
+
 echo -e "\nTotal clones: ${CLONE_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> clone.table.md
+
+
+# >>>	Remove when complete
+cat clone.table.md
+# >>>	Remove when complete
 
 #    Parse vistors (views) data from ${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers
 cat  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" | sed -e '1,/\/popular\/paths>>>/!d' -e '1,/views:\[/d' -e '/^\]/,$d'  > "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
