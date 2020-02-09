@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository-traffic/parse.repository.data.sh  2.118.524  2020-02-08T21:50:46.421564-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.117  
+# 	   github-repository-traffic/parse.repository.data.sh   add DEBUG around rm to preventing from being removed when DEBUG is not equal to 0  close #36 
 # 	github-repository-traffic/parse.repository.data.sh  2.117.523  2020-02-08T21:41:08.858633-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.116-11-gef74032  
 # 	   github-repository-traffic/parse.repository.data.sh    check if filename not found; ERROR; exit 1; exit 1 close #35 
 # 	github-repository-traffic/parse.repository.data.sh  2.116.511  2020-02-08T12:24:01.364285-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.115-2-g9edbebe  
@@ -267,8 +269,7 @@ while read line; do
     echo "| ${AMOUNT}" >> "${CLONE_FILE_NAME}"
   fi
 done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
-#if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file if DEBUG is not set
-rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
+if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file if DEBUG is not set
 CLONE_TOTAL=0
 # >>>	Do clone.data.* files exists and size greater than zero
 # >>>	need to test this create an empty file in a repository that has many data file ????
@@ -297,8 +298,7 @@ while read line; do
    echo "| ${AMOUNT}" >> "${VIEW_FILE_NAME}"
   fi
 done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
-#	if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file if DEBUG is not set
-rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
+if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file if DEBUG is not set
 VIEW_TOTAL=0
 # >>>	Do view.data.* files exists and size greater than zero
 # >>>   need to test this create an empty file in a repository that has many data file ????
@@ -310,8 +310,7 @@ if ls view.data.* 1>/dev/null 2>&1 ; then
   sed -i '1 i\#### Visitors' view.table.md
 fi
 echo -e "\nTotal views: ${VIEW_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> view.table.md
-#	if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" ; fi  #  Remove file if DEBUG is not set
-rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers"
+if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" ; fi  #  Remove file if DEBUG is not set
 
 #
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
