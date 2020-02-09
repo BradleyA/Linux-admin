@@ -1,1 +1,0 @@
-../../../EXAMPLES/SA-setup.sh

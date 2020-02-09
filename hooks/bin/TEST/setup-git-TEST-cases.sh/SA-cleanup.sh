@@ -1,1 +1,0 @@
-../../../EXAMPLES/SA-cleanup.sh
