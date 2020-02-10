@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	github-repository-traffic/setup.github.repository.sh  2.122.531  2020-02-09T20:27:17.610321-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.121  
-# 	   github-repository-traffic/setup.github.repository.sh    shellcheck ; setup GITHUB_OWNER environment variable #34  need to test on clean system 
+# 	github-repository-traffic/setup.github.repository.sh  2.123.533  2020-02-10T16:54:57.222050-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.122-1-g3700670  
+# 	   github-repository-traffic/setup.github.repository.sh   setup GITHUB_OWNER environment variable close #34 
 # 	github-repository-traffic/setup.github.repository.sh  2.114.497  2020-02-06T22:58:58.962412-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.113-1-g9797258  
 # 	   github-repository-traffic/parse.repository.data.sh   update display_help and ARCHITECTURE TREE 
 # 	github-repository-traffic/setup.github.repository.sh  2.110.422  2020-01-02T14:29:22.707637-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.109-32-gf918a75  
@@ -9,7 +9,7 @@
 # 	   github-repository/setup.github.repository.sh add code for clone.heading & view.heading 
 # 	github-repository/setup.github.repository.sh  2.45.209  2019-07-29T22:54:36.803070-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.44  
 # 	   github-repository/setup.github.repository.sh making this up as I go . . . 
-### production standard 3.0 shellcheck
+###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.550 Copyright                                                  # 3.550
 #    Copyright (c) 2020 Bradley Allen                                                       # 3.550
 #    MIT License is online  https://github.com/BradleyA/user-files/blob/master/LICENSE      # 3.550
@@ -30,7 +30,7 @@ WHITE=$(tput  setaf 7)
 
 ### production standard 7.0 Default variable value
 DEFAULT_DATA_GITHUB_DIR="/usr/local/data/github/"
-GITHUB_OWNER="BradleyA"  #  Required for this script to work.  Either as the first argument on the command line or defined as GITHUB_OWNER environment variable or hard coded here
+DEFAULT_GITHUB_OWNER="BradleyA"  #  Required for this script to work.  Either as the first argument on the command line or defined as GITHUB_OWNER environment variable or hard coded here #34
 
 ###  Production standard 8.3.541 --usage
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')                                               # 3.541
@@ -49,7 +49,7 @@ display_usage
 #    Displaying help DESCRIPTION in English en_US.UTF-8, en.UTF-8, C.UTF-8                  # 3.550
 echo -e "\n${BOLD}DESCRIPTION${NORMAL}"
 echo    "Setup GitHub repository traffic scripts and data directories to download"
-echo    "GitHub traffic information before it is removed from GitHub."
+echo    "GitHub traffic information before it is no longer available on GitHub."
 
 ###  Production standard 4.3.550 Documentation Language                                     # 3.550
 #    Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
@@ -80,8 +80,20 @@ echo    "                   exit immediately if non-zero exit status is recieved
 echo    "                   some exceptions.  Setting 5 (set -e -o pipefail) will do"       # 3.550
 echo    "                   setting 4 and exit if any command in a pipeline errors.  For"   # 3.550
 echo    "                   more information about the set options, see man bash."          # 3.550
+#
+echo    "   GITHUB_OWNER    Github repository account name (default ${DEFAULT_GITHUB_OWNER})" #34
+echo    "   DATA_GITHUB_DIR GitHub long term traffic solution directory"
+echo    "                   (default ${DEFAULT_DATA_GITHUB_DIR})"
 
-echo    "   GITHUB_OWNER    Github repository account name (default ${GITHUB_OWNER})"
+echo -e "\n${BOLD}OPTIONS${NORMAL}"
+echo -e "Order of precedence: CLI options, environment variable, default value.\n"     # 3.572
+echo    "   --help, -help, help, -h, h, -?"                                            # 3.572
+echo -e "\tOn-line brief reference manual\n"                                           # 3.572
+echo    "   --usage, -usage, -u"                                                       # 3.572
+echo -e "\tOn-line command usage\n"                                                    # 3.572
+echo    "   --version, -version, -v]"                                                  # 3.572
+echo    "\tOn-line command version"                                                  # 3.572
+#
 
 ###  Production standard 6.3.547  Architecture tree
 echo -e "\n${BOLD}ARCHITECTURE TREE${NORMAL}"  # STORAGE & CERTIFICATION
@@ -152,8 +164,6 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 }
 
 #    INFO
-new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2
-#    Or
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
 
 #    Added following code because USER is not defined in crobtab jobs
@@ -172,68 +182,77 @@ while [[ "${#}" -gt 0 ]] ; do
     *) break ;;
   esac
 done
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... GITHUB_OWNER >${GITHUB_OWNER}<" 1>&2 ; fi
 
 ###  Setup.github.repository.sh
 
-#    Order of precedence: CLI argument, environment variable
-if [[ $# -ge  1 ]]  ; then GITHUB_OWNER=${1} ; elif [[ "${GITHUB_OWNER}" == "" ]] ; then 
-  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Github owner is required to make this script work.  Either as the first argument on the command line or defined as GITHUB_OWNER environment variable." 1>&2
-  exit 1
-fi
+###  production standard 7.0 Default variable value
+#    Order of precedence: CLI argument, environment variable, default code
+if [[ $# -ge  1 ]]  ; then GITHUB_OWNER=${1} ; elif [[ "${GITHUB_OWNER}" == "" ]] ; then GITHUB_OWNER=${DEFAULT_GITHUB_OWNER} ; fi #34
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... GITHUB_OWNER >${GITHUB_OWNER}<" 1>&2 ; fi
+#    Order of precedence: environment variable, default code
+if [[ "${DATA_GITHUB_DIR}" == "" ]] ; then DATA_GITHUB_DIR=${DEFAULT_DATA_GITHUB_DIR} ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... DATA_GITHUB_DIR >${DATA_GITHUB_DIR}<" 1>&2 ; fi
 
 #    Create log directory for crontab ${GITHUB_OWNER} jobs
-mkdir -p "${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/log"
-#    Check if <DEFAULT_DATA_GITHUB_DIR> directory
-if [[ ! -d "${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}" ]] ; then
-  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER} was not created maybe permission incident." 1>&2
-  exit 1
-fi
+mkdir -p "${DATA_GITHUB_DIR}/${GITHUB_OWNER}/log" || { new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${DATA_GITHUB_DIR}/${GITHUB_OWNER} was not created maybe permission incident." 1>&2 ; exit 1; }
 
-#    Check if github.repository.list file size>0 read
+#    Check if github.repository.list file size>0 and the file is readable
 if [[ ! -s "github.repository.list" ]] && [[ -r "github.repository.list" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  github.repository.list file does not exist in directory or is not size>0 or is not readable.  github.repository.list file should include Github owner's repository names, one per line." 1>&2
   exit 1
 fi
-cp -p  github.repository.list "${DEFAULT_DATA_GITHUB_DIR}"
+cp -p  github.repository.list "${DATA_GITHUB_DIR}"
 
-#    Check if owner.repository file size>0 read
+#    Check if owner.repository file size>0 and the file is readable
 if [[ ! -s "owner.repository" ]] && [[ -r "owner.repository" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  owner.repository file does not exist in directory or is not size>0 or is not readable" 1>&2
   exit 1
 fi
-cp -p  owner.repository "${DEFAULT_DATA_GITHUB_DIR}"
-cp -p  setup.github.repository.sh "${DEFAULT_DATA_GITHUB_DIR}"
+cp -p  owner.repository "${DATA_GITHUB_DIR}"
+cp -p  setup.github.repository.sh "${DATA_GITHUB_DIR}"
 
-#    Check if parse.repository.data.sh file size>0 execute
-if [[ ! -s "parse.repository.data.sh" ]] && [[ -e "parse.repository.data.sh" ]] ; then
+#    Check if parse.repository.data.sh file size>0 and the file has execute permission
+if [[ ! -s "parse.repository.data.sh" ]] && [[ -x "parse.repository.data.sh" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  parse.repository.data.sh file does not exist in directory or is not size>0 or is not executable" 1>&2
   exit 1
 fi
-cp -p  parse.repository.data.sh "${DEFAULT_DATA_GITHUB_DIR}"
+cp -p  parse.repository.data.sh "${DATA_GITHUB_DIR}"
 
-#    Check if clone.heading file size>0 read
+#    Check if clone.heading file size>0 and the file is readable
 if [[ ! -s "clone.heading" ]] && [[ -r "clone.heading" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  clone.heading file does not exist in directory or is not size>0 or is not readable" 1>&2
   exit 1
 fi
-cp -p  clone.heading "${DEFAULT_DATA_GITHUB_DIR}"
+cp -p  clone.heading "${DATA_GITHUB_DIR}"
 
-#    Check if view.heading file size>0 read
+#    Check if view.heading file size>0 and the file is readable
 if [[ ! -s "view.heading" ]] && [[ -r "view.heading" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  view.heading file does not exist in directory or is not size>0 or is not readable" 1>&2
   exit 1
 fi
-cp -p  view.heading "${DEFAULT_DATA_GITHUB_DIR}"
+cp -p  view.heading "${DATA_GITHUB_DIR}"
 
-cd "${DEFAULT_DATA_GITHUB_DIR}"
+cd "${DATA_GITHUB_DIR}"
 echo    "${BOLD}${YELLOW}Add the follow line(s) to crontab using crontab -e	----->${CYAN}"
 #    Loop through repository names in github.repository.list	
-for REPOSITORY in $(cat "${DEFAULT_DATA_GITHUB_DIR}"/github.repository.list | grep -v "#" ); do
+for REPOSITORY in $(cat "${DATA_GITHUB_DIR}"/github.repository.list | grep -v "#" ); do
   #  Create symbolic link owner.repository <-- for(repository.list) to BradleyA.Start-registry-v2-script.1.0
   ln -sf ../owner.repository "${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}"
-  echo    "20 12 * * MON   ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}  >>  ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/log/${GITHUB_OWNER}.${REPOSITORY}-crontab" 2>&1
+  echo    "20 12 * * MON   ${DATA_GITHUB_DIR}/${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}  >>  ${DATA_GITHUB_DIR}/${GITHUB_OWNER}/log/${GITHUB_OWNER}.${REPOSITORY}-crontab" 2>&1
+
+# >>>	Remove when complete		#40
+#	  tmp_file=$(mktemp repository.data.crontab.XXX)  ####	add before for loop
+#	  crontab -l > tmp_file   #  Write out current crontab to a temp file  ####	add before for loop
+#	  echo "00 09 * * 1-5 echo hello" >> tmp_file  #  Echo new cron lines into temp file  ####      add IN for loop
+#	  crontab tmp_file  #  Install new cron file  ####	add after for loop
+#	  rm tmp_file  ####      add after for loop
+# >>>	Remove when complete		#40
+
 done
 
-new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Operation finished..." 1>&2
+# >>>	Remove when complete		#
+#	add user hint about token so crontab will work
+# >>>	Remove when complete		#
+
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Operation finished..." 1>&2 ; fi
 ###
