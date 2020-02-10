@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository-traffic/setup.github.repository.sh  2.122.531  2020-02-09T20:27:17.610321-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.121  
+# 	   github-repository-traffic/setup.github.repository.sh    shellcheck ; setup GITHUB_OWNER environment variable #34  need to test on clean system 
 # 	github-repository-traffic/setup.github.repository.sh  2.114.497  2020-02-06T22:58:58.962412-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.113-1-g9797258  
 # 	   github-repository-traffic/parse.repository.data.sh   update display_help and ARCHITECTURE TREE 
 # 	github-repository-traffic/setup.github.repository.sh  2.110.422  2020-01-02T14:29:22.707637-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.109-32-gf918a75  
@@ -22,14 +24,13 @@ if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately i
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
 RED=$(tput    setaf 1)
-GREEN=$(tput  setaf 2)
 YELLOW=$(tput setaf 3)
 CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 
 ### production standard 7.0 Default variable value
 DEFAULT_DATA_GITHUB_DIR="/usr/local/data/github/"
-# >>>	GITHUB_OWNER= GitHub owner is required for this script to work.  Either as the first argument on the command line or defined as GITHUB_OWNER environment variable
+GITHUB_OWNER="BradleyA"  #  Required for this script to work.  Either as the first argument on the command line or defined as GITHUB_OWNER environment variable or hard coded here
 
 ###  Production standard 8.3.541 --usage
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')                                               # 3.541
@@ -80,29 +81,35 @@ echo    "                   some exceptions.  Setting 5 (set -e -o pipefail) wil
 echo    "                   setting 4 and exit if any command in a pipeline errors.  For"   # 3.550
 echo    "                   more information about the set options, see man bash."          # 3.550
 
-echo    "   GITHUB_OWNER    Github repository account name"
+echo    "   GITHUB_OWNER    Github repository account name (default ${GITHUB_OWNER})"
 
 ###  Production standard 6.3.547  Architecture tree
 echo -e "\n${BOLD}ARCHITECTURE TREE${NORMAL}"  # STORAGE & CERTIFICATION
 echo    "/usr/local/data/                           <-- <DATA_DIR>"
-echo    "└── github                                 <-- Github repository traffic"
+echo    "└── github                                 <-- GitHub long term traffic solution"
 echo    "    ├── clone.heading                      <-- Clone table headings"
-echo    "    ├── github.repository.list             <-- Github repository names"
-echo    "    ├── owner.repository                   <-- Default cron job for repositpry"
-echo    "    │                                          download of clone and views data"
+echo    "    ├── github.repository.list             <-- GitHub repository names"
+echo    "    ├── owner.repository                   <-- Default cron job for repository"
+echo    "    │                                          download of GitHub traffic data"
 echo    "    ├── parse.repository.data.sh           <-- Parse relevant data out of cron"
-echo    "    │                                          job data files"
-echo    "    ├── setup.github.repository.sh         <-- Setup github repository data"
-echo    "    │                                          tools"
+echo    "    │                                          job data file"
+echo    "    ├── setup.github.repository.sh         <-- Setup GitHub long term traffic"
+echo    "    │                                          solution"
 echo    "    ├── view.heading                       <-- View table headings"
-echo -e "    └── <GITHUB_OWNER>                     <-- Github repository traffic data\n"
+echo    "    ├── <GITHUB_OWNER>                     <-- Links to ../owner.repository"
+echo    "    │   ├── <REPOSITORY-1>                 <-- Current year of GitHub repository"
+echo    "    │   │   │                                  traffic data"
+echo    "    │   │   └── <YEAR>                     <-- Previous years of GitHub"
+echo    "    │   │                                      repository traffic data"
+echo    "    │   └── <REPOSITORY-2>                 <-- Current year of GitHub repository"
+echo    "    │                                          traffic data"
+echo    "    └── <GITHUB_OWNER>                     <-- Links to ../owner.repository"
 
 echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
-echo    "   https://github.com/BradleyA/Linux-admin/blob/master/github-repository-traffic/README.md"
+echo    "   https://github.com/BradleyA/Linux-admin/blob/master/github-repository-traffic/README.md#github-repository-traffic"
 
 echo -e "\n${BOLD}EXAMPLES${NORMAL}"
-echo -e "   <<description about code example>>\n\t${BOLD}${COMMAND_NAME} <<code example>>${NORMAL}\n" # 3.550
-echo -e "   <<description about code example>>\n\t${BOLD}${COMMAND_NAME}${NORMAL}\n"        # 3.550
+echo -e "   Setup the GitHub repository traffic on this system\n\t${BOLD}${COMMAND_NAME} <GITHUB_OWNER>${NORMAL}\n" # 3.550
 
 echo -e "\n${BOLD}AUTHOR${NORMAL}"                                                          # 3.550
 echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"         # 3.550
@@ -170,35 +177,28 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...
 ###  Setup.github.repository.sh
 
 #    Order of precedence: CLI argument, environment variable
-if [ $# -ge  1 ]  ; then GITHUB_OWNER=${1} ; elif [ "${GITHUB_OWNER}" == "" ] ; then 
+if [[ $# -ge  1 ]]  ; then GITHUB_OWNER=${1} ; elif [[ "${GITHUB_OWNER}" == "" ]] ; then 
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Github owner is required to make this script work.  Either as the first argument on the command line or defined as GITHUB_OWNER environment variable." 1>&2
   exit 1
 fi
 
 #    Create log directory for crontab ${GITHUB_OWNER} jobs
-mkdir -p ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/log
+mkdir -p "${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/log"
 #    Check if <DEFAULT_DATA_GITHUB_DIR> directory
-if [ ! -d "${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}" ] ; then
+if [[ ! -d "${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER} was not created maybe permission incident." 1>&2
   exit 1
 fi
 
-#    #       Check if github.repository.sh file size>0 execute
-#	if [ ! -s "github.repository.sh" ] && [ ! -e "github.repository.sh"  ] ; then
-#	        echo -e "\n\tgithub.repository.sh file does not exist in directory or is not size>0 or is not executable."
-#	        exit 1
-#	fi
-#	cp -p github.repository.sh "${DEFAULT_DATA_GITHUB_DIR}"
-
 #    Check if github.repository.list file size>0 read
-if [ ! -s "github.repository.list" ] && [ -r "github.repository.list"  ] ; then
+if [[ ! -s "github.repository.list" ]] && [[ -r "github.repository.list" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  github.repository.list file does not exist in directory or is not size>0 or is not readable.  github.repository.list file should include Github owner's repository names, one per line." 1>&2
   exit 1
 fi
 cp -p  github.repository.list "${DEFAULT_DATA_GITHUB_DIR}"
 
 #    Check if owner.repository file size>0 read
-if [ ! -s "owner.repository" ] && [ -r "owner.repository"  ] ; then
+if [[ ! -s "owner.repository" ]] && [[ -r "owner.repository" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  owner.repository file does not exist in directory or is not size>0 or is not readable" 1>&2
   exit 1
 fi
@@ -206,21 +206,21 @@ cp -p  owner.repository "${DEFAULT_DATA_GITHUB_DIR}"
 cp -p  setup.github.repository.sh "${DEFAULT_DATA_GITHUB_DIR}"
 
 #    Check if parse.repository.data.sh file size>0 execute
-if [ ! -s "parse.repository.data.sh" ] && [ -e "parse.repository.data.sh"  ] ; then
+if [[ ! -s "parse.repository.data.sh" ]] && [[ -e "parse.repository.data.sh" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  parse.repository.data.sh file does not exist in directory or is not size>0 or is not executable" 1>&2
   exit 1
 fi
 cp -p  parse.repository.data.sh "${DEFAULT_DATA_GITHUB_DIR}"
 
 #    Check if clone.heading file size>0 read
-if [ ! -s "clone.heading" ] && [ -r "clone.heading"  ] ; then
+if [[ ! -s "clone.heading" ]] && [[ -r "clone.heading" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  clone.heading file does not exist in directory or is not size>0 or is not readable" 1>&2
   exit 1
 fi
 cp -p  clone.heading "${DEFAULT_DATA_GITHUB_DIR}"
 
 #    Check if view.heading file size>0 read
-if [ ! -s "view.heading" ] && [ -r "view.heading"  ] ; then
+if [[ ! -s "view.heading" ]] && [[ -r "view.heading" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  view.heading file does not exist in directory or is not size>0 or is not readable" 1>&2
   exit 1
 fi
