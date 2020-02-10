@@ -16,7 +16,9 @@ This subdirectory contains shell scripts that download traffic information befor
 
 **Note --->>>**  Complete **napkin notes** from here to **page end <<<---*
 
-**750 setup.github.repository.sh** - GitHub owner is required for this script to work.  Either as the first argument on the command line or defined as GITHUB_OWNER environment variable #34.  Data storage is required for this solution, so you need to have permission to create in /usr/local/data/github for short and long term storage ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER} was not created maybe permission incident.
+**750 setup.github.repository.sh** - Setup GitHub repository traffic scripts and data directories to download GitHub traffic information before it is removed from GitHub.
+
+GitHub owner is required for this script to work.  Either as the first argument on the command line or defined as GITHUB_OWNER environment variable #34.  Data storage is required for this solution, so you need to have permission to create in /usr/local/data/github for short and long term storage ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER} was not created maybe permission incident.
 
  "  github.repository.list file does not exist in directory or is not size>0 or is not readable.  github.repository.list file should include Github owner's repository names, one per line." 1>&2
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  owner.repository file does not exist in directory or is not size>0 or is not readable" 1>&2
