@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	github-repository-traffic/parse.repository.data.sh  2.120.527  2020-02-09T18:17:51.739709-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.119  
-# 	   github-repository-traffic/parse.repository.data.sh   improve programing note 
-# 	github-repository-traffic/parse.repository.data.sh  2.119.526  2020-02-09T17:05:22.786367-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.118-1-gec42ae8  
-# 	   github-repository-traffic/parse.repository.data.sh   DEBUG building of table.md file 
+# 	github-repository-traffic/parse.repository.data.sh  2.121.530  2020-02-09T19:13:41.848003-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.120-2-g390c479  
+# 	   github-repository-traffic/parse.repository.data.sh   create github issues #37 #38 #39 
 # 	github-repository-traffic/parse.repository.data.sh  2.118.524  2020-02-08T21:50:46.421564-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.117  
 # 	   github-repository-traffic/parse.repository.data.sh   add DEBUG around rm to preventing from being removed when DEBUG is not equal to 0  close #36 
 # 	github-repository-traffic/parse.repository.data.sh  2.117.523  2020-02-08T21:41:08.858633-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.116-11-gef74032  
@@ -15,24 +13,7 @@
 # 	   github-repository-traffic/parse.repository.data.sh   create display_help description #33 
 # 	github-repository/parse.repository.data.sh  2.98.370  2019-08-08T23:47:37.538761-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.97  
 # 	   github-repository/parse.repository.data.sh design complete, ready to create test cases 
-### >>> Need to move this design information into the documentation and then remove from here <<<
-# >>>	Remove when complete
-#               push files to images/clone.table.md images/view.table.md to github owner/repository/images/(clones,views, NOT popular.referrers.list, popular.paths.list)
-#               link *.table.md to README.md badges
-#        .... NOTE to self ..... need data first and do'nt want to waste time creating test data ....  come back in a month or six
 #
-#	column -t -s' ' filename
-#	soffice --convert-to png ./clones
-#	display ./clones.png
-#
-#       <img alt="Steam Views" src="https://img.shields.io/steam/views/100">
-#
-#       cd ~/github/BradleyA/automate/:repo
-#       git pull
-#       git commit -m '$DATE: automation the update of README table' README.md
-#       git push README.md
-###
-# >>>	Remove when complete
 #86# github-repository-data/parse.repository.data.sh
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559
@@ -121,14 +102,14 @@ echo    "                   some exceptions.  Setting 5 (set -e -o pipefail) wil
 echo    "                   setting 4 and exit if any command in a pipeline errors.  For"   # 3.550
 echo    "                   more information about the set options, see man bash."          # 3.550
 
-# >>>	Remove when complete
+# >>>	Remove when complete		#37
 echo    ">>> NEED TO COMPLETE THIS SOON, ONCE I KNOW HOW IT IS GOING TO WORK :-) <<<    |"
 
 echo    "   CLONE_FILE_NAME Cron job data file"
 echo    "                   (default ${DEFAULT_DATA_GITHUB_DIR}<GITHUB_OWNER>/<REPOSITORY>/<GITHUB_OWNER>.<REPOSITORY>.<date>)"
 echo    "   GITHUB_REPOSITORY_TRAFFIC_DATA"
 echo    "                   X"
-# >>>	Remove when complete
+# >>>	Remove when complete		#37
 
 echo -e "\n${BOLD}OPTIONS${NORMAL}"
 echo -e "Order of precedence: CLI options, environment variable, default value.\n"     # 3.572
@@ -172,11 +153,11 @@ echo -e "\t${BOLD}${COMMAND_NAME} ../../<GITHUB_OWNER>.<REPOSITORY>.${TODAY}${NO
 echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
 echo    "   ${BOLD}setup.github.repository.sh${NORMAL} (https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#install)"
 
-# >>>	Remove when complete
+# >>>	Remove when complete		# 38
 echo    ">>> NEED TO COMPLETE THIS SOON, ONCE I KNOW HOW IT IS GOING TO WORK :-) <<<    |"
 echo    "   ${BOLD}owner.repository${NORMAL} (URL)"
 echo    "   ${BOLD}<command>${NORMAL} (URL)"
-# >>>	Remove when complete
+# >>>	Remove when complete		# 38
 
 echo -e "\n${BOLD}AUTHOR${NORMAL}"                                                          # 3.550
 echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"         # 3.550
@@ -275,36 +256,16 @@ while read line; do
 done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file only if DEBUG is set to zero
 CLONE_TOTAL=0
-# >>>	Do clone.data.* files exists and size greater than zero
-# >>>	need to test this create an empty file in a repository that has many data file ????
+# >>>	Do clone.data.* files exists and size greater than zero		#39
+# >>>	need to test this create an empty file in a repository that has many data file ????		#39
 if ls clone.data.* 1>/dev/null 2>&1 ; then
 #    Total third line of clone.data.* files
   CLONE_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  clone.data.*)
   echo "${CLONE_TOTAL}" > clone.total
-
-# >>>	Remove when complete
-cat clone.table.md
-# >>>	Remove when complete
-
   paste -d ' ' ../../clone.heading clone.data.* | column -t -s' ' > clone.table.md
-
-# >>>	Remove when complete
-cat clone.table.md
-# >>>	Remove when complete
-
   sed -i '1 i\#### Git clones' clone.table.md
 fi
-
-# >>>	Remove when complete
-cat clone.table.md
-# >>>	Remove when complete
-
 echo -e "\nTotal clones: ${CLONE_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> clone.table.md
-
-
-# >>>	Remove when complete
-cat clone.table.md
-# >>>	Remove when complete
 
 #    Parse vistors (views) data from ${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers
 cat  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" | sed -e '1,/\/popular\/paths>>>/!d' -e '1,/views:\[/d' -e '/^\]/,$d'  > "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
@@ -324,8 +285,8 @@ while read line; do
 done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file only if DEBUG is set to zero
 VIEW_TOTAL=0
-# >>>	Do view.data.* files exists and size greater than zero
-# >>>   need to test this create an empty file in a repository that has many data file ????
+# >>>	Do view.data.* files exists and size greater than zero			#39
+# >>>   need to test this create an empty file in a repository that has many data file ????		#39
 if ls view.data.* 1>/dev/null 2>&1 ; then
 #    Total third line of view.data.* files
   VIEW_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  view.data.*)
