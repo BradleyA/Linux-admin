@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository-traffic/parse.repository.data.sh  2.120.527  2020-02-09T18:17:51.739709-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.119  
+# 	   github-repository-traffic/parse.repository.data.sh   improve programing note 
 # 	github-repository-traffic/parse.repository.data.sh  2.119.526  2020-02-09T17:05:22.786367-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.118-1-gec42ae8  
 # 	   github-repository-traffic/parse.repository.data.sh   DEBUG building of table.md file 
 # 	github-repository-traffic/parse.repository.data.sh  2.118.524  2020-02-08T21:50:46.421564-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.117  
@@ -271,7 +273,7 @@ while read line; do
     echo "| ${AMOUNT}" >> "${CLONE_FILE_NAME}"
   fi
 done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
-if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file if DEBUG is not set
+if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file only if DEBUG is set to zero
 CLONE_TOTAL=0
 # >>>	Do clone.data.* files exists and size greater than zero
 # >>>	need to test this create an empty file in a repository that has many data file ????
@@ -320,7 +322,7 @@ while read line; do
    echo "| ${AMOUNT}" >> "${VIEW_FILE_NAME}"
   fi
 done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
-if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file if DEBUG is not set
+if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file only if DEBUG is set to zero
 VIEW_TOTAL=0
 # >>>	Do view.data.* files exists and size greater than zero
 # >>>   need to test this create an empty file in a repository that has many data file ????
@@ -332,7 +334,7 @@ if ls view.data.* 1>/dev/null 2>&1 ; then
   sed -i '1 i\#### Visitors' view.table.md
 fi
 echo -e "\nTotal views: ${VIEW_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> view.table.md
-if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" ; fi  #  Remove file if DEBUG is not set
+if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" ; fi  #  Remove file only if DEBUG is set to zero
 
 #
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
