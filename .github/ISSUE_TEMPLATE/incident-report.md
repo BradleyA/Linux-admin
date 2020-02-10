@@ -10,7 +10,7 @@ assignees: BradleyA
 **Describe the incident:**
 A clear and concise description of what the incident is.
 
-->
+    ->
 
 **To reproduce the incident:**
 Steps to reproduce the behavior:
@@ -29,7 +29,9 @@ A clear and concise description of what you expected to happen.
 
 **Version:**
  - OS (lsb_release -a): [ Ubuntu 16.04.6 ]
- - Command: [ hooks/post-commit  2.199.861 ]
+ - Command: [ github-repository/setup.github.repository.sh  2.199.861 ]
 
 **Screenshots:**
 If applicable, add screenshots to help explain your incident.
+
+    ->
