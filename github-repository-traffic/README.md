@@ -6,7 +6,7 @@ This subdirectory contains shell scripts that download traffic information befor
 
 #### Download files:
 
-**444 clone.heading** - Clone table headings in GitHub markdown
+**644 clone.heading** - Clone table headings in GitHub markdown
 
 **664 github.repository.list** - GitHub repository names with one on each line.  Lines that begin with a '#' are comments.
 
@@ -26,7 +26,7 @@ GitHub owner is required for this script to work.  Either as the first argument 
 
 
 
-**444 view.heading** - View table headings in GitHub markdown
+**644 view.heading** - View table headings in GitHub markdown
    
 
 
