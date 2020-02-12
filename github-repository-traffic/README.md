@@ -4,10 +4,6 @@ This subdirectory contains shell scripts that download traffic information befor
 
 **WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
-
-   
-
-
 ### Install
 
 To install, follow these steps.  Use git to pull or clone these scripts into a directory. If you do not have git then enter; "sudo apt-get install git" if using Ubuntu. On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
@@ -25,7 +21,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
        
        ./setup.github.repository.sh BradleyA
 
-## Output
+### Output
 <img id="setup.github.repository.sh" src="../images/setup.github.repository.gif" >
 
     cd ../..
@@ -44,7 +40,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
        
        chmod 600 ~/.netrc
        
-#### Download files:
+### Download files:
 
 **644 clone.heading** - Clone table headings in GitHub markdown
 
