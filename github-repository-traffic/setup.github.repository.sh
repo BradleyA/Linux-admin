@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository-traffic/setup.github.repository.sh  2.126.549  2020-02-12T12:38:21.881162-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.125-8-gf0169cc  
+# 	   github-repository-traffic/setup.github.repository.sh   Upgrade all Production standards close #42 
 # 	github-repository-traffic/setup.github.repository.sh  2.125.540  2020-02-12T12:13:22.720817-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.124-2-g74d5be4  
 # 	   github-repository-traffic/parse.repository.data.sh   complete display_help SEE ALSO close #38 
 # 	github-repository-traffic/setup.github.repository.sh  2.124.537  2020-02-11T23:17:01.593001-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.123-3-g9a8c5b4  
@@ -17,9 +19,9 @@
 ###	https://github.com/isaacs/github/issues/399	###
 ##########
 ###  Production standard 3.0 shellcheck
-###  Production standard 5.3.550 Copyright                                                  # 3.550
-#    Copyright (c) 2020 Bradley Allen                                                       # 3.550
-#    MIT License is online  https://github.com/BradleyA/user-files/blob/master/LICENSE      # 3.550
+###  Production standard 5.3.559 Copyright                                    # 3.559
+#    Copyright (c) 2020 Bradley Allen                                                # 3.555
+#    MIT License is online in the repository as a file named LICENSE"         # 3.559
 ###  Production standard 1.3.550 DEBUG variable                                             # 3.550
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
@@ -50,7 +52,7 @@ echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
 echo    "   ${COMMAND_NAME} [--version | -version | -v]"
 }
 
-###  Production standard 0.3.550 --help                                                     # 3.550
+###  Production standard 0.3.572 --help                                                     # 3.572
 display_help() {
 display_usage
 #    Displaying help DESCRIPTION in English en_US.UTF-8, en.UTF-8, C.UTF-8                  # 3.550
