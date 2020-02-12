@@ -4,7 +4,7 @@ This subdirectory contains shell scripts that download traffic information befor
 
 ## Goal
 
-
+Track traffic to a GitHub repository longer than 14 days
 
 #### If you like this repository, select in the upper-right corner,  STAR,  thank you.
 
