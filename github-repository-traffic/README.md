@@ -1,4 +1,4 @@
-# github-repository-traffic [![Stable Release](https://img.shields.io/badge/Release-3.213-blue.svg)](https://github.com/BradleyA/markit/releases/tag/3.213)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/markit/3.213.svg)](https://github.com/BradleyA/markit/commits/)
+# github-repository-traffic [![Stable Release](https://img.shields.io/badge/Release-2.105-blue.svg)](https://github.com/BradleyA/markit/releases/tag/2.105)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/markit/2.105.svg)](https://github.com/BradleyA/markit/commits/)
 
 This subdirectory contains shell scripts that download traffic information before it is lost on GitHub.  Most scripts in this repository support --help and --usage options.
 
