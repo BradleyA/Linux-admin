@@ -1,10 +1,52 @@
-# github-repository-traffic 
+# github-repository-traffic [![Stable Release](https://img.shields.io/badge/Release-2.105-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/2.105)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/2.105.svg)](https://github.com/BradleyA/Linux-admin/commits/)
 
 This subdirectory contains shell scripts that download traffic information before it is lost on GitHub.  Most scripts in this repository support --help and --usage options.
 
+## Goal
+
+Track traffic to a GitHub repository longer than 14 days
+
+#### If you like this repository, select in the upper-right corner,  STAR,  thank you.
+
 **WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
-#### Download files:
+### Install
+
+To install, follow these steps.  Use git to pull or clone these scripts into a directory. If you do not have git then enter; "sudo apt-get install git" if using Ubuntu. On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
+
+    cd /tmp
+    git clone https://github.com/BradleyA/Linux-admin
+    cd Linux-admin/github-repository-traffic
+    
+1) Change **BradleyA** below to your GitHub repository owner name or who you signed in as on GitHub
+2) Change the lines in github.repository.list file to your GitHub repository names.
+
+       vi ./github.repository.list
+
+3) Run the following to setup the GitHub repository traffic.
+       
+       ./setup.github.repository.sh BradleyA
+
+### Output
+<img id="setup.github.repository.sh" src="../images/setup.github.repository.gif" >
+
+    cd ../..
+    rm -rf Linux-admin/
+    cd /usr/local/data/github/
+
+4) Enter crontab -e to add the lines from setup.github.repository.sh to crontab 
+
+    crontab -e
+   
+5) To set GitHub login to support automation of scripts running in cron, edit ~/.netrc and add a personal access token for authentication from GitHub. [Creating a personal access token for the command line.](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)   No you don't push any file like ~/.netrc to anywhere. Duh!
+    
+       vi ~/.netrc
+    
+           machine api.github.com login BradleyA password <secret-github-token>
+       
+       chmod 600 ~/.netrc
+       
+### Download files:
 
 **644 clone.heading** - Clone table headings in GitHub markdown
 
@@ -27,44 +69,6 @@ Data storage is required for this solution, so you need to have permission to cr
 In the future, this printed crontab list will be appended to a crontab file.  The crontab command normally only manages a single crontab per user.  Need a method for multiple SRE team members to manage one crontab.
 
 **644 view.heading** - View table headings in GitHub markdown
-   
-
-
-### Install
-
-To install, follow these steps.  Use git to pull or clone these scripts into a directory. If you do not have git then enter; "sudo apt-get install git" if using Ubuntu. On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
-
-    cd /tmp
-    git clone https://github.com/BradleyA/Linux-admin
-    cd Linux-admin/github-repository-traffic
-    
-1) Change **BradleyA** below to your GitHub repository owner name or who you signed in as on GitHub
-2) Change the lines in github.repository.list file to your GitHub repository names.
-
-       vi ./github.repository.list
-
-3) Run the following to setup the GitHub repository traffic.
-       
-       ./setup.github.repository.sh BradleyA
-
-## Output
-<img id="setup.github.repository.sh" src="../images/setup.github.repository.gif" >
-
-    cd ../..
-    rm -rf Linux-admin/
-    cd /usr/local/data/github/
-
-4) Enter crontab -e to add the lines from setup.github.repository.sh to crontab 
-
-    crontab -e
-   
-5) To set GitHub login to support automation of scripts running in cron, edit ~/.netrc and add a personal access token for authentication from GitHub. [Creating a personal access token for the command line.](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)   No you don't push any file like ~/.netrc to anywhere. Duh!
-    
-       vi ~/.netrc
-    
-           machine api.github.com login BradleyA password <secret-github-token>
-       
-       chmod 600 ~/.netrc
 
 ### ARCHITECTURE TREE
     /usr/local/data/                           <-- <DATA_DIR>
