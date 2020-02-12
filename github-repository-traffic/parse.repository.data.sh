@@ -1,19 +1,16 @@
 #!/bin/bash
-# 	github-repository-traffic/parse.repository.data.sh  2.121.530  2020-02-09T19:13:41.848003-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.120-2-g390c479  
-# 	   github-repository-traffic/parse.repository.data.sh   create github issues #37 #38 #39 
+# 	github-repository-traffic/parse.repository.data.sh  2.125.540  2020-02-12T12:13:22.621530-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.124-2-g74d5be4  
+# 	   github-repository-traffic/parse.repository.data.sh   complete display_help SEE ALSO close #38 
 # 	github-repository-traffic/parse.repository.data.sh  2.118.524  2020-02-08T21:50:46.421564-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.117  
 # 	   github-repository-traffic/parse.repository.data.sh   add DEBUG around rm to preventing from being removed when DEBUG is not equal to 0  close #36 
 # 	github-repository-traffic/parse.repository.data.sh  2.117.523  2020-02-08T21:41:08.858633-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.116-11-gef74032  
 # 	   github-repository-traffic/parse.repository.data.sh    check if filename not found; ERROR; exit 1; exit 1 close #35 
 # 	github-repository-traffic/parse.repository.data.sh  2.116.511  2020-02-08T12:24:01.364285-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.115-2-g9edbebe  
 # 	   github-repository-traffic/parse.repository.data.sh   Upgrade all Production standards close #33 
-# 	github-repository-traffic/parse.repository.data.sh  2.114.497  2020-02-06T22:58:58.814782-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.113-1-g9797258  
-# 	   github-repository-traffic/parse.repository.data.sh   update display_help and ARCHITECTURE TREE 
 # 	github-repository-traffic/parse.repository.data.sh  2.113.495  2020-02-06T00:06:05.666514-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.112  
 # 	   github-repository-traffic/parse.repository.data.sh   create display_help description #33 
 # 	github-repository/parse.repository.data.sh  2.98.370  2019-08-08T23:47:37.538761-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.97  
 # 	   github-repository/parse.repository.data.sh design complete, ready to create test cases 
-#
 #86# github-repository-data/parse.repository.data.sh
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559
@@ -151,13 +148,9 @@ echo -e "   Parse relevant data from cron output data file." # 3.550
 echo -e "\t${BOLD}${COMMAND_NAME} ../../<GITHUB_OWNER>.<REPOSITORY>.${TODAY}${NORMAL}" # 3.550
 
 echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
+echo    "   ${BOLD}github.repository.list${NORMAL} (https://github.com/BradleyA/Linux-admin/blob/master/github-repository-traffic/README.md#download-files)"
+echo    "   ${BOLD}owner.repository${NORMAL} (https://github.com/BradleyA/Linux-admin/blob/master/github-repository-traffic/README.md#download-files)"
 echo    "   ${BOLD}setup.github.repository.sh${NORMAL} (https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#install)"
-
-# >>>	Remove when complete		# 38
-echo    ">>> NEED TO COMPLETE THIS SOON, ONCE I KNOW HOW IT IS GOING TO WORK :-) <<<    |"
-echo    "   ${BOLD}owner.repository${NORMAL} (URL)"
-echo    "   ${BOLD}<command>${NORMAL} (URL)"
-# >>>	Remove when complete		# 38
 
 echo -e "\n${BOLD}AUTHOR${NORMAL}"                                                          # 3.550
 echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"         # 3.550

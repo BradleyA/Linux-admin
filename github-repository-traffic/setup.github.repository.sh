@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository-traffic/setup.github.repository.sh  2.125.540  2020-02-12T12:13:22.720817-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.124-2-g74d5be4  
+# 	   github-repository-traffic/parse.repository.data.sh   complete display_help SEE ALSO close #38 
 # 	github-repository-traffic/setup.github.repository.sh  2.124.537  2020-02-11T23:17:01.593001-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.123-3-g9a8c5b4  
 # 	   github-repository-traffic/setup.github.repository.sh   update display_help  close #41 
 # 	github-repository-traffic/setup.github.repository.sh  2.123.533  2020-02-10T16:54:57.222050-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.122-1-g3700670  
@@ -110,7 +112,7 @@ echo -e "\tOn-line brief reference manual\n"                                    
 echo    "   --usage, -usage, -u"                                                       # 3.572
 echo -e "\tOn-line command usage\n"                                                    # 3.572
 echo    "   --version, -version, -v]"                                                  # 3.572
-echo    "\tOn-line command version"                                                  # 3.572
+echo -e "\tOn-line command version"                                                    # 3.572
 #
 
 ###  Production standard 6.3.547  Architecture tree
@@ -140,6 +142,11 @@ echo    "   https://github.com/BradleyA/Linux-admin/blob/master/github-repositor
 
 echo -e "\n${BOLD}EXAMPLES${NORMAL}"
 echo -e "   Setup the GitHub repository traffic on this system\n\t${BOLD}${COMMAND_NAME} <GITHUB_OWNER>${NORMAL}\n" # 3.550
+
+echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
+echo    "   ${BOLD}github.repository.list${NORMAL} (https://github.com/BradleyA/Linux-admin/blob/master/github-repository-traffic/README.md#download-files)"
+echo    "   ${BOLD}owner.repository${NORMAL} (https://github.com/BradleyA/Linux-admin/blob/master/github-repository-traffic/README.md#download-files)"
+echo    "   ${BOLD}parse.repository.data.sh${NORMAL} (https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#install)"
 
 echo -e "\n${BOLD}AUTHOR${NORMAL}"                                                          # 3.550
 echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"         # 3.550
