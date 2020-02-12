@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository-traffic/parse.repository.data.sh  2.127.550  2020-02-12T14:12:16.766170-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.126  
+# 	   github-repository-traffic/parse.repository.data.sh   [clone,view].data.* files exists and size greater than zero close #39 
 # 	github-repository-traffic/parse.repository.data.sh  2.125.540  2020-02-12T12:13:22.621530-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.124-2-g74d5be4  
 # 	   github-repository-traffic/parse.repository.data.sh   complete display_help SEE ALSO close #38 
 # 	github-repository-traffic/parse.repository.data.sh  2.118.524  2020-02-08T21:50:46.421564-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.117  
@@ -27,16 +29,12 @@ if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately i
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
 RED=$(tput    setaf 1)
-GREEN=$(tput  setaf 2)
 YELLOW=$(tput setaf 3)
-CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 
 ###  Production standard 7.0 Default variable value
 DEFAULT_DATA_GITHUB_DIR="/usr/local/data/github/"
-GITHUB_OWNER="BradleyA"
 GITHUB_REPOSITORY_TRAFFIC_DATA=""
-YEAR=$(date +%G)  #  short and long term stroage strategy
 TODAY=$(date +%Y-%m-%d)
 
 ###  Production standard 8.3.541 --usage
@@ -213,8 +211,7 @@ while [[ "${#}" -gt 0 ]] ; do
     *) break ;;
   esac
 done
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... ADMUSER >${ADMUSER}< CLUSTER >${CLUSTER}< DATA_DIR >${DATA_DIR}< FILE_NAME >${FILE_NAME}< SSH_USER >${SSH_USER}< USER_HOME >${USER_HOME}<" 1>&2 ; fi
-
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...  CLONE_FILE_NAME >${CLONE_FILE_NAME}< GITHUB_REPOSITORY_TRAFFIC_DATA >${GITHUB_REPOSITORY_TRAFFIC_DATA}<" 1>&2 ; fi
 
 #    Order of precedence: CLI argument, environment variable
 if [[ $# -ge  1 ]]  ; then GITHUB_REPOSITORY_TRAFFIC_DATA=${1} ; elif [[ "${GITHUB_REPOSITORY_TRAFFIC_DATA}" == "" ]] ; then
@@ -246,11 +243,15 @@ while read line; do
     AMOUNT=$(echo "${line}" | cut -d: -f 2)
     echo "| ${AMOUNT}" >> "${CLONE_FILE_NAME}"
   fi
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... FIRST_WORD >${FIRST_WORD}< SECOND_WORD >${SECOND_WORD}< CLONE_FILE_NAME >${CLONE_FILE_NAME}< AMOUNT >${AMOUNT}<" 1>&2 ; fi
 done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file only if DEBUG is set to zero
 CLONE_TOTAL=0
-# >>>	Do clone.data.* files exists and size greater than zero		#39
-# >>>	need to test this create an empty file in a repository that has many data file ????		#39
+#    ${CLONE_FILE_NAME} exists and read permission && exists and has a size greater than zero  #39
+if [[ ! -r "${CLONE_FILE_NAME}" ]] || [[ ! -s "${CLONE_FILE_NAME}"  ]] ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${CLONE_FILE_NAME} file does not exist, or does not have read permission, or has size of zero."
+  exit 1
+fi
 if ls clone.data.* 1>/dev/null 2>&1 ; then
 #    Total third line of clone.data.* files
   CLONE_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  clone.data.*)
@@ -275,11 +276,15 @@ while read line; do
    AMOUNT=$(echo "${line}" | cut -d: -f 2)
    echo "| ${AMOUNT}" >> "${VIEW_FILE_NAME}"
   fi
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... FIRST_WORD >${FIRST_WORD}< SECOND_WORD >${SECOND_WORD}< VIEW_FILE_NAME >${VIEW_FILE_NAME}< AMOUNT >${AMOUNT}<" 1>&2 ; fi
 done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file only if DEBUG is set to zero
 VIEW_TOTAL=0
-# >>>	Do view.data.* files exists and size greater than zero			#39
-# >>>   need to test this create an empty file in a repository that has many data file ????		#39
+#    ${VIEW_FILE_NAME} exists and read permission && exists and has a size greater than zero  #39
+if [[ ! -r "${VIEW_FILE_NAME}" ]] || [[ ! -s "${VIEW_FILE_NAME}"  ]] ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${VIEW_FILE_NAME} file does not exist, or does not have read permission, or has size of zero."
+  exit 1
+fi
 if ls view.data.* 1>/dev/null 2>&1 ; then
 #    Total third line of view.data.* files
   VIEW_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  view.data.*)
