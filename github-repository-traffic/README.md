@@ -2,6 +2,10 @@
 
 This subdirectory contains shell scripts that download traffic information before it is lost on GitHub.  Most scripts in this repository support --help and --usage options.
 
+## Goal
+
+
+
 #### If you like this repository, select in the upper-right corner,  STAR,  thank you.
 
 **WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
