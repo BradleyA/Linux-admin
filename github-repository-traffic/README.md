@@ -18,13 +18,13 @@ This subdirectory contains shell scripts that download traffic information befor
 
 **750 setup.github.repository.sh** - Setup GitHub repository traffic scripts and data directories to download GitHub traffic information before it is removed from GitHub.
 
-GitHub owner is required for this script to work.  Either as the first argument on the command line or defined as GITHUB_OWNER environment variable #34.  Data storage is required for this solution, so you need to have permission to create in /usr/local/data/github for short and long term storage ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER} was not created maybe permission incident.
+This script works for the local host only.  This script creates directories and copies github-repository-traffic files into those directories (see ARCHITECTURE TREE).  It reads github.repository.list file for your list of repositories that you want GitHub traffic.  It creates a symbolic link from <GITHUB_OWNER>.<REPOSITORY> to the script ../owner.repository and prints the lines to add to crontab.
 
- "  github.repository.list file does not exist in directory or is not size>0 or is not readable.  github.repository.list file should include Github owner's repository names, one per line." 1>&2
-  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  owner.repository file does not exist in directory or is not size>0 or is not readable" 1>&2
+GitHub owner and github.repository.list are required for this script to work.  <GITHUB_OWNER> can be the first argument on the command line or defined as GITHUB_OWNER environment variable.
 
+Data storage is required for this solution, so you need to have permission to create /usr/local/data/github for short and long term storage.
 
-
+In the future, this printed crontab list will be appended to a crontab file.  The crontab command normally only manages a single crontab per user.  Need a method for multiple SRE team members to manage one crontab.
 
 **644 view.heading** - View table headings in GitHub markdown
    
