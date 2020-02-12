@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository-traffic/setup.github.repository.sh  2.124.537  2020-02-11T23:17:01.593001-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.123-3-g9a8c5b4  
+# 	   github-repository-traffic/setup.github.repository.sh   update display_help  close #41 
 # 	github-repository-traffic/setup.github.repository.sh  2.123.533  2020-02-10T16:54:57.222050-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.122-1-g3700670  
 # 	   github-repository-traffic/setup.github.repository.sh   setup GITHUB_OWNER environment variable close #34 
 # 	github-repository-traffic/setup.github.repository.sh  2.114.497  2020-02-06T22:58:58.962412-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.113-1-g9797258  
@@ -9,6 +11,9 @@
 # 	   github-repository/setup.github.repository.sh add code for clone.heading & view.heading 
 # 	github-repository/setup.github.repository.sh  2.45.209  2019-07-29T22:54:36.803070-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.44  
 # 	   github-repository/setup.github.repository.sh making this up as I go . . . 
+##########
+###	https://github.com/isaacs/github/issues/399	###
+##########
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.550 Copyright                                                  # 3.550
 #    Copyright (c) 2020 Bradley Allen                                                       # 3.550
@@ -48,8 +53,21 @@ display_help() {
 display_usage
 #    Displaying help DESCRIPTION in English en_US.UTF-8, en.UTF-8, C.UTF-8                  # 3.550
 echo -e "\n${BOLD}DESCRIPTION${NORMAL}"
-echo    "Setup GitHub repository traffic scripts and data directories to download"
-echo    "GitHub traffic information before it is no longer available on GitHub."
+echo -e "\nThis script works for the local host only.  This script creates directories"  #41
+echo    "and copies github-repository-traffic files into those directories (see"
+echo    "ARCHITECTURE TREE).  It reads github.repository.list file for your list of"
+echo    "repositories that you want GitHub traffic.  It creates a symbolic link from"
+echo    "<GITHUB_OWNER>.<REPOSITORY> to the script ../owner.repository and prints the"
+echo    "lines to add to crontab."
+echo -e "\nGitHub owner and github.repository.list are required for this script to work."
+echo    "<GITHUB_OWNER> can be the first argument on the command line or defined as"
+echo    "GITHUB_OWNER environment variable."
+echo -e "\nData storage is required for this solution, so you need to have permission"
+echo    "to create /usr/local/data/github for short and long term storage.  To use"
+echo    "a different directory export DATA_GITHUB_DIR environment variable."
+echo -e "\nIn the future, this printed crontab list will be appended to a crontab file."
+echo    "The crontab command normally only manages a single crontab per user.  Need a"
+echo    "method for multiple SRE team members to manage one crontab."
 
 ###  Production standard 4.3.550 Documentation Language                                     # 3.550
 #    Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
