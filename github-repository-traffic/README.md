@@ -4,29 +4,7 @@ This subdirectory contains shell scripts that download traffic information befor
 
 **WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
-#### Download files:
 
-**644 clone.heading** - Clone table headings in GitHub markdown
-
-**664 github.repository.list** - GitHub repository names with one on each line.  Lines that begin with a '#' are comments.
-
-**775 owner.repository** - The default cron output data file is /usr/local/data/github/\<GITHUB_OWNER>/\<REPOSITORY>/\<GITHUB_OWNER>.\<REPOSITORY>.\<date>.  This cron output data file is created with owner.repository script linked to \<GITHUB_OWNER>.\<REPOSITORY>.  It is scheduled to run once a week using crontab but can be scheduled more or less often.
-
-**775 parse.repository.data.sh** - Parse relevant data from cron output data file to create [clone,view].table.md, [clone,view].total, and [clone,view].\<DATE> files.  These files ([clone,view].table.md, [clone,view].total) are used to update your \<GITHUB_OWNER>/\<REPOSITORY>/README.md file on GitHub.   A copy of the [clone,view].table.md file will be copied to \<GITHUB_OWNER>/\<REPOSITORY>/images directory in future automation upgrades.  The [clone,view].\<DATE> file contains one column of formated data to be used in [clone,view].table.md file.
-
-**Note --->>>**  Complete **napkin notes** from here to **page end <<<---*
-
-**750 setup.github.repository.sh** - Setup GitHub repository traffic scripts and data directories to download GitHub traffic information before it is removed from GitHub.
-
-This script works for the local host only.  This script creates directories and copies github-repository-traffic files into those directories (see ARCHITECTURE TREE).  It reads github.repository.list file for your list of repositories that you want GitHub traffic.  It creates a symbolic link from <GITHUB_OWNER>.<REPOSITORY> to the script ../owner.repository and prints the lines to add to crontab.
-
-GitHub owner and github.repository.list are required for this script to work.  <GITHUB_OWNER> can be the first argument on the command line or defined as GITHUB_OWNER environment variable.
-
-Data storage is required for this solution, so you need to have permission to create /usr/local/data/github for short and long term storage.
-
-In the future, this printed crontab list will be appended to a crontab file.  The crontab command normally only manages a single crontab per user.  Need a method for multiple SRE team members to manage one crontab.
-
-**644 view.heading** - View table headings in GitHub markdown
    
 
 
@@ -65,6 +43,30 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
            machine api.github.com login BradleyA password <secret-github-token>
        
        chmod 600 ~/.netrc
+       
+#### Download files:
+
+**644 clone.heading** - Clone table headings in GitHub markdown
+
+**664 github.repository.list** - GitHub repository names with one on each line.  Lines that begin with a '#' are comments.
+
+**775 owner.repository** - The default cron output data file is /usr/local/data/github/\<GITHUB_OWNER>/\<REPOSITORY>/\<GITHUB_OWNER>.\<REPOSITORY>.\<date>.  This cron output data file is created with owner.repository script linked to \<GITHUB_OWNER>.\<REPOSITORY>.  It is scheduled to run once a week using crontab but can be scheduled more or less often.
+
+**775 parse.repository.data.sh** - Parse relevant data from cron output data file to create [clone,view].table.md, [clone,view].total, and [clone,view].\<DATE> files.  These files ([clone,view].table.md, [clone,view].total) are used to update your \<GITHUB_OWNER>/\<REPOSITORY>/README.md file on GitHub.   A copy of the [clone,view].table.md file will be copied to \<GITHUB_OWNER>/\<REPOSITORY>/images directory in future automation upgrades.  The [clone,view].\<DATE> file contains one column of formated data to be used in [clone,view].table.md file.
+
+**Note --->>>**  Complete **napkin notes** from here to **page end <<<---*
+
+**750 setup.github.repository.sh** - Setup GitHub repository traffic scripts and data directories to download GitHub traffic information before it is removed from GitHub.
+
+This script works for the local host only.  This script creates directories and copies github-repository-traffic files into those directories (see ARCHITECTURE TREE).  It reads github.repository.list file for your list of repositories that you want GitHub traffic.  It creates a symbolic link from <GITHUB_OWNER>.<REPOSITORY> to the script ../owner.repository and prints the lines to add to crontab.
+
+GitHub owner and github.repository.list are required for this script to work.  <GITHUB_OWNER> can be the first argument on the command line or defined as GITHUB_OWNER environment variable.
+
+Data storage is required for this solution, so you need to have permission to create /usr/local/data/github for short and long term storage.
+
+In the future, this printed crontab list will be appended to a crontab file.  The crontab command normally only manages a single crontab per user.  Need a method for multiple SRE team members to manage one crontab.
+
+**644 view.heading** - View table headings in GitHub markdown
 
 ### ARCHITECTURE TREE
     /usr/local/data/                           <-- <DATA_DIR>
