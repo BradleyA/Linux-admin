@@ -14,7 +14,7 @@ Track traffic to a GitHub repository longer than 14 days
 
 To install, follow these steps.  Use git to pull or clone these scripts into a directory. If you do not have git then enter; "sudo apt-get install git" if using Ubuntu. On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
-1) Change to the /tmp directory and download/clone the files to your system (see Download files).
+1) Change to the /tmp directory and download/clone the files to your system (see Download Files below).
 
        cd /tmp
        git clone https://github.com/BradleyA/Linux-admin
@@ -24,7 +24,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
        cd Linux-admin/github-repository-traffic
        vi ./github.repository.list
 
-3) Run the following to setup the GitHub repository traffic.  Change <GITHUB_OWNER> below to your <GITHUB_OWNER> name, which is the login name you use for GitHub.  This script creates directories and copies github-repository-traffic files into those directories (see ARCHITECTURE TREE).  It reads github.repository.list file for your list of repositories that you want GitHub traffic.  It creates a symbolic link from <GITHUB_OWNER>.<REPOSITORY> to the script ../owner.repository and prints the lines to add to crontab.  You need to have permission to create /usr/local/data/github for short and long term storage.  To use a different directory export DATA_GITHUB_DIR environment variable.
+3) Run the following to setup the GitHub repository traffic.  Change <GITHUB_OWNER> below to your <GITHUB_OWNER> name, which is the login name you use for GitHub.  This script creates directories and copies github-repository-traffic files into those directories (see ARCHITECTURE TREE below).  It reads github.repository.list file for your list of repositories that you want GitHub traffic.  It creates a symbolic link from <GITHUB_OWNER>.<REPOSITORY> to the script ../owner.repository and prints the lines to add to crontab.  You need to have permission to create /usr/local/data/github for short and long term storage.  To use a different directory export DATA_GITHUB_DIR environment variable.
        
        ./setup.github.repository.sh <GITHUB_OWNER>
 
@@ -49,7 +49,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
  
 <img id="github-repository-traffic.png" src="../images/github-repository-traffic.png" >
        
-### Download files:
+### Download Files:
 
 **644 clone.heading** - Clone table headings in GitHub markdown
 
