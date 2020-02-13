@@ -50,7 +50,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
        
        chmod 600 ~/.netrc
  
-<img id="github-repository-traffic.png" src="../images/github-repository-traffic.png" >
+<img id="github-repository-traffic.png" src="../images/github-repository-traffic-2.png" >
        
 ### Download Files:
 
