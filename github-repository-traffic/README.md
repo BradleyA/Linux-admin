@@ -51,7 +51,12 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
        chmod 600 ~/.netrc
  
 <img id="github-repository-traffic.png" src="../images/github-repository-traffic-2.png" >
-       
+
+### Parse GitHub Data
+
+1) x
+2) x
+
 ### Download Files:
 
 **644 clone.heading** - Clone table headings in GitHub markdown
