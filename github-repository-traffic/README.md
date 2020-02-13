@@ -14,7 +14,7 @@ Track traffic to a GitHub repository longer than 14 days
 
 To install, follow these steps.  Use git to pull or clone these scripts into a directory. If you do not have git then enter; "sudo apt-get install git" if using Ubuntu. On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
-1) Change to the /tmp directory and download/clone the files to your system.
+1) Change to the /tmp directory and download/clone the files to your system (see Download files).
 
        cd /tmp
        git clone https://github.com/BradleyA/Linux-admin
