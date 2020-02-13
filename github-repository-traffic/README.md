@@ -46,6 +46,10 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
        
        chmod 600 ~/.netrc
        
+<img id="setup.github.repository.sh" src="../images/setup.github.repository.gif" >
+       
+<img id="github-repository-traffic.png" src="../images/github-repository-traffic.png" >
+       
 ### Download files:
 
 **644 clone.heading** - Clone table headings in GitHub markdown
