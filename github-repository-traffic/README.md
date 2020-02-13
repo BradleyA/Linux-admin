@@ -45,9 +45,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
            machine api.github.com login BradleyA password <secret-github-token>
        
        chmod 600 ~/.netrc
-       
-<img id="setup.github.repository.sh" src="../images/setup.github.repository.gif" >
-       
+ 
 <img id="github-repository-traffic.png" src="../images/github-repository-traffic.png" >
        
 ### Download files:
