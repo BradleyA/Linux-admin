@@ -14,11 +14,12 @@ Track traffic to a GitHub repository longer than 14 days
 
 To install, follow these steps.  Use git to pull or clone these scripts into a directory. If you do not have git then enter; "sudo apt-get install git" if using Ubuntu. On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
-    cd /tmp
-    git clone https://github.com/BradleyA/Linux-admin
-    cd Linux-admin/github-repository-traffic
-    
 1) Change **BradleyA** below to your GitHub repository owner name or who you signed in as on GitHub
+
+       cd /tmp
+       git clone https://github.com/BradleyA/Linux-admin
+       cd Linux-admin/github-repository-traffic
+    
 2) Change the lines in github.repository.list file to your GitHub repository names.
 
        vi ./github.repository.list
