@@ -1,6 +1,6 @@
 # cluster-command.CHANGELOG.md
 
-
+**COMING SOON -->**
 ## Version  {Next Version  3.1.????}  
 #### Release Name  {unreleased alpha beta prerelease latest}
 #### Release Date  ?????????????
@@ -61,7 +61,7 @@ Brief description
 #### Release Name  2.42
 #### Release Date  2019-06-07T17:09:06.723711-05:00 (CDT)
 
-Brief description
+Minor update to Docker commands
 
 ### Features Added
 * Update README.md
