@@ -14,7 +14,6 @@ Brief description
   * cluster-command.sh - add support for production standard 8.0 --usage close #28 
   * cluster-command.sh  upgrade to Production standard 1.3.496 DEBUG variable ; shellcheck version section corrected
   * cluster-command/cluster-command.sh   upgrade or add  1.3.531 DEBUG variable, 8.3.530 --usage, 0.3.214 --help, 4.3.534 Documentation Language, 9.3.513 Parse CLI options and arguments, 7.0 Default variable value
-  * 
 * github-repository-traffic
   * Update README.md
   * added github-repository README to support design process
