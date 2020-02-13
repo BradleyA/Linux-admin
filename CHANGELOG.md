@@ -1,7 +1,7 @@
 # cluster-command.CHANGELOG.md
 
 
-## Version  {Next Version  X.X.????}  
+## Version  {Next Version  3.1.????}  
 #### Release Name  {unreleased alpha beta prerelease latest}
 #### Release Date  ?????????????
 
