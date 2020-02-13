@@ -55,6 +55,7 @@ Brief description
 * github-animated-GIF
 
 
+**Latest Release -->**
 ## Version  2.42.202
 #### Release Name  2.42
 #### Release Date  2019-06-07T17:09:06.723711-05:00 (CDT)
