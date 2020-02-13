@@ -1,5 +1,8 @@
 # cluster-command.CHANGELOG.md
 
+Use the following example to guide you to; How to download an earlier release.
+
+    git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
 ## Version  {Next Version  X.X.????}  
 #### Release Name  {unreleased alpha beta prerelease latest}
@@ -11,8 +14,8 @@ Brief description
 * Update issue templates
 * Update README.md
 * cluster-command
-  * cluster-command.sh - add support for production standard 8.0 --usage close #28 
-  * cluster-command.sh  upgrade to Production standard 1.3.496 DEBUG variable ; shellcheck version section corrected
+  * cluster-command/cluster-command.sh   add support for production standard 8.0 --usage close #28 
+  * cluster-command/cluster-command.sh   upgrade to Production standard 1.3.496 DEBUG variable ; shellcheck version section corrected
   * cluster-command/cluster-command.sh   upgrade or add  1.3.531 DEBUG variable, 8.3.530 --usage, 0.3.214 --help, 4.3.534 Documentation Language, 9.3.513 Parse CLI options and arguments, 7.0 Default variable value
   * 
 * github-repository-traffic
@@ -44,7 +47,7 @@ Brief description
 
 ### Issues
 * cluster-command
-  * close #28 cluster-command.sh - add support for production standard 8.0 --usage
+  * close #28 cluster-command/cluster-command.sh - add support for production standard 8.0 --usage
 * github-repository-traffic
   * close #29 change data directory to /usr/local/data/github/${DEFAULT_REPOSITORY_OWNER}/${DEFAULT_REPOSITORY}
   * close #33 github-repository-traffic/parse.repository.data.sh   create display_help description
