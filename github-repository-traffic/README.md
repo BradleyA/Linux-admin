@@ -52,6 +52,9 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
  
 <img id="github-repository-traffic.png" src="../images/github-repository-traffic-2.png" >
 
+
+**Note --->>>**  Complete **napkin notes** from here to **page end <<<---*
+
 ### Parse GitHub Data
 
 1) x
@@ -66,6 +69,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
 **775 owner.repository** - The default cron output data file is /usr/local/data/github/\<GITHUB_OWNER>/\<REPOSITORY>/\<GITHUB_OWNER>.\<REPOSITORY>.\<date>.  This cron output data file is created with owner.repository script linked to \<GITHUB_OWNER>.\<REPOSITORY>.  It is scheduled to run once a week using crontab but can be scheduled more or less often.
 
 **775 parse.repository.data.sh** - Parse relevant data from cron output data file to create [clone,view].table.md, [clone,view].total, and [clone,view].\<DATE> files.  These files ([clone,view].table.md, [clone,view].total) are used to update your \<GITHUB_OWNER>/\<REPOSITORY>/README.md file on GitHub.   A copy of the [clone,view].table.md file will be copied to \<GITHUB_OWNER>/\<REPOSITORY>/images directory in future automation upgrades.  The [clone,view].\<DATE> file contains one column of formated data to be used in [clone,view].table.md file.
+
 
 **Note --->>>**  Complete **napkin notes** from here to **page end <<<---*
 
