@@ -14,32 +14,35 @@ Track traffic to a GitHub repository longer than 14 days
 
 To install, follow these steps.  Use git to pull or clone these scripts into a directory. If you do not have git then enter; "sudo apt-get install git" if using Ubuntu. On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
-1) Change to the /tmp directory and download/clone the files to your system.
+1) Change to the /tmp directory and download/clone the files to your system ([see Download Files](https://github.com/BradleyA/Linux-admin/blob/master/github-repository-traffic/README.md#download-files)).
 
        cd /tmp
        git clone https://github.com/BradleyA/Linux-admin
-       cd Linux-admin/github-repository-traffic
-    
+
 2) Change the lines in github.repository.list file to your GitHub repository names.
 
+       cd Linux-admin/github-repository-traffic
        vi ./github.repository.list
 
-3) Run the following to setup the GitHub repository traffic.  Change **BradleyA** below to your <GITHUB_OWNER> name.  This script creates directories and copies github-repository-traffic files into those directories (see ARCHITECTURE TREE).  It reads github.repository.list file for your list of repositories that you want GitHub traffic.  It creates a symbolic link from <GITHUB_OWNER>.<REPOSITORY> to the script ../owner.repository and prints the lines to add to crontab.  You need to have permission to create /usr/local/data/github for short and long term storage.  To use a different directory export DATA_GITHUB_DIR environment variable.
+3) Run the following to setup the GitHub repository traffic.  Change <GITHUB_OWNER> below to your <GITHUB_OWNER> name, which is the login name you use for GitHub.  This script creates directories and copies github-repository-traffic files into those directories ([see ARCHITECTURE TREE](https://github.com/BradleyA/Linux-admin/blob/master/github-repository-traffic/README.md#architecture-tree)).  It reads github.repository.list file for your list of repositories that you want GitHub traffic.  It creates a symbolic link from <GITHUB_OWNER>.<REPOSITORY> to the script ../owner.repository and prints the lines to add to crontab.  You need to have permission to create /usr/local/data/github for short and long term storage.  To use a different directory export DATA_GITHUB_DIR environment variable.
        
-       ./setup.github.repository.sh BradleyA
+       ./setup.github.repository.sh <GITHUB_OWNER>
 
 ### Output
 <img id="setup.github.repository.sh" src="../images/setup.github.repository.gif" >
 
-    cd ../..
-    rm -rf Linux-admin/
-    cd /usr/local/data/github/
+4) Remove the download/clone files from the /tmp directory.
+    
+       cd ../..
+       rm -rf Linux-admin/
+ 
 
-4) Enter crontab -e to append the lines from setup.github.repository.sh to crontab 
+5) Enter crontab -e to append the lines from setup.github.repository.sh output to crontab 
 
-    crontab -e
+       cd /usr/local/data/github/
+       crontab -e
    
-5) To set GitHub login to support automation of scripts running in cron, edit ~/.netrc and add a personal access token for authentication from GitHub. [Creating a personal access token for the command line.](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)   No you don't push any file like ~/.netrc to anywhere. Duh!
+6) To set GitHub login to support automation of scripts running in cron, edit ~/.netrc and add a personal access token for authentication from GitHub. [Creating a personal access token for the command line.](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)   No you don't push any file like ~/.netrc to anywhere. Duh!
     
        vi ~/.netrc
     
@@ -49,7 +52,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
  
 <img id="github-repository-traffic.png" src="../images/github-repository-traffic.png" >
        
-### Download files:
+### Download Files:
 
 **644 clone.heading** - Clone table headings in GitHub markdown
 
