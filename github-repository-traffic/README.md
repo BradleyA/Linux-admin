@@ -31,17 +31,17 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
 ### Output
 <img id="setup.github.repository.sh" src="../images/setup.github.repository.gif" >
 
-5) Remove the download/clone files from the /tmp directory.
+4) Remove the download/clone files from the /tmp directory.
     
        cd ../..
        rm -rf Linux-admin/
        cd /usr/local/data/github/
 
-4) Enter crontab -e to append the lines from setup.github.repository.sh to crontab 
+5) Enter crontab -e to append the lines from setup.github.repository.sh to crontab 
 
        crontab -e
    
-5) To set GitHub login to support automation of scripts running in cron, edit ~/.netrc and add a personal access token for authentication from GitHub. [Creating a personal access token for the command line.](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)   No you don't push any file like ~/.netrc to anywhere. Duh!
+6) To set GitHub login to support automation of scripts running in cron, edit ~/.netrc and add a personal access token for authentication from GitHub. [Creating a personal access token for the command line.](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)   No you don't push any file like ~/.netrc to anywhere. Duh!
     
        vi ~/.netrc
     
