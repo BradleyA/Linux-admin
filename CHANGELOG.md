@@ -4,7 +4,8 @@ Use the following example to guide you to; How to download an earlier release.
 
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
-## Version  {Next Version  X.X.????}  
+**COMING SOON -->**
+## Version  {Next Version  3.1.????}  
 #### Release Name  {unreleased alpha beta prerelease latest}
 #### Release Date  ?????????????
 
@@ -17,32 +18,29 @@ Brief description
   * cluster-command/cluster-command.sh   add support for production standard 8.0 --usage close #28 
   * cluster-command/cluster-command.sh   upgrade to Production standard 1.3.496 DEBUG variable ; shellcheck version section corrected
   * cluster-command/cluster-command.sh   upgrade or add  1.3.531 DEBUG variable, 8.3.530 --usage, 0.3.214 --help, 4.3.534 Documentation Language, 9.3.513 Parse CLI options and arguments, 7.0 Default variable value
-  * 
 * github-repository-traffic
-  * Update README.md
   * added github-repository README to support design process
   * change data directory to /usr/local/data/github/${DEFAULT_REPOSITORY_OWNER}/${DEFAULT_REPOSITORY}
-  * new directory structure to ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/{log,data} to manage data & commands #29
+  * new directory structure to ${DEFAULT_DATA_GITHUB_DIR}/${GITHUB_OWNER}/{log,data} to manage data & commands
   * changed DATA_DIR to DATA_GITHUB_DIR
-  * github-repository/setup.github.repository.sh added requirements checking with help if not met
+  * github-repository/setup.github.repository.sh  added requirements checking with help if not met
   * move the echo help hint above the LOOP so user can copy ALL crontab lines at one time
-  * github.repository.list create example file with github repository names with one on each line
+  * github.repository.list   create example file with github repository names with one on each line
   * github-repository/setup.github.repository.sh  changed ln -s to ln-sf to force ln and stop error message File exists
-  * png image from convert command
-  * github-repository/parse.repository.data.sh parse data to be used in table
-  * github-repository/setup.github.repository.sh add code for clone.heading & view.heading
-  * github-repository/parse.repository.data.sh total clones include total in clone.total
-  * github-repository/parse.repository.data.sh add totals to tables
+  * github-repository/parse.repository.data.sh  parse data to be used in table
+  * github-repository/setup.github.repository.sh  add code for clone.heading & view.heading
+  * github-repository/parse.repository.data.sh  total clones include total in clone.total
+  * github-repository/parse.repository.data.sh  add totals to tables
   * Create clone.table.md
   * Create view.table.md
-  * github-repository-traffic/parse.repository.data.sh   create display_help description #33
-  * github-repository-traffic/parse.repository.data.sh    check if filename not found; ERROR; exit 1; exit 1
+  * github-repository-traffic/parse.repository.data.sh   create display_help description
+  * github-repository-traffic/parse.repository.data.sh   check if filename not found; ERROR; exit 1; exit 1
   * github-repository-traffic/parse.repository.data.sh   add DEBUG around rm to preventing from being removed when DEBUG is not equal to 0
   * github-repository-traffic/setup.github.repository.sh   setup GITHUB_OWNER environment variable
   * github-repository-traffic/setup.github.repository.sh   update display_help
   * github-repository-traffic/parse.repository.data.sh   complete display_help SEE ALSO
   * github-repository-traffic/setup.github.repository.sh   Upgrade all Production standards
-  * github-repository-traffic/parse.repository.data.sh   [clone,view].data.\* files exists and size greater than zero close
+  * github-repository-traffic/parse.repository.data.sh   [clone,view].data.\* files exists and size greater than zero
 * github-animated-GIF
 
 ### Issues
@@ -61,11 +59,12 @@ Brief description
 * github-animated-GIF
 
 
+**Latest Release -->**
 ## Version  2.42.202
 #### Release Name  2.42
 #### Release Date  2019-06-07T17:09:06.723711-05:00 (CDT)
 
-Brief description
+Minor update to Docker commands
 
 ### Features Added
 * Update README.md
