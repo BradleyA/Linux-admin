@@ -37,7 +37,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
        rm -rf Linux-admin/
        cd /usr/local/data/github/
 
-5) Enter crontab -e to append the lines from setup.github.repository.sh to crontab 
+5) Enter crontab -e to append the lines from setup.github.repository.sh output to crontab 
 
        crontab -e
    
