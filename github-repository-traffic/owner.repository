@@ -1,8 +1,6 @@
 #!/bin/bash
-#	github-repository-traffic/owner.repository  2.128.606  2020-02-15T15:27:31.224236-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.127-55-gbd0d563  
-#	   github-repository-traffic/owner.repository   update comment 
-#	github-repository/owner.repository  2.83.301  2019-08-05T23:39:40.688422-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.82  
-#	   github-repository/owner.repository changed variable names 
+#	github-repository-traffic/owner.repository  2.129.607  2020-02-15T15:42:25.727071-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.128  
+#	   github-repository-traffic/owner.repository   updated commets 
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen
@@ -14,8 +12,8 @@
 #	 This script is just a cron job 
 ##
 # >> >>  THIS SCRIPT WILL NOT WORK UNLESS IT IS RENAMED OR A SYMBOLIC LINK IS USED TO RENAME IT !  << <<
-# >> >>  cp     owner.repository "${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}"
-# >> >>  ln -sf owner.repository "${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}"
+# >> >>  cp     ../owner.repository "${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}"
+# >> >>  ln -sf ../owner.repository "${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}"
 ##
 
 ###
