@@ -5,10 +5,8 @@ This subdirectory contains shell scripts that download traffic information befor
 ## Goal
 
 Track traffic to a GitHub repository longer than 14 days
-
-#### Traffic
- * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=90&color=blue">  [Clones Table](../images/clone.table.md)
- * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=607&color=blue">  [Views Table](../images/view.table.md)
+  <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=90&color=blue">  [Clones Table](../images/clone.table.md)
+  <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=607&color=blue">  [Views Table](../images/view.table.md)
 
 #### If you like this repository, select in the upper-right corner,  STAR,  thank you.
 
