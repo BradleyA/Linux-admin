@@ -11,16 +11,6 @@ Track traffic to a GitHub repository longer than 14 days
  * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=607&color=blue">  [Views Table](../images/view.table.md)
 
 
-
-#### Git clones
-Date:    |        07-29   |       08-05   |       08-12   |       08-19   |       08-26   |       09-02  |  09-09  |  12-09  |  12-16  |  12-23  |  12-30
-|:---    |:---:   |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:
-Clones:  |        34      |       31      |       2       |       2       |       4       |       2      |  2      |  1      |  2      |  9      |  1
-Unique   clones:  |       2       |       3       |       2       |       2       |       2       |      2  |      2  |      1  |      2  |      8  |      1
-
-Total clones: 90
-###### Updated: 2020-01-04
-
 #### If you like this repository, select in the upper-right corner,  STAR,  thank you.
 
 **WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
@@ -65,7 +55,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
        
        chmod 600 ~/.netrc
  
-<img id="github-repository-traffic.png" src="../images/github-repository-traffic-2.png" >
+<img id="github-repository-traffic-1.png" src="../images/github-repository-traffic-1.png" >
 
 
 **Note --->>>**  Complete **napkin notes** from here to **page end <<<---*
