@@ -6,6 +6,16 @@ This subdirectory contains shell scripts that download traffic information befor
 
 Track traffic to a GitHub repository longer than 14 days
 
+
+#### Git clones
+Date:    |        07-29   |       08-05   |       08-12   |       08-19   |       08-26   |       09-02  |  09-09  |  12-09  |  12-16  |  12-23  |  12-30
+|:---    |:---:   |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:
+Clones:  |        34      |       31      |       2       |       2       |       4       |       2      |  2      |  1      |  2      |  9      |  1
+Unique   clones:  |       2       |       3       |       2       |       2       |       2       |      2  |      2  |      1  |      2  |      8  |      1
+
+Total clones: 90
+###### Updated: 2020-01-04
+
 #### If you like this repository, select in the upper-right corner,  STAR,  thank you.
 
 **WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
@@ -124,24 +134,6 @@ Need to automate the running of these commands and then push the updated table f
     . . .
     cat clone.table.md ; git add clone.table.md ; git commit -m 'updated table' clone.table.md ; git push clone.table.md
     cat view.table.md ; git add view.table.md ; git commit -m 'updated table' view.table.md ; git push view.table.md
-
-#### Git clones
-Date:    |        07-29   |       08-05   |       08-12   |       08-19   |       08-26   |       09-02  |  09-09  |  12-09  |  12-16  |  12-23  |  12-30
-|:---    |:---:   |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:
-Clones:  |        34      |       31      |       2       |       2       |       4       |       2      |  2      |  1      |  2      |  9      |  1
-Unique   clones:  |       2       |       3       |       2       |       2       |       2       |      2  |      2  |      1  |      2  |      8  |      1
-
-Total clones: 90
-###### Updated: 2020-01-04
-
-#### Visitors
-Date:   |         07-22   |       07-29   |       08-05   |       08-12   |       08-19   |       08-26   |       09-23   |  09-30  |  10-07  |  10-14  |  12-09  |  12-16  |  12-23  |  12-30
-|:---   |:---:    |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:
-Views:  |         2       |       139     |       273     |       2       |       2       |       14      |       6       |  2      |  1      |  5      |  12     |  1      |  140    |  8
-Unique  vistors:  |       2       |       2       |       3       |       1       |       1       |       2       |       2  |      2  |      1  |      1  |      1  |      1  |      2  |      2
-
-Total views: 607
-###### Updated: 2020-01-04
 
 #### Author
 [<img id="twitter" src="../images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
