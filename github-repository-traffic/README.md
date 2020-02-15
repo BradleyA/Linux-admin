@@ -33,7 +33,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
        
        ./setup.github.repository.sh <GITHUB_OWNER>
 
-### Output
+#### Step 3 output
 <img id="setup.github.repository.sh" src="../images/setup-step-3.gif" >
 
 4) Remove the download/clone files from the /tmp directory.
