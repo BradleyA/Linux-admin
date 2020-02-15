@@ -6,6 +6,11 @@ This subdirectory contains shell scripts that download traffic information befor
 
 Track traffic to a GitHub repository longer than 14 days
 
+#### Traffic
+ * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=90&color=blue">  [Clones Table](../images/clone.table.md)
+ * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=607&color=blue">  [Views Table](../images/view.table.md)
+
+
 
 #### Git clones
 Date:    |        07-29   |       08-05   |       08-12   |       08-19   |       08-26   |       09-02  |  09-09  |  12-09  |  12-16  |  12-23  |  12-30
@@ -116,9 +121,6 @@ In the future, this printed crontab list will be appended to a crontab file.  Th
         │                                          traffic data
         └── <GITHUB_OWNER>                     <-- Links to ../owner.repository
 
-#### Traffic
- * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=90&color=blue">  [Clones Table](../images/clone.table.md)
- * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=607&color=blue">  [Views Table](../images/view.table.md)
 
 #### In design & development  (7/2019 - )
  
