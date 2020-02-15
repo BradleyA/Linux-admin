@@ -10,7 +10,6 @@ Track traffic to a GitHub repository longer than 14 days
  * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=90&color=blue">  [Clones Table](../images/clone.table.md)
  * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=607&color=blue">  [Views Table](../images/view.table.md)
 
-
 #### If you like this repository, select in the upper-right corner,  STAR,  thank you.
 
 **WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
@@ -55,13 +54,15 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
  
 <img id="github-repository-traffic-1.png" src="../images/github-repository-traffic-1.png" >
 
-
 **Note --->>>**  Complete **napkin notes** from here to **page end <<<---*
 
 ### Parse GitHub Data
 
 1) x
 2) x
+
+
+<img id="github-repository-traffic-2.png" src="../images/github-repository-traffic-2.png" >
 
 ### Download Files:
 
@@ -124,6 +125,10 @@ Need to automate the running of these commands and then push the updated table f
     . . .
     cat clone.table.md ; git add clone.table.md ; git commit -m 'updated table' clone.table.md ; git push clone.table.md
     cat view.table.md ; git add view.table.md ; git commit -m 'updated table' view.table.md ; git push view.table.md
+
+#### Traffic
+ * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=90&color=blue">  [Clones Table](../images/clone.table.md)
+ * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=607&color=blue">  [Views Table](../images/view.table.md)
 
 #### Author
 [<img id="twitter" src="../images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
