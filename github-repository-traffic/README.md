@@ -42,7 +42,11 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
        rm -rf Linux-admin/
  
 
-5) Enter crontab -e to append the lines from setup.github.repository.sh output to crontab.  This would be a good time to change the time you want cron to run these scripts.  I have cron run my script weekly on Monday atfer 12:00 P.M.
+5) Enter crontab -e to append the setup.github.repository.sh output lines into your crontab file. 
+
+20 11 * * MON   /usr/local/data/github//BradleyA/BradleyA.git-TEST-commit-automation  >>  /usr/local/data/github//BradleyA/log/BradleyA.git-TEST-commit-automation-crontab
+
+It creates a symbolic link from <GITHUB_OWNER>.<REPOSITORY> to the script ../owner.repository and prints the lines to add to crontab.  You need to have permission to create /usr/local/data/github for short and long term storage.  To use a different directory export DATA_GITHUB_DIR environment variable.This would be a good time to change the time you want cron to run these scripts.  I have cron run my script weekly on Monday atfer 12:00 P.M.
 
        cd /usr/local/data/github/
        crontab -e
