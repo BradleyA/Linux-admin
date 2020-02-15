@@ -42,7 +42,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
        rm -rf Linux-admin/
  
 
-5) Enter crontab -e to append the setup.github.repository.sh output lines into your crontab file. 
+5) Enter crontab -e to append the setup.github.repository.sh output lines into your crontab file.  Each line includes a time and date for the script to run, the script, and a log file.  The file name is a symbloic link to owner.repository. the 
 
 20 11 * * MON   /usr/local/data/github//BradleyA/BradleyA.git-TEST-commit-automation  >>  /usr/local/data/github//BradleyA/log/BradleyA.git-TEST-commit-automation-crontab
 
