@@ -21,12 +21,12 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
 
 1) Change to the /tmp directory and download/clone the files to your system ([see Download Files](https://github.com/BradleyA/Linux-admin/blob/master/github-repository-traffic/README.md#download-files)).
 
-       cd /tmp
+       cd  /tmp
        git clone https://github.com/BradleyA/Linux-admin
 
 2) Change the lines in github.repository.list file to your GitHub repository names.
 
-       cd Linux-admin/github-repository-traffic
+       cd  /tmp/Linux-admin/github-repository-traffic
        vi ./github.repository.list
 
 3) Run the following to setup github-repository-traffic.  Change <GITHUB_OWNER> to your <GITHUB_OWNER>, which is the login name you use for GitHub.  This script creates directories and copies github-repository-traffic files into those directories ([see ARCHITECTURE TREE](https://github.com/BradleyA/Linux-admin/blob/master/github-repository-traffic/README.md#architecture-tree)).  It reads github.repository.list file for your list of repositories that you want historic traffic information.  It creates a symbolic link from <GITHUB_OWNER>.<REPOSITORY> to the script ../owner.repository and prints the lines to add to crontab.  You need to have permission to create /usr/local/data/github for short and long term storage.  To use a different directory export DATA_GITHUB_DIR environment variable.
@@ -39,9 +39,8 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
 4) Remove the download/clone files from the /tmp directory.
     
        cd 
-       rm -rf /tmp/Linux-admin/
+       rm -rf  /tmp/Linux-admin/
  
-
 5) Enter crontab -e to append the setup.github.repository.sh output lines into your crontab file.  Each line includes a time and date for the script to run, the script, and a log file.  The file name is a symbloic link from <GITHUB_OWNER>.<REPOSITORY> to the script ../owner.repository.  The symbolic links where created when running setup.github.repository.sh.  The script 'owner.repository' uses it's file name to know which GitHub account and repository to pull the traffic information from.  
 
        20 11 * * MON   /usr/local/data/github//BradleyA/BradleyA.git-TEST-commit-automation  >>  /usr/local/data/github//BradleyA/log/BradleyA.git-TEST-commit-automation-crontab
