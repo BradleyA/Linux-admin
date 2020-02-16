@@ -56,8 +56,8 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
 
 ### Parse GitHub Data
 
-1) x
-2) x
+1) cd  /usr/local/data/github/\<GITHUB_OWNER/\<REPOSITORY>
+2) ../../parse.repository.data.sh  \<GITHUB_OWNER/\<REPOSITORY>.\<DATE>
 
 
 <img id="github-repository-traffic-2.png" src="../images/github-repository-traffic-2.png" >
