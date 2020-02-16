@@ -56,7 +56,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
 
 ### Parse GitHub Data
 
-There was a thought to schedule weekly parsing of traffic data after it's downloaded.  At this time I am still tweeking things a little more before I roll it into a cronttab file.  Future updates will include pushing updated tables and README labels to GitHub repositories.
+There was a thought to schedule weekly parsing of traffic data after it's downloaded.  At this time I am still tweeking things a little more before I roll it into a crontab file.  Future updates will include pushing updated tables and README labels to GitHub repositories.  Currently follow these steps to manually conplete the tables and git push.
 
 1) cd  /usr/local/data/github/\<GITHUB_OWNER>/\<REPOSITORY>
 2) ../../parse.repository.data.sh  \<GITHUB_OWNER>.\<REPOSITORY>.\<DATE>
