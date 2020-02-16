@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository-traffic/parse.repository.data.sh  2.130.624  2020-02-16T17:37:37.704997-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.129-16-g9f56c17  
+# 	   github-repository-traffic/parse.repository.data.sh   Complete display_help ENVIRONMENT VARIABLES close #37 
 # 	github-repository-traffic/parse.repository.data.sh  2.127.550  2020-02-12T14:12:16.766170-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.126  
 # 	   github-repository-traffic/parse.repository.data.sh   [clone,view].data.* files exists and size greater than zero close #39 
 # 	github-repository-traffic/parse.repository.data.sh  2.125.540  2020-02-12T12:13:22.621530-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.124-2-g74d5be4  
@@ -33,8 +35,7 @@ YELLOW=$(tput setaf 3)
 WHITE=$(tput  setaf 7)
 
 ###  Production standard 7.0 Default variable value
-DEFAULT_DATA_GITHUB_DIR="/usr/local/data/github/"
-GITHUB_REPOSITORY_TRAFFIC_DATA=""
+DEFAULT_GITHUB_TRAFFIC_DIR="/usr/local/data/github/"
 TODAY=$(date +%Y-%m-%d)
 
 ###  Production standard 8.3.541 --usage
@@ -54,18 +55,20 @@ display_help() {
 display_usage
 #    Displaying help DESCRIPTION in English en_US.UTF-8, en.UTF-8, C.UTF-8                  # 3.550
 echo -e "\n${BOLD}DESCRIPTION${NORMAL}"
-echo -e "\nParse relevant data from owner.repository (cron) output data file to create"
-echo    "[clone,view].table.md, [clone,view].total, and [clone,view].<DATE> files."
-echo    "These files ([clone,view].table.md, [clone,view].total) are used to update"
-echo    "your <GITHUB_OWNER>/<REPOSITORY>/README.md file on GitHub.   A copy of the"
-echo    "[clone,view].table.md file will be copied to <GITHUB_OWNER>/<REPOSITORY>/images"
-echo    "directory in future automation upgrades.  The [clone,view].<DATE> file contains"
-echo    "one column of formated data to be used in [clone,view].table.md file."
-echo -e "\nThe default cron output data file is ${DEFAULT_DATA_GITHUB_DIR}<GITHUB_OWNER>/"
-echo    "<REPOSITORY>/<GITHUB_OWNER>.<REPOSITORY>.<date>.  This cron output data file is"
-echo    "created with owner.repository script linked to <GITHUB_OWNER>.<REPOSITORY>.  It"
-echo    "is scheduled to run once a week using crontab but can be scheduled more or less"
-echo    "often."
+echo -e "\nParse output from owner.repository script to create [clone,view].table.md,"
+echo    "[clone,view].total, and [clone,view].<DATE> files.  [clone,view].table.md is a"
+echo    "markdown table organized in two rows; [Clones,Views] and [Unique clones,Unique"
+echo    "vistors], with dated columns.  [clone,view].total file includes the total only."
+echo    "[clone,view].<DATE> contains one column of markdown formated table data to be"
+echo    "used in [clone,view].table.md file.  You can use the data in these files any"
+echo    "way you want.  I have used them in my <GITHUB_OWNER>/<REPOSITORY>/README.md"
+echo    "file and copied some files to <GITHUB_OWNER>/<REPOSITORY>/images directory.  In"
+echo    "the future I want to automate a push of this data to GitHub repositories but"
+echo    "that has many challenges (which branch, how much of a repository needs to be"
+echo    "cloned to make a git push with new files, is someone editing README.md, etc)."
+echo -e "\nThe output from owner.repository script that this script parses is located in"
+echo    "${DEFAULT_GITHUB_TRAFFIC_DIR}/<GITHUB_OWNER>/<REPOSITORY>/"
+echo    "<GITHUB_OWNER>.<REPOSITORY>.<date>."
 
 ###  Production standard 4.3.550 Documentation Language                                     # 3.550
 #    Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
@@ -96,15 +99,9 @@ echo    "                   exit immediately if non-zero exit status is recieved
 echo    "                   some exceptions.  Setting 5 (set -e -o pipefail) will do"       # 3.550
 echo    "                   setting 4 and exit if any command in a pipeline errors.  For"   # 3.550
 echo    "                   more information about the set options, see man bash."          # 3.550
-
-# >>>	Remove when complete		#37
-echo    ">>> NEED TO COMPLETE THIS SOON, ONCE I KNOW HOW IT IS GOING TO WORK :-) <<<    |"
-
-echo    "   CLONE_FILE_NAME Cron job data file"
-echo    "                   (default ${DEFAULT_DATA_GITHUB_DIR}<GITHUB_OWNER>/<REPOSITORY>/<GITHUB_OWNER>.<REPOSITORY>.<date>)"
-echo    "   GITHUB_REPOSITORY_TRAFFIC_DATA"
-echo    "                   X"
-# >>>	Remove when complete		#37
+#
+echo    "   GITHUB_TRAFFIC_DIR GitHub long term traffic solution directory"
+echo    "                   (default ${DEFAULT_GITHUB_TRAFFIC_DIR})"
 
 echo -e "\n${BOLD}OPTIONS${NORMAL}"
 echo -e "Order of precedence: CLI options, environment variable, default value.\n"     # 3.572
@@ -211,13 +208,19 @@ while [[ "${#}" -gt 0 ]] ; do
     *) break ;;
   esac
 done
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...  CLONE_FILE_NAME >${CLONE_FILE_NAME}< GITHUB_REPOSITORY_TRAFFIC_DATA >${GITHUB_REPOSITORY_TRAFFIC_DATA}<" 1>&2 ; fi
 
 #    Order of precedence: CLI argument, environment variable
-if [[ $# -ge  1 ]]  ; then GITHUB_REPOSITORY_TRAFFIC_DATA=${1} ; elif [[ "${GITHUB_REPOSITORY_TRAFFIC_DATA}" == "" ]] ; then
-  new_message "${LINENO}" "${RED}ERROR${WHITE}" "<GITHUB_OWNER>.<REPOSITORY>.<date> is required to make this work.  Either as the first argument on the command line or defined as GITHUB_REPOSITORY_TRAFFIC_DATA environment variable."
+if [[ $# -ge  1 ]]  ; then GITHUB_REPOSITORY_TRAFFIC_DATA=${1} ; else
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  <GITHUB_OWNER>.<REPOSITORY>.<date> as the first argument on the command line was not found.."
   exit 1
 fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...  GITHUB_REPOSITORY_TRAFFIC_DATA >${GITHUB_REPOSITORY_TRAFFIC_DATA}<" 1>&2 ; fi
+GITHUB_OWNER=$(echo "${1}" | cut -d. -f 1)
+REPOSITORY=$(echo "${1}" | cut -d. -f 2)
+#    Order of precedence: environment variable, default code
+if [[ "${GITHUB_TRAFFIC_DIR}" == "" ]] ; then GITHUB_TRAFFIC_DIR=${DEFAULT_GITHUB_TRAFFIC_DIR} ; fi
+
+cd "${GITHUB_TRAFFIC_DIR}/${GITHUB_OWNER}/${REPOSITORY}"
 
 #    GITHUB_REPOSITORY_TRAFFIC_DATA FILE exists and read permission && exists and has a size greater than zero
 if [[ ! -r "${GITHUB_REPOSITORY_TRAFFIC_DATA}" ]] || [[ ! -s "${GITHUB_REPOSITORY_TRAFFIC_DATA}"  ]] ; then
@@ -235,21 +238,21 @@ while read line; do
   FIRST_WORD=$(echo "${line}" | cut -d: -f 1)
   if [[ "${FIRST_WORD}" == "timestamp" ]] ;  then
     SECOND_WORD=$(echo "${line}" | cut -d: -f 2)
-    CLONE_FILE_NAME="clone.data.${SECOND_WORD}"
+    CLONE_DATA_DATE="clone.data.${SECOND_WORD}"
     tmp=$(echo "${line}" | cut -d: -f 2 | cut -d\- -f 2-3)
-    echo "| ${tmp}" > "${CLONE_FILE_NAME}"
-    echo "|:---:" >> "${CLONE_FILE_NAME}"
+    echo "| ${tmp}" > "${CLONE_DATA_DATE}"
+    echo "|:---:" >> "${CLONE_DATA_DATE}"
   else
     AMOUNT=$(echo "${line}" | cut -d: -f 2)
-    echo "| ${AMOUNT}" >> "${CLONE_FILE_NAME}"
+    echo "| ${AMOUNT}" >> "${CLONE_DATA_DATE}"
   fi
-  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... FIRST_WORD >${FIRST_WORD}< SECOND_WORD >${SECOND_WORD}< CLONE_FILE_NAME >${CLONE_FILE_NAME}< AMOUNT >${AMOUNT}<" 1>&2 ; fi
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... FIRST_WORD >${FIRST_WORD}< SECOND_WORD >${SECOND_WORD}< CLONE_DATA_DATE >${CLONE_DATA_DATE}< AMOUNT >${AMOUNT}<" 1>&2 ; fi
 done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file only if DEBUG is set to zero
 CLONE_TOTAL=0
-#    ${CLONE_FILE_NAME} exists and read permission && exists and has a size greater than zero  #39
-if [[ ! -r "${CLONE_FILE_NAME}" ]] || [[ ! -s "${CLONE_FILE_NAME}"  ]] ; then
-  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${CLONE_FILE_NAME} file does not exist, or does not have read permission, or has size of zero."
+#    ${CLONE_DATA_DATE} exists and read permission && exists and has a size greater than zero  #39
+if [[ ! -r "${CLONE_DATA_DATE}" ]] || [[ ! -s "${CLONE_DATA_DATE}"  ]] ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${CLONE_DATA_DATE} file does not exist, or does not have read permission, or has size of zero."
   exit 1
 fi
 if ls clone.data.* 1>/dev/null 2>&1 ; then
@@ -268,21 +271,21 @@ while read line; do
   FIRST_WORD=$(echo "${line}" | cut -d: -f 1)
   if [[ "${FIRST_WORD}" == "timestamp" ]] ;  then
     SECOND_WORD=$(echo "${line}" | cut -d: -f 2)
-    VIEW_FILE_NAME="view.data.${SECOND_WORD}"
+    VIEW_DATA_DATE="view.data.${SECOND_WORD}"
     tmp=$(echo "${line}" | cut -d: -f 2 | cut -d\- -f 2-3)
-    echo "| ${tmp}" > "${VIEW_FILE_NAME}"
-   echo "|:---:" >> "${VIEW_FILE_NAME}"
+    echo "| ${tmp}" > "${VIEW_DATA_DATE}"
+    echo "|:---:" >> "${VIEW_DATA_DATE}"
   else
-   AMOUNT=$(echo "${line}" | cut -d: -f 2)
-   echo "| ${AMOUNT}" >> "${VIEW_FILE_NAME}"
+    AMOUNT=$(echo "${line}" | cut -d: -f 2)
+    echo "| ${AMOUNT}" >> "${VIEW_DATA_DATE}"
   fi
-  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... FIRST_WORD >${FIRST_WORD}< SECOND_WORD >${SECOND_WORD}< VIEW_FILE_NAME >${VIEW_FILE_NAME}< AMOUNT >${AMOUNT}<" 1>&2 ; fi
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... FIRST_WORD >${FIRST_WORD}< SECOND_WORD >${SECOND_WORD}< VIEW_DATA_DATE >${VIEW_DATA_DATE}< AMOUNT >${AMOUNT}<" 1>&2 ; fi
 done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file only if DEBUG is set to zero
 VIEW_TOTAL=0
-#    ${VIEW_FILE_NAME} exists and read permission && exists and has a size greater than zero  #39
-if [[ ! -r "${VIEW_FILE_NAME}" ]] || [[ ! -s "${VIEW_FILE_NAME}"  ]] ; then
-  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${VIEW_FILE_NAME} file does not exist, or does not have read permission, or has size of zero."
+#    ${VIEW_DATA_DATE} exists and read permission && exists and has a size greater than zero  #39
+if [[ ! -r "${VIEW_DATA_DATE}" ]] || [[ ! -s "${VIEW_DATA_DATE}"  ]] ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${VIEW_DATA_DATE} file does not exist, or does not have read permission, or has size of zero."
   exit 1
 fi
 if ls view.data.* 1>/dev/null 2>&1 ; then
@@ -296,5 +299,5 @@ echo -e "\nTotal views: ${VIEW_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> vi
 if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" ; fi  #  Remove file only if DEBUG is set to zero
 
 #
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
+new_message "${LINENO}" "INFO" "  Operation finished..."
 ###
