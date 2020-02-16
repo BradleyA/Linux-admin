@@ -36,7 +36,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
 4) Remove the download/clone files from the /tmp directory.
     
        cd  ../..
-       rm -rf  ./Linux-admin/
+       rm  -rf  ./Linux-admin/
  
 5) Enter crontab -e to append the setup.github.repository.sh output lines into your crontab file.  Each line includes a time and date for the script to run, the script, and a log file.  The file name is a symbloic link from \<GITHUB_OWNER>.\<REPOSITORY> to the script ../owner.repository.  The symbolic links where created when running setup.github.repository.sh.  The script 'owner.repository' uses it's file name to know which GitHub account and repository to pull the traffic information from.  This would be a good time to change the time you want cron to run these scripts.  I have cron run my script weekly on Monday at 12:20 P.M.
 
