@@ -14,7 +14,7 @@ This subdirectory contains a shell script that downloads GitHub traffic informat
 
 ### Install
 
-To install, follow these steps.  Use git to pull or clone these scripts into a directory. If you do not have git then enter; "sudo apt-get install git" if using Ubuntu. On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
+To download your GitHub repositories traffic history, follow these steps.  Use git to pull or clone these scripts into a directory. If you do not have git then enter; "sudo apt-get install git" if using Ubuntu. On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
 1) Change to the /tmp directory and download/clone the files to your system ([see Download Files](https://github.com/BradleyA/Linux-admin/blob/master/github-repository-traffic/README.md#download-files)).
 
@@ -52,6 +52,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
  
 <img id="github-repository-traffic-1.png" src="../images/github-repository-traffic-1.png" >
 
+### Parse GitHub Data
 
 **WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
@@ -60,8 +61,6 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
 This section has a couple of incident that have popped up that are difficult to debug
 1) table not formated correctly; removed tabs from heading boarder line
 2) this is the difficult one if you run the parser in none date order sometimes times the totals get wrong total ; which does not make since because all files are loop through to rebuild the clone.table.md and view.table.md
-
-### Parse GitHub Data
 
 Parse output from owner.repository script to create [clone,view].table.md, [clone,view].total, and [clone,view].<DATE> files.  This 
   
