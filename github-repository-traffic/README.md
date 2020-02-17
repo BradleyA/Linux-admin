@@ -10,7 +10,7 @@ Present GitHub repositories traffic history more than 14 days
 
 ## Description
 
-This subdirectory contains a shell script that downloads GitHub repositories traffic history before it is no longer available on GitHub and a shell script that parses clone and view data from the downloaded traffic information.  The requirements are do you have permission to run crontab jobs and do you have write permission in /usr/local/data directory.
+This subdirectory contains a shell script that downloads GitHub repositories traffic history before it is no longer available on GitHub and a shell script that parses clone and view data from the downloaded traffic information.  The requirements are do you have permission to run crontab jobs on your system and do you have write permission in /usr/local/data directory.
 
 ### Install
 
