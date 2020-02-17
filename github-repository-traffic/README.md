@@ -1,6 +1,6 @@
 # github-repository-traffic [![Stable Release](https://img.shields.io/badge/Release-2.105-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/2.105)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/2.105.svg)](https://github.com/BradleyA/Linux-admin/commits/)
 
-This subdirectory contains a shell script that downloads GitHub traffic information before it is no longer available on GitHub and a shell script that parses clone and view data from the downloaded traffic information. 
+This subdirectory contains a shell script that downloads GitHub traffic information before it is no longer available on GitHub and a shell script that parses clone and view data from the downloaded traffic information.
 
 ## Goal
 
@@ -9,8 +9,6 @@ Present GitHub repositories traffic history more than 14 days
   <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=607&color=blue">  [Views Table](../images/view.table.md)
 
 #### If you like this repository, select in the upper-right corner,  STAR,  thank you.
-
-**WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
 ### Install
 
@@ -21,7 +19,7 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
        cd  /tmp
        git clone https://github.com/BradleyA/Linux-admin
 
-2) Change the lines in github.repository.list file to your GitHub repository names.
+2) Change the lines in github.repository.list file to your GitHub repository names that you want historic traffic information.
 
        cd  /tmp/Linux-admin/github-repository-traffic
        vi ./github.repository.list
@@ -52,6 +50,9 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
  
 <img id="github-repository-traffic-1.png" src="../images/github-repository-traffic-1.png" >
 
+
+**WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
+
 **Note --->>>**  Complete **napkin notes** from here to **page end <<<---*
 
 ### Parse GitHub Data
@@ -68,9 +69,9 @@ There was a thought to schedule weekly parsing of traffic data after it's downlo
 
 **644 clone.heading** - Clone table headings in GitHub markdown
 
-**664 github.repository.list** - GitHub repository names with one on each line.  Lines that begin with a '#' are comments.
+**664 github.repository.list** - Your GitHub repository names that you want historic traffic information with one on each line.  Lines that include with a '#' anywhere are comment lines.
 
-**775 owner.repository** - The default cron output data file is /usr/local/data/github/\<GITHUB_OWNER>/\<REPOSITORY>/\<GITHUB_OWNER>.\<REPOSITORY>.\<date>.  This cron output data file is created with owner.repository script linked to \<GITHUB_OWNER>.\<REPOSITORY>.  It is scheduled to run once a week using crontab but can be scheduled more or less often.
+**775 owner.repository** - Script that downloads the GitHub repository historic traffic information.  The owner.repository script is linked to \<GITHUB_OWNER>.\<REPOSITORY> because the script uses the file name for \<GITHUB_OWNER> and \<REPOSITORY>.  The output data file is /usr/local/data/github/\<GITHUB_OWNER>/\<REPOSITORY>/\<GITHUB_OWNER>.\<REPOSITORY>.\<date>.  It is scheduled to run once a week using crontab but can be scheduled more or less often.
 
 **775 parse.repository.data.sh** - Parse relevant data from cron output data file to create [clone,view].table.md, [clone,view].total, and [clone,view].\<DATE> files.  These files ([clone,view].table.md, [clone,view].total) are used to update your \<GITHUB_OWNER>/\<REPOSITORY>/README.md file on GitHub.   A copy of the [clone,view].table.md file will be copied to \<GITHUB_OWNER>/\<REPOSITORY>/images directory in future automation upgrades.  The [clone,view].\<DATE> file contains one column of formated data to be used in [clone,view].table.md file.
 
