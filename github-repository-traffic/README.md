@@ -1,7 +1,5 @@
 # github-repository-traffic [![Stable Release](https://img.shields.io/badge/Release-2.105-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/2.105)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/2.105.svg)](https://github.com/BradleyA/Linux-admin/commits/)
 
-This subdirectory contains a shell script that downloads GitHub traffic information before it is no longer available on GitHub and a shell script that parses clone and view data from the downloaded traffic information.
-
 ## Goal
 
 Present GitHub repositories traffic history more than 14 days
@@ -9,6 +7,10 @@ Present GitHub repositories traffic history more than 14 days
   <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=607&color=blue">  [Views Table](../images/view.table.md)
 
 #### If you like this repository, select in the upper-right corner,  STAR,  thank you.
+
+## Description
+
+This subdirectory contains a shell script that downloads GitHub traffic information before it is no longer available on GitHub and a shell script that parses clone and view data from the downloaded traffic information.  The requirements are do you have permission to run crontab jobs and do you have write permission in /usr/local/data directory.
 
 ### Install
 
