@@ -1,42 +1,43 @@
 #!/bin/bash
-#	github-repository-traffic/owner.repository  2.129.607  2020-02-15T15:42:25.727071-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.128  
-#	   github-repository-traffic/owner.repository   updated commets 
-### production standard 3.0 shellcheck
-### production standard 5.1.160 Copyright
-#       Copyright (c) 2019 Bradley Allen
-#       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+#	github-repository-traffic/owner.repository  2.131.627  2020-02-16T20:36:47.893512-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.130-2-g145d2c7  
+#	   github-repository-traffic/owner.repository   add YEAR DIRECTORY close #43 
+#86# github-repository-data/owner.repository
+###  Production standard 3.0 shellcheck
+###  Production standard 5.3.559 Copyright                                    # 3.559
+#    Copyright (c) 2020 Bradley Allen                                                # 3.555
+#    MIT License is online in the repository as a file named LICENSE"         # 3.559
 ###
-#	Decide if all production standards are needed
-#	   is there a need for command line arguments and environment variables (DATA_DIR)
-#	   is there a need to change default DATA_DIR (/usr/local/data/github/)
-#	 This script is just a cron job 
-##
 # >> >>  THIS SCRIPT WILL NOT WORK UNLESS IT IS RENAMED OR A SYMBOLIC LINK IS USED TO RENAME IT !  << <<
 # >> >>  cp     ../owner.repository "${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}"
 # >> >>  ln -sf ../owner.repository "${GITHUB_OWNER}/${GITHUB_OWNER}.${REPOSITORY}"
-##
+###
 
 ###
-DATA_DIR="/usr/local/data/github/"
+GITHUB_TRAFFIC_DIR="/usr/local/data/github/"
 #
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
-REPOSITORY_OWNER=$(echo "${COMMAND_NAME}" | cut -d '.' -f 1)
-REPOSITORY_NAME=$(echo "${COMMAND_NAME}" | sed "s/^${REPOSITORY_OWNER}\.//")
+GITHUB_OWNER=$(echo "${COMMAND_NAME}" | cut -d '.' -f 1)
+REPOSITORY=$(echo "${COMMAND_NAME}" | sed "s/^${GITHUB_OWNER}\.//")
 TODAY=$(date +%Y-%m-%d)
-DATA_DIR="${DATA_DIR}/${REPOSITORY_OWNER}/${REPOSITORY_NAME}"
+YEAR=$(date +%G)  #  short and long term stroage strategy
+GITHUB_TRAFFIC_DIR="${GITHUB_TRAFFIC_DIR}/${GITHUB_OWNER}/${REPOSITORY}"
 ###
-mkdir -p ${DATA_DIR}
+mkdir -p "${GITHUB_TRAFFIC_DIR}"
+if [[ ! -d "${GITHUB_TRAFFIC_DIR}/${YEAR}" ]] ; then
+  mkdir -p "${GITHUB_TRAFFIC_DIR}/${YEAR}" 
+  cp -p "${GITHUB_TRAFFIC_DIR}/../../parse.repository.data.sh"   "${GITHUB_TRAFFIC_DIR}/${YEAR}"  #  save parser that parsed data that year with data
+fi
 #	Get the total number of clones over the last 14 days. 
-echo "clones >>>" > ${DATA_DIR}/${COMMAND_NAME}.${TODAY}
-curl -ni https://api.github.com/repos/"${REPOSITORY_OWNER}"/"${REPOSITORY_NAME}"/traffic/clones?per=week  >> ${DATA_DIR}/${COMMAND_NAME}.${TODAY}
+echo "clones >>>"  >  "${GITHUB_TRAFFIC_DIR}/${COMMAND_NAME}.${TODAY}"
+curl -ni https://api.github.com/repos/"${GITHUB_OWNER}"/"${REPOSITORY}"/traffic/clones?per=week  >> "${GITHUB_TRAFFIC_DIR}/${COMMAND_NAME}.${TODAY}"
 #	Get the total number of views over the last 14 days. 
-echo "views >>>" >> ${DATA_DIR}/${COMMAND_NAME}.${TODAY}
-curl -ni https://api.github.com/repos/"${REPOSITORY_OWNER}"/"${REPOSITORY_NAME}"/traffic/views?per=week  >> ${DATA_DIR}/${COMMAND_NAME}.${TODAY}
+echo "views >>>"  >>  "${GITHUB_TRAFFIC_DIR}/${COMMAND_NAME}.${TODAY}"
+curl -ni https://api.github.com/repos/"${GITHUB_OWNER}"/"${REPOSITORY}"/traffic/views?per=week  >> "${GITHUB_TRAFFIC_DIR}/${COMMAND_NAME}.${TODAY}"
 #	Get the top 10 popular contents over the last 14 days.
-echo "/popular/paths >>>" >> ${DATA_DIR}/${COMMAND_NAME}.${TODAY}
-curl -ni https://api.github.com/repos/"${REPOSITORY_OWNER}"/"${REPOSITORY_NAME}"/traffic/popular/paths  >> ${DATA_DIR}/${COMMAND_NAME}.${TODAY}
+echo "/popular/paths >>>"  >>  "${GITHUB_TRAFFIC_DIR}/${COMMAND_NAME}.${TODAY}"
+curl -ni https://api.github.com/repos/"${GITHUB_OWNER}"/"${REPOSITORY}"/traffic/popular/paths  >> "${GITHUB_TRAFFIC_DIR}/${COMMAND_NAME}.${TODAY}"
 #	Get the top 10 referrers over the last 14 days.
-echo "/popular/referrers >>>" >> ${DATA_DIR}/${COMMAND_NAME}.${TODAY}
-curl -ni https://api.github.com/repos/"${REPOSITORY_OWNER}"/"${REPOSITORY_NAME}"/traffic/popular/referrers  >> ${DATA_DIR}/${COMMAND_NAME}.${TODAY}
+echo "/popular/referrers >>>"  >>  "${GITHUB_TRAFFIC_DIR}/${COMMAND_NAME}.${TODAY}"
+curl -ni https://api.github.com/repos/"${GITHUB_OWNER}"/"${REPOSITORY}"/traffic/popular/referrers  >> "${GITHUB_TRAFFIC_DIR}/${COMMAND_NAME}.${TODAY}"
 #
 ###
