@@ -74,7 +74,9 @@ There was a thought to schedule weekly parsing of traffic data after it's downlo
 **775 owner.repository** - Script that downloads the GitHub repository historic traffic information.  The owner.repository script is linked to \<GITHUB_OWNER>.\<REPOSITORY> because the script uses the file name for \<GITHUB_OWNER> and \<REPOSITORY>.  The output data file is /usr/local/data/github/\<GITHUB_OWNER>/\<REPOSITORY>/\<GITHUB_OWNER>.\<REPOSITORY>.\<date>.  It is scheduled to run once a week using crontab but can be scheduled more or less often.
 
 **775 parse.repository.data.sh** - Parse output from owner.repository script to create [clone,view].table.md, [clone,view].total, and [clone,view].\<DATE> files.  [clone,view].table.md is a markdown table organized in two rows; [Clones,Views] and [Unique clones,Unique
-vistors], with dated columns.  [clone,view].total file includes the total only.  [clone,view].\<DATE> contains one column of markdown formated table data to be used in [clone,view].table.md file.  You can use the data in these files anyway you want.  I have used them in my <GITHUB_OWNER>/<REPOSITORY>/README.md file and copied some files to <GITHUB_OWNER>/<REPOSITORY>/images directory.
+vistors], with dated columns.  [clone,view].total file includes the total only.  [clone,view].\<DATE> contains one column of markdown formated table data to be used in [clone,view].table.md file.  
+
+Use the data in these files how ever you planned.  I have used them in my <GITHUB_OWNER>/<REPOSITORY>/README.md file and copied some files to <GITHUB_OWNER>/<REPOSITORY>/images directory.
 
 In the future I want to automate a push of this data to GitHub repositories but that has many challenges (which branch, how much of a repository needs to be cloned to make a git push with new files, is someone editing README.md, etc).
 
