@@ -1,5 +1,7 @@
 #!/bin/bash
-# 	github-repository-traffic/setup.github.repository.sh  2.126.549  2020-02-12T12:38:21.881162-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.125-8-gf0169cc  
+# 	github-repository-traffic/setup.github.repository.sh  3.1.1.628  2020-02-16T21:26:27.280594-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.131  
+# 	   Include GitHub repository traffic data in README close #29 
+# 	github-repository-traffic/setup.github.repository.sh  2.126.549  2020-02-12T12:38:21.881162-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.125-8-gf0169cc 
 # 	   github-repository-traffic/setup.github.repository.sh   Upgrade all Production standards close #42 
 # 	github-repository-traffic/setup.github.repository.sh  2.125.540  2020-02-12T12:13:22.720817-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.124-2-g74d5be4  
 # 	   github-repository-traffic/parse.repository.data.sh   complete display_help SEE ALSO close #38 

@@ -1,5 +1,7 @@
 #
-#	github-repository/github.repository.list  2.56.225  2019-08-01T14:19:43.745807-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.55  
+#	github-repository-traffic/github.repository.list  3.1.1.628  2020-02-16T21:26:21.278548-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.131  
+#	   Include GitHub repository traffic data in README close #29 
+#	github-repository/github.repository.list  2.56.225  2019-08-01T14:19:43.745807-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.55 
 #	   github.repository.list create example file with github repository names with one on each line 
 #	Change the following lines to your github repository names
 #	One github repository name per line

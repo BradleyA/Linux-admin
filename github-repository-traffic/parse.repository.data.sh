@@ -1,5 +1,7 @@
 #!/bin/bash
-# 	github-repository-traffic/parse.repository.data.sh  2.130.624  2020-02-16T17:37:37.704997-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.129-16-g9f56c17  
+# 	github-repository-traffic/parse.repository.data.sh  3.1.1.628  2020-02-16T21:26:27.185252-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.131  
+# 	   Include GitHub repository traffic data in README close #29 
+# 	github-repository-traffic/parse.repository.data.sh  2.130.624  2020-02-16T17:37:37.704997-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.129-16-g9f56c17 
 # 	   github-repository-traffic/parse.repository.data.sh   Complete display_help ENVIRONMENT VARIABLES close #37 
 # 	github-repository-traffic/parse.repository.data.sh  2.127.550  2020-02-12T14:12:16.766170-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.126  
 # 	   github-repository-traffic/parse.repository.data.sh   [clone,view].data.* files exists and size greater than zero close #39 

@@ -1,5 +1,7 @@
 #!/bin/bash
-#	github-repository-traffic/owner.repository  2.131.627  2020-02-16T20:36:47.893512-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.130-2-g145d2c7  
+#	github-repository-traffic/owner.repository  3.1.1.628  2020-02-16T21:26:27.092163-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.131  
+#	   Include GitHub repository traffic data in README close #29 
+#	github-repository-traffic/owner.repository  2.131.627  2020-02-16T20:36:47.893512-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.130-2-g145d2c7 
 #	   github-repository-traffic/owner.repository   add YEAR DIRECTORY close #43 
 #86# github-repository-data/owner.repository
 ###  Production standard 3.0 shellcheck
