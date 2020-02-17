@@ -4,9 +4,23 @@ Use the following example to guide you to; How to download an earlier release.
 
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
-**COMING SOON -->**
-## Version  {Next Version  3.1.????}  
+**Next Project -->**
+## Version  {Next Version  X.X.????}  
 #### Release Name  {unreleased alpha beta prerelease latest}
+#### Release Date  ????????????
+
+Brief description
+
+### Features Added
+### Features Changes
+### Features Deprecations
+### Issues
+### Misc
+
+
+**Latest Release -->**
+## Version  {Next Version  3.1.????}  
+#### Release Name  latest
 #### Release Date  ?????????????
 
 Brief description
@@ -41,25 +55,28 @@ Brief description
   * github-repository-traffic/parse.repository.data.sh   complete display_help SEE ALSO
   * github-repository-traffic/setup.github.repository.sh   Upgrade all Production standards
   * github-repository-traffic/parse.repository.data.sh   [clone,view].data.\* files exists and size greater than zero
+  * github-repository-traffic/parse.repository.data.sh   Complete display_help ENVIRONMENT VARIABLES
+  * github-repository-traffic/owner.repository   add YEAR DIRECTORY
 * github-animated-GIF
 
 ### Issues
 * cluster-command
   * close #28 cluster-command/cluster-command.sh - add support for production standard 8.0 --usage
 * github-repository-traffic
-  * close #29 change data directory to /usr/local/data/github/${DEFAULT_REPOSITORY_OWNER}/${DEFAULT_REPOSITORY}
+  * close #29 Include GitHub repository traffic data in README
   * close #33 github-repository-traffic/parse.repository.data.sh   create display_help description
   * close #34 github-repository-traffic/setup.github.repository.sh   setup GITHUB_OWNER environment variable
   * close #35 github-repository-traffic/parse.repository.data.sh    check if filename not found; ERROR; exit 1; exit 1
   * close #36 github-repository-traffic/parse.repository.data.sh   add DEBUG around rm to preventing from being removed when DEBUG is not equal to 0
+  * close #37 github-repository-traffic/parse.repository.data.sh   Complete display_help ENVIRONMENT VARIABLES
   * close #38 github-repository-traffic/parse.repository.data.sh   complete display_help SEE ALSO
   * close #39 github-repository-traffic/parse.repository.data.sh   [clone,view].data.\* files exists and size greater than zero close
   * close #41 github-repository-traffic/setup.github.repository.sh   update display_help
   * close #42 github-repository-traffic/setup.github.repository.sh   Upgrade all Production standards
+  * close #43 github-repository-traffic/owner.repository   add YEAR DIRECTORY
 * github-animated-GIF
 
 
-**Latest Release -->**
 ## Version  2.42.202
 #### Release Name  2.42
 #### Release Date  2019-06-07T17:09:06.723711-05:00 (CDT)
