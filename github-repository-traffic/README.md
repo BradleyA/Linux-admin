@@ -58,9 +58,11 @@ To download your GitHub repositories traffic history, follow these steps.  Use g
 
 **Note --->>>**  Complete next section **napkin notes** from here to **section end <<<---*
 
-This section has a couple of incident that have popped up that are difficult to debug
-1) table not formated correctly; removed tabs from heading boarder line
-2) this is the difficult one if you run the parser in none date order sometimes times the totals get wrong total ; which does not make since because all files are loop through to rebuild the clone.table.md and view.table.md
+This section has a couple of incidents that have popped up that are difficult to debug
+1) table not formated correctly
+  * removed tabs from heading boarder line which should fix this but need more testing
+2) this is the difficult one if you run the parser in non-date order sometimes times the totals get added wrong or a clone.data.<date> file is skipped when building the markdown table
+  * which does not make since because all files are added to add totals to rebuild the clone.table.md and view.table.md
 
 Parse output from owner.repository script to create [clone,view].table.md, [clone,view].total, and [clone,view].<DATE> files.  This 
   
