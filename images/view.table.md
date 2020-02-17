@@ -6,7 +6,7 @@ Date:		   |         01-06   |       01-13   |  01-20  |  01-27  |  02-03  |  02-
 Views:		  |          3       |       1   |  2      |  16     |  345    |  50
 Unique  vistors:  |    3       |       1  |      1  |      3  |      3  |      1
 
-Total views: 858
+Total views: 417
 ###### Updated: 2020-02-17
 
 #### 2019 Visitors
