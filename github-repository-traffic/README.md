@@ -53,15 +53,15 @@ To install, follow these steps.  Use git to pull or clone these scripts into a d
 
 **WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
-**Note --->>>**  Complete **napkin notes** from here to **page end <<<---*
+**Note --->>>**  Complete next section **napkin notes** from here to **section end <<<---*
 
 ### Parse GitHub Data
 
-There was a thought to schedule weekly parsing of traffic data after it's downloaded.  At this time I am still tweeking things a little more before I roll it into a crontab file.  Future updates will include pushing updated tables and README labels to GitHub repositories.  Currently follow these steps to manually conplete the tables and git push.
-
+Parse output from owner.repository script to create [clone,view].table.md, [clone,view].total, and [clone,view].<DATE> files.  This 
+  
 1) cd  /usr/local/data/github/\<GITHUB_OWNER>/\<REPOSITORY>
 2) ../../parse.repository.data.sh  \<GITHUB_OWNER>.\<REPOSITORY>.\<DATE>
-
+3) Copy the parsed data files to your GitHub repository or where you plan to use it.
 
 <img id="github-repository-traffic-2.png" src="../images/github-repository-traffic-2.png" >
 
