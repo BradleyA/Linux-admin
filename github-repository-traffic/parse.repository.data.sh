@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository-traffic/parse.repository.data.sh  3.1.3.672  2020-02-17T12:05:34.732537-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.1.2-32-g1b0d98d  
+# 	   github-repository-traffic/setup.github.repository.sh  rename DATA_GITHUB_DIR  to  GITHUB_DATA_DIR 
 # 	github-repository-traffic/parse.repository.data.sh  3.1.2.639  2020-02-17T00:17:20.026356-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.1.1-10-g0f9a207  
 # 	   github-repository-traffic/parse.repository.data.sh   correct incident caused by #39 during testing 
 # 	github-repository-traffic/parse.repository.data.sh  3.1.1.628  2020-02-16T21:26:27.185252-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.131  
@@ -221,6 +223,7 @@ fi
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...  GITHUB_REPOSITORY_TRAFFIC_DATA >${GITHUB_REPOSITORY_TRAFFIC_DATA}<" 1>&2 ; fi
 GITHUB_OWNER=$(echo "${1}" | cut -d. -f 1)
 REPOSITORY=$(echo "${1}" | cut -d. -f 2)
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...  GITHUB_OWNER >${GITHUB_OWNER}<  REPOSITORY >${REPOSITORY}<" 1>&2 ; fi
 #    Order of precedence: environment variable, default code
 if [[ "${GITHUB_TRAFFIC_DIR}" == "" ]] ; then GITHUB_TRAFFIC_DIR=${DEFAULT_GITHUB_TRAFFIC_DIR} ; fi
 
@@ -240,6 +243,7 @@ cat  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" | sed -e '1,/views>>>/!d' -e
 #    Loop through ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp and create clone.data.$timestamp files
 while read line; do
   FIRST_WORD=$(echo "${line}" | cut -d: -f 1)
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...  FIRST_WORD >${FIRST_WORD}<" 1>&2 ; fi
   if [[ "${FIRST_WORD}" == "timestamp" ]] ;  then
     SECOND_WORD=$(echo "${line}" | cut -d: -f 2)
     CLONE_DATA_DATE="clone.data.${SECOND_WORD}"
@@ -254,17 +258,14 @@ while read line; do
 done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file only if DEBUG is set to zero
 CLONE_TOTAL=0
-#    ${CLONE_DATA_DATE} exists and read permission && exists and has a size greater than zero  #39
-if [[ ! -r "${CLONE_DATA_DATE}" ]] || [[ ! -s "${CLONE_DATA_DATE}"  ]] ; then
-  if ls clone.data.* 1>/dev/null 2>&1 ; then
+if ls clone.data.* 1>/dev/null 2>&1 ; then
 #    Total third line of clone.data.* files
-    CLONE_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  clone.data.*)
-    echo "${CLONE_TOTAL}" > clone.total
-    paste -d ' ' ../../clone.heading clone.data.* | column -t -s' ' > clone.table.md
-    sed -i '1 i\#### Git clones' clone.table.md
-  fi
-  echo -e "\nTotal clones: ${CLONE_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> clone.table.md
+  CLONE_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  clone.data.*)
+  echo "${CLONE_TOTAL}" > clone.total
+  paste -d ' ' ../../clone.heading clone.data.* | column -t -s' ' > clone.table.md
+  sed -i '1 i\#### Git clones' clone.table.md
 fi
+echo -e "\nTotal clones: ${CLONE_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> clone.table.md
 
 #    Parse vistors (views) data from ${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers
 cat  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" | sed -e '1,/\/popular\/paths>>>/!d' -e '1,/views:\[/d' -e '/^\]/,$d'  > "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
@@ -285,17 +286,14 @@ while read line; do
 done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file only if DEBUG is set to zero
 VIEW_TOTAL=0
-#    ${VIEW_DATA_DATE} exists and read permission && exists and has a size greater than zero  #39
-if [[ ! -r "${VIEW_DATA_DATE}" ]] || [[ ! -s "${VIEW_DATA_DATE}"  ]] ; then
-  if ls view.data.* 1>/dev/null 2>&1 ; then
+if ls view.data.* 1>/dev/null 2>&1 ; then
 #    Total third line of view.data.* files
-    VIEW_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  view.data.*)
-    echo "${VIEW_TOTAL}"  > view.total
-    paste -d ' ' ../../view.heading view.data.* | column -t -s' ' > view.table.md
-    sed -i '1 i\#### Visitors' view.table.md
-  fi
-  echo -e "\nTotal views: ${VIEW_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> view.table.md
+  VIEW_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  view.data.*)
+  echo "${VIEW_TOTAL}"  > view.total
+  paste -d ' ' ../../view.heading view.data.* | column -t -s' ' > view.table.md
+  sed -i '1 i\#### Visitors' view.table.md
 fi
+echo -e "\nTotal views: ${VIEW_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> view.table.md
 if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" ; fi  #  Remove file only if DEBUG is set to zero
 
 #
