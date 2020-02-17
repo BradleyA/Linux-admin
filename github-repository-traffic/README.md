@@ -86,7 +86,7 @@ In the future I want to automate a push of this data to GitHub repositories but 
 
 GitHub owner and github.repository.list are required for this script to work.  <GITHUB_OWNER> can be the first argument on the command line or defined as GITHUB_OWNER environment variable.
 
-Data storage is required for this solution, so you need to have permission to create /usr/local/data/github for short and long term storage.  To use a different directory export DATA_GITHUB_DIR environment variable.
+Data storage is required for this solution, so you need to have permission to create /usr/local/data/github for short and long term storage.  To use a different directory export GITHUB_DATA_DIR environment variable.
 
 In the future, this printed crontab list will be appended to a crontab file.  The crontab command normally only manages a single crontab per user.  Need a method for multiple SRE team members to manage one crontab.
 
