@@ -111,22 +111,6 @@ In the future, this printed crontab list will be appended to a crontab file.  Th
         │                                          traffic data
         └── <GITHUB_OWNER>                     <-- Links to ../owner.repository
 
-
-#### In design & development  (7/2019 - )
- 
-**WARNING**: These instructions below are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
- 
-#### Quick Notes:
-Need to automate the running of these commands and then push the updated table files to the correct repositories in the images directory.  Then update the Traffic section in the README.md with the latest totals.  The design should support the automation just need a way to create a new table for each future years.
-
-    cd uadmin@two: /usr/local/data/github/BradleyA/Search-docker-registry-v2-script.1.0
-    # rm clone.table.md view.table.md   # this is not required, only process the latest files by cron or docker in future
-    ../../parse.repository.data.sh BradleyA.Search-docker-registry-v2-script.1.0.2019-07-29
-    ../../parse.repository.data.sh BradleyA.Search-docker-registry-v2-script.1.0.2019-08-05
-    . . .
-    cat clone.table.md ; git add clone.table.md ; git commit -m 'updated table' clone.table.md ; git push clone.table.md
-    cat view.table.md ; git add view.table.md ; git commit -m 'updated table' view.table.md ; git push view.table.md
-
 #### Traffic
  * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=90&color=blue">  [Clones Table](../images/clone.table.md)
  * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=607&color=blue">  [Views Table](../images/view.table.md)
