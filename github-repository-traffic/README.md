@@ -21,7 +21,7 @@ To download your GitHub repositories traffic history, follow these steps.  Use g
        cd  /tmp
        git clone https://github.com/BradleyA/Linux-admin
 
-2) Change the lines in github.repository.list file to your GitHub repository names that you want historic traffic information.
+2) Change the lines in github.repository.list file to your GitHub repository names that you want GitHub historic traffic information.
 
        cd  /tmp/Linux-admin/github-repository-traffic
        vi ./github.repository.list
