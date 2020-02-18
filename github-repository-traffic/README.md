@@ -65,7 +65,7 @@ Parse output from owner.repository script to create [clone,view].table.md, [clon
 2) ../../parse.repository.data.sh  \<GITHUB_OWNER>.\<REPOSITORY>.\<DATE>
 
 #### Step 2 output
-<img id="setup.github.repository.sh" src="../images/setup-step-3.gif" >
+<img id="parse.repository.data.sh" src="../images/parse-step-2.gif" >
 
 3) Copy the parsed data files to your GitHub repository or where you plan to use it.
 
