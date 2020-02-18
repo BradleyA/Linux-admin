@@ -3,14 +3,14 @@
 ## Goal
 
 Present GitHub repositories traffic history more than 14 days
-  <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=96&color=blue">  [Clones Table](../images/clone.table.md)
+  <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=96&color=blue">  [clones Table](../images/clone.table.md)
   <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1327&color=blue">  [Views Table](../images/view.table.md)
 
 #### If you like this repository, select in the upper-right corner,  STAR,  thank you.
 
 ## Description
 
-This subdirectory contains a shell script that downloads GitHub repository traffic history before it is no longer available on GitHub and a shell script that parses clone and view data from the downloaded traffic information.  No additional software is required for this solution, just Linux.
+This subdirectory contains a shell script that downloads GitHub repository traffic history before it is no longer available on GitHub and a shell script that parses clone and view data from the downloaded traffic information to create [clones table](../images/clone.table.md) and  [views table](../images/view.table.md).  No additional software is required for this solution, just Linux.
 
 *  Rquirements:
     * Internet access to GitHub
