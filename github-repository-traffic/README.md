@@ -9,12 +9,13 @@ Present GitHub repositories traffic history more than 14 days
 
 ## Description
 
-This subdirectory contains a shell script that downloads GitHub repository traffic history before it is no longer available on GitHub and a shell script that parses clone and view data from the downloaded traffic information to create a [clone table](../images/clone.table.md) and a [view table](../images/view.table.md).  No additional software is required for this solution, just Linux.
-
+This subdirectory contains a shell script that downloads GitHub repository traffic history before it is no longer available on GitHub and a shell script that parses clone and view data from the downloaded traffic information to create a [clone table](../images/clone.table.md) and a [view table](../images/view.table.md).
 *  Rquirements:
     * Internet access to GitHub
     * Permission to run crontab jobs on your system (other commands you could use; at, or batch)
     * Write permission in /usr/local/data directory, if not, use a directory you do have write permission, 'export GITHUB_DATA_DIR=~/github'
+    * No additional software is required for this solution, just Linux.
+
 
 ## Install, Setup, and Configure GitHub Repository Traffic
 
