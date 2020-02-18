@@ -9,7 +9,7 @@ Present GitHub repositories traffic history more than 14 days
 
 ## Description
 
-This subdirectory contains a shell script that downloads GitHub repository traffic history before it is no longer available on GitHub and a shell script that parses clone and view data from the downloaded traffic information to create [clones table](../images/clone.table.md) and  [views table](../images/view.table.md).  No additional software is required for this solution, just Linux.
+This subdirectory contains a shell script that downloads GitHub repository traffic history before it is no longer available on GitHub and a shell script that parses clone and view data from the downloaded traffic information to create a [clone table](../images/clone.table.md) and a [view table](../images/view.table.md).  No additional software is required for this solution, just Linux.
 
 *  Rquirements:
     * Internet access to GitHub
