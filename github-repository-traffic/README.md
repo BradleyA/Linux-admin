@@ -46,7 +46,7 @@ To download your GitHub repositories traffic history, follow these steps.  Use g
 
        crontab -e
    
-6) Set GitHub login to support automation of scripts running by cron, edit ~/.netrc and add a personal access token for authentication from GitHub. [Creating a personal access token for the command line.](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)   No you don't push any file like ~/.netrc to anywhere. Duh!
+6) Set GitHub login to support automation of scripts run by cron, edit ~/.netrc and add a personal access token for authentication from GitHub. [Creating a personal access token for the command line.](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)   No you don't push any file like ~/.netrc to anywhere, ever. Duh!
     
        vi ~/.netrc
     
