@@ -16,7 +16,7 @@ This subdirectory contains a shell script that downloads GitHub repository traff
     * Permission to run crontab jobs on your system (other commands you could use; at, or batch)
     * Write permission in /usr/local/data directory, if not, use a directory you do have write permission, 'export GITHUB_DATA_DIR=~/github'
 
-### Install, Setup, and Configure GitHub download repository traffic script
+### Install, Setup, and Configure GitHub repository traffic
 
 To download your GitHub repositories traffic history, follow these steps.  Use git to pull or clone these scripts into a directory. If you do not have git then enter; "sudo apt-get install git" if using Ubuntu. On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
