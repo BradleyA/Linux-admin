@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository-traffic/parse.repository.data.sh  3.1.4.684  2020-02-18T11:36:45.247621-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.1.3-11-g30fc2be  
+# 	   github-repository-traffic/parse.repository.data.sh  change clone and view table titles 
 # 	github-repository-traffic/parse.repository.data.sh  3.1.3.672  2020-02-17T12:05:34.732537-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.1.2-32-g1b0d98d  
 # 	   github-repository-traffic/setup.github.repository.sh  rename DATA_GITHUB_DIR  to  GITHUB_DATA_DIR 
 # 	github-repository-traffic/parse.repository.data.sh  3.1.2.639  2020-02-17T00:17:20.026356-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.1.1-10-g0f9a207  
@@ -263,7 +265,7 @@ if ls clone.data.* 1>/dev/null 2>&1 ; then
   CLONE_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  clone.data.*)
   echo "${CLONE_TOTAL}" > clone.total
   paste -d ' ' ../../clone.heading clone.data.* | column -t -s' ' > clone.table.md
-  sed -i '1 i\#### Git clones' clone.table.md
+  sed -i '1 i\#### GitHub clones' clone.table.md
 fi
 echo -e "\nTotal clones: ${CLONE_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> clone.table.md
 
@@ -291,7 +293,7 @@ if ls view.data.* 1>/dev/null 2>&1 ; then
   VIEW_TOTAL=$(awk 'FNR == 3 {total+=$2} END {print total}'  view.data.*)
   echo "${VIEW_TOTAL}"  > view.total
   paste -d ' ' ../../view.heading view.data.* | column -t -s' ' > view.table.md
-  sed -i '1 i\#### Visitors' view.table.md
+  sed -i '1 i\#### GitHub visitors' view.table.md
 fi
 echo -e "\nTotal views: ${VIEW_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> view.table.md
 if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" ; fi  #  Remove file only if DEBUG is set to zero
