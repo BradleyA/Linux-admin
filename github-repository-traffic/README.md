@@ -1,10 +1,9 @@
-# github-repository-traffic [![Stable Release](https://img.shields.io/badge/Release-2.105-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/2.105)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/2.105.svg)](https://github.com/BradleyA/Linux-admin/commits/)
+# github-repository-traffic [![Stable Release](https://img.shields.io/badge/Release-2.105-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/2.105)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/2.105.svg)](https://github.com/BradleyA/Linux-admin/commits/)    <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=96&color=blue">    <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1327&color=blue"> 
 
 ## Goal
 
 Present GitHub repositories traffic history more than 14 days
-  <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=96&color=blue">  [clones Table](../images/clone.table.md)
-  <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1327&color=blue">  [Views Table](../images/view.table.md)
+
 
 #### If you like this repository, select in the upper-right corner,  STAR,  thank you.
 
