@@ -63,8 +63,11 @@ Parse output from owner.repository script to create [clone,view].table.md, [clon
   
 1) Change to the repository data directory
 
-    cd  /usr/local/data/github/\<GITHUB_OWNER>/\<REPOSITORY>
-2) ../../parse.repository.data.sh  \<GITHUB_OWNER>.\<REPOSITORY>.\<DATE>
+       cd  /usr/local/data/github/\<GITHUB_OWNER>/\<REPOSITORY>
+       
+2) Parse output from owner.repository script to create [clone,view].table.md, [clone,view].total, and [clone,view].<DATE> files.
+   
+       ../../parse.repository.data.sh  \<GITHUB_OWNER>.\<REPOSITORY>.\<DATE>
 
 #### Step 2 output
 <img id="parse.repository.data.sh" src="../images/parse-step-2.gif" >
