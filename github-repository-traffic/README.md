@@ -70,7 +70,7 @@ Parse output from owner.repository script to create [clone,view].table.md, [clon
 
 <img id="github-repository-traffic-2.png" src="../images/github-repository-traffic-2.png" >
 
-### Download Files:
+## Download Files:
 
 **644 clone.heading** - Clone table headings in GitHub markdown
 
@@ -95,7 +95,7 @@ In the future, this printed crontab list will be appended to a crontab file.  Th
 
 **644 view.heading** - View table headings in GitHub markdown
 
-### ARCHITECTURE TREE
+## ARCHITECTURE TREE
     /usr/local/data/                           <-- <DATA_DIR>
     └── github                                 <-- GitHub long term traffic solution
         ├── clone.heading                      <-- Clone table headings
