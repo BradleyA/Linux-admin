@@ -14,7 +14,7 @@ This subdirectory contains a shell script that downloads GitHub repository traff
 
 *  Rquirements:
     * Internet access to GitHub
-    * Permission to run crontab jobs on your system
+    * Permission to run crontab jobs on your system (other cammands you could use; at, or batch)
     * Write permission in /usr/local/data directory, if not, use a directory you do have write permission, 'export GITHUB_DATA_DIR=~/github'
 
 ### Install
