@@ -59,7 +59,7 @@ To download your GitHub repositories traffic history, follow these steps.  Use g
 
 ## Parse GitHub Data
 
-Parse output from owner.repository script to create [clone,view].table.md, [clone,view].total, and [clone,view].\<DATE> files.  These step work after a week or so of running the script above because you need data to parse. 
+Parse output from owner.repository script to create [clone,view].table.md, [clone,view].total, and [clone,view].\<DATE> files.  These steps work after a week or so of running the script above because you need data to parse. 
   
 1) cd  /usr/local/data/github/\<GITHUB_OWNER>/\<REPOSITORY>
 2) ../../parse.repository.data.sh  \<GITHUB_OWNER>.\<REPOSITORY>.\<DATE>
