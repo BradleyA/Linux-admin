@@ -1,4 +1,4 @@
-# github-repository-traffic [![Stable Release](https://img.shields.io/badge/Release-2.105-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/2.105)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/2.105.svg)](https://github.com/BradleyA/Linux-admin/commits/)    <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=96&color=blue">    <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1327&color=blue"> 
+# github-repository-traffic [![Stable Release](https://img.shields.io/badge/Release-3.2.0-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/3.2.0)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/3.2.0.svg)](https://github.com/BradleyA/Linux-admin/commits/)    <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=96&color=blue">    <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1327&color=blue"> 
 
 ## Goal
 
