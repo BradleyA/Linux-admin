@@ -1,10 +1,6 @@
 #!/bin/bash
-# 	github-repository-traffic/parse.repository.data.sh  3.1.4.684  2020-02-18T11:36:45.247621-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.1.3-11-g30fc2be  
-# 	   github-repository-traffic/parse.repository.data.sh  change clone and view table titles 
-# 	github-repository-traffic/parse.repository.data.sh  3.1.3.672  2020-02-17T12:05:34.732537-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.1.2-32-g1b0d98d  
-# 	   github-repository-traffic/setup.github.repository.sh  rename DATA_GITHUB_DIR  to  GITHUB_DATA_DIR 
-# 	github-repository-traffic/parse.repository.data.sh  3.1.2.639  2020-02-17T00:17:20.026356-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.1.1-10-g0f9a207  
-# 	   github-repository-traffic/parse.repository.data.sh   correct incident caused by #39 during testing 
+# 	github-repository-traffic/parse.repository.data.sh  3.2.0.711  2020-02-18T13:30:17.137229-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.1.4-26-g707bc02  
+# 	   After 6 months of downloading data I am able to release GitHub Repository Traffic Parser   #29 
 # 	github-repository-traffic/parse.repository.data.sh  3.1.1.628  2020-02-16T21:26:27.185252-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.131  
 # 	   Include GitHub repository traffic data in README close #29 
 # 	github-repository-traffic/parse.repository.data.sh  2.130.624  2020-02-16T17:37:37.704997-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.129-16-g9f56c17 
