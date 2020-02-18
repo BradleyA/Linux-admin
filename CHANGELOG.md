@@ -19,9 +19,9 @@ Brief description
 
 
 **Latest Release -->**
-## Version  {Next Version  3.2.0}  
-#### Release Name  latest
-#### Release Date  
+## Version  3.2.0
+#### Release Name  3.2.0 latest
+#### Release Date  Feb 18 2020
 
 After 6 months of downloading data I am able to release GitHub Repository Traffic Parser
 
