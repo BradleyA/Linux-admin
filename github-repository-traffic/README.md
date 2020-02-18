@@ -13,7 +13,7 @@ This subdirectory contains a shell script that downloads GitHub repository traff
 *  Rquirements:
     * Internet access to GitHub
     * Permission to run crontab jobs on your system (other commands you could use; at, or batch)
-    * Write permission in /usr/local/data directory, if not, use a directory you do have write permission, 'export GITHUB_DATA_DIR=~/github'
+    * Write permission in /usr/local/data directory, if not, use a directory you do have write permission, 'export GITHUB_TRAFFIC_DIR=~/github'
     * No additional software is required for this solution, just Linux.
 
 
@@ -31,7 +31,7 @@ To download your GitHub repositories traffic history, follow these steps.  Use g
        cd  /tmp/Linux-admin/github-repository-traffic
        vi ./github.repository.list
 
-3) Run the following to setup github-repository-traffic.  Change \<GITHUB_OWNER> to your \<GITHUB_OWNER>, which is the login name you use for GitHub.  This script creates directories and copies github-repository-traffic files into those directories ([see ARCHITECTURE TREE](https://github.com/BradleyA/Linux-admin/blob/master/github-repository-traffic/README.md#architecture-tree)).  It reads github.repository.list file for your list of repositories that you want historic traffic information.  It creates a symbolic link from \<GITHUB_OWNER>.\<REPOSITORY> to the script ../owner.repository and prints the lines to add to crontab.  You need to have permission to create /usr/local/data/github for short and long term storage.  To use a different directory that you have write permission; Example, export GITHUB_DATA_DIR=/home/\<USER>/github-traffic.
+3) Run the following to setup github-repository-traffic.  Change \<GITHUB_OWNER> to your \<GITHUB_OWNER>, which is the login name you use for GitHub.  This script creates directories and copies github-repository-traffic files into those directories ([see ARCHITECTURE TREE](https://github.com/BradleyA/Linux-admin/blob/master/github-repository-traffic/README.md#architecture-tree)).  It reads github.repository.list file for your list of repositories that you want historic traffic information.  It creates a symbolic link from \<GITHUB_OWNER>.\<REPOSITORY> to the script ../owner.repository and prints the lines to add to crontab.  You need to have permission to create /usr/local/data/github for short and long term storage.  To use a different directory that you have write permission; Example, export GITHUB_TRAFFIC_DIR=/home/\<USER>/github-traffic.
        
        ./setup.github.repository.sh <GITHUB_OWNER>
 
