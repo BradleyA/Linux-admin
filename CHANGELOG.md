@@ -19,11 +19,11 @@ Brief description
 
 
 **Latest Release -->**
-## Version  {Next Version  3.1.????}  
+## Version  {Next Version  3.2.0}  
 #### Release Name  latest
-#### Release Date  ?????????????
+#### Release Date  
 
-Brief description
+After 6 months of downloading data I am able to release GitHub Repository Traffic Parser
 
 ### Features Added
 * Update issue templates
