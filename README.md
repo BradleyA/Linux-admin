@@ -4,6 +4,7 @@
  
  [![License](https://img.shields.io/badge/license-MIT-red.svg?style=flat&colorB=458979)](https://github.com/BradleyA/Linux-admin/blob/master/LICENSE)
  
+ [![MIT License](http://b.repl.ca/v1/License-MIT-red.png)](LICENSE)
  
 For Linux administrators, the cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It helps with cluster system adminstration of hosts with a set of predefined commands and allows custom commands.
  
