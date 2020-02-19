@@ -2,7 +2,7 @@
  
  [![GitHub Release](https://img.shields.io/github/release/BradleyA/Linux-admin.svg)](https://github.com/BradleyA/Linux-admin/releases/latest)
  
- ![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat&colorB=458979)](https://github.com/BradleyA/Linux-admin/blob/master/LICENSE.md)
+ ![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat&colorB=458979)](https://github.com/BradleyA/Linux-admin/blob/master/LICENSE)
  
  
 For Linux administrators, the cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It helps with cluster system adminstration of hosts with a set of predefined commands and allows custom commands.
