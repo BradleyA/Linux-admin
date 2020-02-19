@@ -57,7 +57,7 @@ To download your GitHub repositories traffic history, follow these steps.  Use g
  
 <img id="github-repository-traffic-1.png" src="../images/github-repository-traffic-1.png" >
 
-## Parse GitHub Historic Traffic Information
+## Parse GitHub Historic Traffic File
 
 Parse output from owner.repository script to create [clone,view].table.md, [clone,view].total, and [clone,view].\<DATE> files in the repository data directory.  These steps work after a week or so of running the script above because you need data to parse. 
   
