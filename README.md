@@ -1,10 +1,8 @@
- # Linux-admin   [![Stable Release](https://img.shields.io/badge/Release-3.2.0-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/3.2.0)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/3.2.0.svg)](https://github.com/BradleyA/Linux-admin/commits/)    <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=96&color=blue">    <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1327&color=blue"> 
+# Linux-admin   [![Stable Release](https://img.shields.io/badge/Release-3.2.0-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/3.2.0)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/3.2.0.svg)](https://github.com/BradleyA/Linux-admin/commits/)    <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=96&color=blue">    <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1327&color=blue"> 
+[![MIT License](http://b.repl.ca/v1/License-MIT-red.png)](LICENSE)
  
  [![GitHub Release](https://img.shields.io/github/release/BradleyA/Linux-admin.svg)](https://github.com/BradleyA/Linux-admin/releases/latest)
  
- [![License](https://img.shields.io/badge/license-MIT-red.svg?style=flat&colorB=458979)](https://github.com/BradleyA/Linux-admin/blob/master/LICENSE)
- 
- [![MIT License](http://b.repl.ca/v1/License-MIT-red.png)](LICENSE)
  
 For Linux administrators, the cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It helps with cluster system adminstration of hosts with a set of predefined commands and allows custom commands.
  
