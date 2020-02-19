@@ -1,5 +1,7 @@
 
-<img id="Construction" src="../images/construction-icon.gif" width="120"> **WARNING:** These instructions below are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!  I need to get this completed then some cleanup  . . .
+ **WARNING:** These instructions below are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!  I need to get this completed then some cleanup  . . . 
+
+<img id="Construction" src="../images/construction-icon.gif" width="120">
   
     my notes after reading this from Paul
     Thanks Paul!
