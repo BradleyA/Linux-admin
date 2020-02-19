@@ -1,4 +1,5 @@
-    
+**WARNING:** These instructions below are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!  I need to get this to work and completed then some cleanup before it is shareable . . .
+  
     https://medium.com/@pczarkowski/how-to-make-an-animated-gif-of-your-terminal-commands-62b08dfb6089
     
     my notes:
