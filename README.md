@@ -5,15 +5,20 @@
 <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=96&color=blue">
 <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1327&color=blue">
 
- 
+Simple shell scripts; automate download of GitHub traffic statistics, cluster administration, animate GIF. 
+  
+A very simple shell script that uses crontab to schedule the downlad of GitHub traffic statistics in plain text from your GitHub repositories. It takes minutes to setup but weeks to get enough data. 
+
+A very simple shell script that uses crontab to schedule and automatically downlad and store GitHub traffic statistics in plain text from your GitHub repositories.
+
+<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1327&color=blue">  [Views Table](images/view.table.md)
+  
+  * [github-repository-traffic](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic-------------)
+
 For Linux administrators, the cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It helps with cluster system adminstration of hosts with a set of predefined commands and allows custom commands.
  
   * [cluster-command](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command)
-  
-A very simple shell script that uses crontab to schedule and automatically downlad and store GitHub traffic statistics in plain text from your GitHub repositories. It takes minutes to setup but weeks to get enough data.  <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1327&color=blue">  [Views Table](images/view.table.md)
-  
-  * [github-repository-traffic](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic-------------)
-  
+
 This is how to make an animated GIF of a terminal session.
 
   * [github-animated-GIF](https://github.com/BradleyA/Linux-admin/tree/master/github-animated-GIF)
