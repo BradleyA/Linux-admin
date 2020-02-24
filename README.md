@@ -21,7 +21,11 @@ This is how to make an animated GIF of a terminal session.
   
   how to make a web site on github https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1
   
-  * _
+  
+
+This shell script enables you to script repeatable demos in a bash environment so you don't have to type as you present. Rather than trying to type commands when presenting you simply script them and let demo-magic.sh run them for you.
+  
+  * [Demo Magic](https://github.com/paxtonhare/demo-magic/blob/master/README.md#demo-magic)
  
  <img id="respberry_cluster-1" src="images/IMG_2664.JPG" width="450" >
  
