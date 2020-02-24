@@ -19,19 +19,17 @@ This is how to make an animated GIF of a terminal session.
 
   * [github-animated-GIF](https://github.com/BradleyA/Linux-admin/tree/master/github-animated-GIF)
   
-  how to make a web site on github https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1
-  
-  
+How to create a website for free with GitHub Pages..  Link: Towards Data Science: A Medium publication sharing concepts, ideas, and codes.
 
-This shell script enables you to script repeatable demos in a bash environment so you don't have to type as you present. Rather than trying to type commands when presenting you simply script them and let demo-magic.sh run them for you.
+  * [GitHub website](https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1)
+
+This shell script enables you to script repeatable demos in a bash environment so you don't have to type as you present. Rather than trying to type commands when presenting you simply script them and let demo-magic.sh run them for you.  Link to Paxton Hare GitHub account.
   
   * [Demo Magic](https://github.com/paxtonhare/demo-magic/blob/master/README.md#demo-magic)
+
+## Clone
  
- <img id="respberry_cluster-1" src="images/IMG_2664.JPG" width="450" >
- 
- ## Clone
- 
- To install, change directory to the location you want to download the scripts. Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
+To install, change directory to the location you want to download the scripts. Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
  
      git clone https://github.com/BradleyA/Linux-admin
      cd Linux-admin
@@ -50,6 +48,8 @@ This shell script enables you to script repeatable demos in a bash environment s
  #### System OS script tested
   * Ubuntu 14.04.3 LTS (amd64,armv7l)
   * Ubuntu 16.04.3 LTS (armv7l)
+
+<img id="respberry_cluster-1" src="images/IMG_2664.JPG" width="150" >
  
  #### Design Principles
   * Have a simple setup process and a minimal learning curve
