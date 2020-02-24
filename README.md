@@ -5,7 +5,7 @@
 <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=96&color=blue">
 <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1327&color=blue">
 
-Shell scripts to automate download of GitHub traffic statistics, cluster administration, create an animated GIF, create a GitHub web page, script repeatable demos,
+Shell scripts to automate download of GitHub traffic statistics, cluster administration, create an animated GIF, create a GitHub web page, script repeatable demos, connect GitHub and Slack, 
   
 A very simple shell script that uses crontab to schedule the download of GitHub traffic statistics in plain text from your GitHub repositories.  Another script gives you the text lines to add to crontab and sets up the directories for GitHub traffic statistics.   It takes minutes to setup but weeks to get enough data before using a third script that parses the GitHub traffic and creates two markdown tables like these; [clones](images/clone.table.md) and [views](images/view.table.md)
   
