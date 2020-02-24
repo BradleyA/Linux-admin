@@ -11,19 +11,19 @@ A very simple shell script that uses crontab to schedule the download of GitHub 
   
   * [github-repository-traffic](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic-------------)
 
-For Linux administrators, the cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It helps with cluster system adminstration of hosts with a set of predefined commands and allows custom commands.
+The cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It helps with cluster system adminstration of hosts with a set of predefined commands and allows custom commands.
  
   * [cluster-command](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command)
 
-This is how to make an animated GIF of a terminal session.
+How to make an animated GIF of a terminal session.
 
   * [github-animated-GIF](https://github.com/BradleyA/Linux-admin/tree/master/github-animated-GIF)
   
-How to create a website for free with GitHub Pages..  Link: Towards Data Science: A Medium publication sharing concepts, ideas, and codes.
+How to create a website for with GitHub Pages..  Link: Towards Data Science: A Medium publication sharing concepts, ideas, and codes.
 
   * [GitHub website](https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1)
 
-This shell script enables you to script repeatable demos in a bash environment so you don't have to type as you present. Rather than trying to type commands when presenting you simply script them and let demo-magic.sh run them for you.  Link to Paxton Hare GitHub account.
+Shell script enables you to script repeatable demos in a bash environment so you don't have to type as you present. Rather than trying to type commands when presenting you simply script them and let demo-magic.sh run them for you.  Link to Paxton Hare GitHub account.
   
   * [Demo Magic](https://github.com/paxtonhare/demo-magic/blob/master/README.md#demo-magic)
 
@@ -66,4 +66,3 @@ To install, change directory to the location you want to download the scripts. U
  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
