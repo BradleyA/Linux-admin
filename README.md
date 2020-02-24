@@ -27,6 +27,10 @@ Shell script enables you to script repeatable demos in a bash environment so you
   
   * [Demo Magic](https://github.com/paxtonhare/demo-magic/blob/master/README.md#demo-magic)
 
+Connect GitHub and Slack
+  
+  * [GitHub + Slack Integrations](https://zapier.com/apps/github/integrations/slack)
+  
 ## Clone
  
 To install, change directory to the location you want to download the scripts. Use git to pull or clone these scripts into the directory. If you do not have git then enter; "sudo apt-get install git". On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
