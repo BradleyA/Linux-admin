@@ -82,7 +82,7 @@ Parse output from owner.repository script to create [clone,view].table.md, [clon
 
 **664 github.repository.list** - Your GitHub repository names that you want historic traffic information with one on each line.  Lines that include with a '#' anywhere are comment lines.
 
-**775 owner.repository** - Script that downloads the GitHub repository historic traffic information.  The owner.repository script is linked to \<GITHUB_OWNER>.\<REPOSITORY> because the script uses the file name for \<GITHUB_OWNER> and \<REPOSITORY>.  The output data file is /usr/local/data/github/\<GITHUB_OWNER>/\<REPOSITORY>/\<GITHUB_OWNER>.\<REPOSITORY>.\<date> or ${GITHUB_TRAFFIC_DIR}/github/\<GITHUB_OWNER>/\<REPOSITORY>/\<GITHUB_OWNER>.\<REPOSITORY>.\<date>.  It is scheduled to run once a week using crontab but can be scheduled more or less often.
+**775 owner.repository** - Script that downloads the GitHub repository historic traffic information.  The owner.repository script is linked to \<GITHUB_OWNER>.\<REPOSITORY> because the script uses the file name for \<GITHUB_OWNER> and \<REPOSITORY>.  The output data file is /usr/local/data/github/\<GITHUB_OWNER>/\<REPOSITORY>/\<GITHUB_OWNER>.\<REPOSITORY>.\<DATE> or ${GITHUB_TRAFFIC_DIR}/github/\<GITHUB_OWNER>/\<REPOSITORY>/\<GITHUB_OWNER>.\<REPOSITORY>.\<DATE>.  It is scheduled to run once a week using crontab but can be scheduled more or less often.
 
 You could copy owner.repository script to \<GITHUB_OWNER>.\<REPOSITORY> file name and not use links.  But this method will add additional rework, or technical debt, when changes are need to owner.repository script. 
 
