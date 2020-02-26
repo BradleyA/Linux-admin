@@ -65,11 +65,11 @@ Parse output from owner.repository script to create [clone,view].table.md, [clon
        cd  /usr/local/data/github/<GITHUB_OWNER>/<REPOSITORY>
        ls
        
-2) Parse output from owner.repository script to create [clone,view].table.md, [clone,view].total, and [clone,view].<DATE> files.
-   
+2) Parse output from owner.repository script to create [[clone](../images/clone.table.md), [view](../images/view.table.md)].table.md, [clone,view].total, and [clone,view].<DATE> files.
+
        ../../parse.repository.data.sh  <GITHUB_OWNER>.<REPOSITORY>.<DATE>
 
-#### Step 2 output
+#### Steps 1 & 2 output
 <img id="parse.repository.data.sh" src="../images/parse-step-2.gif" >
 
 3) Copy the parsed data files to your GitHub repository or where you plan to use it.
