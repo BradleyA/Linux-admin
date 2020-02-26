@@ -86,8 +86,7 @@ Parse output from owner.repository script to create [clone,view].table.md, [clon
 
 You could copy owner.repository script to \<GITHUB_OWNER>.\<REPOSITORY> file name and not use links.  But this method will add additional rework, or technical debt, when changes are need to owner.repository script. 
 
-**775 parse.repository.data.sh** - Parse output from owner.repository script to create [[clone](../images/clone.table.md), [view](../images/view.table.md)].table.md, [clone,view].total, and [clone,view].\<DATE> files.  [clone,view].table.md is a markdown table organized in two rows; [Clones,Views] and [Unique clones,Unique
-vistors], with dated columns.  [clone,view].total file includes the total only.  [clone,view].\<DATE> contains one column of markdown formated table data to be used in [clone,view].table.md file.  
+**775 parse.repository.data.sh** - Parse output from owner.repository script to create [[clone](../images/clone.table.md), [view](../images/view.table.md)].table.md, [clone,view].total, and [clone,view].\<DATE> files.  [[clone](../images/clone.table.md), [view](../images/view.table.md)].table.md is a markdown table organized in two rows; [Clones,Views] and [Unique clones,Unique vistors], with dated columns.  [clone,view].total file includes the total only.  [clone,view].\<DATE> contains one column of markdown formated table data to be used in [clone,view].table.md file.  
 
 Use the data in these files how ever you planned.  I have used them in my \<GITHUB_OWNER>/\<REPOSITORY>/README.md file and copied some files to \<GITHUB_OWNER>/\<REPOSITORY>/images directory.
 
