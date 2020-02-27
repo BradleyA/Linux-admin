@@ -1,0 +1,20 @@
+
+In SA-shellcheck-001 line 213:
+cat  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" | sed -e '1,/views>>>/!d' -e '1,/clones:\[/d' -e '/^\]/,$d'  > "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
+     ^-- SC2002: Useless cat. Consider 'cmd < file | ..' or 'cmd file | ..' instead.
+
+
+In SA-shellcheck-001 line 221:
+    tmp=$(echo "${line}" | cut -d: -f 2 | cut -d\- -f 2-3)
+                                                ^-- SC1001: This \- will be a regular '-' in this context.
+
+
+In SA-shellcheck-001 line 242:
+cat  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" | sed -e '1,/\/popular\/paths>>>/!d' -e '1,/views:\[/d' -e '/^\]/,$d'  > "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
+     ^-- SC2002: Useless cat. Consider 'cmd < file | ..' or 'cmd file | ..' instead.
+
+
+In SA-shellcheck-001 line 249:
+    tmp=$(echo "${line}" | cut -d: -f 2 | cut -d\- -f 2-3)
+                                                ^-- SC1001: This \- will be a regular '-' in this context.
+
