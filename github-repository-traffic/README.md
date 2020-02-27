@@ -10,6 +10,7 @@ A very simple shell script that uses crontab to schedule the download of GitHub 
 
 *  Rquirements:
     * Linux
+    * git
     * Internet access to GitHub
     * Permission to run crontab jobs on your system (other commands you could use; at, or batch)
     * Write permission in /usr/local/data directory, if not, use a directory you do have write permission, 'export GITHUB_TRAFFIC_DIR=~/github'
