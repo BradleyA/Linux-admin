@@ -1,5 +1,7 @@
 #!/bin/bash
-# 	github-repository-traffic/parse.repository.data.sh  3.2.0.711  2020-02-18T13:30:17.137229-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.1.4-26-g707bc02  
+# 	github-repository-traffic/parse.repository.data.sh  3.2.1.765  2020-03-02T17:21:38.897997-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.0-53-g474843c  
+# 	   github-repository-traffic/parse.repository.data.sh   add test cases for command 
+# 	github-repository-traffic/parse.repository.data.sh  3.2.0.711  2020-02-18T13:30:17.137229-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.1.4-26-g707bc02 
 # 	   After 6 months of downloading data I am able to release GitHub Repository Traffic Parser   #29 
 # 	github-repository-traffic/parse.repository.data.sh  3.1.1.628  2020-02-16T21:26:27.185252-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.131  
 # 	   Include GitHub repository traffic data in README close #29 
