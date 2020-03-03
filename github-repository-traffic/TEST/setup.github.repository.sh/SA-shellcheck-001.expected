@@ -1,0 +1,6 @@
+
+In SA-shellcheck-001 line 240:
+for REPOSITORY in $(cat "${GITHUB_TRAFFIC_DIR}"/github.repository.list | grep -v "#" ); do
+                  ^-- SC2013: To read lines rather than words, pipe/redirect to a 'while read' loop.
+                        ^-- SC2002: Useless cat. Consider 'cmd < file | ..' or 'cmd file | ..' instead.
+
