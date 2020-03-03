@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	cluster-command/cluster-command.sh  2.109.389  2019-12-02T13:05:44.221471-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  five-rpi3b.cptx86.com 2.108-3-g6d124f5  
+# 	cluster-command/cluster-command.sh  3.2.5.778  2020-03-02T23:27:13.398432-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.4-2-g22f85c4  
 # 	   cluster-command/cluster-command.sh   add git-TEST-commit-automation 
 # 	cluster-command/cluster-command.sh  2.108.385  2019-12-02T12:37:22.679518-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.107  
 # 	   cluster-command/cluster-command.sh   add reboot user hint to dist-upgrade 
