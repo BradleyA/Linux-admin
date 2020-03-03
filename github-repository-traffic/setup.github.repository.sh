@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	github-repository-traffic/setup.github.repository.sh  3.2.2.771  2020-03-02T23:02:02.284874-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.1-5-g8c3ee86  
+# 	   github-repository-traffic/setup.github.repository.sh   test FVT test cases 
 # 	github-repository-traffic/setup.github.repository.sh  3.2.0.711  2020-02-18T13:30:17.247691-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.1.4-26-g707bc02  
 # 	   After 6 months of downloading data I am able to release GitHub Repository Traffic Parser   #29 
 # 	github-repository-traffic/setup.github.repository.sh  3.1.1.628  2020-02-16T21:26:27.280594-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.131  
@@ -20,6 +22,7 @@
 ##########
 ###	https://github.com/isaacs/github/issues/399	###
 ##########
+#86# github-repository-traffic/setup.github.repository.sh
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
