@@ -1,0 +1,10 @@
+
+In SA-shellcheck-001 line 6:
+REPOSITORY=$(echo "${COMMAND_NAME}" | sed "s/^${GITHUB_OWNER}\.//")
+             ^-- SC2001: See if you can use ${variable//search/replace} instead.
+
+
+In SA-shellcheck-001 line 18:
+curl -ni https://api.github.com/repos/"${GITHUB_OWNER}"/"${REPOSITORY}"/traffic/clones?per=week  >> "${GITHUB_TRAFFIC_DIR}/${COMMAND_NAME}.${TODAY}"
+^-- SC2129: Consider using { cmd1; cmd2; } >> file instead of individual redirects.
+
