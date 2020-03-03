@@ -93,7 +93,7 @@ Use the data in these files how ever you planned.  I have used them in my \<GITH
 
 In the future I want to automate a push of this data to GitHub repositories but that has many challenges (which branch, how much of a repository needs to be cloned to make a git push with new files, is someone editing README.md, etc).
 
-**750 setup.github.repository.sh** - This script works for the local host only.  This script creates directories and copies github-repository-traffic files into those directories.  It reads github.repository.list file for your list of repositories that you want GitHub traffic.  It creates a symbolic link from \<GITHUB_OWNER>.\<REPOSITORY> to the script ../owner.repository and prints the lines to add to crontab.  
+**775 setup.github.repository.sh** - This script works for the local host only.  This script creates directories and copies github-repository-traffic files into those directories.  It reads github.repository.list file for your list of repositories that you want GitHub traffic.  It creates a symbolic link from \<GITHUB_OWNER>.\<REPOSITORY> to the script ../owner.repository and prints the lines to add to crontab.  
 
 GitHub owner and github.repository.list are required for this script to work.  <GITHUB_OWNER> can be the first argument on the command line or defined as GITHUB_OWNER environment variable.
 
