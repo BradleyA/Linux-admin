@@ -75,7 +75,10 @@ Parse output from owner.repository script to create [clone,view].table.md, [clon
 
 <img id="github-repository-traffic-2.png" src="../images/github-repository-traffic-2.png" >
 
-Note: add this later : for TRAFFIC in $(ls -1 BradleyA.Start-registry-v2-script.1.0.2020-*) ; do echo $TRAFFIC ; ../../parse.repository.data.sh $TRAFFIC ; done
+Note: add this later:
+
+    cd /usr/local/data/github/BradleyA/Start-registry-v2-script.1.0
+    for TRAFFIC in $(ls -1 BradleyA.Start-registry-v2-script.1.0.2020-*) ; do echo $TRAFFIC ; ../../parse.repository.data.sh $TRAFFIC ; done
 
 ## Download Files:
 
