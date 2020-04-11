@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	github-repository-traffic/parse.repository.data.sh  3.2.1.765  2020-03-02T17:21:38.897997-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.0-53-g474843c  
-# 	   github-repository-traffic/parse.repository.data.sh   add test cases for command 
+# 	github-repository-traffic/parse.repository.data.sh  3.2.6.790  2020-04-11T15:49:36.281377-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.5-11-g1e79569  
+# 	   github-repository-traffic/parse.repository.data.sh   closed #46  repository w/ '.'  Production standard 2.3.578 log format  shellcheck 
 # 	github-repository-traffic/parse.repository.data.sh  3.2.0.711  2020-02-18T13:30:17.137229-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.1.4-26-g707bc02 
 # 	   After 6 months of downloading data I am able to release GitHub Repository Traffic Parser   #29 
 # 	github-repository-traffic/parse.repository.data.sh  3.1.1.628  2020-02-16T21:26:27.185252-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.131  
@@ -38,6 +38,8 @@ BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
 RED=$(tput    setaf 1)
 YELLOW=$(tput setaf 3)
+BLUE=$(tput   setaf 4)
+PURPLE=$(tput setaf 5)
 WHITE=$(tput  setaf 7)
 
 ###  Production standard 7.0 Default variable value
@@ -187,10 +189,10 @@ if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
 #    GID
 GROUP_ID=$(id -g)
 
-###  Production standard 2.3.529 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+###  Production standard 2.3.578 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
 new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
   get_date_stamp
-  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${SCRIPT_VERSION} ${1} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
 }
 
 #    INFO
@@ -198,10 +200,10 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}
 
 #    Added following code because USER is not defined in crobtab jobs
 if ! [[ "${USER}" == "${LOGNAME}" ]] ; then  USER=${LOGNAME} ; fi
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Setting USER to support crobtab...  USER >${USER}<  LOGNAME >${LOGNAME}<" 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Setting USER to support crobtab...  USER >${YELLOW}${USER}${WHITE}<  LOGNAME >${YELLOW}${LOGNAME}${WHITE}<" 1>&2 ; fi
 
 #    DEBUG
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Name_of_command >${SCRIPT_NAME}< Name_of_arg1 >${1}< Name_of_arg2 >${2}< Name_of_arg3 >${3}<  Version of bash ${BASH_VERSION}" 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Name_of_command >${YELLOW}${SCRIPT_NAME}${WHITE}< Name_of_arg1 >${YELLOW}${1}${WHITE}< Name_of_arg2 >${YELLOW}${2}${WHITE}< Name_of_arg3 >${YELLOW}${3}${WHITE}<  Version of bash ${YELLOW}${BASH_VERSION}${WHITE}" 1>&2 ; fi
 
 ###  Production standard 9.3.562 Parse CLI options and arguments
 while [[ "${#}" -gt 0 ]] ; do
@@ -220,10 +222,14 @@ if [[ $# -ge  1 ]]  ; then GITHUB_REPOSITORY_TRAFFIC_DATA=${1} ; else
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  <GITHUB_OWNER>.<REPOSITORY>.<date> as the first argument on the command line was not found.."
   exit 1
 fi
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...  GITHUB_REPOSITORY_TRAFFIC_DATA >${GITHUB_REPOSITORY_TRAFFIC_DATA}<" 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...  GITHUB_REPOSITORY_TRAFFIC_DATA >${YELLOW}${GITHUB_REPOSITORY_TRAFFIC_DATA}${WHITE}<" 1>&2 ; fi
+
+#    Define GITHUB_OWNER and REPOSITORY from $1
 GITHUB_OWNER=$(echo "${1}" | cut -d. -f 1)
-REPOSITORY=$(echo "${1}" | cut -d. -f 2)
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...  GITHUB_OWNER >${GITHUB_OWNER}<  REPOSITORY >${REPOSITORY}<" 1>&2 ; fi
+REPOSITORY=${1%.*}              #    works in bash 3.2.25 or later
+REPOSITORY=${REPOSITORY#*.}     #    works in bash 3.2.25 or later
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...  GITHUB_OWNER >${YELLOW}${GITHUB_OWNER}${WHITE}<  REPOSITORY >${YELLOW}${REPOSITORY}${WHITE}<" 1>&2 ; fi
+
 #    Order of precedence: environment variable, default code
 if [[ "${GITHUB_TRAFFIC_DIR}" == "" ]] ; then GITHUB_TRAFFIC_DIR=${DEFAULT_GITHUB_TRAFFIC_DIR} ; fi
 
@@ -239,22 +245,22 @@ fi
 grep -e clones -e timestamp -e count -e uniques -e views -e /popular/paths -e path -e title -e /popular/referrers -e '\]' -e '\['  "${GITHUB_REPOSITORY_TRAFFIC_DATA}" | sed -e 's/"//g' -e 's/,//g' -e 's/T.*Z//' -e 's/[ \t]*//g' > "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers"
 
 #    Parse clones data from ${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers
-cat  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" | sed -e '1,/views>>>/!d' -e '1,/clones:\[/d' -e '/^\]/,$d'  > "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
+sed -e '1,/views>>>/!d' -e '1,/clones:\[/d' -e '/^\]/,$d'  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers"  >  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 #    Loop through ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp and create clone.data.$timestamp files
 while read line; do
   FIRST_WORD=$(echo "${line}" | cut -d: -f 1)
-  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...  FIRST_WORD >${FIRST_WORD}<" 1>&2 ; fi
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...  FIRST_WORD >${YELLOW}${FIRST_WORD}${WHITE}<" 1>&2 ; fi
   if [[ "${FIRST_WORD}" == "timestamp" ]] ;  then
     SECOND_WORD=$(echo "${line}" | cut -d: -f 2)
     CLONE_DATA_DATE="clone.data.${SECOND_WORD}"
-    tmp=$(echo "${line}" | cut -d: -f 2 | cut -d\- -f 2-3)
+    tmp=$(echo "${line}" | cut -d: -f 2 | cut -d- -f 2-3)
     echo "| ${tmp}" > "${CLONE_DATA_DATE}"
     echo "|:---:" >> "${CLONE_DATA_DATE}"
   else
     AMOUNT=$(echo "${line}" | cut -d: -f 2)
     echo "| ${AMOUNT}" >> "${CLONE_DATA_DATE}"
   fi
-  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... FIRST_WORD >${FIRST_WORD}< SECOND_WORD >${SECOND_WORD}< CLONE_DATA_DATE >${CLONE_DATA_DATE}< AMOUNT >${AMOUNT}<" 1>&2 ; fi
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... FIRST_WORD >${YELLOW}${FIRST_WORD}${WHITE}< SECOND_WORD >${YELLOW}${SECOND_WORD}${WHITE}< CLONE_DATA_DATE >${YELLOW}${CLONE_DATA_DATE}${WHITE}< AMOUNT >${YELLOW}${AMOUNT}${WHITE}<" 1>&2 ; fi
 done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file only if DEBUG is set to zero
 CLONE_TOTAL=0
@@ -268,21 +274,21 @@ fi
 echo -e "\nTotal clones: ${CLONE_TOTAL}\n###### Updated: $(date +%Y-%m-%d)"  >> clone.table.md
 
 #    Parse vistors (views) data from ${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers
-cat  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers" | sed -e '1,/\/popular\/paths>>>/!d' -e '1,/views:\[/d' -e '/^\]/,$d'  > "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
+sed -e '1,/\/popular\/paths>>>/!d' -e '1,/views:\[/d' -e '/^\]/,$d'  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.no-headers"  >  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 #    Loop through ${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp and create clone.data.$timestamp files
 while read line; do
   FIRST_WORD=$(echo "${line}" | cut -d: -f 1)
   if [[ "${FIRST_WORD}" == "timestamp" ]] ;  then
     SECOND_WORD=$(echo "${line}" | cut -d: -f 2)
     VIEW_DATA_DATE="view.data.${SECOND_WORD}"
-    tmp=$(echo "${line}" | cut -d: -f 2 | cut -d\- -f 2-3)
+    tmp=$(echo "${line}" | cut -d: -f 2 | cut -d- -f 2-3)
     echo "| ${tmp}" > "${VIEW_DATA_DATE}"
     echo "|:---:" >> "${VIEW_DATA_DATE}"
   else
     AMOUNT=$(echo "${line}" | cut -d: -f 2)
     echo "| ${AMOUNT}" >> "${VIEW_DATA_DATE}"
   fi
-  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... FIRST_WORD >${FIRST_WORD}< SECOND_WORD >${SECOND_WORD}< VIEW_DATA_DATE >${VIEW_DATA_DATE}< AMOUNT >${AMOUNT}<" 1>&2 ; fi
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... FIRST_WORD >${YELLOW}${FIRST_WORD}${WHITE}< SECOND_WORD >${YELLOW}${SECOND_WORD}${WHITE}< VIEW_DATA_DATE >${YELLOW}${VIEW_DATA_DATE}${WHITE}< AMOUNT >${YELLOW}${AMOUNT}${WHITE}<" 1>&2 ; fi
 done < "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp"
 if [[ "${DEBUG}" == "0" ]] ; then rm  "${GITHUB_REPOSITORY_TRAFFIC_DATA}.tmp" ; fi  #  Remove file only if DEBUG is set to zero
 VIEW_TOTAL=0
