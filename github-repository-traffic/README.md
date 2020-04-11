@@ -1,4 +1,7 @@
-# github-repository-traffic [![Stable Release](https://img.shields.io/badge/Release-3.2.0-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/3.2.0)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/3.2.0.svg)](https://github.com/BradleyA/Linux-admin/commits/)    <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=96&color=blue">    <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1327&color=blue"> 
+# github-repository-traffic
+[![Stable Release](https://img.shields.io/badge/Release-3.2.0-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/3.2.0)
+[![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/3.2.0.svg)](https://github.com/BradleyA/Linux-admin/commits/)
+<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=96&color=blue">    <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1327&color=blue"> 
 
 ## Goal
 
@@ -8,12 +11,7 @@ Present GitHub repositories traffic history more than 14 days
 
 A very simple shell script that uses crontab to schedule the download of GitHub traffic statistics in plain text from your GitHub repositories.  Another script gives you the text lines to add to crontab and sets up the directories for GitHub traffic statistics.   It takes minutes to setup but weeks to get enough data before using a third script that parses the GitHub traffic and creates two markdown tables like these; [clone table](../images/clone.table.md) and [view table](../images/view.table.md)
 
-*  Rquirements:
-    * Linux
-    * git
-    * Internet access to GitHub
-    * Permission to run crontab jobs on your system (other commands you could use; at, or batch)
-    * Write permission in /usr/local/data directory, if not, use a directory you do have write permission, 'export GITHUB_TRAFFIC_DIR=~/github'
+
 
 #### If you like this repository, select in the upper-right corner,  STAR,  thank you.
 
@@ -123,7 +121,14 @@ In the future, this printed crontab list will be appended to a crontab file.  Th
         │   └── <REPOSITORY-2>                 <-- Current year of GitHub repository
         │                                          traffic data
         └── <GITHUB_OWNER>                     <-- Links to ../owner.repository
-
+  
+#### Rquirements:
+    * Linux
+    * git
+    * Internet access to GitHub
+    * Permission to run crontab jobs on your system (other commands you could use; at, or batch)
+    * Write permission in /usr/local/data directory, if not, use a directory you do have write permission, 'export GITHUB_TRAFFIC_DIR=~/github'
+    
 #### Traffic
  * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=96&color=blue">  [Clones Table](../images/clone.table.md)
  * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1327&color=blue">  [Views Table](../images/view.table.md)
