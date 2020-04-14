@@ -11,7 +11,7 @@ Present GitHub repositories traffic history more than 14 days
 
 ## Description
 
-A very simple Linux shell script that uses crontab to schedule the download of GitHub traffic statistics in plain text from your GitHub repositories.  Another script gives you the text lines to add to crontab and sets up directories for GitHub traffic statistics.   It takes minutes to setup but weeks to get enough GitHub traffic statistics to analyze.
+A very simple bash shell script that uses crontab to schedule the download of GitHub traffic statistics in plain text from your GitHub repositories.  Another script gives you the text lines to add to crontab and sets up directories for GitHub traffic statistics.   It takes minutes to setup but weeks to get enough GitHub traffic statistics to analyze.
 
 At this point you can process the GitHub traffic statistics on your system with any tools you wish.  I chose not to go the route of leveraging tools to plot statistics or allowing third party platforms to access my GitHub account.  I also chose that additional investment of time was not worth the return of that investment at this time.  So I created a third script that parses the GitHub traffic and creates two markdown tables (clone, views).  Clone table example:
 
