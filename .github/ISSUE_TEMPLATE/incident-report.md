@@ -29,11 +29,12 @@ A clear and concise description of what you expected to happen.
 
 **Version:**
  - OS ( lsb_release -a; Ubuntu 14.04  Ubuntu 16.04  Ubuntu 20.04 )
-      
-      ->
- - Command: ( github-repository/setup.github.repository.sh  2.199.861 )
-      
-      ->
+ 
+       ->
+ 
+  - Command: ( github-repository/setup.github.repository.sh  2.199.861 )
+
+        ->
 
 **Screenshots:**
 If applicable, add screenshots to help explain your incident.
