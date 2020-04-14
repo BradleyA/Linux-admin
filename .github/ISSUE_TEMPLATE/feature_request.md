@@ -41,8 +41,3 @@ Add any other context or screenshots about the feature request here.
   - Command: ( github-repository/setup.github.repository.sh  2.199.861 )
 
         ->
-
-**Screenshots:**
-If applicable, add screenshots to help explain your feature.
-
-    ->
