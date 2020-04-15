@@ -1,7 +1,7 @@
 ---
 name: Other
 about: Miscellaneous
-title: "[enter command] - [enter brief description]"
+title: "[enter command  if available] - [enter brief description]"
 labels: 'needs investigation'
 assignees: BradleyA
 
