@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: Suggest an idea for this project, Thank you
-title: Feature Request - [enter command if available] - [enter brief description]
+title: "Feature Request - [enter command if available] - [enter brief description]"
 labels: new command/service
 assignees: BradleyA
 
