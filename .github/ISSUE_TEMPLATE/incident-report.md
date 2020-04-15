@@ -8,7 +8,7 @@ assignees: BradleyA
 ---
 
 **Describe the incident:**
-A clear and concise description of what the incident is.
+A clear and concise description of what the incident is:
 
     ->
 
@@ -23,7 +23,7 @@ Steps to reproduce the behavior:
     ->
 
 **Expected results:**
-A clear and concise description of what you expected to happen.
+A clear and concise description of what you expected to happen:
 
     ->
 
@@ -37,6 +37,6 @@ A clear and concise description of what you expected to happen.
         ->
 
 **Screenshots:**
-If applicable, add screenshots to help explain your incident.
+If applicable, add screenshots to help explain your incident:
 
     ->
