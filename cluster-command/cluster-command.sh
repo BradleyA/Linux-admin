@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  3.2.8.823  2020-05-05T22:35:09.607945-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.7-1-g84aae4c  
+# 	   cluster-command/cluster-command.sh -->   remove ERROR measge from output -> You cannot remove a running container  
 # 	cluster-command/cluster-command.sh  3.2.7.821  2020-05-05T22:21:40.556139-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.6-30-ga0abde8  
 # 	   cluster-command/cluster-command.sh -->   close #47   add docker-con-rm  - docker container rm $(docker ps -qa)  
 # 	cluster-command/cluster-command.sh  3.2.5.778  2020-03-02T23:27:13.398432-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.4-2-g22f85c4  
@@ -159,7 +161,7 @@ echo    "      docker-info    + docker system info [<REMOTE_COMMAND_OPTION>]"
 echo    "      docker-info-con - docker system info | head -6"
 echo    "      docker-info-swarm - docker system info | grep -i swarm"
 echo    "      docker-con-ls  + docker container ls [<REMOTE_COMMAND_OPTION>]"
-echo    "      docker-con-rm  - docker container rm \$(docker ps -qa)"
+echo    "      docker-con-rm  - docker container rm \$(docker ps -qa) 2> gerp -v 'You cannot remove a running container'"
 echo    "      docker-ima-ls  + docker images [<REMOTE_COMMAND_OPTION>]"
 echo    "      docker-net-ls  + docker network ls [<REMOTE_COMMAND_OPTION>]"
 echo    "      docker-vol-ls  + docker volume ls [<REMOTE_COMMAND_OPTION>]"
@@ -306,7 +308,7 @@ case ${REMOTE_COMMAND} in
   docker-info-con) REMOTE_COMMAND="docker system info | head -6" ;;
   docker-info-swarm) REMOTE_COMMAND="docker system info | grep -i swarm" ;;
   docker-con-ls) REMOTE_COMMAND="docker container ls ${REMOTE_COMMAND_OPTION}" ;;
-  docker-con-rm) REMOTE_COMMAND="docker container rm \$(docker ps -qa)" ;;
+  docker-con-rm) REMOTE_COMMAND="docker container rm \$(docker ps -qa) 2> grep -v 'You cannot remove a running container'" ;;
   docker-ima-ls) REMOTE_COMMAND="docker images ${REMOTE_COMMAND_OPTION}" ;;
   docker-net-ls) REMOTE_COMMAND="docker network ls ${REMOTE_COMMAND_OPTION}" ;;
   docker-vol-ls) REMOTE_COMMAND="docker volume ls ${REMOTE_COMMAND_OPTION}" ;;
