@@ -3,7 +3,7 @@
 [![Stable commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/3.2.0.svg)](https://github.com/BradleyA/Linux-admin/commits)
 [![MIT License](http://img.shields.io/badge/License-MIT-red.png)](LICENSE)
 [<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=137&color=blue">](images/clone.table.md)
-[<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1327&color=blue">](images/view.table.md)
+[<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=3418&color=blue">](images/view.table.md)
 
 Shell scripts to automate download of GitHub traffic statistics, cluster administration, create an animated GIF, create a GitHub web page, script repeatable demos, connect GitHub and Slack, 
   
