@@ -1,12 +1,11 @@
 #### 2020 GitHub visitors
-Date:             |    01-06   |    01-13   |    01-20   |    01-27  |  02-03  |  02-10  |  02-17  |  02-24
-|:---   |:---:    |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:
-Views:            |    3       |    1       |    2       |    16     |  345    |  509    |  406    |  128
-Unique  vistors:  |    3       |    1       |    1       |    3      |      3  |      4  |      6  |      13
+Date:		   |  01-06   |       01-13   |       01-20   |       01-27   |       02-03   |       02-10   |       02-17   |       02-24  |   03-02  |  03-09  |  03-16  |  03-23  |  03-30  |  04-06  |  04-13  |  04-20  |  04-27
+|:---   |:---: |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:  |:---:
+Views:		  |  3       |       1       |       2       |       16      |       345     |       509     |       406     |       128    |   59     |  30     |  28     |  12     |  5      |  92     |  391    |  20     |  20
+Unique  vistors:  | 3       |       1       |       1       |       3       |       3       |       4       |       6       |      13  |      3  |      7  |      6  |      5  |      2  |      5  |      6  |      8  |      5
 
-Total views: 1410
-
-###### Updated: 2020-03-04
+Total views: 2508
+###### Updated: 2020-05-07
 
 #### 2019 GitHub visitors
 Date:		   |         07-22   |       07-29   |       08-05   |       08-12   |       08-19   |       08-26   |       09-23   |       09-30  |  10-07  |  10-14  |  12-09  |  12-16  |  12-23  |  12-30
@@ -18,6 +17,6 @@ Total views: 910
 
 ###### Updated: 2020-01-04
 
-[Return to Repository README](https://github.com/BradleyA/Linux-admin/blob/master/README.md#Linux-admin)
+**Note**  Data collection stopped between 10/14/2019 & 12/9/2019
 
-**Note**  Data collection stopped between 10/14 & 12/9
+[Return to Repository README](https://github.com/BradleyA/Linux-admin/blob/master/README.md#Linux-admin)
