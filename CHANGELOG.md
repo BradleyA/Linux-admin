@@ -19,9 +19,8 @@ Brief description
 ## Latest Release -->  Version  3.2.0
 #### Release Name  3.2.0 latest
 #### Release Date  Feb 18 2020
-
-After 6 months of downloading data I am able to release GitHub Repository Traffic Parser
 - github-repository-traffic
+  - After 6 months of downloading data I am able to release GitHub Repository Traffic Parser
 - cluster-command
 - github-animated-GIF 
 
@@ -76,12 +75,11 @@ After 6 months of downloading data I am able to release GitHub Repository Traffi
   * close #43 github-repository-traffic/owner.repository   add YEAR DIRECTORY
 * github-animated-GIF
 
-
 ## Version  2.42.202
 #### Release Name  2.42
 #### Release Date  2019-06-07T17:09:06.723711-05:00 (CDT)
-
-Minor update to Docker commands
+- cluster-command
+  - Minor update to Docker commands
 
 ### Features Added
 * Update README.md
@@ -97,8 +95,8 @@ Minor update to Docker commands
 ## Version  2.38.194
 #### Release Name  2.38
 #### Release Date  2019-05-26T18:54:39.460128-05:00 (CDT)
-
-correct incidents with <REMOTE_COMMAND_OPTION>
+- cluster-command
+  - correct incidents with <REMOTE_COMMAND_OPTION>
 
 ### Features Added
 * Update README.md
@@ -114,8 +112,8 @@ correct incidents with <REMOTE_COMMAND_OPTION>
 ## Version  2.34.185
 #### Release Name  2.34
 #### Release Date  2019-05-21T14:02:56.051905-05:00 (CDT)
-
-Create new release
+- cluster-command
+  - Create new release
 
 ### Features Added
 * add SOFTWARE ARCHITECTURE to display_help
@@ -136,8 +134,8 @@ Create new release
 ## Version  2.25.144
 #### Release Name  beta-2
 #### Release Date  2019-01-23T15:46:18.461244-06:00 (CST)
-
-improve help
+- cluster-command
+  - improve help
 
 ### Features Added
 * Update License with MIT License notice 1/2019
@@ -157,8 +155,8 @@ improve help
 ## Version  2.06.115
 #### Release Name  beta-1
 #### Release Date  2018-08-19_18:14:56_CDT
-
-minor changes
+- cluster-command
+  - minor changes
 
 ### Features Added
 * remote -p 22 because ssh port number is controlled by ~/.ssh/config file
@@ -171,8 +169,8 @@ minor changes
 ## Version  1.21.106
 #### Release Name  alpha-3
 #### Release Date  2018-07-30_19:07:28_CDT
-
-add port option -p to ssh command
+- cluster-command
+  - add port option -p to ssh command
 
 ### Features Added
 * Update README.md
@@ -209,8 +207,8 @@ add port option -p to ssh command
 ## Version  1.16.91
 #### Release Name  alpha-3
 #### Release Date  2018-03-18_13:17:40_CDT
-
-added require-update to require-upgrade
+- cluster-command
+  - added require-update to require-upgrade
 
 ### Features Added
 * added require-update to require-upgrade
@@ -220,8 +218,8 @@ added require-update to require-upgrade
 ## Version  1.15.90
 #### Release Name  alpha-2
 #### Release Date 2018-03-14_21:05:05_CDT
-
-modify command download in README 
+- cluster-command
+  - modify command download in README 
 
 ### Features Added
 * Update README.md
@@ -283,8 +281,8 @@ ruff draft
 ## Version  {Next Version  X.X.????}  
 #### Release Name  {unreleased alpha beta prerelease latest}
 #### Release Date  ????????????
-
-Brief description
+- x
+  - Brief description
 
 ### Features Added
 ### Features Changes
