@@ -4,7 +4,7 @@ Use the following example to guide you to; How to download an earlier release.
 
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
-## Work in Progress -->
+## Work in Progress -->  <img id="Construction" src="images/construction-icon.gif" width="120">
 
 ## Version  {Next Version  X.X.????}  
 #### Release Name  {unreleased alpha beta prerelease latest}
