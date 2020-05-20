@@ -1,12 +1,9 @@
-**Notes:**
-
-Use the following example to guide you to; How to download an earlier release.
+**Notes:** Use the following example to guide you to; How to download an earlier release.
 
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
-## Work in Progress -->  <img id="Construction" src="images/construction-icon.gif" width="120">
+## Version  {Next Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
 
-## Version  {Next Version  X.X.????}  
 #### Release Name  {unreleased alpha beta prerelease latest}
 #### Release Date  ????????????
 
@@ -18,9 +15,8 @@ Brief description
 ### Issues
 ### Misc
 
-## Latest Release --> 
 
-## Version  3.2.0
+## Latest Release -->  Version  3.2.0
 #### Release Name  3.2.0 latest
 #### Release Date  Feb 18 2020
 
