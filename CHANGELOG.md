@@ -1,10 +1,11 @@
-# cluster-command.CHANGELOG.md
+## cluster-command.CHANGELOG.md
 
 Use the following example to guide you to; How to download an earlier release.
 
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
-**Next Project -->**
+# Work in Progress -->
+
 ## Version  {Next Version  X.X.????}  
 #### Release Name  {unreleased alpha beta prerelease latest}
 #### Release Date  ????????????
@@ -17,8 +18,8 @@ Brief description
 ### Issues
 ### Misc
 
+# Latest Release -->
 
-**Latest Release -->**
 ## Version  3.2.0
 #### Release Name  3.2.0 latest
 #### Release Date  Feb 18 2020
