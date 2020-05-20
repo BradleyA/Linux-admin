@@ -1,10 +1,10 @@
-## cluster-command.CHANGELOG.md
+**Notes:**
 
 Use the following example to guide you to; How to download an earlier release.
 
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
-# Work in Progress -->
+## Work in Progress -->
 
 ## Version  {Next Version  X.X.????}  
 #### Release Name  {unreleased alpha beta prerelease latest}
@@ -18,16 +18,16 @@ Brief description
 ### Issues
 ### Misc
 
-# Latest Release --> 
-- github-repository-traffic
-- cluster-command
-- github-animated-GIF 
+## Latest Release --> 
 
 ## Version  3.2.0
 #### Release Name  3.2.0 latest
 #### Release Date  Feb 18 2020
 
 After 6 months of downloading data I am able to release GitHub Repository Traffic Parser
+- github-repository-traffic
+- cluster-command
+- github-animated-GIF 
 
 ### Features Added
 * Update issue templates
