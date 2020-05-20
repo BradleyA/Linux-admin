@@ -18,7 +18,10 @@ Brief description
 ### Issues
 ### Misc
 
-# Latest Release -->
+# Latest Release --> 
+- github-repository-traffic
+- cluster-command
+- github-animated-GIF 
 
 ## Version  3.2.0
 #### Release Name  3.2.0 latest
