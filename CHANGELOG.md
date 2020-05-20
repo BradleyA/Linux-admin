@@ -2,8 +2,8 @@
 
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
-## Version  {Next Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
 
+## Version  {Next Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
 #### Release Name  {unreleased alpha beta prerelease latest}
 #### Release Date  ????????????
 
@@ -74,6 +74,7 @@ Brief description
   * close #42 github-repository-traffic/setup.github.repository.sh   Upgrade all Production standards
   * close #43 github-repository-traffic/owner.repository   add YEAR DIRECTORY
 * github-animated-GIF
+
 
 ## Version  2.42.202
 #### Release Name  2.42
@@ -181,7 +182,7 @@ Brief description
 * changed order of options, updated help, added poweroff
 * add port option -p to ssh command
 * remote -p 22 because ssh port number is controlled by ~/.ssh/config file
-* sync to iProduction standard script design changes
+* sync to Production standard script design changes
 * add # of upgrades requirted after apt-get update
 * format output for apt-get upgrade
 * updated --help
@@ -215,6 +216,7 @@ Brief description
 
 ### Issues
 
+
 ## Version  1.15.90
 #### Release Name  alpha-2
 #### Release Date 2018-03-14_21:05:05_CDT
@@ -234,8 +236,8 @@ Brief description
 ## Version  1.13.60
 #### Release Name  alpha
 #### Release Date 2018-02-23_16:24:00_CST
-
-debug new commands on two cluster
+- cluster-command
+  - debug new commands on two cluster
 
 ### Features Added
 * complete display-help
@@ -256,8 +258,8 @@ debug new commands on two cluster
 ## Version  1.4.34
 #### Release Name  unreleased
 #### Release Date 2018-02-21_21:22:51_CST
-
-ruff draft
+- cluster-shutdown.sh
+  - ruff draft
 
 ### Features Added
 * updated script to skip local host until after the loop is completed and correct test on the if statement
@@ -278,7 +280,7 @@ ruff draft
 * close #2 cluster-shutdown.sh change scope to support several cluster commands
 
 
-## Version  {Next Version  X.X.????}  
+## EXAMPLE: Latest Release -->  Version  {Next Version  X.X.????}  
 #### Release Name  {unreleased alpha beta prerelease latest}
 #### Release Date  ????????????
 - x
