@@ -3,7 +3,7 @@
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
 
-## Version Under Construction {Next Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
+## Next Version Under Construction {Next Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
 #### Release Name  {unreleased alpha beta prerelease latest}
 #### Release Date  ????????????
 
@@ -16,7 +16,7 @@ Brief description
 ### Misc
 
 
-## Latest Release -->  Version  3.2.0
+# Latest Release -->  Version  3.2.0
 #### Release Name  3.2.0 latest
 #### Release Date  Feb 18 2020
 - github-repository-traffic
