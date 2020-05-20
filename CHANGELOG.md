@@ -280,6 +280,7 @@ Brief description
 * close #2 cluster-shutdown.sh change scope to support several cluster commands
 
 
+## EXAMPLE: Next Version Under Construction {Next Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
 ## EXAMPLE: Latest Release -->  Version  {Next Version  X.X.????}  
 #### Release Name  {unreleased alpha beta prerelease latest}
 #### Release Date  ????????????
