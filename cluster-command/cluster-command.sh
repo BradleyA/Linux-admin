@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  3.2.9.845  2020-05-20T18:37:02.857237-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.8-21-g8a1422f  
+# 	   cluster-command/cluster-command.sh -->   added 8 lines to docker-info-swarm  
 # 	cluster-command/cluster-command.sh  3.2.8.823  2020-05-05T22:35:09.607945-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.7-1-g84aae4c  
 # 	   cluster-command/cluster-command.sh -->   remove ERROR measge from output -> You cannot remove a running container  
 # 	cluster-command/cluster-command.sh  3.2.7.821  2020-05-05T22:21:40.556139-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.6-30-ga0abde8  
@@ -159,7 +161,7 @@ echo    "      docker-df      - docker system df"
 echo    "      docker-df-v    - docker system df --verbose"
 echo    "      docker-info    + docker system info [<REMOTE_COMMAND_OPTION>]"
 echo    "      docker-info-con - docker system info | head -6"
-echo    "      docker-info-swarm - docker system info | grep -i swarm"
+echo    "      docker-info-swarm - docker system info | grep -A 8 -i swarm"
 echo    "      docker-con-ls  + docker container ls [<REMOTE_COMMAND_OPTION>]"
 echo    "      docker-con-rm  - docker container rm \$(docker ps -qa) 2> gerp -v 'You cannot remove a running container'"
 echo    "      docker-ima-ls  + docker images [<REMOTE_COMMAND_OPTION>]"
@@ -306,7 +308,7 @@ case ${REMOTE_COMMAND} in
   docker-df-v) REMOTE_COMMAND="docker system df --verbose" ;;
   docker-info) REMOTE_COMMAND="docker system info ${REMOTE_COMMAND_OPTION}" ;;
   docker-info-con) REMOTE_COMMAND="docker system info | head -6" ;;
-  docker-info-swarm) REMOTE_COMMAND="docker system info | grep -i swarm" ;;
+  docker-info-swarm) REMOTE_COMMAND="docker system info | grep -A 8 -i swarm" ;;
   docker-con-ls) REMOTE_COMMAND="docker container ls ${REMOTE_COMMAND_OPTION}" ;;
   docker-con-rm) REMOTE_COMMAND="docker container rm \$(docker ps -qa) 2> grep -v 'You cannot remove a running container'" ;;
   docker-ima-ls) REMOTE_COMMAND="docker images ${REMOTE_COMMAND_OPTION}" ;;
