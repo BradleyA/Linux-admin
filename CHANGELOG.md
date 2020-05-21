@@ -19,18 +19,15 @@
 # Latest Release -->  Version  3.2.0
 #### Release Name  3.2.0 latest
 #### Release Date  Feb 18 2020
-- github-repository-traffic
-  - After 6 months of downloading data I am able to release GitHub Repository Traffic Parser
-- cluster-command
-- github-animated-GIF 
+* github-repository-traffic
+  * After 6 months of downloading data I am able to release GitHub Repository Traffic Parser
+* cluster-command
+* github-animated-GIF 
 
 ### Features Added
 * Update issue templates
 * Update README.md
-* cluster-command
-  * cluster-command/cluster-command.sh   add support for production standard 8.0 --usage close #28 
-  * cluster-command/cluster-command.sh   upgrade to Production standard 1.3.496 DEBUG variable ; shellcheck version section corrected
-  * cluster-command/cluster-command.sh   upgrade or add  1.3.531 DEBUG variable, 8.3.530 --usage, 0.3.214 --help, 4.3.534 Documentation Language, 9.3.513 Parse CLI options and arguments, 7.0 Default variable value
+
 * github-repository-traffic
   * added github-repository README to support design process
   * change data directory to /usr/local/data/github/${DEFAULT_REPOSITORY_OWNER}/${DEFAULT_REPOSITORY}
@@ -56,6 +53,10 @@
   * github-repository-traffic/parse.repository.data.sh   [clone,view].data.\* files exists and size greater than zero
   * github-repository-traffic/parse.repository.data.sh   Complete display_help ENVIRONMENT VARIABLES
   * github-repository-traffic/owner.repository   add YEAR DIRECTORY
+* cluster-command
+  * cluster-command/cluster-command.sh   add support for production standard 8.0 --usage close #28 
+  * cluster-command/cluster-command.sh   upgrade to Production standard 1.3.496 DEBUG variable ; shellcheck version section corrected
+  * cluster-command/cluster-command.sh   upgrade or add  1.3.531 DEBUG variable, 8.3.530 --usage, 0.3.214 --help, 4.3.534 Documentation Language, 9.3.513 Parse CLI options and arguments, 7.0 Default variable value
 * github-animated-GIF
 
 ### Issues
