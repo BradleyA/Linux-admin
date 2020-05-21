@@ -76,8 +76,8 @@
 ## Version  2.42.202
 #### Release Name  2.42
 #### Release Date  2019-06-07T17:09:06.723711-05:00 (CDT)
-- cluster-command
-  - Minor update to Docker commands
+* cluster-command
+  * Minor update to Docker commands
 
 ### Features Added
 * Update README.md
@@ -93,8 +93,8 @@
 ## Version  2.38.194
 #### Release Name  2.38
 #### Release Date  2019-05-26T18:54:39.460128-05:00 (CDT)
-- cluster-command
-  - correct incidents with <REMOTE_COMMAND_OPTION>
+* cluster-command
+  * correct incidents with <REMOTE_COMMAND_OPTION>
 
 ### Features Added
 * Update README.md
@@ -110,8 +110,8 @@
 ## Version  2.34.185
 #### Release Name  2.34
 #### Release Date  2019-05-21T14:02:56.051905-05:00 (CDT)
-- cluster-command
-  - Create new release
+* cluster-command
+  * Create new release
 
 ### Features Added
 * add SOFTWARE ARCHITECTURE to display_help
@@ -124,16 +124,16 @@
 * Update README.md
 
 ### Issues
-- close #21 cluster-command.sh - disable/enable user login account
-- close #23 tested with template standards
-- close #24 added two additional DEBUG lines
+* close #21 cluster-command.sh - disable/enable user login account
+* close #23 tested with template standards
+* close #24 added two additional DEBUG lines
 
 
 ## Version  2.25.144
 #### Release Name  beta-2
 #### Release Date  2019-01-23T15:46:18.461244-06:00 (CST)
-- cluster-command
-  - improve help
+* cluster-command
+  * improve help
 
 ### Features Added
 * Update License with MIT License notice 1/2019
@@ -153,8 +153,8 @@
 ## Version  2.06.115
 #### Release Name  beta-1
 #### Release Date  2018-08-19_18:14:56_CDT
-- cluster-command
-  - minor changes
+* cluster-command
+  * minor changes
 
 ### Features Added
 * remote -p 22 because ssh port number is controlled by ~/.ssh/config file
@@ -167,8 +167,8 @@
 ## Version  1.21.106
 #### Release Name  alpha-3
 #### Release Date  2018-07-30_19:07:28_CDT
-- cluster-command
-  - add port option -p to ssh command
+* cluster-command
+  * add port option -p to ssh command
 
 ### Features Added
 * Update README.md
@@ -205,8 +205,8 @@
 ## Version  1.16.91
 #### Release Name  alpha-3
 #### Release Date  2018-03-18_13:17:40_CDT
-- cluster-command
-  - added require-update to require-upgrade
+* cluster-command
+  * added require-update to require-upgrade
 
 ### Features Added
 * added require-update to require-upgrade
@@ -217,8 +217,8 @@
 ## Version  1.15.90
 #### Release Name  alpha-2
 #### Release Date 2018-03-14_21:05:05_CDT
-- cluster-command
-  - modify command download in README 
+* cluster-command
+  * modify command download in README 
 
 ### Features Added
 * Update README.md
@@ -233,8 +233,8 @@
 ## Version  1.13.60
 #### Release Name  alpha
 #### Release Date 2018-02-23_16:24:00_CST
-- cluster-command
-  - debug new commands on two cluster
+* cluster-command
+  * debug new commands on two cluster
 
 ### Features Added
 * complete display-help
@@ -255,8 +255,8 @@
 ## Version  1.4.34
 #### Release Name  unreleased
 #### Release Date 2018-02-21_21:22:51_CST
-- cluster-shutdown.sh
-  - ruff draft
+* cluster-shutdown.sh
+  * ruff draft
 
 ### Features Added
 * updated script to skip local host until after the loop is completed and correct test on the if statement
