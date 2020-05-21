@@ -2,13 +2,9 @@
 
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
-
-## Next Version Under Construction {Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
-#### Release Name  {unreleased alpha beta prerelease latest}
-#### Release Date  ????????????
-- x
-  - Brief description
-
+## EXAMPLE: Next Version Under Construction {Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
+#### Release Name  {unreleased rc-# alpha-# beta prerelease latest}
+#### Release Date  ????
 ### Features Added
 ### Features Changes
 ### Features Deprecations
@@ -281,15 +277,27 @@
 * close #2 cluster-shutdown.sh change scope to support several cluster commands
 
 
-## EXAMPLE: Next Version Under Construction {Next Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
-## EXAMPLE: Latest Release -->  Version  {Next Version  X.X.????}  
-#### Release Name  {unreleased alpha beta prerelease latest}
-#### Release Date  ????????????
-- x
-  - Brief description
+## EXAMPLE: Next Version Under Construction {Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
+# EXAMPLE: Latest Release -->  Version  X.X.????
+#### Release Name  {unreleased rc-# alpha-# beta prerelease latest}
+#### Release Date  ????
+* Brief description
+* sub-repository
+  * Brief description
 
 ### Features Added
+* Update feature||file
+* Added the following test cases
+    * hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
+* sub-repository
+  * directory/command   git commit message
+  * directory/command   git commit message close #XX
+
 ### Features Changes
 ### Features Deprecations
 ### Issues
+* close #X  directory/command   git commit message
+* sub-repository
+  * close #XX directory/command git commit message
+  
 ### Misc
