@@ -5,17 +5,17 @@
 [<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=137&color=blue">](images/clone.table.md)
 [<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=3418&color=blue">](images/view.table.md)
 
-Shell scripts to automate download of GitHub traffic statistics, cluster administration, create an animated GIF, create a GitHub web page, script repeatable demos, connect GitHub and Slack, 
+Shell scripts to automate download of GitHub traffic statistics, cluster administration script, create an animated command line GIF, other GitHub Solutions, Presentation Solutions
   
-A very simple shell script that uses crontab to schedule the download of GitHub traffic statistics in plain text from your GitHub repositories.  Another script gives you the text lines to add to crontab and sets up the directories for GitHub traffic statistics.   It takes minutes to setup but weeks to get enough data before using a third script that parses the GitHub traffic and creates two markdown tables like these; [clones](images/clone.table.md) and [views](images/view.table.md)
-  
-  * [github-repository-traffic](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic-------------)
-
 The cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It helps with cluster system adminstration of hosts with a set of predefined commands and allows custom commands.
  
   * [cluster-command](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command)
 
 #### GitHub Solutions
+
+>A very simple shell script that uses crontab to schedule the download of GitHub traffic statistics in plain text from your GitHub repositories.  Another script gives you the text lines to add to crontab and sets up the directories for GitHub traffic statistics.   It takes minutes to setup but weeks to get enough data before using a third script that parses the GitHub traffic and creates two markdown tables like these; [clones](images/clone.table.md) and [views](images/view.table.md)
+  
+>  * [github-repository-traffic](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic-------------)
 
 >How to make an animated GIF of a terminal session.
 
