@@ -15,27 +15,29 @@ The cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It
  
   * [cluster-command](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command)
 
-How to make an animated GIF of a terminal session.
+#### Presentation Solutions
 
-  * [github-animated-GIF](https://github.com/BradleyA/Linux-admin/tree/master/github-animated-GIF)
+>How to make an animated GIF of a terminal session.
+
+>  * [github-animated-GIF](https://github.com/BradleyA/Linux-admin/tree/master/github-animated-GIF)
   
-How to create a website for with GitHub Pages.  Link: Towards Data Science: A Medium publication sharing concepts, ideas, and codes.
+>How to create a website for with GitHub Pages.  Link: Towards Data Science: A Medium publication sharing concepts, ideas, and codes.
 
-  * [GitHub website](https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1)
+>  * [GitHub website](https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1)
 
-Connect GitHub and Slack
+>Connect GitHub and Slack
   
-  * [GitHub + Slack Integrations](https://zapier.com/apps/github/integrations/slack)
+>  * [GitHub + Slack Integrations](https://zapier.com/apps/github/integrations/slack)
   
 #### Presentation Solutions
 
 >**Presentation Demos**: Shell script from Paxton Hare GitHub account that enables you to script repeatable demos in a bash environment so you don't have to type as you present. Rather than trying to type commands when presenting you simply script them and let demo-magic.sh run them for you.
   
-  * [Demo Magic](https://github.com/paxtonhare/demo-magic/blob/master/README.md#demo-magic)
+>  * [Demo Magic](https://github.com/paxtonhare/demo-magic/blob/master/README.md#demo-magic)
 
 >**Presentation Countdown Timer***: Large web based countdown time display to keep speakers on schedule.  By default, it counts down from five minutes to zero minutes, updating every ten seconds. When one minute remains, the background turns yellow and the timer is updated every five seconds. At 30 seconds remaining, the background turns red and updates are continuous. Finally, when time runs out, the counter starts blinking.
 
-  * [User-Configurable Countdown Timer](https://www.cs.hmc.edu/~geoff/countdowntimer.html)
+>  * [User-Configurable Countdown Timer](https://www.cs.hmc.edu/~geoff/countdowntimer.html)
 
 ## Clone
  
