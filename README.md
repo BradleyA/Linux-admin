@@ -15,7 +15,7 @@ The cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It
  
   * [cluster-command](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command)
 
-#### Presentation Solutions
+#### GitHub Solutions
 
 >How to make an animated GIF of a terminal session.
 
