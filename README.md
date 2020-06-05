@@ -21,7 +21,7 @@ The cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It
 
 >  * [github-animated-GIF](https://github.com/BradleyA/Linux-admin/tree/master/github-animated-GIF)
   
->How to create a website for with GitHub Pages.  Link: Towards Data Science: A Medium publication sharing concepts, ideas, and codes.
+>How to create a website for with GitHub Pages.  Link: Towards Data Science: Anne Bonner
 
 >  * [GitHub website](https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1)
 
