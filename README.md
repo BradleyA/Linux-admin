@@ -37,7 +37,7 @@ The cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It
 
 >**Presentation Countdown Timer***: Large web based countdown time display to keep speakers on schedule.  By default, it counts down from five minutes to zero minutes, updating every ten seconds. When one minute remains, the background turns yellow and the timer is updated every five seconds. At 30 seconds remaining, the background turns red and updates are continuous. Finally, when time runs out, the counter starts blinking.
 
->  * [User-Configurable Countdown Timer](https://www.cs.hmc.edu/~geoff/countdowntimer.html)
+>  * [Presentation Countdown Timer](https://www.cs.hmc.edu/~geoff/countdowntimer.html)
 
 ## Clone
  
