@@ -31,13 +31,13 @@ Connect GitHub and Slack
   
 #### Presentation Solutions
 
->**Presentation Demos**: Shell script from [Paxton Hare GitHub account](https://github.com/paxtonhare/demo-magic/blob/master/README.md#demo-magic) that enables you to script repeatable demos in a bash environment so you don't have to type as you present. Rather than trying to type commands when presenting you simply script them and let demo-magic.sh run them for you.
+**Presentation Demos**: Shell script from [Paxton Hare GitHub account](https://github.com/paxtonhare/demo-magic/blob/master/README.md#demo-magic) that enables you to script repeatable demos in a bash environment so you don't have to type as you present. Rather than trying to type commands when presenting you simply script them and let demo-magic.sh run them for you.
   
->  * [Presentation Recorded Demo](https://github.com/BradleyA/demo-magic)
+  * [Presentation Recorded Demo](https://github.com/BradleyA/demo-magic)
 
->**Presentation Countdown Timer***: Large web based countdown time display to keep speakers on schedule.  By default, it counts down from five minutes to zero minutes, updating every ten seconds. When one minute remains, the background turns yellow and the timer is updated every five seconds. At 30 seconds remaining, the background turns red and updates are continuous. Finally, when time runs out, the counter starts blinking.
+**Presentation Countdown Timer***: Large web based countdown time display to keep speakers on schedule.  By default, it counts down from five minutes to zero minutes, updating every ten seconds. When one minute remains, the background turns yellow and the timer is updated every five seconds. At 30 seconds remaining, the background turns red and updates are continuous. Finally, when time runs out, the counter starts blinking.
 
->  * [Presentation Countdown Timer](https://www.cs.hmc.edu/~geoff/countdowntimer.html)
+  * [Presentation Countdown Timer](https://www.cs.hmc.edu/~geoff/countdowntimer.html)
 
 ## Clone
  
