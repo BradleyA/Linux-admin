@@ -13,21 +13,21 @@ The cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It
 
 #### GitHub Solutions
 
->A very simple shell script that uses crontab to schedule the download of GitHub traffic statistics in plain text from your GitHub repositories.  Another script gives you the text lines to add to crontab and sets up the directories for GitHub traffic statistics.   It takes minutes to setup but weeks to get enough data before using a third script that parses the GitHub traffic and creates two markdown tables like these; [clones](images/clone.table.md) and [views](images/view.table.md)
+A very simple shell script that uses crontab to schedule the download of GitHub traffic statistics in plain text from your GitHub repositories.  Another script gives you the text lines to add to crontab and sets up the directories for GitHub traffic statistics.   It takes minutes to setup but weeks to get enough data before using a third script that parses the GitHub traffic and creates two markdown tables like these; [clones](images/clone.table.md) and [views](images/view.table.md)
   
->  * [github-repository-traffic](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
+  * [github-repository-traffic](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
 
->How to make an animated GIF of a terminal session.
+How to make an animated GIF of a terminal session.
 
->  * [github-animated-GIF](https://github.com/BradleyA/Linux-admin/tree/master/github-animated-GIF)
+  * [github-animated-GIF](https://github.com/BradleyA/Linux-admin/tree/master/github-animated-GIF)
   
->How to create a website for with GitHub Pages.  Link: Towards Data Science: Anne Bonner
+How to create a website for with GitHub Pages.  Link: Towards Data Science: Anne Bonner
 
->  * [GitHub website](https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1)
+  * [GitHub website](https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1)
 
->Connect GitHub and Slack
+Connect GitHub and Slack
   
->  * [GitHub + Slack Integrations](https://zapier.com/apps/github/integrations/slack)
+  * [GitHub + Slack Integrations](https://zapier.com/apps/github/integrations/slack)
   
 #### Presentation Solutions
 
