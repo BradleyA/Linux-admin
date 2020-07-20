@@ -11,7 +11,7 @@ The cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It
  
   * [cluster-command](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command)
 
-#### GitHub Solutions
+### GitHub Solutions
 
 A very simple shell script that uses crontab to schedule the download of GitHub traffic statistics in plain text from your GitHub repositories.  Another script gives you the text lines to add to crontab and sets up the directories for GitHub traffic statistics.   It takes minutes to setup but weeks to get enough data before using a third script that parses the GitHub traffic and creates two markdown tables like these; [clones](images/clone.table.md) and [views](images/view.table.md)
   
@@ -29,7 +29,7 @@ Connect GitHub and Slack
   
   * [GitHub + Slack Integrations](https://zapier.com/apps/github/integrations/slack)
   
-#### Presentation Solutions
+### Presentation Solutions
 
 **Presentation Demos**: Shell script from [Paxton Hare GitHub account](https://github.com/paxtonhare/demo-magic/blob/master/README.md#demo-magic) that enables you to script repeatable demos in a bash environment so you don't have to type as you present. Rather than trying to type commands when presenting you simply script them and let demo-magic.sh run them for you.
   
