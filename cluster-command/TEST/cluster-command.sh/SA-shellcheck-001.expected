@@ -1,10 +1,10 @@
 
-In SA-shellcheck-001 line 244:
+In SA-shellcheck-001 line 251:
   echo -e "### ${SYSTEMS_FILE}"  >> ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE}
   ^-- SC2129: Consider using { cmd1; cmd2; } >> file instead of individual redirects.
 
 
-In SA-shellcheck-001 line 313:
+In SA-shellcheck-001 line 320:
     ssh -t "${USER}"@"${NODE}" "echo -n ${BOLD} ${YELLOW} ; ${REMOTE_COMMAND} ; echo -n ${WHITE}"
                                         ^-- SC2029: Note that, unescaped, this expands on the client side.
 
