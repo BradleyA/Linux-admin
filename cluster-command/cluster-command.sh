@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  3.2.11.874  2020-08-21T15:34:08.539488-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.10-1-g9f493ba  
+# 	   cluster-command/cluster-command.sh -->   remove the word Description: from output  
 # 	cluster-command/cluster-command.sh  3.2.10.872  2020-08-21T15:09:06.951132-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.9-26-g4c90750  
 # 	   cluster-command/cluster-command.sh -->   apt-check not found on Raspbian close #57  
 # 	cluster-command/cluster-command.sh  3.2.9.845  2020-05-20T18:37:02.857237-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.8-21-g8a1422f  
@@ -151,7 +153,7 @@ echo    "   └── SYSTEMS                             <-- List of hosts in c
 echo -e "\n${BOLD}PREDEFINED-COMMAND${NORMAL}"  # 
 echo    "      shutdown       - sudo shutdown -f now"
 echo -e "      reboot         + sudo reboot [<REMOTE_COMMAND_OPTION>]\n"
-echo    "      os             - lsb_release -d"
+echo    "      os             - lsb_release -d | awk -F':' '{print \$2}'"
 echo    "      cpu            - lscpu"
 echo    "      date           + date [<REMOTE_COMMAND_OPTION>]"
 echo    "      df             + df [<REMOTE_COMMAND_OPTION>]"
@@ -302,7 +304,7 @@ REMOTE_HOST=$(grep -v "#" ${DATA_DIR}/${CLUSTER}/${SYSTEMS_FILE})
 case ${REMOTE_COMMAND} in
   shutdown) REMOTE_COMMAND="sudo shutdown -f now" ;;
   reboot) REMOTE_COMMAND="sudo reboot ${REMOTE_COMMAND_OPTION}" ;;
-  OS|os) REMOTE_COMMAND="lsb_release -d" ;;
+  OS|os) REMOTE_COMMAND="lsb_release -d | awk -F':' '{print \$2}'" ;;
   CPU|cpu) REMOTE_COMMAND="lscpu" ;;
   date) REMOTE_COMMAND="date ${REMOTE_COMMAND_OPTION}" ;;
   df) REMOTE_COMMAND="df ${REMOTE_COMMAND_OPTION}" ;;
