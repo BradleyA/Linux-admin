@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  3.2.10.872  2020-08-21T15:09:06.951132-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.9-26-g4c90750  
+# 	   cluster-command/cluster-command.sh -->   apt-check not found on Raspbian close #57  
 # 	cluster-command/cluster-command.sh  3.2.9.845  2020-05-20T18:37:02.857237-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.8-21-g8a1422f  
 # 	   cluster-command/cluster-command.sh -->   added 8 lines to docker-info-swarm  
 # 	cluster-command/cluster-command.sh  3.2.8.823  2020-05-05T22:35:09.607945-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.7-1-g84aae4c  
@@ -57,6 +59,9 @@ DEFAULT_REMOTE_COMMAND_OPTION=""
 DEFAULT_CLUSTER="us-tx-cluster-1/"
 DEFAULT_DATA_DIR="/usr/local/data/"
 DEFAULT_SYSTEMS_FILE="SYSTEMS"
+
+#    investigation of #50
+#	complete -W " autoremove cpu date df disable-user dist-upgrade docker-all-prune docker-con-ls docker-con-rm docker-df docker-df-v docker-ima-clean docker-ima-ls docker-info docker-info-con docker-info-swarm docker-net-ls docker-net-prune docker-release docker-version docker-vol-clean docker-vol-ls docker-vol-prune enable-user hold ip last netstat os reboot require-reboot require-upgrade root-special showhold shutdown special unhold update upgrade upgrade-package uptime who --help -help help -h h -\? --usage -usage usage -u --version -version version -v" #    #50
 
 ###  Production standard 8.3.530 --usage
 display_usage() {
@@ -173,7 +178,9 @@ echo    "      docker-net-prune	+ docker network prune [<REMOTE_COMMAND_OPTION>]
 echo    "      docker-vol-prune	+ docker volume prune [<REMOTE_COMMAND_OPTION>]"
 echo -e "      docker-all-prune	+ docker system prune [<REMOTE_COMMAND_OPTION>]\n"
 echo    "      update         - sudo apt-get update ;"
-echo    "                       /usr/lib/update-notifier/apt-check --human-readable"
+echo    "                       if [ -f /usr/lib/update-notifier/apt-check ] ; then"
+echo    "                       /usr/lib/update-notifier/apt-check --human-readable ; else"
+echo    "                       apt-get -s dist-upgrade | grep '^[[:digit:]]\+ upgrade' ; fi"
 echo    "      upgrade        - sudo apt-get upgrade --assume-yes ;"
 echo    "                       if [ -f /var/run/reboot-required ] ; then"
 echo    "                       echo '${BOLD}reboot required${NORMAL}' ; else"
@@ -188,7 +195,9 @@ echo    "      unhold         - apt-mark unhold"
 echo    "      hold           - apt-mark hold"
 echo    "      require-reboot - if [ -f /var/run/reboot-required ]; then echo '${BOLD}reboot"
 echo    "                       required${NORMAL}' ; else echo '${BOLD}no reboot required${NORMAL}' ; fi"
-echo    "      require-upgrade - /usr/lib/update-notifier/apt-check --human-readable" # >>> not sure this is the correct command becasue one-rpi3b stated no upgrade but then did eight upgrades #12
+echo    "      require-upgrade - if [ -f /usr/lib/update-notifier/apt-check ] ; then" # >>> one-rpi3b stated no upgrade but then did eight upgrades #12
+echo    "                       /usr/lib/update-notifier/apt-check --human-readable ; else"
+echo    "                       apt-get -s dist-upgrade | grep '^[[:digit:]]\+ upgrade' ; fi"
 echo    "      upgrade-package - apt-get upgrade --simulate | grep -vE 'Conf|Inst'"
 echo    "                        apt list --upgradeable -> does not work on Ubuntu 14.04"
 echo    "      disable-user   + sudo usermod --expiredate 1"  # disable user from logging in (including ssh)
@@ -319,7 +328,7 @@ case ${REMOTE_COMMAND} in
   docker-net-prune) REMOTE_COMMAND="docker network prune ${REMOTE_COMMAND_OPTION}" ;;
   docker-vol-prune) REMOTE_COMMAND="docker volume prune ${REMOTE_COMMAND_OPTION}" ;;
   docker-all-prune) REMOTE_COMMAND="docker system prune ${REMOTE_COMMAND_OPTION}" ;;
-  update) REMOTE_COMMAND="sudo apt-get update ; /usr/lib/update-notifier/apt-check --human-readable" ;;
+  update) REMOTE_COMMAND="sudo apt-get update ; if [ -f /usr/lib/update-notifier/apt-check ] ; then /usr/lib/update-notifier/apt-check --human-readable ; else apt-get -s dist-upgrade | grep '^[[:digit:]]\+ upgrade' ; fi" ;;
   upgrade) REMOTE_COMMAND="sudo apt-get upgrade --assume-yes ; if [[ -f /var/run/reboot-required ]] ; then echo -e '\t${BOLD}${RED}reboot required${PURPLE}' ; else echo -e '\t${BOLD}${GREEN}no reboot required${NORMAL}' ; fi" ;;
   dist-upgrade) REMOTE_COMMAND="sudo apt-get dist-upgrade --assume-yes ; if [[ -f /var/run/reboot-required ]] ; then echo -e '\t${BOLD}${RED}reboot required${PURPLE}' ; else echo -e '\t${BOLD}${GREEN}no reboot required${NORMAL}' ; fi" ;;
   autoremove) REMOTE_COMMAND="sudo apt-get autoremove  --assume-yes" ;;
@@ -327,7 +336,7 @@ case ${REMOTE_COMMAND} in
   unhold) REMOTE_COMMAND="apt-mark unhold ${REMOTE_COMMAND_OPTION}" ;;
   hold) REMOTE_COMMAND="apt-mark hold ${REMOTE_COMMAND_OPTION}" ;;
   require-reboot) REMOTE_COMMAND="if [ -f /var/run/reboot-required ]; then echo '${BOLD}${RED}reboot required${PURPLE}' ; else echo '${BOLD}${GREEN}no reboot required${NORMAL}' ; fi" ;;
-  require-upgrade|require-update) REMOTE_COMMAND="/usr/lib/update-notifier/apt-check --human-readable" ;;
+  require-upgrade|require-update) REMOTE_COMMAND="if [ -f /usr/lib/update-notifier/apt-check ] ; then /usr/lib/update-notifier/apt-check --human-readable ; else apt-get -s dist-upgrade | grep '^[[:digit:]]\+ upgrade' ; fi" ;;
   upgrade-package) REMOTE_COMMAND="apt-get upgrade --simulate  | grep -vE 'Conf|Inst'" ;;
   disable-user) echo -e "\n\tEnter user login name to disable" ; read USER_LOGIN : REMOTE_COMMAND="sudo usermod --expiredate 1 ${USER_LOGIN}" ;;
   enable-user) echo -e "\n\tEnter user login name to re-enable" ; read USER_LOGIN ; REMOTE_COMMAND="sudo usermod --expiredate '' ${USER_LOGIN}" ;;
