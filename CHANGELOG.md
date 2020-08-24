@@ -291,7 +291,7 @@
     * hooks/bin/EXAMPLES/FVT-exit-code-error-0-001
 * sub-repository
   * directory/command   git commit message
-  * directory/command   git commit message close #XX
+  * directory/command   git commit message closes #XX
 
 ### Features Changes
 ### Features Deprecations
