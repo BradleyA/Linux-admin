@@ -1,10 +1,4 @@
 # Linux-admin  
-[![Stable Release](https://img.shields.io/badge/Release-3.2.0-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/3.2.0)
-[![Stable commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/3.2.0.svg)](https://github.com/BradleyA/Linux-admin/commits)
-[![MIT License](http://img.shields.io/badge/License-MIT-red.png)](LICENSE)
-[<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=137&color=blue">](images/clone.table.md)
-[<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=3418&color=blue">](images/view.table.md)
-
 [![GitHub Stable Release](https://img.shields.io/badge/Release-3.2.0-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/3.2.0)
 ![GitHub Release Date](https://img.shields.io/github/release-date/BradleyA/Linux-admin?color=blue)
 [![GitHub Commits Since](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/3.2.0?color=orange)](https://github.com/BradleyA/Linux-admin/commits/)
@@ -12,14 +6,13 @@
 
 [![GitHub Open Issues](https://img.shields.io/github/issues/BradleyA/Linux-admin?color=purple)](https://github.com/BradleyA/Linux-admin/issues?q=is%3Aopen+is%3Aissue)
 [![GitHub Closed Issues](https://img.shields.io/github/issues-closed/BradleyA/Linux-admin?color=purple)](https://github.com/BradleyA/Linux-admin/issues?q=is%3Aclosed+is%3Aissue)
-[<img alt="GitHub Clones" src="https://img.shields.io/static/v1?label=Clones&message=190&color=blueviolet">](https://github.com/BradleyA/Linux-admin/blob/master/images/clone.table.md)
-[<img alt="GitHub Views" src="https://img.shields.io/static/v1?label=Views&message=3071&color=blueviolet">](https://github.com/BradleyA/Linux-admin/blob/master/images/view.table.md)
+[<img alt="GitHub Clones" src="https://img.shields.io/static/v1?label=Clones&message=137&color=blueviolet">](https://github.com/BradleyA/Linux-admin/blob/master/images/clone.table.md)
+[<img alt="GitHub Views" src="https://img.shields.io/static/v1?label=Views&message=3418&color=blueviolet">](https://github.com/BradleyA/Linux-admin/blob/master/images/view.table.md)
 [![GitHub Size](https://img.shields.io/github/repo-size/BradleyA/Linux-admin.svg)](https://github.com/BradleyA/Linux-admin/)
 ![Written in Bash](https://img.shields.io/badge/written%20in-bash-blue.svg)
 [![MIT License](http://img.shields.io/badge/License-MIT-blue.png)](LICENSE)
 
 ----
-
 
 Shell scripts to automate download of GitHub traffic statistics, cluster administration script, create an animated command line GIF, other GitHub Solutions, Presentation Solutions
   
