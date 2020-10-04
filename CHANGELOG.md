@@ -2,10 +2,19 @@
 
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
-
-# Latest Release  Version  3.3.1.????
-#### Release Name  3.3.1
+## Next Version Under Construction {Version  3.4.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
+#### Release Name  ????
 #### Release Date  ????
+### Features Added
+### Features Changes
+### Features Deprecations
+### Issues 
+### Misc
+
+
+# Latest Release  Version  3.3.1.897
+#### Release Name  3.3.1
+#### Release Date  2020-10-04T13:09:04.784683-05:00 (CDT)
 * Minor changes
 * Added default BradleyA/git-TEST-commit-automation testcases
 
