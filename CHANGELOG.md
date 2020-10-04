@@ -3,8 +3,8 @@
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
 
-## Next Version Under Construction {Version  3.3.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
-#### Release Name  ????
+# Latest Release  Version  3.3.1.????
+#### Release Name  3.3.1
 #### Release Date  ????
 * Minor changes
 * Added default BradleyA/git-TEST-commit-automation testcases
@@ -32,7 +32,7 @@
   * close #46 github-repository-traffic/parse.repository.data.sh - repository w/ '.'  Production standard 2.3.578 log format  shellcheck
 
 
-# Latest Release -->  Version  3.2.0
+# Version  3.2.0
 #### Release Name  3.2.0 latest
 #### Release Date  Feb 18 2020
 * github-repository-traffic
