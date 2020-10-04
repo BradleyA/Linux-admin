@@ -1,7 +1,7 @@
 # Linux-admin  
-[![GitHub Stable Release](https://img.shields.io/badge/Release-3.2.0-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/3.2.0)
+[![GitHub Stable Release](https://img.shields.io/badge/Release-3.3.1-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/3.3.1)
 ![GitHub Release Date](https://img.shields.io/github/release-date/BradleyA/Linux-admin?color=blue)
-[![GitHub Commits Since](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/3.2.0?color=orange)](https://github.com/BradleyA/Linux-admin/commits/)
+[![GitHub Commits Since](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/3.3.1?color=orange)](https://github.com/BradleyA/Linux-admin/commits/)
 [![GitHub Last Commits](https://img.shields.io/github/last-commit/BradleyA/Linux-admin.svg)](https://github.com/BradleyA/Linux-admin/commits/)
 
 [![GitHub Open Issues](https://img.shields.io/github/issues/BradleyA/Linux-admin?color=purple)](https://github.com/BradleyA/Linux-admin/issues?q=is%3Aopen+is%3Aissue)
