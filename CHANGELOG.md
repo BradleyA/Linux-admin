@@ -2,15 +2,20 @@
 
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
-## Next Version Under Construction {Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
-#### Release Name  {unreleased rc-# alpha-# beta prerelease latest}
+
+# Version  3.3.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
+#### Release Name  ????
 #### Release Date  ????
 ### Features Added
+* Update README.md
 ### Features Changes
 ### Features Deprecations
 ### Issues
+* cluster-command/
+  * close #57 cluster-command/cluster-command.sh - apt-check not found on Raspbian close #57
+* github-repository-traffic
+* github-animated-GIF
 ### Misc
-
 
 # Latest Release -->  Version  3.2.0
 #### Release Name  3.2.0 latest
