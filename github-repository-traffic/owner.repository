@@ -1,10 +1,6 @@
 #!/bin/bash
-#	github-repository-traffic/owner.repository  3.2.4.775  2020-03-02T23:15:57.495880-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.3-1-gdf28086  
-#	   github-repository-traffic/owner.repository   SA testing 
-#	github-repository-traffic/owner.repository  3.2.0.711  2020-02-18T13:30:16.955683-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.1.4-26-g707bc02 
-#	   After 6 months of downloading data I am able to release GitHub Repository Traffic Parser   #29 
-#	github-repository-traffic/owner.repository  2.131.627  2020-02-16T20:36:47.893512-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.130-2-g145d2c7 
-#	   github-repository-traffic/owner.repository   add YEAR DIRECTORY close #43 
+#	github-repository-traffic/owner.repository  3.3.1.897  2020-10-04T13:09:30.575324-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.11-22-ga1c8d2e  
+#	   cluster-command/cluster-command.sh github-repository-traffic/owner.repository github-repository-traffic/parse.repository.data.sh github-repository-traffic/setup.github.repository.sh -->   release for production  
 #86# github-repository-data/owner.repository
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559

@@ -1,26 +1,6 @@
 #!/bin/bash
-# 	github-repository-traffic/parse.repository.data.sh  3.2.6.790  2020-04-11T15:49:36.281377-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.5-11-g1e79569  
-# 	   github-repository-traffic/parse.repository.data.sh   closed #46  repository w/ '.'  Production standard 2.3.578 log format  shellcheck 
-# 	github-repository-traffic/parse.repository.data.sh  3.2.0.711  2020-02-18T13:30:17.137229-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.1.4-26-g707bc02 
-# 	   After 6 months of downloading data I am able to release GitHub Repository Traffic Parser   #29 
-# 	github-repository-traffic/parse.repository.data.sh  3.1.1.628  2020-02-16T21:26:27.185252-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.131  
-# 	   Include GitHub repository traffic data in README close #29 
-# 	github-repository-traffic/parse.repository.data.sh  2.130.624  2020-02-16T17:37:37.704997-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.129-16-g9f56c17 
-# 	   github-repository-traffic/parse.repository.data.sh   Complete display_help ENVIRONMENT VARIABLES close #37 
-# 	github-repository-traffic/parse.repository.data.sh  2.127.550  2020-02-12T14:12:16.766170-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.126  
-# 	   github-repository-traffic/parse.repository.data.sh   [clone,view].data.* files exists and size greater than zero close #39 
-# 	github-repository-traffic/parse.repository.data.sh  2.125.540  2020-02-12T12:13:22.621530-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.124-2-g74d5be4  
-# 	   github-repository-traffic/parse.repository.data.sh   complete display_help SEE ALSO close #38 
-# 	github-repository-traffic/parse.repository.data.sh  2.118.524  2020-02-08T21:50:46.421564-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.117  
-# 	   github-repository-traffic/parse.repository.data.sh   add DEBUG around rm to preventing from being removed when DEBUG is not equal to 0  close #36 
-# 	github-repository-traffic/parse.repository.data.sh  2.117.523  2020-02-08T21:41:08.858633-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.116-11-gef74032  
-# 	   github-repository-traffic/parse.repository.data.sh    check if filename not found; ERROR; exit 1; exit 1 close #35 
-# 	github-repository-traffic/parse.repository.data.sh  2.116.511  2020-02-08T12:24:01.364285-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.115-2-g9edbebe  
-# 	   github-repository-traffic/parse.repository.data.sh   Upgrade all Production standards close #33 
-# 	github-repository-traffic/parse.repository.data.sh  2.113.495  2020-02-06T00:06:05.666514-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.112  
-# 	   github-repository-traffic/parse.repository.data.sh   create display_help description #33 
-# 	github-repository/parse.repository.data.sh  2.98.370  2019-08-08T23:47:37.538761-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.97  
-# 	   github-repository/parse.repository.data.sh design complete, ready to create test cases 
+# 	github-repository-traffic/parse.repository.data.sh  3.3.1.897  2020-10-04T13:09:30.700872-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.11-22-ga1c8d2e  
+# 	   cluster-command/cluster-command.sh github-repository-traffic/owner.repository github-repository-traffic/parse.repository.data.sh github-repository-traffic/setup.github.repository.sh -->   release for production  
 #86# github-repository-data/parse.repository.data.sh
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559

@@ -1,38 +1,6 @@
 #!/bin/bash
-# 	cluster-command/cluster-command.sh  3.2.11.874  2020-08-21T15:34:08.539488-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.10-1-g9f493ba  
-# 	   cluster-command/cluster-command.sh -->   remove the word Description: from output  
-# 	cluster-command/cluster-command.sh  3.2.10.872  2020-08-21T15:09:06.951132-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.9-26-g4c90750  
-# 	   cluster-command/cluster-command.sh -->   apt-check not found on Raspbian close #57  
-# 	cluster-command/cluster-command.sh  3.2.9.845  2020-05-20T18:37:02.857237-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.8-21-g8a1422f  
-# 	   cluster-command/cluster-command.sh -->   added 8 lines to docker-info-swarm  
-# 	cluster-command/cluster-command.sh  3.2.8.823  2020-05-05T22:35:09.607945-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.7-1-g84aae4c  
-# 	   cluster-command/cluster-command.sh -->   remove ERROR measge from output -> You cannot remove a running container  
-# 	cluster-command/cluster-command.sh  3.2.7.821  2020-05-05T22:21:40.556139-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.6-30-ga0abde8  
-# 	   cluster-command/cluster-command.sh -->   close #47   add docker-con-rm  - docker container rm $(docker ps -qa)  
-# 	cluster-command/cluster-command.sh  3.2.5.778  2020-03-02T23:27:13.398432-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.4-2-g22f85c4  
-# 	   cluster-command/cluster-command.sh   add git-TEST-commit-automation 
-# 	cluster-command/cluster-command.sh  2.108.385  2019-12-02T12:37:22.679518-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.107  
-# 	   cluster-command/cluster-command.sh   add reboot user hint to dist-upgrade 
-# 	cluster-command/cluster-command.sh  2.107.384  2019-12-02T12:30:20.247306-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.106  
-# 	   cluster-command/cluster-command.sh   added color in reboot user hint 
-# 	cluster-command/cluster-command.sh  2.105.382  2019-11-20T22:14:06.745343-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.104-2-ge97d7cd  
-# 	   cluster-command/cluster-command.sh   add DEBUG line and update EXAMPLES 
-# 	cluster-command/cluster-command.sh  2.104.379  2019-10-22T12:03:43.784055-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.103  
-# 	   cluster-command/cluster-command.sh   add color to hostname and command syntax 
-# 	cluster-command/cluster-command.sh  2.103.378  2019-10-21T21:15:40.076465-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.102  
-# 	   cluster-command/cluster-command.sh   added color to command output 
-# 	cluster-command/cluster-command.sh  2.102.377  2019-10-21T20:19:59.927128-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  uadmin  five-rpi3b.cptx86.com 2.101  
-# 	   cluster-command/cluster-command.sh   upgrade or add  1.3.531 DEBUG variable, 8.3.530 --usage, 0.3.214 --help, 4.3.534 Documentation Language, 9.3.513 Parse CLI options and arguments, 7.0 Default variable value 
-# 	cluster-command/cluster-command.sh  2.101.376  2019-09-04T14:39:38.663368-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.100-2-g16a6f72  
-# 	   cluster-command.sh  upgrade to Production standard 1.3.496 DEBUG variable ; shellcheck version section corrected 
-# 	cluster-command/cluster-command.sh  2.43.203  2019-06-19T12:25:28.056430-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  one-rpi3b.cptx86.com 2.42  
-# 	   add bold around reboot required or not required 
-# 	cluster-command/cluster-command.sh  2.42.202  2019-06-07T17:09:06.723711-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.41-4-g2dee103  
-# 	   ready for production 
-# 	cluster-command/cluster-command.sh  2.40.196  2019-06-07T16:46:37.648780-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.39
-# 	   cluster-command.sh - rename several docker sub commands close #27 
-# 	cluster-command/cluster-command.sh  2.39.195  2019-06-07T15:34:17.498890-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.38
-# 	   cluster-command.sh - add support for production standard 8.0 --usage close #28 
+# 	cluster-command/cluster-command.sh  3.3.1.897  2020-10-04T13:09:04.784683-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.11-22-ga1c8d2e  
+# 	   cluster-command/cluster-command.sh github-repository-traffic/owner.repository github-repository-traffic/parse.repository.data.sh github-repository-traffic/setup.github.repository.sh -->   release for production  
 #86# cluster-command/cluster-command.sh - remote cluster system adminstration tool
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright

@@ -1,24 +1,6 @@
 #!/bin/bash
-# 	github-repository-traffic/setup.github.repository.sh  3.2.2.771  2020-03-02T23:02:02.284874-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.1-5-g8c3ee86  
-# 	   github-repository-traffic/setup.github.repository.sh   test FVT test cases 
-# 	github-repository-traffic/setup.github.repository.sh  3.2.0.711  2020-02-18T13:30:17.247691-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.1.4-26-g707bc02  
-# 	   After 6 months of downloading data I am able to release GitHub Repository Traffic Parser   #29 
-# 	github-repository-traffic/setup.github.repository.sh  3.1.1.628  2020-02-16T21:26:27.280594-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.131  
-# 	   Include GitHub repository traffic data in README close #29 
-# 	github-repository-traffic/setup.github.repository.sh  2.126.549  2020-02-12T12:38:21.881162-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.125-8-gf0169cc 
-# 	   github-repository-traffic/setup.github.repository.sh   Upgrade all Production standards close #42 
-# 	github-repository-traffic/setup.github.repository.sh  2.125.540  2020-02-12T12:13:22.720817-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.124-2-g74d5be4  
-# 	   github-repository-traffic/parse.repository.data.sh   complete display_help SEE ALSO close #38 
-# 	github-repository-traffic/setup.github.repository.sh  2.124.537  2020-02-11T23:17:01.593001-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.123-3-g9a8c5b4  
-# 	   github-repository-traffic/setup.github.repository.sh   update display_help  close #41 
-# 	github-repository-traffic/setup.github.repository.sh  2.123.533  2020-02-10T16:54:57.222050-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.122-1-g3700670  
-# 	   github-repository-traffic/setup.github.repository.sh   setup GITHUB_OWNER environment variable close #34 
-# 	github-repository-traffic/setup.github.repository.sh  2.114.497  2020-02-06T22:58:58.962412-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 2.113-1-g9797258  
-# 	   github-repository-traffic/parse.repository.data.sh   update display_help and ARCHITECTURE TREE 
-# 	github-repository-traffic/setup.github.repository.sh  2.110.422  2020-01-02T14:29:22.707637-06:00 (CST)  https://github.com/BradleyA/Linux-admin  uadmin  six-rpi3b.cptx86.com 2.109-32-gf918a75  
-# 	   github-repository-traffic/setup.github.repository.sh   upgrade script Production standards 
-# 	github-repository/setup.github.repository.sh  2.45.209  2019-07-29T22:54:36.803070-05:00 (CDT)  https://github.com/BradleyA/Linux-admin  uadmin  two-rpi3b.cptx86.com 2.44  
-# 	   github-repository/setup.github.repository.sh making this up as I go . . . 
+# 	github-repository-traffic/setup.github.repository.sh  3.3.1.897  2020-10-04T13:09:30.826317-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.11-22-ga1c8d2e  
+# 	   cluster-command/cluster-command.sh github-repository-traffic/owner.repository github-repository-traffic/parse.repository.data.sh github-repository-traffic/setup.github.repository.sh -->   release for production  
 ##########
 ###	https://github.com/isaacs/github/issues/399	###
 ##########
