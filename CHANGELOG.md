@@ -13,8 +13,10 @@
   * cluster-command/cluster-command.sh - added 8 lines to docker-info-swarm
   * cluster-command/cluster-command.sh - remove ERROR measge from output -> You cannot remove a running container
   * cluster-command/cluster-command.sh - add docker-con-rm  - docker container rm $(docker ps -qa) closed #47
+  * cluster-command/cluster-command.sh   add git-TEST-commit-automation
 * github-repository-traffic/
   * github-repository-traffic/parse.repository.data.sh - repository w/ '.'  Production standard 2.3.578 log format  shellcheck closed #46
+  * github-repository-traffic/parse.repository.data.sh - add test cases for command
 ### Features Changes
 * Update README.md
 ### Features Deprecations
