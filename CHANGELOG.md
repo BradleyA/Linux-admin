@@ -6,14 +6,24 @@
 # Version  3.3.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
 #### Release Name  ????
 #### Release Date  ????
+* Brief description
 ### Features Added
-* Update README.md
+* cluster-command/
+  * cluster-command/cluster-command.sh - apt-check not found on Raspbian closed #57
+  * cluster-command/cluster-command.sh - added 8 lines to docker-info-swarm
+  * cluster-command/cluster-command.sh - remove ERROR measge from output -> You cannot remove a running container
+  * cluster-command/cluster-command.sh - add docker-con-rm  - docker container rm $(docker ps -qa) closed #47
+* github-repository-traffic/
+  * github-repository-traffic/parse.repository.data.sh - repository w/ '.'  Production standard 2.3.578 log format  shellcheck closed #46
 ### Features Changes
+* Update README.md
 ### Features Deprecations
 ### Issues
 * cluster-command/
-  * close #57 cluster-command/cluster-command.sh - apt-check not found on Raspbian close #57
+  * close #47 cluster-command/cluster-command.sh - add docker-con-rm  - docker container rm $(docker ps -qa)
+  * close #57 cluster-command/cluster-command.sh - apt-check not found on Raspbian
 * github-repository-traffic
+  * close #46 github-repository-traffic/parse.repository.data.sh - repository w/ '.'  Production standard 2.3.578 log format  shellcheck
 * github-animated-GIF
 ### Misc
 
@@ -36,12 +46,12 @@
   * changed DATA_DIR to DATA_GITHUB_DIR
   * github-repository/setup.github.repository.sh  added requirements checking with help if not met
   * move the echo help hint above the LOOP so user can copy ALL crontab lines at one time
-  * github.repository.list   create example file with github repository names with one on each line
-  * github-repository/setup.github.repository.sh  changed ln -s to ln-sf to force ln and stop error message File exists
-  * github-repository/parse.repository.data.sh  parse data to be used in table
-  * github-repository/setup.github.repository.sh  add code for clone.heading & view.heading
-  * github-repository/parse.repository.data.sh  total clones include total in clone.total
-  * github-repository/parse.repository.data.sh  add totals to tables
+  * github-repository-traffic/github.repository.list   create example file with github repository names with one on each line
+  * github-repository-traffic/setup.github.repository.sh  changed ln -s to ln-sf to force ln and stop error message File exists
+  * github-repository-traffic/parse.repository.data.sh  parse data to be used in table
+  * github-repository-traffic/setup.github.repository.sh  add code for clone.heading & view.heading
+  * github-repository-traffic/parse.repository.data.sh  total clones include total in clone.total
+  * github-repository-traffic/parse.repository.data.sh  add totals to tables
   * Create clone.table.md
   * Create view.table.md
   * github-repository-traffic/parse.repository.data.sh   create display_help description
@@ -71,7 +81,7 @@
   * close #36 github-repository-traffic/parse.repository.data.sh   add DEBUG around rm to preventing from being removed when DEBUG is not equal to 0
   * close #37 github-repository-traffic/parse.repository.data.sh   Complete display_help ENVIRONMENT VARIABLES
   * close #38 github-repository-traffic/parse.repository.data.sh   complete display_help SEE ALSO
-  * close #39 github-repository-traffic/parse.repository.data.sh   [clone,view].data.\* files exists and size greater than zero close
+  * close #39 github-repository-traffic/parse.repository.data.sh   [clone,view].data.\* files exists and size greater than zero
   * close #41 github-repository-traffic/setup.github.repository.sh   update display_help
   * close #42 github-repository-traffic/setup.github.repository.sh   Upgrade all Production standards
   * close #43 github-repository-traffic/owner.repository   add YEAR DIRECTORY
