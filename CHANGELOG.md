@@ -16,8 +16,9 @@
   * cluster-command/cluster-command.sh   add git-TEST-commit-automation
 * github-repository-traffic/
   * github-repository-traffic/parse.repository.data.sh - repository w/ '.'  Production standard 2.3.578 log format  shellcheck closed #46
-  * github-repository-traffic/parse.repository.data.sh - add test cases for command
+  * github-repository-traffic/parse.repository.data.sh - add git-TEST-commit-automation test cases for command
 ### Features Changes
+* Update issue templates
 * Update README.md
 ### Features Deprecations
 ### Issues
