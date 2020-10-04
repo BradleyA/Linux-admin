@@ -7,6 +7,8 @@
 #### Release Name  ????
 #### Release Date  ????
 * Brief description
+* Added default BradleyA/git-TEST-commit-automation testcases
+
 ### Features Added
 * cluster-command/
   * cluster-command/cluster-command.sh - apt-check not found on Raspbian OS closed #57
@@ -17,17 +19,24 @@
 * github-repository-traffic/
   * github-repository-traffic/parse.repository.data.sh - repository w/ '.'  Production standard 2.3.578 log format  shellcheck closed #46
   * github-repository-traffic/parse.repository.data.sh - add git-TEST-commit-automation test cases for command
+  
 ### Features Changes
 * Update issue templates
 * Update README.md
+
 ### Features Deprecations
+
 ### Issues
 * cluster-command/
   * close #47 cluster-command/cluster-command.sh - add docker-con-rm  - docker container rm $(docker ps -qa)
   * close #57 cluster-command/cluster-command.sh - apt-check not found on Raspbian
 * github-repository-traffic
   * close #46 github-repository-traffic/parse.repository.data.sh - repository w/ '.'  Production standard 2.3.578 log format  shellcheck
+  
 ### Misc
+* backlog
+    * 
+
 
 # Latest Release -->  Version  3.2.0
 #### Release Name  3.2.0 latest
