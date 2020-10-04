@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "command : $0"
+echo "arguments : $@"
