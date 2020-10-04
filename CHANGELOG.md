@@ -3,13 +3,13 @@
     git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
 
 
-# Version  3.3.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
+## Next Version Under Construction {Version  3.3.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
 #### Release Name  ????
 #### Release Date  ????
 * Brief description
 ### Features Added
 * cluster-command/
-  * cluster-command/cluster-command.sh - apt-check not found on Raspbian closed #57
+  * cluster-command/cluster-command.sh - apt-check not found on Raspbian OS closed #57
   * cluster-command/cluster-command.sh - added 8 lines to docker-info-swarm
   * cluster-command/cluster-command.sh - remove ERROR measge from output -> You cannot remove a running container
   * cluster-command/cluster-command.sh - add docker-con-rm  - docker container rm $(docker ps -qa) closed #47
@@ -27,7 +27,6 @@
   * close #57 cluster-command/cluster-command.sh - apt-check not found on Raspbian
 * github-repository-traffic
   * close #46 github-repository-traffic/parse.repository.data.sh - repository w/ '.'  Production standard 2.3.578 log format  shellcheck
-* github-animated-GIF
 ### Misc
 
 # Latest Release -->  Version  3.2.0
@@ -91,7 +90,7 @@
 * github-animated-GIF
 
 
-## Version  2.42.202
+# Version  2.42.202
 #### Release Name  2.42
 #### Release Date  2019-06-07T17:09:06.723711-05:00 (CDT)
 * cluster-command
@@ -108,7 +107,7 @@
 * close #28 add support for production standard 8.0 --usage
 
 
-## Version  2.38.194
+# Version  2.38.194
 #### Release Name  2.38
 #### Release Date  2019-05-26T18:54:39.460128-05:00 (CDT)
 * cluster-command
@@ -125,7 +124,7 @@
 * close #25 update display_help for cluster-command.sh to unclude [<REMOTE_COMMAND_OPTION>]
 
 
-## Version  2.34.185
+# Version  2.34.185
 #### Release Name  2.34
 #### Release Date  2019-05-21T14:02:56.051905-05:00 (CDT)
 * cluster-command
@@ -147,7 +146,7 @@
 * close #24 added two additional DEBUG lines
 
 
-## Version  2.25.144
+# Version  2.25.144
 #### Release Name  beta-2
 #### Release Date  2019-01-23T15:46:18.461244-06:00 (CST)
 * cluster-command
@@ -168,7 +167,7 @@
 * close #19 cluster-command.sh --> production standard 5 include Copyright notice 
 
 
-## Version  2.06.115
+# Version  2.06.115
 #### Release Name  beta-1
 #### Release Date  2018-08-19_18:14:56_CDT
 * cluster-command
@@ -182,7 +181,7 @@
 * Update README.md
 
 
-## Version  1.21.106
+# Version  1.21.106
 #### Release Name  alpha-3
 #### Release Date  2018-07-30_19:07:28_CDT
 * cluster-command
@@ -220,7 +219,7 @@
 * close #17 add options support REMOTECOMMANDOPTION
 
 
-## Version  1.16.91
+# Version  1.16.91
 #### Release Name  alpha-3
 #### Release Date  2018-03-18_13:17:40_CDT
 * cluster-command
@@ -232,7 +231,7 @@
 ### Issues
 
 
-## Version  1.15.90
+# Version  1.15.90
 #### Release Name  alpha-2
 #### Release Date 2018-03-14_21:05:05_CDT
 * cluster-command
@@ -248,7 +247,7 @@
 * close #9 mv to SYSTEMS file and change location to /usr/local/data/cluster-1
 
 
-## Version  1.13.60
+# Version  1.13.60
 #### Release Name  alpha
 #### Release Date 2018-02-23_16:24:00_CST
 * cluster-command
@@ -270,7 +269,7 @@
 * close #7 stop ssh for local host
 
 
-## Version  1.4.34
+# Version  1.4.34
 #### Release Name  unreleased
 #### Release Date 2018-02-21_21:22:51_CST
 * cluster-shutdown.sh
