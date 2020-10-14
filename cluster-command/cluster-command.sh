@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  3.3.2.901  2020-10-14T13:32:03.448766-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.3.1-3-g816ea86  
+# 	   cluster-command/cluster-command.sh -->   modify output color of local host to bold  
 # 	cluster-command/cluster-command.sh  3.3.1.897  2020-10-04T13:09:04.784683-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.11-22-ga1c8d2e  
 # 	   cluster-command/cluster-command.sh github-repository-traffic/owner.repository github-repository-traffic/parse.repository.data.sh github-repository-traffic/setup.github.repository.sh -->   release for production  
 #86# cluster-command/cluster-command.sh - remote cluster system adminstration tool
@@ -333,7 +335,7 @@ for NODE in ${REMOTE_HOST} ; do
 done
 if [[ "${CHECK_LOCALHOST}" == "1" ]] ; then
   echo -e "\n${BOLD}  -->  ${CYAN}${LOCALHOST}${WHITE}	->${PURPLE}${REMOTE_COMMAND}${WHITE}<-${YELLOW}"
-  eval "${REMOTE_COMMAND}"
+  eval "echo -n ${BOLD} ${YELLOW} ; ${REMOTE_COMMAND}  ; echo -n ${WHITE}"
   echo -n "${NORMAL}"
 fi
 
