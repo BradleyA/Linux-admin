@@ -14,7 +14,12 @@
 
 ----
 
-Shell scripts to automate download of GitHub traffic statistics, cluster administration script, create an animated command line GIF, other GitHub Solutions, Presentation Solutions
+Shell scripts to automate download of GitHub traffic statistics, cluster administration script, create an animated command line GIF, other GitHub Solutions, Presentation Solutions.
+
+
+#### If you like this repository, select in the upper-right corner, [![GitHub stars](https://img.shields.io/github/stars/BradleyA/Linux-admin.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/BradleyA/Linux-admin/stargazers/), thank you.
+
+----
   
 The cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It helps with cluster system adminstration of hosts with a set of predefined commands and allows custom commands.
  
@@ -58,7 +63,7 @@ To install, change directory to the location you want to download the scripts. U
 #### If you like this repository, select in the upper-right corner, star, thank you.
   
 #### Author
-[<img id="github" src="images/github.png" width="50" a="https://github.com/BradleyA/">](https://github.com/BradleyA/)    [<img src="images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen) [<img id="twitter" src="images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">](https://twitter.com/bradleyaustintx/)       <a href="https://twitter.com/intent/follow?screen_name=bradleyaustintx"> <img src="https://img.shields.io/twitter/follow/bradleyaustintx.svg?label=Follow%20@bradleyaustintx" alt="Follow @bradleyaustintx" />    </a>
+[<img id="github" src="images/github.png" width="50" a="https://github.com/BradleyA/">](https://github.com/BradleyA/)    [<img src="images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen) [<img id="twitter" src="images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">](https://twitter.com/bradleyaustintx/)       <a href="https://twitter.com/intent/follow?screen_name=bradleyaustintx"> <img src="https://img.shields.io/twitter/follow/bradleyaustintx.svg?label=Follow%20@bradleyaustintx" alt="Follow @bradleyaustintx" />    </a>         [![GitHub followers](https://img.shields.io/github/followers/BradleyA.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/BradleyA?tab=followers)
  
 #### System OS script tested
   * Ubuntu 14.04 LTS (amd64,armv7l)
