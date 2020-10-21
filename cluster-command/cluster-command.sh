@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  3.3.3.910  2020-10-21T13:27:59.554713-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.3.2-8-g58b491f  
+# 	   cluster-command/cluster-command.sh -->   updated display-help EXAMPLE section  
 # 	cluster-command/cluster-command.sh  3.3.2.901  2020-10-14T13:32:03.448766-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.3.1-3-g816ea86  
 # 	   cluster-command/cluster-command.sh -->   modify output color of local host to bold  
 # 	cluster-command/cluster-command.sh  3.3.1.897  2020-10-04T13:09:04.784683-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.2.11-22-ga1c8d2e  
@@ -181,12 +183,12 @@ echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
 echo    "   https://github.com/BradleyA/Linux-admin/blob/master/cluster-command/README.md"
 
 echo -e "\n${BOLD}EXAMPLES${NORMAL}"
-echo -e "   Resynchronize package index files from their sources\n\t${BOLD}${COMMAND_NAME} update${NORMAL}"
-echo -e "   Shutdown hosts in clusters\n\t${BOLD}${COMMAND_NAME} shutdown${NORMAL}"
-echo -e "   Display disk space available on file system /tmp\n\t${BOLD}export REMOTE_COMMAND_OPTION=\"/tmp\"\n\t${COMMAND_NAME} df${NORMAL}\n   or\n\t${BOLD}${COMMAND_NAME} df /tmp${NORMAL}"
-echo -e "   Remove log file that includes remote hostname\n\t${BOLD}export REMOTE_COMMAND_OPTION='rm  /usr/local/data/us-tx-cluster-1/log/\`hostname -f\`-crontab'\n\t${COMMAND_NAME} special${NORMAL}"
-echo -e "   List files in /usr/local/bin directory\n\t${BOLD}${COMMAND_NAME} special 'ls -l /usr/local/bin/*'${NORMAL}"
-echo -e "   Check public, private keys, and CA for hosts in cluster\n\t${BOLD}${COMMAND_NAME} root-special check-host-tls.sh${NORMAL}"
+echo -e "   Resynchronize package index files from their sources\n\t${BOLD}${COMMAND_NAME} update${NORMAL}\n"
+echo -e "   Shutdown hosts in clusters\n\t${BOLD}${COMMAND_NAME} shutdown${NORMAL}\n"
+echo -e "   Display disk space available on file system /tmp\n\t${BOLD}export REMOTE_COMMAND_OPTION=\"/tmp\"\n\t${COMMAND_NAME} df${NORMAL}\n   or\n\t${BOLD}${COMMAND_NAME} df /tmp${NORMAL}\n"
+echo -e "   Remove log file that includes remote hostname\n\t${BOLD}export REMOTE_COMMAND_OPTION='rm  /usr/local/data/us-tx-cluster-1/log/\`hostname -f\`-crontab'\n\t${COMMAND_NAME} special${NORMAL}\n"
+echo -e "   List files in /usr/local/bin directory\n\t${BOLD}${COMMAND_NAME} special 'ls -l /usr/local/bin/*'${NORMAL}\n"
+echo -e "   Check public, private keys, and CA for hosts in cluster\n\t${BOLD}${COMMAND_NAME} root-special check-host-tls.sh${NORMAL}\n"
 }
 
 #    Date and time function ISO 8601
