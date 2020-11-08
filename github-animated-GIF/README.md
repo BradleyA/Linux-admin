@@ -1,4 +1,5 @@
-# github-animated-GIF
+# github-animated-GIF   # pi-servo  [![Release Status](https://img.shields.io/badge/Status_-Alpha-red.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/0.2)
+
  **WARNING:** These instructions below are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!  I need to get this completed then some cleanup  . . . 
 
 <img id="Construction" src="../images/construction-icon.gif" width="120">
