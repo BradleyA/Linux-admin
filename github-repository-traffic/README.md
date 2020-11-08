@@ -24,7 +24,7 @@ Unique   clones:  |       2       |       3       |       2       |       2     
 Total clones: 93
 ###### Updated: 2020-01-04
 
-#### If you like this repository, select in the upper-right corner, [![GitHub stars](https://img.shields.io/github/stars/BradleyA/github-repository-traffic.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/BradleyA/github-repository-traffic/stargazers/), thank you.
+#### If you like this repository, select in the upper-right corner, [![GitHub stars](https://img.shields.io/github/stars/BradleyA/Linux-admin.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/BradleyA/Linux-admin/stargazers/), thank you.
 
 [Return to top](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
 
