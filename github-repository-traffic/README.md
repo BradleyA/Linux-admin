@@ -25,6 +25,9 @@ Total clones: 93
 ###### Updated: 2020-01-04
 
 #### If you like this repository, select in the upper-right corner, [![GitHub stars](https://img.shields.io/github/stars/BradleyA/github-repository-traffic.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/BradleyA/github-repository-traffic/stargazers/), thank you.
+
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
+
 ## Install, Setup, and Configure GitHub Repository Traffic
 
 To download your GitHub repositories traffic history, follow these steps.  Use git to pull or clone these scripts into a directory. If you do not have git then enter; "sudo apt-get install git" if using Ubuntu. On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
