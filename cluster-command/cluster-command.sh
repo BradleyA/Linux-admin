@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  3.3.6.929  2020-11-10T22:20:28.758074-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.3.5  
+# 	   cluster-command/cluster-command.sh -->   added code for update, need to TEST #59  
 # 	cluster-command/cluster-command.sh  3.3.5.928  2020-11-10T21:49:20.021424-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.3.4-12-g592b4f5  
 # 	   cluster-command/cluster-command.sh -->   retest shellcheck output  
 # 	cluster-command/cluster-command.sh  3.3.4.915  2020-11-10T21:38:46.971675-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.3.3-4-g818b397 
@@ -311,7 +313,7 @@ case ${REMOTE_COMMAND} in
   docker-net-prune) REMOTE_COMMAND="docker network prune ${REMOTE_COMMAND_OPTION}" ;;
   docker-vol-prune) REMOTE_COMMAND="docker volume prune ${REMOTE_COMMAND_OPTION}" ;;
   docker-all-prune) REMOTE_COMMAND="docker system prune ${REMOTE_COMMAND_OPTION}" ;;
-  update) REMOTE_COMMAND="sudo apt-get update ; if [ -f /usr/lib/update-notifier/apt-check ] ; then /usr/lib/update-notifier/apt-check --human-readable ; else apt-get -s dist-upgrade | grep '^[[:digit:]]\+ upgrade' ; fi" ;;
+  update) REMOTE_COMMAND="hostname -f > ${SYSTEM_UPDATE_OUTPUT} ; sudo apt-get update ; if [ -f /usr/lib/update-notifier/apt-check ] ; then /usr/lib/update-notifier/apt-check --human-readable | tee -a ${SYSTEM_UPDATE_OUTPUT} ; else apt-get -s dist-upgrade | grep '^[[:digit:]]\+ upgrade' | tee -a ${SYSTEM_UPDATE_OUTPUT} ; fi ; head -1 ${SYSTEM_UPDATE_OUTPUT} >> ${CLUSTER_UPDATE_OUTPUT} ; tail -2 ${SYSTEM_UPDATE_OUTPUT} >> ${CLUSTER_UPDATE_OUTPUT}" ;;
   upgrade) REMOTE_COMMAND="sudo apt-get upgrade --assume-yes ; if [[ -f /var/run/reboot-required ]] ; then echo -e '\t${BOLD}${RED}reboot required${PURPLE}' ; else echo -e '\t${BOLD}${GREEN}no reboot required${NORMAL}' ; fi" ;;
   dist-upgrade) REMOTE_COMMAND="sudo apt-get dist-upgrade --assume-yes ; if [[ -f /var/run/reboot-required ]] ; then echo -e '\t${BOLD}${RED}reboot required${PURPLE}' ; else echo -e '\t${BOLD}${GREEN}no reboot required${NORMAL}' ; fi" ;;
   autoremove) REMOTE_COMMAND="sudo apt-get autoremove  --assume-yes" ;;
