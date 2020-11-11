@@ -1,5 +1,7 @@
 #!/bin/bash
-# 	cluster-command/cluster-command.sh  3.3.4.915  2020-11-10T21:38:46.971675-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.3.3-4-g818b397  
+# 	cluster-command/cluster-command.sh  3.3.5.928  2020-11-10T21:49:20.021424-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.3.4-12-g592b4f5  
+# 	   cluster-command/cluster-command.sh -->   retest shellcheck output  
+# 	cluster-command/cluster-command.sh  3.3.4.915  2020-11-10T21:38:46.971675-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.3.3-4-g818b397 
 # 	   cluster-command/cluster-command.sh -->   updated display_help code for update #59  
 # 	cluster-command/cluster-command.sh  3.3.3.910  2020-10-21T13:27:59.554713-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.3.2-8-g58b491f  
 # 	   cluster-command/cluster-command.sh -->   updated display-help EXAMPLE section  
