@@ -14,10 +14,11 @@ ssh-agent and ssh-add before entering the following in a terminal window.
 
     eval $(ssh-agent)
     ssh-add
-    
-## Clone
 
-To clone, change to the directory you want to download the script, README, and host file, SYSTEMS. Use git to clone these files into your directory. If you do not have git then enter; "sudo apt-get install git" if using Ubuntu. On the github page of this script use the "HTTPS clone URL" with the 'git clone' command.
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command#cluster-command)
+
+## Clone
+To Install, change into a directory that you want to download the scripts. Use git to pull or clone these scripts into the directory. If you do not have Git installed then enter; "sudo apt-get install git" if using Debian/Ubuntu. Other Linux distribution install methods can be found here: https://git-scm.com/download/linux. On the GitHub page of this script use the "HTTPS clone URL" with the 'git clone' command.
 
     git clone https://github.com/BradleyA/Linux-admin.git
     cd Linux-admin/cluster-command
@@ -79,6 +80,8 @@ To clone, change to the directory you want to download the script, README, and h
     
     /usr/local/bin/cluster-command.sh 117 [INFO]:	Done.
 
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command#cluster-command)
+
 #### SCRIPT OPTIONS
 Example of first argument, predefind commands (enter '**cluster-command.sh --help**' for latest list)
 
@@ -137,12 +140,16 @@ enable-user       | + | sudo usermod --expiredate ''
 special           | + |     |
 root-special      | + | sudo 
 
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command#cluster-command)
+
 #### ARCHITECTURE TREE
 
     /usr/local/data/                           <-- <DATA_DIR>
     └── <CLUSTER>/                             <-- <CLUSTER>
         └── SYSTEMS                            <-- List of hosts in cluster
-    
+
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command#cluster-command)
+
 ## Install
 
 To install a new version of cluster-command.sh, change to the directory, cd /usr/local/bin, to download the script.  The following command does not download the required /usr/local/data/us-tx-cluster-1/SYSTEMS text file.
@@ -151,17 +158,34 @@ To install a new version of cluster-command.sh, change to the directory, cd /usr
     
 #### To watch future updates in this repository select in the upper-right corner, the "Watch" list, and select Watching.
 
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command#cluster-command)
+
+----
+
+#### Contribute
+Please do contribute!  Issues and pull requests are welcome.  Thank you for your help improving software.
+
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command#cluster-command)
+
 #### Author
 [<img id="github" src="../images/github.png" width="50" a="https://github.com/BradleyA/">](https://github.com/BradleyA/)    [<img src="../images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen) [<img id="twitter" src="../images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">](https://twitter.com/bradleyaustintx/)       <a href="https://twitter.com/intent/follow?screen_name=bradleyaustintx"> <img src="https://img.shields.io/twitter/follow/bradleyaustintx.svg?label=Follow%20@bradleyaustintx" alt="Follow @bradleyaustintx" />    </a>          [![GitHub followers](https://img.shields.io/github/followers/BradleyA.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/BradleyA?tab=followers)
 
-#### System OS script tested
- * Ubuntu 14.04.3 LTS
- * Ubuntu 16.04.3 LTS (armv7l)
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command#cluster-command)
+
+#### Tested OS
+ * Ubuntu 14.04.6 LTS (amd64,armv7l)
+ * Ubuntu 16.04.7 LTS (amd64,armv7l)
+ * Ubuntu 18.04.5 LTS (amd64,armv7l)
+ * Raspbian GNU/Linux 10 (buster)
+
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command#cluster-command)
 
 #### Design Principles
  * Have a simple setup process and a minimal learning curve
  * Be usable as non-root (failed: some commands require root)
  * Be easy to install and configure
+
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command#cluster-command)
 
 ## License
 MIT License
@@ -174,3 +198,4 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command#cluster-command)

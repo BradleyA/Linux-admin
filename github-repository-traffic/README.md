@@ -24,7 +24,9 @@ Unique   clones:  |       2       |       3       |       2       |       2     
 Total clones: 93
 ###### Updated: 2020-01-04
 
-#### If you like this repository, select in the upper-right corner,  STAR,  thank you.
+#### If you like this repository, select in the upper-right corner, [![GitHub stars](https://img.shields.io/github/stars/BradleyA/Linux-admin.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/BradleyA/Linux-admin/stargazers/), thank you.
+
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
 
 ## Install, Setup, and Configure GitHub Repository Traffic
 
@@ -66,6 +68,8 @@ To download your GitHub repositories traffic history, follow these steps.  Use g
  
 <img id="github-repository-traffic-1.png" src="../images/github-repository-traffic-1.png" >
 
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
+
 ## Parse GitHub Historic Traffic File
 
 Parse output from owner.repository script to create [clone,view].table.md, [clone,view].total, and [clone,view].\<DATE> files in the repository data directory.  These steps work after a week or so of running the script above because you need data to parse. 
@@ -90,6 +94,8 @@ Note: add this later:
 
     cd /usr/local/data/github/BradleyA/Start-registry-v2-script.1.0
     for TRAFFIC in $(ls -1 BradleyA.Start-registry-v2-script.1.0.2020-*) ; do echo $TRAFFIC ; ../../parse.repository.data.sh $TRAFFIC ; done
+
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
 
 ## Download Files:
 
@@ -117,6 +123,8 @@ In the future, this printed crontab list will be appended to a crontab file.  Th
 
 **644 view.heading** - View table headings in GitHub markdown
 
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
+
 ## ARCHITECTURE TREE
     /usr/local/data/                           <-- <DATA_DIR>
     └── github                                 <-- GitHub long term traffic solution
@@ -137,28 +145,50 @@ In the future, this printed crontab list will be appended to a crontab file.  Th
         │   └── <REPOSITORY-2>                 <-- Current year of GitHub repository
         │                                          traffic data
         └── <GITHUB_OWNER>                     <-- Links to ../owner.repository
-  
+
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
+
 #### Rquirements:
     * Linux
     * git
     * Internet access to GitHub
     * Permission to run crontab jobs on your system (other commands you could use; at, or batch)
     * Write permission in /usr/local/data directory, if not, use a directory you do have write permission, 'export GITHUB_TRAFFIC_DIR=~/github'
-    
+
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
+
 #### Traffic
  * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=137&color=blue">  [Clones Table](../images/clone.table.md)
  * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=3418&color=blue">  [Views Table](../images/view.table.md)
+
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
+
+----
+
+#### Contribute
+Please do contribute!  Issues and pull requests are welcome.  Thank you for your help improving software.
+
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
+
 #### Author
 [<img id="github" src="../images/github.png" width="50" a="https://github.com/BradleyA/">](https://github.com/BradleyA/)    [<img src="../images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen) [<img id="twitter" src="../images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">](https://twitter.com/bradleyaustintx/)       <a href="https://twitter.com/intent/follow?screen_name=bradleyaustintx"> <img src="https://img.shields.io/twitter/follow/bradleyaustintx.svg?label=Follow%20@bradleyaustintx" alt="Follow @bradleyaustintx" />    </a>          [![GitHub followers](https://img.shields.io/github/followers/BradleyA.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/BradleyA?tab=followers)
 
-#### System OS script tested
- * Ubuntu 14.04.3 LTS (amd64,armv7l)
- * Ubuntu 16.04.3 LTS (armv7l)
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
+
+#### Tested OS
+ * Ubuntu 14.04.6 LTS (amd64,armv7l)
+ * Ubuntu 16.04.7 LTS (amd64,armv7l)
+ * Ubuntu 18.04.5 LTS (amd64,armv7l)
+ * Raspbian GNU/Linux 10 (buster)
+
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
 
 #### Design Principles
  * Have a simple setup process and a minimal learning curve
  * Be usable as non-root
  * Be easy to install and configure
+
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
 
 #### License
 MIT License
@@ -170,3 +200,5 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[Return to top](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
