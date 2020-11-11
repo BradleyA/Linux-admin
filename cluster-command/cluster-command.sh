@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	cluster-command/cluster-command.sh  3.3.4.915  2020-11-10T21:38:46.971675-06:00 (CST)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.3.3-4-g818b397  
+# 	   cluster-command/cluster-command.sh -->   updated display_help code for update #59  
 # 	cluster-command/cluster-command.sh  3.3.3.910  2020-10-21T13:27:59.554713-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.3.2-8-g58b491f  
 # 	   cluster-command/cluster-command.sh -->   updated display-help EXAMPLE section  
 # 	cluster-command/cluster-command.sh  3.3.2.901  2020-10-14T13:32:03.448766-05:00 (CDT)  https://github.com/BradleyA/Linux-admin.git  master  uadmin  five-rpi3b.cptx86.com 3.3.1-3-g816ea86  
@@ -33,6 +35,8 @@ DEFAULT_REMOTE_COMMAND_OPTION=""
 DEFAULT_CLUSTER="us-tx-cluster-1/"
 DEFAULT_DATA_DIR="/usr/local/data/"
 DEFAULT_SYSTEMS_FILE="SYSTEMS"
+SYSTEM_UPDATE_OUTPUT=$(mktemp /tmp/SYSTEM_UPDATE_OUTPUTXXXXXX)  #  create temporary file
+CLUSTER_UPDATE_OUTPUT=$(mktemp /tmp/CLUSTER_UPDATE_OUTPUTXXXXXX)  #  create temporary file
 
 #    investigation of #50
 #	complete -W " autoremove cpu date df disable-user dist-upgrade docker-all-prune docker-con-ls docker-con-rm docker-df docker-df-v docker-ima-clean docker-ima-ls docker-info docker-info-con docker-info-swarm docker-net-ls docker-net-prune docker-release docker-version docker-vol-clean docker-vol-ls docker-vol-prune enable-user hold ip last netstat os reboot require-reboot require-upgrade root-special showhold shutdown special unhold update upgrade upgrade-package uptime who --help -help help -h h -\? --usage -usage usage -u --version -version version -v" #    #50
@@ -151,10 +155,13 @@ echo    "      docker-vol-clean	- docker volume rm \$(docker volume ls --filter 
 echo    "      docker-net-prune	+ docker network prune [<REMOTE_COMMAND_OPTION>]"
 echo    "      docker-vol-prune	+ docker volume prune [<REMOTE_COMMAND_OPTION>]"
 echo -e "      docker-all-prune	+ docker system prune [<REMOTE_COMMAND_OPTION>]\n"
-echo    "      update         - sudo apt-get update ;"
+echo    "      update         - hostname -f > ${SYSTEM_UPDATE_OUTPUT} ;"
+echo    "                       sudo apt-get update ;"
 echo    "                       if [ -f /usr/lib/update-notifier/apt-check ] ; then"
-echo    "                       /usr/lib/update-notifier/apt-check --human-readable ; else"
-echo    "                       apt-get -s dist-upgrade | grep '^[[:digit:]]\+ upgrade' ; fi"
+echo    "                       /usr/lib/update-notifier/apt-check --human-readable | tee -a ${SYSTEM_UPDATE_OUTPUT} ; else"
+echo    "                       apt-get -s dist-upgrade | grep '^[[:digit:]]\+ upgrade' | tee -a ${SYSTEM_UPDATE_OUTPUT} ; fi"
+echo    "                       head -1 ${SYSTEM_UPDATE_OUTPUT} >> ${CLUSTER_UPDATE_OUTPUT} ;"
+echo    "                       tail -2 ${SYSTEM_UPDATE_OUTPUT} >> ${CLUSTER_UPDATE_OUTPUT}"
 echo    "      upgrade        - sudo apt-get upgrade --assume-yes ;"
 echo    "                       if [ -f /var/run/reboot-required ] ; then"
 echo    "                       echo '${BOLD}reboot required${NORMAL}' ; else"
