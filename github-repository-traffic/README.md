@@ -2,8 +2,8 @@
 [![Stable Release](https://img.shields.io/badge/Release-3.2.0-blue.svg)](https://github.com/BradleyA/Linux-admin/releases/tag/3.2.0)
 [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/Linux-admin/3.2.0.svg)](https://github.com/BradleyA/Linux-admin/commits/)
 [![MIT License](http://img.shields.io/badge/License-MIT-red.png)](../LICENSE)
-[<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=137&color=blue">](../images/clone.table.md)
-[<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=3418&color=blue">](../images/view.table.md)
+[<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=204&color=blue">](../images/clone.table.md)
+[<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=3930&color=blue">](../images/view.table.md)
 
 ## Goal
 
