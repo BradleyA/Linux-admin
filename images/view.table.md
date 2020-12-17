@@ -19,4 +19,4 @@ Total views: 910
 
 **Note**  Data collection stopped between 10/14/2019 & 12/9/2019
 
-[Return to Repository README](https://github.com/BradleyA/Linux-admin/blob/master/README.md#Linux-admin)
+[Return to Repository README](https://github.com/BradleyA/Linux-admin/blob/master/README.md)
