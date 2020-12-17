@@ -9,7 +9,7 @@
 [![GitHub Open Issues](https://img.shields.io/github/issues/BradleyA/Linux-admin?color=purple)](https://github.com/BradleyA/Linux-admin/issues?q=is%3Aopen+is%3Aissue)
 [![GitHub Closed Issues](https://img.shields.io/github/issues-closed/BradleyA/Linux-admin?color=purple)](https://github.com/BradleyA/Linux-admin/issues?q=is%3Aclosed+is%3Aissue)
 
-[<img alt="GitHub Clones" src="https://img.shields.io/static/v1?label=Clones&message=204&color=blueviolet">](https://github.com/BradleyA/Linux-admin/blob/master/images/clone.table.md)
+[<img alt="GitHub Clones" src="https://img.shields.io/static/v1?label=Clones&message=240&color=blueviolet">](https://github.com/BradleyA/Linux-admin/blob/master/images/clone.table.md)
 [<img alt="GitHub Views" src="https://img.shields.io/static/v1?label=Views&message=3930&color=blueviolet">](https://github.com/BradleyA/Linux-admin/blob/master/images/view.table.md)
 [![GitHub Size](https://img.shields.io/github/repo-size/BradleyA/Linux-admin.svg)](https://github.com/BradleyA/Linux-admin/)
 ![Language Bash](https://img.shields.io/badge/%20Language-bash-blue.svg)
