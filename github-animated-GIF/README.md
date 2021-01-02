@@ -57,7 +57,11 @@ Change to the /tmp directory and download/clone repository files to your Linux s
     tar -xf ./animated-GIF.tar.gz
     export PATH=$PATH:$(pwd)/bin
     export WINDOWID=$(xdotool getwindowfocus)  # 12-29-2019 added https://github.com/icholy/ttygif/blob/master/README.md
-    
+
+    bin/ttyrec   recording-test
+    bin/ttygif   recording-test
+    bin/gifsicle -O3 -k 8 --lossy=80 -o recording-test.gif tty.gif
+
     
 helpful links: 
     https://github.com/icholy/ttygif/blob/master/README.md
