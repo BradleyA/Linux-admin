@@ -16,6 +16,8 @@
     export PATH=$PATH:$(pwd)/bin
     export WINDOWID=$(xdotool getwindowfocus)  # 12-29-2019 added https://github.com/icholy/ttygif/blob/master/README.md
     
+    github-repository-animated-1.gif
+    
     $ ttyrec  FILE
     # do some stuff
     ctrl-D
