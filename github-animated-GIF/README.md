@@ -13,7 +13,7 @@
     ssh -X uadmin@five-rpi3b.cptx86.com
 
     cd ~/github/animated-GIF/
-    export PATH=$PATH:~/github/animated-GIF/bin
+    export PATH=$PATH:$(pwd)/bin
     export WINDOWID=$(xdotool getwindowfocus)  # 12-29-2019 added https://github.com/icholy/ttygif/blob/master/README.md
     
     $ ttyrec  FILE
@@ -55,6 +55,9 @@ Change to the /tmp directory and download/clone repository files to your Linux s
     git clone https://github.com/BradleyA/Linux-admin.git
     cd  Linux-admin/github-animated-GIF
     tar -xf ./animated-GIF.tar.gz
+    export PATH=$PATH:$(pwd)/bin
+    export WINDOWID=$(xdotool getwindowfocus)  # 12-29-2019 added https://github.com/icholy/ttygif/blob/master/README.md
+    
     
 helpful links: 
     https://github.com/icholy/ttygif/blob/master/README.md
