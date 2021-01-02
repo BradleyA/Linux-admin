@@ -44,6 +44,21 @@
 * three-rpi3b
 * five-rpi3b
 
+
+## Install, Setup, and Configure Animated GIF
+
+To download your copy of animated GIF tools, follow these steps. Use git to pull or clone these scripts into a directory. If you do not have git then enter; "sudo apt-get install git" if using Ubuntu.
+
+    Change to the /tmp directory and download/clone repository files to your system (see Download Files).
+
+    cd  /tmp
+    git clone https://github.com/BradleyA/Linux-admin
+
+    cd  /tmp/Linux-admin/ ______________________________
+    
+    
+
+
 ----
 
 #### Contribute
