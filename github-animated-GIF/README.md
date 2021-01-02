@@ -62,6 +62,9 @@ Change to the /tmp directory and download/clone repository files to your Linux s
     export PATH=$PATH:$(pwd)/bin
     export WINDOWID=$(xdotool getwindowfocus)  # 12-29-2019 added https://github.com/icholy/ttygif/blob/master/README.md
 
+<img id="github-repository-animated-3.gif" src="../images/github-repository-animated-3.gif" >
+
+
     bin/ttyrec   recording-test
     bin/ttygif   recording-test
     bin/gifsicle -O3 -k 8 --lossy=80 -o recording-test.gif tty.gif
