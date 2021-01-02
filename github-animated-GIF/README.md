@@ -49,12 +49,16 @@
 
 To download your copy of animated GIF tools, follow these steps. Use git to pull or clone these scripts into a directory. If you do not have git then enter; "sudo apt-get install git" if using Ubuntu.
 
-    Change to the /tmp directory and download/clone repository files to your system (see Download Files).
+Change to the /tmp directory and download/clone repository files to your Linux system.
 
     cd  /tmp
     git clone https://github.com/BradleyA/Linux-admin.git
     cd  Linux-admin/github-animated-GIF
     tar -xf ./animated-GIF.tar.gz
+    
+helpful links: 
+    https://github.com/icholy/ttygif/blob/master/README.md
+    https://reposhub.com/cpp/miscellaneous/icholy-ttygif.html
     
 
 ----
