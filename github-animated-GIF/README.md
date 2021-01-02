@@ -52,12 +52,10 @@ To download your copy of animated GIF tools, follow these steps. Use git to pull
     Change to the /tmp directory and download/clone repository files to your system (see Download Files).
 
     cd  /tmp
-    git clone https://github.com/BradleyA/Linux-admin
-
-    cd  /tmp/Linux-admin/ ______________________________
+    git clone https://github.com/BradleyA/Linux-admin.git
+    cd  Linux-admin/github-animated-GIF
+    tar -xf ./animated-GIF.tar.gz
     
-    
-
 
 ----
 
