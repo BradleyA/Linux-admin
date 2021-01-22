@@ -23,10 +23,6 @@ Shell scripts to automate download of GitHub traffic statistics, cluster adminis
 #### If you like this repository, select in the upper-right corner, [![GitHub stars](https://img.shields.io/github/stars/BradleyA/Linux-admin.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/BradleyA/Linux-admin/stargazers/), thank you.
 
 ----
-  
-The cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It helps with cluster system adminstration of hosts with a set of predefined commands and allows custom commands.
- 
-  * [cluster-command](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command)
 
 ### GitHub Solutions
 
@@ -45,6 +41,12 @@ How to create a website for with GitHub Pages.  Link: Towards Data Science: Anne
 Connect GitHub and Slack
   
   * [GitHub + Slack Integrations](https://zapier.com/apps/github/integrations/slack)
+
+### Cluster command wrapper
+
+The cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It helps with cluster system adminstration of hosts with a set of predefined commands and allows custom commands.
+ 
+  * [cluster-command](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command)
   
 ### Presentation Solutions
 
