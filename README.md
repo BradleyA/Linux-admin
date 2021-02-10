@@ -78,6 +78,17 @@ Please do contribute!  Issues and pull requests are welcome.  Thank you for your
 
 [Return to top](https://github.com/BradleyA/Linux-admin#linux-admin)
 
+
+#### Stars
+[![Stargazers repo roster for @BradleyA/Search-docker-registry-v2-script.1.0](https://reporoster.com/stars/BradleyA/Search-docker-registry-v2-script.1.0)](https://github.com/BradleyA/Search-docker-registry-v2-script.1.0/stargazers)
+
+[Return to top](https://github.com/BradleyA/Search-docker-registry-v2-script.1.0/blob/master/README.md#search-docker-registry-v2-script)
+
+#### Forks
+[![Forkers repo roster for @BradleyA/Search-docker-registry-v2-script.1.0](https://reporoster.com/forks/BradleyA/Search-docker-registry-v2-script.1.0)](https://github.com/BradleyA/Search-docker-registry-v2-script.1.0/network/members)
+
+[Return to top](https://github.com/BradleyA/Search-docker-registry-v2-script.1.0/blob/master/README.md#search-docker-registry-v2-script)
+
 #### Tested OS
  * Ubuntu 14.04.6 LTS (amd64,armv7l)
  * Ubuntu 16.04.7 LTS (amd64,armv7l)
