@@ -51,7 +51,7 @@
 
 ## Install, Setup, and Configure Animated GIF
 
-To download your copy of animated GIF tools, follow these steps. Use git to pull or clone these scripts into a directory. If you do not have git then enter; "sudo apt-get install git" if using Ubuntu.
+To download your copy of animated GIF tools, follow these steps. Use git to pull or clone these scripts into a directory. If you do not have Git installed then enter; "sudo apt-get install git" if using Debian/Ubuntu. Other Linux distribution install methods can be found here: https://git-scm.com/download/linux. 
 
 Change to the /tmp directory and download/clone repository files to your Linux system.
 
