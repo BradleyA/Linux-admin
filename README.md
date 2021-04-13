@@ -52,7 +52,7 @@ The cluster-command loops through my RaspBerry Pi clusters and x86 clusters.  It
   
 ### Presentation Solutions
 
-**Presentation Demos**: Shell script from [Paxton Hare GitHub account](https://github.com/paxtonhare/demo-magic/blob/master/README.md#demo-magic) that enables you to script repeatable demos in a bash environment so you don't have to type as you present. Rather than trying to type commands when presenting you simply script them and let demo-magic.sh run them for you.
+**Presentation Demos**: Shell script (Demo Magic) from [Paxton Hare GitHub account](https://github.com/paxtonhare/demo-magic/blob/master/README.md#demo-magic) that enables you to script repeatable demos in a bash environment so you don't have to type as you present. Rather than trying to type commands when presenting you simply script them and let demo-magic.sh run them for you.
   
   * [Presentation Recorded Demo](https://github.com/BradleyA/demo-magic)
 
