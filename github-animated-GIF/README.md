@@ -78,7 +78,7 @@ helpful links:
 ----
 
 #### Contribute
-Please do contribute!  Issues and pull requests are welcome.  Thank you for your help improving software.
+Please do contribute!  Issues, comments, and pull requests are welcome.  Thank you for your help improving software.
 
 [Return to top](https://github.com/BradleyA/Linux-admin/blob/master/github-animated-GIF/README.md#github-animated-gif)
 
