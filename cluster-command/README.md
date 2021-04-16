@@ -163,7 +163,7 @@ To install a new version of cluster-command.sh, change to the directory, cd /usr
 ----
 
 #### Contribute
-Please do contribute!  Issues and pull requests are welcome.  Thank you for your help improving software.
+Please do contribute!  Issues, comments, and pull requests are welcome.  Thank you for your help improving software.
 
 [Return to top](https://github.com/BradleyA/Linux-admin/tree/master/cluster-command#cluster-command)
 
