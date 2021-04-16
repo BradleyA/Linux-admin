@@ -166,7 +166,7 @@ In the future, this printed crontab list will be appended to a crontab file.  Th
 ----
 
 #### Contribute
-Please do contribute!  Issues and pull requests are welcome.  Thank you for your help improving software.
+Please do contribute!  Issues, comments, and pull requests are welcome.  Thank you for your help improving software.
 
 [Return to top](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
 
