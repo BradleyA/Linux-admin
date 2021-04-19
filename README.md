@@ -11,7 +11,7 @@
 ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/BradleyA/Linux-admin)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr-closed-raw/BradleyA/Linux-admin)
 
-[<img alt="GitHub Repo Clones" src="https://img.shields.io/static/v1?label=Repo_Clones&message=240&color=blueviolet">](https://github.com/BradleyA/Linux-admin/blob/master/images/clone.table.md)
+[<img alt="GitHub Repo Clones" src="https://img.shields.io/static/v1?label=Repo_Clones&message=290&color=blueviolet">](https://github.com/BradleyA/Linux-admin/blob/master/images/clone.table.md)
 [<img alt="GitHub Repo Views" src="https://img.shields.io/static/v1?label=Repo_Views&message=4508&color=blueviolet">](https://github.com/BradleyA/Linux-admin/blob/master/images/view.table.md)
 [![GitHub Size](https://img.shields.io/github/repo-size/BradleyA/Linux-admin.svg)](https://github.com/BradleyA/Linux-admin/)
 ![Language Bash](https://img.shields.io/badge/%20Language-bash-blue.svg)
