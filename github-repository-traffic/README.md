@@ -158,8 +158,8 @@ In the future, this printed crontab list will be appended to a crontab file.  Th
 [Return to top](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
 
 #### Traffic
- * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=137&color=blue">  [Clones Table](../images/clone.table.md)
- * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=3418&color=blue">  [Views Table](../images/view.table.md)
+ * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=290&color=blue">  [Clones Table](../images/clone.table.md)
+ * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=5333&color=blue">  [Views Table](../images/view.table.md)
 
 [Return to top](https://github.com/BradleyA/Linux-admin/tree/master/github-repository-traffic#github-repository-traffic)
 
